@@ -449,7 +449,7 @@ void pixel_set(uint8_t list_num, uint8_t value)
 	INTCONbits.GIEL = 1;
 }
 
-void pixel_rotate(uint8_t list_num, float degree, uint8_t cw, float x_center, float y_center) // pixel,degree rotation,direction C/CW
+void pixel_rotate(uint8_t list_num, float degree, uint8_t cw, float x_center, float y_center) // pixel,degree rotation,direction C/CW,x,y center of rotation
 {
 	static float to_rad, float_x, float_y, x_new, y_new, sine, cosine;
 
@@ -478,7 +478,7 @@ void main(void)
 {
 	uint16_t touch_zero = 0;
 	uint8_t x = 1, y = 1, t, i;
-	uint32_t move = 0, times=28;
+	uint32_t move = 0, times = 28;
 
 	pixel_init(); // Setup the pixel display data MUST BE CALLED FIRST
 
@@ -559,7 +559,7 @@ void main(void)
 			if (++move >= times) {
 				INTCONbits.GIEL = 0; // suspend list processing during matrix operations
 				if (switchState == UNPRESSED) {
-					times=28;
+					times = 28;
 					pixel_rotate(0, 13.0, TRUE, 3.5, 3.5);
 					pixel_rotate(1, 13.0, TRUE, 3.5, 3.5);
 					pixel_rotate(2, 13.0, TRUE, 3.5, 3.5);
@@ -569,7 +569,7 @@ void main(void)
 					pixel_rotate(6, 13.0, TRUE, 3.5, 3.5);
 					pixel_rotate(7, 13.0, TRUE, 3.5, 3.5);
 				} else {
-					times=256;
+					times = 256;
 				}
 				INTCONbits.GIEL = 1;
 				move = 0;
