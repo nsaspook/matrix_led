@@ -108,7 +108,8 @@ typedef signed long long int64_t;
 
 #define GRID_S          8
 #define PIXEL_NUM       128
-#define	ROT_SPEED	16
+#define	ROT_SPEED	20
+#define DIAG_BITS	9
 
 #define FALSE	0
 #define TRUE	1
@@ -153,18 +154,19 @@ typedef struct pixel_t {
 } volatile pixel_t; // -1 in the m_link means end of display data
 
 volatile struct pixel_t pixel[PIXEL_NUM] = {
-	0, 0, 1, 0, 0, 0, 0,
-	1, 1, 1, 1, 0, 0, 0,
-	2, 2, 1, 2, 0, 0, 0,
+	1, 1, 1, 0, 0, 0, 0,
+	3, 1, 1, 1, 0, 0, 0,
+	5, 1, 1, 2, 0, 0, 0,
 	3, 3, 1, 3, 0, 0, 0,
-	4, 4, 1, 4, 0, 0, 0,
-	5, 5, 1, 5, 0, 0, 0,
-	6, 6, 1, 6, 0, 0, 0,
-	7, 7, 1, 7, 0, 0, 0,
-	6, 4, 0, 8, 8, 0, 0,
-	6, 5, 0, 9, 8, 0, 0,
-	6, 6, 0, 10, 8, 0, 0,
-	6, 7, 0, 11, 8, 0, 0,
+	5, 5, 1, 4, 0, 0, 0,
+	3, 5, 1, 5, 0, 0, 0,
+	1, 5, 1, 6, 0, 0, 0,
+	4, 2, 1, 7, 0, 0, 0,
+	4, 4, 1, 8, 0, 0, 0,
+	6, 4, 0, 9, 9, 0, 0,
+	6, 5, 0, 10, 9, 0, 0,
+	6, 6, 0, 11, 9, 0, 0,
+	6, 7, 0, 12, 9, 0, 0,
 	0, 0, 0, -1, 0, 0, 0
 };
 
@@ -295,11 +297,11 @@ void high_handler(void)
 		if ((timer.lt) < (touch_base[isr_channel] - TRIP)) { // see if we have a pressed button
 			switchState = PRESSED;
 			LATEbits.LATE2 = 1; // flash external led
-			pixel[8 + isr_channel].v = 1;
+			pixel[DIAG_BITS + isr_channel].v = 1;
 		} else if ((timer.lt) > (touch_base[isr_channel] - TRIP + HYST)) {
 			switchState = UNPRESSED;
 			LATEbits.LATE2 = 0; // flash external led
-			pixel[8 + isr_channel].v = 0;
+			pixel[DIAG_BITS + isr_channel].v = 0;
 		}
 		TMR3H = timer.bt[1];
 		TMR3L = timer.bt[0]; // copy low byte and write to timer counter
@@ -565,14 +567,17 @@ void main(void)
 				INTCONbits.GIEL = 0; // suspend list processing during matrix operations
 				if (switchState == UNPRESSED) {
 					times = ROT_SPEED;
-					pixel_rotate(0, 8.0, TRUE, 3.5, 3.5);
-					pixel_rotate(1, 8.0, TRUE, 3.5, 3.5);
-					pixel_rotate(2, 8.0, TRUE, 3.5, 3.5);
-					pixel_rotate(3, 8.0, TRUE, 3.5, 3.5);
-					pixel_rotate(4, 8.0, TRUE, 3.5, 3.5);
-					pixel_rotate(5, 8.0, TRUE, 3.5, 3.5);
-					pixel_rotate(6, 8.0, TRUE, 3.5, 3.5);
-					pixel_rotate(7, 8.0, TRUE, 3.5, 3.5);
+
+					pixel_rotate(0, 8.0, TRUE, 4.0, 4.0);
+					pixel_rotate(1, 8.0, TRUE, 4.0, 4.0);
+					pixel_rotate(2, 8.0, TRUE, 4.0, 4.0);
+					pixel_rotate(3, 8.0, TRUE, 4.0, 4.0);
+					pixel_rotate(4, 8.0, TRUE, 4.0, 4.0);
+					pixel_rotate(5, 8.0, TRUE, 4.0, 4.0);
+					pixel_rotate(6, 8.0, TRUE, 4.0, 4.0);
+					pixel_rotate(7, 8.0, TRUE, 4.0, 4.0);
+					pixel_rotate(8, 8.0, TRUE, 4.0, 4.0);
+
 				} else {
 					times = 256;
 				}
