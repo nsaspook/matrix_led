@@ -452,11 +452,13 @@ void pixel_set(uint8_t list_num, uint8_t value)
 /* cw only picks a rotation method */
 void pixel_rotate(uint8_t list_num, float degree, uint8_t cw, float x_center, float y_center) // pixel,degree rotation,direction C/CW,x,y center of rotation
 {
-	static float to_rad, float_x, float_y, x_new, y_new, sine, cosine;
+	static float to_rad, float_x, float_y, x_new, y_new, sine, cosine, old_degree = 1957.0;
 
-	to_rad = 0.0175 * degree;
-	cosine = (float) cos(to_rad);
-	sine = (float) sin(to_rad);
+	if (degree != old_degree) {
+		to_rad = 0.0175 * degree;
+		cosine = (float) cos(to_rad);
+		sine = (float) sin(to_rad);
+	}
 	float_x = pixel[list_num].x_t;
 	float_y = pixel[list_num].y_t;
 	if (cw) {
