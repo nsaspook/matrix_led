@@ -71,7 +71,7 @@
  *  Timer3 counter/buffer used for ATOMIC 16bit reads and writes of touch data
  *  INPUTS		AN0-3 touch input
  *  MATRIX X/Y	PORTB 0-7, PORTC 0-7, PORTA 6-7 DIGITAL OUTPUTS 25mA source or sink
- *
+ *  VCC VAOM-A20571G 2.0" dot-matrix display
  *
  *
  * This application is designed for the
