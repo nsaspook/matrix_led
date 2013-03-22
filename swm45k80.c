@@ -449,6 +449,7 @@ void pixel_set(uint8_t list_num, uint8_t value)
 	INTCONbits.GIEL = 1;
 }
 
+/* cw only picks a rotation method */
 void pixel_rotate(uint8_t list_num, float degree, uint8_t cw, float x_center, float y_center) // pixel,degree rotation,direction C/CW,x,y center of rotation
 {
 	static float to_rad, float_x, float_y, x_new, y_new, sine, cosine;
