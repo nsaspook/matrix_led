@@ -108,6 +108,7 @@ typedef signed long long int64_t;
 
 #define GRID_S          8
 #define PIXEL_NUM       128
+#define	ROT_SPEED	16
 
 #define FALSE	0
 #define TRUE	1
@@ -458,6 +459,7 @@ void pixel_rotate(uint8_t list_num, float degree, uint8_t cw, float x_center, fl
 		to_rad = 0.0175 * degree;
 		cosine = (float) cos(to_rad);
 		sine = (float) sin(to_rad);
+		old_degree = degree;
 	}
 	float_x = pixel[list_num].x_t;
 	float_y = pixel[list_num].y_t;
@@ -481,7 +483,7 @@ void main(void)
 {
 	uint16_t touch_zero = 0;
 	uint8_t x = 1, y = 1, t, i;
-	uint32_t move = 0, times = 28;
+	uint32_t move = 0, times = ROT_SPEED;
 
 	pixel_init(); // Setup the pixel display data MUST BE CALLED FIRST
 
@@ -562,15 +564,15 @@ void main(void)
 			if (++move >= times) {
 				INTCONbits.GIEL = 0; // suspend list processing during matrix operations
 				if (switchState == UNPRESSED) {
-					times = 28;
-					pixel_rotate(0, 13.0, TRUE, 3.5, 3.5);
-					pixel_rotate(1, 13.0, TRUE, 3.5, 3.5);
-					pixel_rotate(2, 13.0, TRUE, 3.5, 3.5);
-					pixel_rotate(3, 13.0, TRUE, 3.5, 3.5);
-					pixel_rotate(4, 13.0, TRUE, 3.5, 3.5);
-					pixel_rotate(5, 13.0, TRUE, 3.5, 3.5);
-					pixel_rotate(6, 13.0, TRUE, 3.5, 3.5);
-					pixel_rotate(7, 13.0, TRUE, 3.5, 3.5);
+					times = ROT_SPEED;
+					pixel_rotate(0, 8.0, TRUE, 3.5, 3.5);
+					pixel_rotate(1, 8.0, TRUE, 3.5, 3.5);
+					pixel_rotate(2, 8.0, TRUE, 3.5, 3.5);
+					pixel_rotate(3, 8.0, TRUE, 3.5, 3.5);
+					pixel_rotate(4, 8.0, TRUE, 3.5, 3.5);
+					pixel_rotate(5, 8.0, TRUE, 3.5, 3.5);
+					pixel_rotate(6, 8.0, TRUE, 3.5, 3.5);
+					pixel_rotate(7, 8.0, TRUE, 3.5, 3.5);
 				} else {
 					times = 256;
 				}
