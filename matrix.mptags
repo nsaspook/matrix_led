@@ -1,0 +1,93 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+!_TAG_REVISION_NAME	MCHPTags	//
+!_TAG_REVISION_VERSION	6.0.1	//
+ALLOFF::0xff	X:\matrix_pic18f45k80\swm45k80.c	55;"	d	line:55	file:
+ALLON::0x00	X:\matrix_pic18f45k80\swm45k80.c	53;"	d	line:53	file:
+CHOP_BITS::4	X:\matrix_pic18f45k80\swm45k80.c	82;"	d	line:82	file:
+CMARK::0x1957	X:\matrix_pic18f45k80\swm45k80.c	56;"	d	line:56	file:
+CTMU_ADC_UPDATED	X:\matrix_pic18f45k80\swm45k80.c	102;"	v	line:102
+CTMU_WORKING	X:\matrix_pic18f45k80\swm45k80.c	102;"	v	line:102
+FALSE::0	X:\matrix_pic18f45k80\swm45k80.c	50;"	d	line:50	file:
+GRID_S::8	X:\matrix_pic18f45k80\swm45k80.c	47;"	d	line:47	file:
+HYST::2	X:\matrix_pic18f45k80\swm45k80.c	78;"	d	line:78	file:
+INTTYPES	X:\matrix_pic18f45k80\swm45k80.c	32;"	d	line:32	file:
+OFF::1	X:\matrix_pic18f45k80\swm45k80.c	54;"	d	line:54	file:
+ON::0	X:\matrix_pic18f45k80\swm45k80.c	52;"	d	line:52	file:
+PDELAY::3000	X:\matrix_pic18f45k80\swm45k80.c	45;"	d	line:45	file:
+PEAK_READS	X:\matrix_pic18f45k80\swm45k80.c	101;"	v	line:101
+PIXEL_NUM::128	X:\matrix_pic18f45k80\swm45k80.c	48;"	d	line:48	file:
+PRESSED::1	X:\matrix_pic18f45k80\swm45k80.c	80;"	d	line:80	file:
+SEND_PACKET	X:\matrix_pic18f45k80\swm45k80.c	102;"	v	line:102
+TIMERCHARGE_BASE_1::64000	X:\matrix_pic18f45k80\swm45k80.c	70;"	d	line:70	file:
+TIMERCHARGE_BASE_2::61543	X:\matrix_pic18f45k80\swm45k80.c	71;"	d	line:71	file:
+TIMERCHARGE_BASE_3::65000	X:\matrix_pic18f45k80\swm45k80.c	72;"	d	line:72	file:
+TIMERCHARGE_BASE_4::62543	X:\matrix_pic18f45k80\swm45k80.c	73;"	d	line:73	file:
+TIMERCHARGE_BASE_X10::65400	X:\matrix_pic18f45k80\swm45k80.c	69;"	d	line:69	file:
+TIMERDISCHARGE::41000	X:\matrix_pic18f45k80\swm45k80.c	74;"	d	line:74	file:
+TIME_CHARGE	X:\matrix_pic18f45k80\swm45k80.c	102;"	v	line:102
+TRIP::8	X:\matrix_pic18f45k80\swm45k80.c	76;"	d	line:76	file:
+TRUE::1	X:\matrix_pic18f45k80\swm45k80.c	51;"	d	line:51	file:
+UNPRESSED::0	X:\matrix_pic18f45k80\swm45k80.c	81;"	d	line:81	file:
+channel	X:\matrix_pic18f45k80\swm45k80.c	154;"	l	line:154	file:
+charge_time	X:\matrix_pic18f45k80\swm45k80.c	103;"	v	line:103
+ctmu_button	X:\matrix_pic18f45k80\swm45k80.c	101;"	v	line:101
+ctmu_change	X:\matrix_pic18f45k80\swm45k80.c	323;"	l	line:323	file:
+ctmu_setup	X:\matrix_pic18f45k80\swm45k80.c	256;"	f	line:256	signature:(unsigned char current, unsigned char channel)
+ctmu_setup	X:\matrix_pic18f45k80\swm45k80.c	67;"	p	line:67	file:
+ctmu_touch	X:\matrix_pic18f45k80\swm45k80.c	321;"	f	line:321	signature:(unsigned char channel, unsigned char NULL)
+ctmu_touch	X:\matrix_pic18f45k80\swm45k80.c	66;"	p	line:66	file:
+data_len	X:\matrix_pic18f45k80\swm45k80.c	155;"	l	line:155	file:
+data_pos	X:\matrix_pic18f45k80\swm45k80.c	155;"	l	line:155	file:
+data_ptr	X:\matrix_pic18f45k80\swm45k80.c	154;"	l	line:154	file:
+high_handler	X:\matrix_pic18f45k80\swm45k80.c	105;"	p	line:105	file:	signature:(void)
+high_handler	X:\matrix_pic18f45k80\swm45k80.c	151;"	f	line:151	signature:(void)
+high_int	X:\matrix_pic18f45k80\swm45k80.c	110;"	f	line:110	signature:(void)
+host_c	X:\matrix_pic18f45k80\swm45k80.c	154;"	l	line:154	file:
+i	X:\matrix_pic18f45k80\swm45k80.c	154;"	l	line:154	file:
+i	X:\matrix_pic18f45k80\swm45k80.c	233;"	l	line:233
+i	X:\matrix_pic18f45k80\swm45k80.c	350;"	l	line:350
+int16_t	X:\matrix_pic18f45k80\swm45k80.c	40;"	t	line:40	file:
+int32_t	X:\matrix_pic18f45k80\swm45k80.c	41;"	t	line:41	file:
+int64_t	X:\matrix_pic18f45k80\swm45k80.c	42;"	t	line:42	file:
+int8_t	X:\matrix_pic18f45k80\swm45k80.c	39;"	t	line:39	file:
+last	X:\matrix_pic18f45k80\swm45k80.c	323;"	l	line:323	file:
+list_num	X:\matrix_pic18f45k80\swm45k80.c	128;"	l	line:128	file:
+low_handler	X:\matrix_pic18f45k80\swm45k80.c	106;"	p	line:106	file:	signature:(void)
+low_handler	X:\matrix_pic18f45k80\swm45k80.c	126;"	f	line:126	signature:(void)
+low_int	X:\matrix_pic18f45k80\swm45k80.c	118;"	f	line:118	signature:(void)
+m_link	X:\matrix_pic18f45k80\swm45k80.c	60;"	m	line:60	struct:pixel_t	file:
+main	X:\matrix_pic18f45k80\swm45k80.c	347;"	f	line:347	signature:(void)
+n_link	X:\matrix_pic18f45k80\swm45k80.c	60;"	m	line:60	struct:pixel_t	file:
+null	X:\matrix_pic18f45k80\swm45k80.c	323;"	l	line:323	file:
+pixel	X:\matrix_pic18f45k80\swm45k80.c	85;"	v	line:85
+pixel_t	X:\matrix_pic18f45k80\swm45k80.c	58;"	s	line:58	file:
+pixel_t	X:\matrix_pic18f45k80\swm45k80.c	61;"	t	line:61	file:
+prog_name	X:\matrix_pic18f45k80\swm45k80.c	96;"	v	line:96
+switchState	X:\matrix_pic18f45k80\swm45k80.c	103;"	v	line:103
+t	X:\matrix_pic18f45k80\swm45k80.c	350;"	l	line:350
+t_avg	X:\matrix_pic18f45k80\swm45k80.c	233;"	l	line:233
+timer	X:\matrix_pic18f45k80\swm45k80.c	153;"	l	line:153	file:
+timer	X:\matrix_pic18f45k80\swm45k80.c	324;"	l	line:324	file:
+touch_base	X:\matrix_pic18f45k80\swm45k80.c	103;"	v	line:103
+touch_base_calc	X:\matrix_pic18f45k80\swm45k80.c	231;"	f	line:231	signature:(unsigned char channel)
+touch_base_calc	X:\matrix_pic18f45k80\swm45k80.c	64;"	p	line:64	file:
+touch_channel	X:\matrix_pic18f45k80\swm45k80.c	246;"	f	line:246	signature:(unsigned char channel)
+touch_channel	X:\matrix_pic18f45k80\swm45k80.c	65;"	p	line:65	file:
+touch_zero	X:\matrix_pic18f45k80\swm45k80.c	349;"	l	line:349
+uint16_t	X:\matrix_pic18f45k80\swm45k80.c	35;"	t	line:35	file:
+uint32_t	X:\matrix_pic18f45k80\swm45k80.c	36;"	t	line:36	file:
+uint64_t	X:\matrix_pic18f45k80\swm45k80.c	37;"	t	line:37	file:
+uint8_t	X:\matrix_pic18f45k80\swm45k80.c	34;"	t	line:34	file:
+v	X:\matrix_pic18f45k80\swm45k80.c	59;"	m	line:59	struct:pixel_t	file:
+x	X:\matrix_pic18f45k80\swm45k80.c	129;"	l	line:129	file:
+x	X:\matrix_pic18f45k80\swm45k80.c	350;"	l	line:350
+x	X:\matrix_pic18f45k80\swm45k80.c	59;"	m	line:59	struct:pixel_t	file:
+y	X:\matrix_pic18f45k80\swm45k80.c	129;"	l	line:129	file:
+y	X:\matrix_pic18f45k80\swm45k80.c	350;"	l	line:350
+y	X:\matrix_pic18f45k80\swm45k80.c	59;"	m	line:59	struct:pixel_t	file:
+z	X:\matrix_pic18f45k80\swm45k80.c	59;"	m	line:59	struct:pixel_t	file:
