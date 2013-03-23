@@ -108,6 +108,7 @@ typedef signed long long int64_t;
 
 #define GRID_S          8
 #define PIXEL_NUM       128
+#define OBJ_NUM		16
 #define	ROT_SPEED	20
 #define DIAG_BITS	9
 
@@ -141,17 +142,35 @@ int16_t ctmu_setup(uint8_t, uint8_t);
 #define	CHOP_BITS	4               // remove this many bits to reduce noise from the touch sensor
 #define MAX_CHAN	3		//	0..3 ADC channels
 
+typedef struct pixel_t {
+	int8_t x, y, v; // display bit x,y and v for pixel value 0=off
+	int8_t m_link, n_link; // pixel links m_ id for each pixel, n_ pixel group id
+	float x_t, y_t; // vector x,y
+} volatile pixel_t; // -1 in the m_link and n_link means end of display data
+
+
+const rom struct pixel_t pixel_rom[PIXEL_NUM] = {
+	1, 1, 1, 0, 0, 0, 0,
+	3, 1, 1, 1, 0, 0, 0,
+	5, 1, 1, 2, 0, 0, 0,
+	3, 3, 1, 3, 0, 0, 0,
+	5, 5, 1, 4, 0, 0, 0,
+	3, 5, 1, 5, 0, 0, 0,
+	1, 5, 1, 6, 0, 0, 0,
+	4, 2, 1, 7, 0, 0, 0,
+	4, 4, 1, 8, 0, 0, 0,
+	6, 4, 0, 9, 9, 0, 0,
+	6, 5, 0, 10, 9, 0, 0,
+	6, 6, 0, 11, 9, 0, 0,
+	6, 7, 0, 12, 9, 0, 0,
+	0, 0, 0, -1, -1, 0, 0
+};
+
 #pragma idata bigdata
 
 /*
  * Display file point mode data for line drawing display
  */
-
-typedef struct pixel_t {
-	int8_t x, y, v; // display bit x,y and v for pixel value 0=off
-	int8_t m_link, n_link; // pixel links m_ id for each pixel, n_ pixel group id
-	float x_t, y_t; // vector x,y
-} volatile pixel_t; // -1 in the m_link means end of display data
 
 volatile struct pixel_t pixel[PIXEL_NUM] = {
 	1, 1, 1, 0, 0, 0, 0,
@@ -167,7 +186,7 @@ volatile struct pixel_t pixel[PIXEL_NUM] = {
 	6, 5, 0, 10, 9, 0, 0,
 	6, 6, 0, 11, 9, 0, 0,
 	6, 7, 0, 12, 9, 0, 0,
-	0, 0, 0, -1, 0, 0, 0
+	0, 0, 0, -1, -1, 0, 0
 };
 
 uint8_t prog_name[] = "nsaspook";
@@ -481,6 +500,18 @@ void pixel_rotate(uint8_t list_num, float degree, uint8_t cw, float x_center, fl
 
 }
 
+void object_rotate(uint8_t list_num, float degree, uint8_t cw, float x_center, float y_center)
+{
+	uint8_t i;
+
+	if (list_num >= PIXEL_NUM) return; // check for valid range
+	for (i = 0; i < OBJ_NUM; i++) {
+		if (pixel[list_num + i].n_link != list_num) return; // invalid current object id
+		pixel_rotate(list_num + i, degree, cw, x_center, y_center);
+	}
+//	pixel_init();
+}
+
 void main(void)
 {
 	uint16_t touch_zero = 0;
@@ -544,6 +575,7 @@ void main(void)
 	while (TRUE) {
 		for (ctmu_button = 0; ctmu_button <= MAX_CHAN; ctmu_button++) {
 
+
 			touch_channel(ctmu_button);
 			if (ctmu_button == 0) {
 				t = ctmu_touch(ctmu_button, FALSE); // display channel  0 only
@@ -568,15 +600,7 @@ void main(void)
 				if (switchState == UNPRESSED) {
 					times = ROT_SPEED;
 
-					pixel_rotate(0, 8.0, TRUE, 4.0, 4.0);
-					pixel_rotate(1, 8.0, TRUE, 4.0, 4.0);
-					pixel_rotate(2, 8.0, TRUE, 4.0, 4.0);
-					pixel_rotate(3, 8.0, TRUE, 4.0, 4.0);
-					pixel_rotate(4, 8.0, TRUE, 4.0, 4.0);
-					pixel_rotate(5, 8.0, TRUE, 4.0, 4.0);
-					pixel_rotate(6, 8.0, TRUE, 4.0, 4.0);
-					pixel_rotate(7, 8.0, TRUE, 4.0, 4.0);
-					pixel_rotate(8, 8.0, TRUE, 4.0, 4.0);
+					object_rotate(0, 2, TRUE, 0.0, 0.0);
 
 				} else {
 					times = 256;

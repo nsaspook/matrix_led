@@ -1,5 +1,5 @@
 MPLINK 4.40, Linker
-Linker Map File - Created Fri Mar 22 12:32:53 2013
+Linker Map File - Created Fri Mar 22 20:21:40 2013
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -14,48 +14,48 @@ Linker Map File - Created Fri Mar 22 12:32:53 2013
         .idata___init.o_i    romdata   0x00000e    program   0x000000
        .romdata_t0write.o    romdata   0x00000e    program   0x000000
        .idata_t0write.o_i    romdata   0x00000e    program   0x000000
+        .romdata_t2open.o    romdata   0x00000e    program   0x000000
       .idata_fxd3232u.o_i    romdata   0x00000e    program   0x000000
       .romdata_fxd3232u.o    romdata   0x00000e    program   0x000000
-        .romdata_t2open.o    romdata   0x00000e    program   0x000000
+        .idata_t2open.o_i    romdata   0x00000e    program   0x000000
         .idata_u2open.o_i    romdata   0x00000e    program   0x000000
         .romdata_u2open.o    romdata   0x00000e    program   0x000000
-        .idata_t2open.o_i    romdata   0x00000e    program   0x000000
-        .idata_t0open.o_i    romdata   0x00000e    program   0x000000
         .romdata_t0open.o    romdata   0x00000e    program   0x000000
-         .idata_c018i.o_i    romdata   0x00000e    program   0x000000
-         .romdata_c018i.o    romdata   0x00000e    program   0x000000
-            .code_c018i.o       code   0x00000e    program   0x000000
-           .romdata_sin.o    romdata   0x00000e    program   0x000000
-           .idata_sin.o_i    romdata   0x00000e    program   0x000000
-      .romdata_swm45k80.o    romdata   0x00000e    program   0x000000
-          .romdata_fabs.o    romdata   0x00000e    program   0x000000
-          .idata_fabs.o_i    romdata   0x00000e    program   0x000000
+        .idata_t0open.o_i    romdata   0x00000e    program   0x000000
+        .romdata_sincos.o    romdata   0x00000e    program   0x000000
+      .idata_UnpkMath.o_i    romdata   0x00000e    program   0x000000
+      .romdata_UnpkMath.o    romdata   0x00000e    program   0x000000
+         .idata_errno.o_i    romdata   0x00000e    program   0x000000
+         .romdata_errno.o    romdata   0x00000e    program   0x000000
              .stringtable    romdata   0x00000e    program   0x000000
             .code_errno.o       code   0x00000e    program   0x000000
-         .romdata_errno.o    romdata   0x00000e    program   0x000000
-         .idata_errno.o_i    romdata   0x00000e    program   0x000000
-      .romdata_UnpkMath.o    romdata   0x00000e    program   0x000000
-      .idata_UnpkMath.o_i    romdata   0x00000e    program   0x000000
-        .romdata_sincos.o    romdata   0x00000e    program   0x000000
+          .idata_fabs.o_i    romdata   0x00000e    program   0x000000
+          .romdata_fabs.o    romdata   0x00000e    program   0x000000
+           .idata_sin.o_i    romdata   0x00000e    program   0x000000
+           .romdata_sin.o    romdata   0x00000e    program   0x000000
+            .code_c018i.o       code   0x00000e    program   0x000000
+         .romdata_c018i.o    romdata   0x00000e    program   0x000000
+         .idata_c018i.o_i    romdata   0x00000e    program   0x000000
             low_interrupt       code   0x000018    program   0x000006
                    .cinit    romdata   0x00001e    program   0x00001a
-         .code_swm45k80.o       code   0x000038    program   0x000e7a
-                     PROG       code   0x000eb2    program   0x000688
-           .code_sincos.o       code   0x00153a    program   0x0005aa
-         .code_UnpkMath.o       code   0x001ae4    program   0x00011c
-               _cinit_scn       code   0x001c00    program   0x00009e
-           .code_u2open.o       code   0x001c9e    program   0x000078
-             .code_fabs.o       code   0x001d16    program   0x000066
-              .code_sin.o       code   0x001d7c    program   0x000050
-              .code_cos.o       code   0x001dcc    program   0x00004e
-         .code_fxd3232u.o       code   0x001e1a    program   0x000048
-          .code_t0write.o       code   0x001e62    program   0x000038
-           .code_t0open.o       code   0x001e9a    program   0x000038
-           .code_t2open.o       code   0x001ed2    program   0x000036
-                    .code       code   0x001f08    program   0x000020
-             _startup_scn       code   0x001f28    program   0x00001c
-                bigdata_i    romdata   0x001f44    program   0x000689
-      .idata_swm45k80.o_i    romdata   0x0025cd    program   0x00001a
+         .code_swm45k80.o       code   0x000038    program   0x000d28
+                     PROG       code   0x000d60    program   0x000688
+      .romdata_swm45k80.o    romdata   0x0013e8    program   0x000680
+           .code_sincos.o       code   0x001a68    program   0x0005aa
+         .code_UnpkMath.o       code   0x002012    program   0x00011c
+               _cinit_scn       code   0x00212e    program   0x00009e
+           .code_u2open.o       code   0x0021cc    program   0x000078
+             .code_fabs.o       code   0x002244    program   0x000066
+              .code_sin.o       code   0x0022aa    program   0x000050
+              .code_cos.o       code   0x0022fa    program   0x00004e
+         .code_fxd3232u.o       code   0x002348    program   0x000048
+          .code_t0write.o       code   0x002390    program   0x000038
+           .code_t0open.o       code   0x0023c8    program   0x000038
+           .code_t2open.o       code   0x002400    program   0x000036
+                    .code       code   0x002436    program   0x000020
+             _startup_scn       code   0x002456    program   0x00001c
+                bigdata_i    romdata   0x002472    program   0x000689
+      .idata_swm45k80.o_i    romdata   0x002afb    program   0x00001a
 .config_300000_swm45k80.o    romdata   0x300000    program   0x000001
 .config_300001_swm45k80.o    romdata   0x300001    program   0x000001
 .config_300002_swm45k80.o    romdata   0x300002    program   0x000001
@@ -113,78 +113,78 @@ Linker Map File - Created Fri Mar 22 12:32:53 2013
                                Start         End      
                            ---------   ---------      
                             0x000000    0x00000d      
-                            0x000018    0x0025e6      
+                            0x000018    0x002b14      
                             0x300000    0x300003      
                             0x300005    0x300006      
                             0x300008    0x30000d      
-            9705 out of 33816 program addresses used, program memory utilization is 28%
+            11031 out of 33816 program addresses used, program memory utilization is 32%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                   D3232S   0x00110c    program     static C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
-                D3232SNEG   0x00111a    program     static C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
-                 D3232SOK   0x001116    program     static C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
-                  D3232SX   0x00113a    program     static C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
-                  DA3232S   0x0010f6    program     static C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
-                 FLO0832S   0x000eb6    program     extern C:\MCC18\v3_39\src\traditional\math\cast08FP.asm
-                 FLO0832U   0x000eb2    program     extern C:\MCC18\v3_39\src\traditional\math\cast08FP.asm
-                 FLO1632S   0x00135a    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                 FLO1632U   0x001356    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                 FLO3232S   0x001384    program     extern C:\MCC18\v3_39\src\traditional\math\cast32FP.asm
-                 FLO3232U   0x001380    program     extern C:\MCC18\v3_39\src\traditional\math\cast32FP.asm
-                    FPA32   0x000ed6    program     extern C:\MCC18\v3_39\src\traditional\math\addFP.asm
-                    FPD32   0x0013b6    program     extern C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                    FPM32   0x001002    program     extern C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                    FPS32   0x000ed4    program     extern C:\MCC18\v3_39\src\traditional\math\addFP.asm
-                 FXD3232S   0x0010dc    program     extern C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
-                 FXD3232U   0x001e1a    program     extern C:\MCC18\v3_39\src\traditional\math\fxd3232u.c
-                  INT3208   0x001144    program     extern C:\MCC18\v3_39\src\traditional\math\castFP08.asm
-                  INT3216   0x00145c    program     extern C:\MCC18\v3_39\src\traditional\math\castFP16.asm
-                  INT3232   0x0014ba    program     extern C:\MCC18\v3_39\src\traditional\math\castFP32.asm
-               Open2USART   0x001c9e    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u2open.c
-               OpenTimer0   0x001e9a    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
-               OpenTimer2   0x001ed2    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t2open.c
-                  TAEQB32   0x001192    program     extern C:\MCC18\v3_39\src\traditional\math\eqFP.asm
-                  TALTB32   0x001528    program     extern C:\MCC18\v3_39\src\traditional\math\ltFP.asm
-              WriteTimer0   0x001e62    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
-                _UnpkMath   0x001ae4    program     extern C:\MCC18\v3_39\src\traditional\stdclib\UnpkMath.c
-              __FpCompare   0x0011a0    program     extern C:\MCC18\v3_39\src\traditional\math\compFP.asm
-                 __FpExit   0x001256    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-                 __FpPack   0x001282    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-            __FpReturnNaN   0x00124a    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-         __FpReturnNegInf   0x00125c    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnNegZero   0x001274    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-         __FpReturnPosInf   0x001262    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnPosZero   0x00127c    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnSignInf   0x001258    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-       __FpReturnSignZero   0x001270    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-              __FpReturnW   0x0012da    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-              __FpUnPackA   0x0012fa    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-              __FpUnPackB   0x00132a    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-         ___else_lbl00070   0x000986    program     static                          
-         ___else_lbl00072   0x000bcc    program     static                          
+                   D3232S   0x000fba    program     static C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
+                D3232SNEG   0x000fc8    program     static C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
+                 D3232SOK   0x000fc4    program     static C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
+                  D3232SX   0x000fe8    program     static C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
+                  DA3232S   0x000fa4    program     static C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
+                 FLO0832S   0x000d64    program     extern C:\MCC18\v3_39\src\traditional\math\cast08FP.asm
+                 FLO0832U   0x000d60    program     extern C:\MCC18\v3_39\src\traditional\math\cast08FP.asm
+                 FLO1632S   0x001208    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
+                 FLO1632U   0x001204    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
+                 FLO3232S   0x001232    program     extern C:\MCC18\v3_39\src\traditional\math\cast32FP.asm
+                 FLO3232U   0x00122e    program     extern C:\MCC18\v3_39\src\traditional\math\cast32FP.asm
+                    FPA32   0x000d84    program     extern C:\MCC18\v3_39\src\traditional\math\addFP.asm
+                    FPD32   0x001264    program     extern C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                    FPM32   0x000eb0    program     extern C:\MCC18\v3_39\src\traditional\math\mulFP.asm
+                    FPS32   0x000d82    program     extern C:\MCC18\v3_39\src\traditional\math\addFP.asm
+                 FXD3232S   0x000f8a    program     extern C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
+                 FXD3232U   0x002348    program     extern C:\MCC18\v3_39\src\traditional\math\fxd3232u.c
+                  INT3208   0x000ff2    program     extern C:\MCC18\v3_39\src\traditional\math\castFP08.asm
+                  INT3216   0x00130a    program     extern C:\MCC18\v3_39\src\traditional\math\castFP16.asm
+                  INT3232   0x001368    program     extern C:\MCC18\v3_39\src\traditional\math\castFP32.asm
+               Open2USART   0x0021cc    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u2open.c
+               OpenTimer0   0x0023c8    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
+               OpenTimer2   0x002400    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t2open.c
+                  TAEQB32   0x001040    program     extern C:\MCC18\v3_39\src\traditional\math\eqFP.asm
+                  TALTB32   0x0013d6    program     extern C:\MCC18\v3_39\src\traditional\math\ltFP.asm
+              WriteTimer0   0x002390    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
+                _UnpkMath   0x002012    program     extern C:\MCC18\v3_39\src\traditional\stdclib\UnpkMath.c
+              __FpCompare   0x00104e    program     extern C:\MCC18\v3_39\src\traditional\math\compFP.asm
+                 __FpExit   0x001104    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+                 __FpPack   0x001130    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+            __FpReturnNaN   0x0010f8    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+         __FpReturnNegInf   0x00110a    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+        __FpReturnNegZero   0x001122    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+         __FpReturnPosInf   0x001110    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+        __FpReturnPosZero   0x00112a    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+        __FpReturnSignInf   0x001106    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+       __FpReturnSignZero   0x00111e    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+              __FpReturnW   0x001188    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+              __FpUnPackA   0x0011a8    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+              __FpUnPackB   0x0011d8    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+         ___else_lbl00076   0x0009ae    program     static                          
+         ___else_lbl00078   0x000a48    program     static                          
           ___for_lbl00028   0x00037e    program     static                          
           ___for_lbl00029   0x00038a    program     static                          
           ___for_lbl00032   0x000326    program     static                          
-          ___for_lbl00067   0x000bf4    program     static                          
-          ___for_lbl00068   0x000bfa    program     static                          
-          ___for_lbl00074   0x00095a    program     static                          
+          ___for_lbl00073   0x000a70    program     static                          
+          ___for_lbl00074   0x000a76    program     static                          
+          ___for_lbl00080   0x000984    program     static                          
            ___if_lbl00034   0x00042e    program     static                          
-           ___if_lbl00069   0x000992    program     static                          
-           ___if_lbl00071   0x000be2    program     static                          
-           ___if_lbl00073   0x000bf4    program     static                          
+           ___if_lbl00075   0x0009ba    program     static                          
+           ___if_lbl00077   0x000a5e    program     static                          
+           ___if_lbl00079   0x000a70    program     static                          
        ___return_lbl00000   0x00000c    program     static                          
+       ___return_lbl00000   0x00238e    program     static                          
        ___return_lbl00000   0x000004    program     static                          
-       ___return_lbl00000   0x001e60    program     static                          
        ___return_lbl00001   0x00001c    program     static                          
-       ___return_lbl00001   0x001f42    program     static                          
-       ___return_lbl00002   0x001c9c    program     static                          
+       ___return_lbl00001   0x002470    program     static                          
+       ___return_lbl00002   0x0021ca    program     static                          
        ___return_lbl00025   0x000408    program     static                          
        ___return_lbl00033   0x000450    program     static                          
-       ___return_lbl00064   0x000bfc    program     static                          
+       ___return_lbl00070   0x000a78    program     static                          
         ___while_lbl00026   0x000314    program     static                          
         ___while_lbl00027   0x00031e    program     static                          
         ___while_lbl00030   0x000346    program     static                          
@@ -193,8 +193,8 @@ Linker Map File - Created Fri Mar 22 12:32:53 2013
         ___while_lbl00036   0x000438    program     static                          
         ___while_lbl00037   0x000446    program     static                          
         ___while_lbl00038   0x000450    program     static                          
-        ___while_lbl00065   0x000956    program     static                          
-        ___while_lbl00066   0x000bfc    program     static                          
+        ___while_lbl00071   0x000980    program     static                          
+        ___while_lbl00072   0x000a78    program     static                          
                __config_0   0x300000    program     static /audio/matrix_pic18f45k80/swm45k80.c
                __config_1   0x300001    program     static /audio/matrix_pic18f45k80/swm45k80.c
               __config_10   0x30000c    program     static /audio/matrix_pic18f45k80/swm45k80.c
@@ -208,178 +208,182 @@ Linker Map File - Created Fri Mar 22 12:32:53 2013
                __config_8   0x30000a    program     static /audio/matrix_pic18f45k80/swm45k80.c
                __config_9   0x30000b    program     static /audio/matrix_pic18f45k80/swm45k80.c
                    __init   0x000006    program     extern C:\MCC18\v3_39\src\traditional\stdclib\__init.c
-                   __pa_0   0x001bf2    program     static C:\MCC18\v3_39\src\traditional\stdclib\UnpkMath.c
-                   __pa_0   0x001928    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                   __pa_0   0x000c10    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                   __pa_1   0x001940    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                   __pa_1   0x000c24    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_10   0x0019fc    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_10   0x000d4c    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_11   0x000d54    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_11   0x001a0e    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_12   0x001a1c    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_12   0x000d6a    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_13   0x001a22    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_13   0x000d80    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_14   0x001a3c    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_14   0x000d8a    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_15   0x001a4e    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_15   0x000d92    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_16   0x001a72    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_16   0x000da4    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_17   0x001a84    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_17   0x000db6    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_18   0x000dc8    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_18   0x001a92    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_19   0x000dda    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_19   0x001aa4    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                   __pa_2   0x00195c    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                   __pa_2   0x000c68    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_20   0x000de8    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_20   0x001ab4    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_21   0x000df4    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_21   0x001ac0    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_22   0x000e06    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_22   0x001aca    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_23   0x000e18    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_23   0x001ad2    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_24   0x000e20    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_24   0x001ad8    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_25   0x000e36    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_26   0x000e48    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_27   0x000e5a    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_28   0x000e6c    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_29   0x000e74    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                   __pa_3   0x000c8c    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                   __pa_3   0x001976    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_30   0x000e80    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_31   0x000e8e    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_32   0x000e9c    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_33   0x000ea6    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                   __pa_4   0x000cce    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                   __pa_4   0x001980    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                   __pa_5   0x000ce4    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                   __pa_5   0x001996    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                   __pa_6   0x0019ac    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                   __pa_6   0x000d0c    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                   __pa_7   0x000d14    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                   __pa_7   0x0019be    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                   __pa_8   0x000d1c    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                   __pa_8   0x0019d8    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                   __pa_9   0x000d3a    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                   __pa_9   0x0019f2    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-              __tmplbl_10   0x000dda    program     static                          
-              __tmplbl_18   0x000dda    program     static                          
-              __tmplbl_19   0x000d8a    program     static                          
-               __tmplbl_8   0x0009d2    program     static                          
-            __zero_memory   0x001f08    program     extern C:\MCC18\v3_39\src\traditional\proc\p18F45K80.asm
-                _do_cinit   0x001c00    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
+                   __pa_0   0x001e56    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                   __pa_0   0x000a8c    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                   __pa_0   0x002120    program     static C:\MCC18\v3_39\src\traditional\stdclib\UnpkMath.c
+                   __pa_1   0x000aa0    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                   __pa_1   0x001e6e    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_10   0x000bd0    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_10   0x001f2a    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_11   0x000be2    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_11   0x001f3c    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_12   0x000bea    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_12   0x001f4a    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_13   0x001f50    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_13   0x000bf4    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_14   0x000bfc    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_14   0x001f6a    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_15   0x000c12    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_15   0x001f7c    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_16   0x000c28    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_16   0x001fa0    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_17   0x000c3a    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_17   0x001fb2    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_18   0x000c4c    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_18   0x001fc0    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_19   0x000c5e    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_19   0x001fd2    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                   __pa_2   0x000ae4    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                   __pa_2   0x001e8a    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_20   0x001fe2    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_20   0x000c70    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_21   0x001fee    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_21   0x000c7e    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_22   0x001ff8    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_22   0x000c8a    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_23   0x002000    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_23   0x000c98    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_24   0x002006    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_24   0x000ca2    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_25   0x000cb4    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_26   0x000cc6    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_27   0x000cce    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_28   0x000ce4    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_29   0x000cf6    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                   __pa_3   0x000b08    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                   __pa_3   0x001ea4    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_30   0x000d08    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_31   0x000d1a    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_32   0x000d22    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_33   0x000d2e    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_34   0x000d3c    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_35   0x000d4a    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_36   0x000d54    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                   __pa_4   0x001eae    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                   __pa_4   0x000b4a    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                   __pa_5   0x000b60    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                   __pa_5   0x001ec4    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                   __pa_6   0x000b88    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                   __pa_6   0x001eda    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                   __pa_7   0x000b90    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                   __pa_7   0x001eec    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                   __pa_8   0x000b98    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                   __pa_8   0x001f06    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                   __pa_9   0x000bb2    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                   __pa_9   0x001f20    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+              __tmplbl_10   0x000c70    program     static                          
+              __tmplbl_18   0x000c70    program     static                          
+               __tmplbl_8   0x0009fa    program     static                          
+            __zero_memory   0x002436    program     extern C:\MCC18\v3_39\src\traditional\proc\p18F45K80.asm
+                _do_cinit   0x00212e    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
                    _entry   0x000000    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                   _false   0x001e5c    program     static                          
-                  _sincos   0x00153a    program     extern C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                 _startup   0x001f28    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                compare_l   0x001f1e    program     static C:\MCC18\v3_39\src\traditional\proc\p18F45K80.asm
-                copy_loop   0x001c72    program     static                          
-            copy_one_byte   0x001c78    program     static                          
-                      cos   0x001dcc    program     extern C:\MCC18\v3_39\src\traditional\stdclib\cos.c
+                   _false   0x00238a    program     static                          
+                  _sincos   0x001a68    program     extern C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                 _startup   0x002456    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
+                compare_l   0x00244c    program     static C:\MCC18\v3_39\src\traditional\proc\p18F45K80.asm
+                copy_loop   0x0021a0    program     static                          
+            copy_one_byte   0x0021a6    program     static                          
+                      cos   0x0022fa    program     extern C:\MCC18\v3_39\src\traditional\stdclib\cos.c
                ctmu_setup   0x000458    program     extern /audio/matrix_pic18f45k80/swm45k80.c
-               ctmu_touch   0x000514    program     extern /audio/matrix_pic18f45k80/swm45k80.c
-                     done   0x001c9c    program     static                          
-             done_copying   0x001c86    program     static                          
-                     fabs   0x001d16    program     extern C:\MCC18\v3_39\src\traditional\stdclib\fabs.c
+               ctmu_touch   0x000504    program     extern /audio/matrix_pic18f45k80/swm45k80.c
+                     done   0x0021ca    program     static                          
+             done_copying   0x0021b4    program     static                          
+                     fabs   0x002244    program     extern C:\MCC18\v3_39\src\traditional\stdclib\fabs.c
              high_handler   0x000104    program     extern /audio/matrix_pic18f45k80/swm45k80.c
                  high_int   0x000008    program     extern /audio/matrix_pic18f45k80/swm45k80.c
-                 jANotInf   0x000efe    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-                 jANotInf   0x001020    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                 jANotInf   0x0013d4    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                 jANotNeg   0x000f92    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-                jANotZero   0x0013e8    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-              jAandWsetup   0x000f62    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-                  jAisNeg   0x00121c    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
-                 jAltBexp   0x000f50    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-                jBANotInf   0x000ef4    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-                 jBNotInf   0x000f0c    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-              jBothFinite   0x00102e    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-             jBothNotZero   0x0011be    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
-             jBothNotZero   0x00103a    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-            jDifOrPosSign   0x000f20    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-                      jEQ   0x0011da    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
-                    jExch   0x0011e6    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
-                    jExit   0x001526    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
-                    jExit   0x001190    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
-                    jExit   0x0014b8    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
-                   jExpEQ   0x00122c    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
-                   jFinal   0x001210    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
-               jFinalSign   0x000ffa    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-                jHaveZero   0x001036    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                jI2F08Beg   0x000ec0    program     static C:\MCC18\v3_39\src\traditional\math\cast08FP.asm
-                jI2F16Beg   0x00136a    program     static C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                jI2F32Beg   0x00139c    program     static C:\MCC18\v3_39\src\traditional\math\cast32FP.asm
-                    jLoop   0x001410    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                    jLoop   0x001498    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
-                    jLoop   0x001178    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
-                    jLoop   0x0014fa    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
-                jLoopExit   0x0014a8    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
-                jLoopExit   0x001186    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
-                jLoopExit   0x00150e    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
-                     jMax   0x001154    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
-                     jMax   0x0014ca    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
-                     jMax   0x00146c    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
-                  jMaxNeg   0x0014dc    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
-                  jMaxNeg   0x00147a    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
-                  jMaxNeg   0x00115e    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
-                  jMaxPos   0x0014ce    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
-                  jMaxPos   0x001470    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
-                  jMaxPos   0x001158    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
-                      jNE   0x0011de    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
-                    jNext   0x001436    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                jNoAdjust   0x001434    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                  jNoExch   0x001206    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
-             jNotBothZero   0x000f24    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-                  jNotInf   0x001168    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
-                  jNotInf   0x001488    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
-                  jNotInf   0x0014e8    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
-                  jPkLoop   0x001290    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-             jPkRoundDone   0x0012da    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-               jPkRoundIt   0x0012c2    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-             jPkShiftDone   0x0012ac    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-           jReturnPosInf0   0x001266    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-                  jRotate   0x001238    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
-                   jShift   0x001222    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
-               jShiftDone   0x000fba    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-               jShiftLoop   0x000fac    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-                jSignDone   0x000fea    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-              jSignedZero   0x0013de    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                 jSignsEQ   0x0011c2    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
-                  jUnpkA1   0x001304    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkA2   0x00131c    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkANZ   0x001312    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkB1   0x001334    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkB2   0x00134c    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkBNZ   0x001342    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkNaN   0x001326    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jWNotNeg   0x000fa6    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-                   jWr123   0x0014d4    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
-                  jWrZ123   0x0014e4    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
-                    jZero   0x0014e2    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
-                    jZero   0x001482    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
-                    jZero   0x001164    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
-               jZero1and2   0x00126a    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-                     loop   0x001f38    program     static                          
-                     loop   0x001e28    program     static                          
-                   loop_h   0x001f16    program     static C:\MCC18\v3_39\src\traditional\proc\p18F45K80.asm
-                   loop_l   0x001f20    program     static C:\MCC18\v3_39\src\traditional\proc\p18F45K80.asm
+                 jANotInf   0x000ece    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
+                 jANotInf   0x000dac    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+                 jANotInf   0x001282    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                 jANotNeg   0x000e40    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+                jANotZero   0x001296    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+              jAandWsetup   0x000e10    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+                  jAisNeg   0x0010ca    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
+                 jAltBexp   0x000dfe    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+                jBANotInf   0x000da2    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+                 jBNotInf   0x000dba    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+              jBothFinite   0x000edc    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
+             jBothNotZero   0x000ee8    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
+             jBothNotZero   0x00106c    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
+            jDifOrPosSign   0x000dce    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+                      jEQ   0x001088    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
+                    jExch   0x001094    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
+                    jExit   0x001366    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
+                    jExit   0x00103e    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
+                    jExit   0x0013d4    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
+                   jExpEQ   0x0010da    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
+                   jFinal   0x0010be    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
+               jFinalSign   0x000ea8    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+                jHaveZero   0x000ee4    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
+                jI2F08Beg   0x000d6e    program     static C:\MCC18\v3_39\src\traditional\math\cast08FP.asm
+                jI2F16Beg   0x001218    program     static C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
+                jI2F32Beg   0x00124a    program     static C:\MCC18\v3_39\src\traditional\math\cast32FP.asm
+                    jLoop   0x001346    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
+                    jLoop   0x0013a8    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
+                    jLoop   0x0012be    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                    jLoop   0x001026    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
+                jLoopExit   0x001356    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
+                jLoopExit   0x0013bc    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
+                jLoopExit   0x001034    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
+                     jMax   0x001378    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
+                     jMax   0x001002    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
+                     jMax   0x00131a    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
+                  jMaxNeg   0x00138a    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
+                  jMaxNeg   0x00100c    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
+                  jMaxNeg   0x001328    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
+                  jMaxPos   0x001006    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
+                  jMaxPos   0x00137c    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
+                  jMaxPos   0x00131e    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
+                      jNE   0x00108c    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
+                    jNext   0x0012e4    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                jNoAdjust   0x0012e2    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                  jNoExch   0x0010b4    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
+             jNotBothZero   0x000dd2    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+                  jNotInf   0x001336    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
+                  jNotInf   0x001396    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
+                  jNotInf   0x001016    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
+                  jPkLoop   0x00113e    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+             jPkRoundDone   0x001188    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+               jPkRoundIt   0x001170    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+             jPkShiftDone   0x00115a    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+           jReturnPosInf0   0x001114    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+                  jRotate   0x0010e6    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
+                   jShift   0x0010d0    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
+               jShiftDone   0x000e68    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+               jShiftLoop   0x000e5a    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+                jSignDone   0x000e98    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+              jSignedZero   0x00128c    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                 jSignsEQ   0x001070    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
+                  jUnpkA1   0x0011b2    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                  jUnpkA2   0x0011ca    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                 jUnpkANZ   0x0011c0    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                  jUnpkB1   0x0011e2    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                  jUnpkB2   0x0011fa    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                 jUnpkBNZ   0x0011f0    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                 jUnpkNaN   0x0011d4    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                 jWNotNeg   0x000e54    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+                   jWr123   0x001382    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
+                  jWrZ123   0x001392    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
+                    jZero   0x001012    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
+                    jZero   0x001330    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
+                    jZero   0x001390    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
+               jZero1and2   0x001118    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+                     loop   0x002466    program     static                          
+                     loop   0x002356    program     static                          
+                   loop_h   0x002444    program     static C:\MCC18\v3_39\src\traditional\proc\p18F45K80.asm
+                   loop_l   0x00244e    program     static C:\MCC18\v3_39\src\traditional\proc\p18F45K80.asm
               low_handler   0x000038    program     extern /audio/matrix_pic18f45k80/swm45k80.c
                   low_int   0x000018    program     extern /audio/matrix_pic18f45k80/swm45k80.c
-                     main   0x000824    program     extern /audio/matrix_pic18f45k80/swm45k80.c
-               pixel_init   0x0005a4    program     extern /audio/matrix_pic18f45k80/swm45k80.c
-             pixel_rotate   0x000630    program     extern /audio/matrix_pic18f45k80/swm45k80.c
-                pixel_set   0x000602    program     extern /audio/matrix_pic18f45k80/swm45k80.c
-                      sin   0x001d7c    program     extern C:\MCC18\v3_39\src\traditional\stdclib\sin.c
-                     test   0x001c1a    program     static                          
+                     main   0x00084e    program     extern /audio/matrix_pic18f45k80/swm45k80.c
+            object_rotate   0x0007f0    program     extern /audio/matrix_pic18f45k80/swm45k80.c
+               pixel_init   0x00058e    program     extern /audio/matrix_pic18f45k80/swm45k80.c
+                pixel_rom   0x0013e8    program     extern /audio/matrix_pic18f45k80/swm45k80.c
+             pixel_rotate   0x0005fc    program     extern /audio/matrix_pic18f45k80/swm45k80.c
+                pixel_set   0x0005e0    program     extern /audio/matrix_pic18f45k80/swm45k80.c
+                      sin   0x0022aa    program     extern C:\MCC18\v3_39\src\traditional\stdclib\sin.c
+                     test   0x002148    program     static                          
           touch_base_calc   0x0002ee    program     extern /audio/matrix_pic18f45k80/swm45k80.c
             touch_channel   0x00041c    program     extern /audio/matrix_pic18f45k80/swm45k80.c
-               zero_block   0x001f16    program     static C:\MCC18\v3_39\src\traditional\proc\p18F45K80.asm
+               zero_block   0x002444    program     static C:\MCC18\v3_39\src\traditional\proc\p18F45K80.asm
                    ADCON0   0x000fc2       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F45K80.asm
                ADCON0bits   0x000fc2       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F45K80.asm
                    ADCON1   0x000fc1       data     extern C:\MCC18\v3_39\src\traditional\proc\p18F45K80.asm
@@ -1321,227 +1325,231 @@ Linker Map File - Created Fri Mar 22 12:32:53 2013
            ___if_lbl00034   0x00042e    program     static                          
         ___while_lbl00036   0x000438    program     static                          
         ___while_lbl00037   0x000446    program     static                          
-        ___while_lbl00038   0x000450    program     static                          
        ___return_lbl00033   0x000450    program     static                          
+        ___while_lbl00038   0x000450    program     static                          
                ctmu_setup   0x000458    program     extern /audio/matrix_pic18f45k80/swm45k80.c
-               ctmu_touch   0x000514    program     extern /audio/matrix_pic18f45k80/swm45k80.c
-               pixel_init   0x0005a4    program     extern /audio/matrix_pic18f45k80/swm45k80.c
-                pixel_set   0x000602    program     extern /audio/matrix_pic18f45k80/swm45k80.c
-             pixel_rotate   0x000630    program     extern /audio/matrix_pic18f45k80/swm45k80.c
-                     main   0x000824    program     extern /audio/matrix_pic18f45k80/swm45k80.c
-        ___while_lbl00065   0x000956    program     static                          
-          ___for_lbl00074   0x00095a    program     static                          
-         ___else_lbl00070   0x000986    program     static                          
-           ___if_lbl00069   0x000992    program     static                          
-               __tmplbl_8   0x0009d2    program     static                          
-         ___else_lbl00072   0x000bcc    program     static                          
-           ___if_lbl00071   0x000be2    program     static                          
-           ___if_lbl00073   0x000bf4    program     static                          
-          ___for_lbl00067   0x000bf4    program     static                          
-          ___for_lbl00068   0x000bfa    program     static                          
-       ___return_lbl00064   0x000bfc    program     static                          
-        ___while_lbl00066   0x000bfc    program     static                          
-                   __pa_0   0x000c10    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                   __pa_1   0x000c24    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                   __pa_2   0x000c68    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                   __pa_3   0x000c8c    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                   __pa_4   0x000cce    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                   __pa_5   0x000ce4    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                   __pa_6   0x000d0c    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                   __pa_7   0x000d14    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                   __pa_8   0x000d1c    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                   __pa_9   0x000d3a    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_10   0x000d4c    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_11   0x000d54    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_12   0x000d6a    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_13   0x000d80    program     static /audio/matrix_pic18f45k80/swm45k80.c
-              __tmplbl_19   0x000d8a    program     static                          
-                  __pa_14   0x000d8a    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_15   0x000d92    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_16   0x000da4    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_17   0x000db6    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_18   0x000dc8    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_19   0x000dda    program     static /audio/matrix_pic18f45k80/swm45k80.c
-              __tmplbl_10   0x000dda    program     static                          
-              __tmplbl_18   0x000dda    program     static                          
-                  __pa_20   0x000de8    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_21   0x000df4    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_22   0x000e06    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_23   0x000e18    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_24   0x000e20    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_25   0x000e36    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_26   0x000e48    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_27   0x000e5a    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_28   0x000e6c    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_29   0x000e74    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_30   0x000e80    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_31   0x000e8e    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_32   0x000e9c    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                  __pa_33   0x000ea6    program     static /audio/matrix_pic18f45k80/swm45k80.c
-                 FLO0832U   0x000eb2    program     extern C:\MCC18\v3_39\src\traditional\math\cast08FP.asm
-                 FLO0832S   0x000eb6    program     extern C:\MCC18\v3_39\src\traditional\math\cast08FP.asm
-                jI2F08Beg   0x000ec0    program     static C:\MCC18\v3_39\src\traditional\math\cast08FP.asm
-                    FPS32   0x000ed4    program     extern C:\MCC18\v3_39\src\traditional\math\addFP.asm
-                    FPA32   0x000ed6    program     extern C:\MCC18\v3_39\src\traditional\math\addFP.asm
-                jBANotInf   0x000ef4    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-                 jANotInf   0x000efe    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-                 jBNotInf   0x000f0c    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-            jDifOrPosSign   0x000f20    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-             jNotBothZero   0x000f24    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-                 jAltBexp   0x000f50    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-              jAandWsetup   0x000f62    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-                 jANotNeg   0x000f92    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-                 jWNotNeg   0x000fa6    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-               jShiftLoop   0x000fac    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-               jShiftDone   0x000fba    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-                jSignDone   0x000fea    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-               jFinalSign   0x000ffa    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
-                    FPM32   0x001002    program     extern C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                 jANotInf   0x001020    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-              jBothFinite   0x00102e    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                jHaveZero   0x001036    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-             jBothNotZero   0x00103a    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
-                 FXD3232S   0x0010dc    program     extern C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
-                  DA3232S   0x0010f6    program     static C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
-                   D3232S   0x00110c    program     static C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
-                 D3232SOK   0x001116    program     static C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
-                D3232SNEG   0x00111a    program     static C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
-                  D3232SX   0x00113a    program     static C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
-                  INT3208   0x001144    program     extern C:\MCC18\v3_39\src\traditional\math\castFP08.asm
-                     jMax   0x001154    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
-                  jMaxPos   0x001158    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
-                  jMaxNeg   0x00115e    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
-                    jZero   0x001164    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
-                  jNotInf   0x001168    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
-                    jLoop   0x001178    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
-                jLoopExit   0x001186    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
-                    jExit   0x001190    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
-                  TAEQB32   0x001192    program     extern C:\MCC18\v3_39\src\traditional\math\eqFP.asm
-              __FpCompare   0x0011a0    program     extern C:\MCC18\v3_39\src\traditional\math\compFP.asm
-             jBothNotZero   0x0011be    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
-                 jSignsEQ   0x0011c2    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
-                      jEQ   0x0011da    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
-                      jNE   0x0011de    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
-                    jExch   0x0011e6    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
-                  jNoExch   0x001206    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
-                   jFinal   0x001210    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
-                  jAisNeg   0x00121c    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
-                   jShift   0x001222    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
-                   jExpEQ   0x00122c    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
-                  jRotate   0x001238    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
-            __FpReturnNaN   0x00124a    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-                 __FpExit   0x001256    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnSignInf   0x001258    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-         __FpReturnNegInf   0x00125c    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-         __FpReturnPosInf   0x001262    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-           jReturnPosInf0   0x001266    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-               jZero1and2   0x00126a    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-       __FpReturnSignZero   0x001270    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnNegZero   0x001274    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-        __FpReturnPosZero   0x00127c    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-                 __FpPack   0x001282    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-                  jPkLoop   0x001290    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-             jPkShiftDone   0x0012ac    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-               jPkRoundIt   0x0012c2    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-             jPkRoundDone   0x0012da    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
-              __FpReturnW   0x0012da    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
-              __FpUnPackA   0x0012fa    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkA1   0x001304    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkANZ   0x001312    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkA2   0x00131c    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkNaN   0x001326    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-              __FpUnPackB   0x00132a    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkB1   0x001334    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 jUnpkBNZ   0x001342    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                  jUnpkB2   0x00134c    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
-                 FLO1632U   0x001356    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                 FLO1632S   0x00135a    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                jI2F16Beg   0x00136a    program     static C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
-                 FLO3232U   0x001380    program     extern C:\MCC18\v3_39\src\traditional\math\cast32FP.asm
-                 FLO3232S   0x001384    program     extern C:\MCC18\v3_39\src\traditional\math\cast32FP.asm
-                jI2F32Beg   0x00139c    program     static C:\MCC18\v3_39\src\traditional\math\cast32FP.asm
-                    FPD32   0x0013b6    program     extern C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                 jANotInf   0x0013d4    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-              jSignedZero   0x0013de    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                jANotZero   0x0013e8    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                    jLoop   0x001410    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                jNoAdjust   0x001434    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                    jNext   0x001436    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
-                  INT3216   0x00145c    program     extern C:\MCC18\v3_39\src\traditional\math\castFP16.asm
-                     jMax   0x00146c    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
-                  jMaxPos   0x001470    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
-                  jMaxNeg   0x00147a    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
-                    jZero   0x001482    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
-                  jNotInf   0x001488    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
-                    jLoop   0x001498    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
-                jLoopExit   0x0014a8    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
-                    jExit   0x0014b8    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
-                  INT3232   0x0014ba    program     extern C:\MCC18\v3_39\src\traditional\math\castFP32.asm
-                     jMax   0x0014ca    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
-                  jMaxPos   0x0014ce    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
-                   jWr123   0x0014d4    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
-                  jMaxNeg   0x0014dc    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
-                    jZero   0x0014e2    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
-                  jWrZ123   0x0014e4    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
-                  jNotInf   0x0014e8    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
-                    jLoop   0x0014fa    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
-                jLoopExit   0x00150e    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
-                    jExit   0x001526    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
-                  TALTB32   0x001528    program     extern C:\MCC18\v3_39\src\traditional\math\ltFP.asm
-                  _sincos   0x00153a    program     extern C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                   __pa_0   0x001928    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                   __pa_1   0x001940    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                   __pa_2   0x00195c    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                   __pa_3   0x001976    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                   __pa_4   0x001980    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                   __pa_5   0x001996    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                   __pa_6   0x0019ac    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                   __pa_7   0x0019be    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                   __pa_8   0x0019d8    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                   __pa_9   0x0019f2    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_10   0x0019fc    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_11   0x001a0e    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_12   0x001a1c    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_13   0x001a22    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_14   0x001a3c    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_15   0x001a4e    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_16   0x001a72    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_17   0x001a84    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_18   0x001a92    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_19   0x001aa4    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_20   0x001ab4    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_21   0x001ac0    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_22   0x001aca    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_23   0x001ad2    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                  __pa_24   0x001ad8    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
-                _UnpkMath   0x001ae4    program     extern C:\MCC18\v3_39\src\traditional\stdclib\UnpkMath.c
-                   __pa_0   0x001bf2    program     static C:\MCC18\v3_39\src\traditional\stdclib\UnpkMath.c
-                _do_cinit   0x001c00    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                     test   0x001c1a    program     static                          
-                copy_loop   0x001c72    program     static                          
-            copy_one_byte   0x001c78    program     static                          
-             done_copying   0x001c86    program     static                          
-                     done   0x001c9c    program     static                          
-       ___return_lbl00002   0x001c9c    program     static                          
-               Open2USART   0x001c9e    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u2open.c
-                     fabs   0x001d16    program     extern C:\MCC18\v3_39\src\traditional\stdclib\fabs.c
-                      sin   0x001d7c    program     extern C:\MCC18\v3_39\src\traditional\stdclib\sin.c
-                      cos   0x001dcc    program     extern C:\MCC18\v3_39\src\traditional\stdclib\cos.c
-                 FXD3232U   0x001e1a    program     extern C:\MCC18\v3_39\src\traditional\math\fxd3232u.c
-                     loop   0x001e28    program     static                          
-                   _false   0x001e5c    program     static                          
-       ___return_lbl00000   0x001e60    program     static                          
-              WriteTimer0   0x001e62    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
-               OpenTimer0   0x001e9a    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
-               OpenTimer2   0x001ed2    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t2open.c
-            __zero_memory   0x001f08    program     extern C:\MCC18\v3_39\src\traditional\proc\p18F45K80.asm
-               zero_block   0x001f16    program     static C:\MCC18\v3_39\src\traditional\proc\p18F45K80.asm
-                   loop_h   0x001f16    program     static C:\MCC18\v3_39\src\traditional\proc\p18F45K80.asm
-                compare_l   0x001f1e    program     static C:\MCC18\v3_39\src\traditional\proc\p18F45K80.asm
-                   loop_l   0x001f20    program     static C:\MCC18\v3_39\src\traditional\proc\p18F45K80.asm
-                 _startup   0x001f28    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
-                     loop   0x001f38    program     static                          
-       ___return_lbl00001   0x001f42    program     static                          
+               ctmu_touch   0x000504    program     extern /audio/matrix_pic18f45k80/swm45k80.c
+               pixel_init   0x00058e    program     extern /audio/matrix_pic18f45k80/swm45k80.c
+                pixel_set   0x0005e0    program     extern /audio/matrix_pic18f45k80/swm45k80.c
+             pixel_rotate   0x0005fc    program     extern /audio/matrix_pic18f45k80/swm45k80.c
+            object_rotate   0x0007f0    program     extern /audio/matrix_pic18f45k80/swm45k80.c
+                     main   0x00084e    program     extern /audio/matrix_pic18f45k80/swm45k80.c
+        ___while_lbl00071   0x000980    program     static                          
+          ___for_lbl00080   0x000984    program     static                          
+         ___else_lbl00076   0x0009ae    program     static                          
+           ___if_lbl00075   0x0009ba    program     static                          
+               __tmplbl_8   0x0009fa    program     static                          
+         ___else_lbl00078   0x000a48    program     static                          
+           ___if_lbl00077   0x000a5e    program     static                          
+          ___for_lbl00073   0x000a70    program     static                          
+           ___if_lbl00079   0x000a70    program     static                          
+          ___for_lbl00074   0x000a76    program     static                          
+       ___return_lbl00070   0x000a78    program     static                          
+        ___while_lbl00072   0x000a78    program     static                          
+                   __pa_0   0x000a8c    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                   __pa_1   0x000aa0    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                   __pa_2   0x000ae4    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                   __pa_3   0x000b08    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                   __pa_4   0x000b4a    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                   __pa_5   0x000b60    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                   __pa_6   0x000b88    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                   __pa_7   0x000b90    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                   __pa_8   0x000b98    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                   __pa_9   0x000bb2    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_10   0x000bd0    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_11   0x000be2    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_12   0x000bea    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_13   0x000bf4    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_14   0x000bfc    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_15   0x000c12    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_16   0x000c28    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_17   0x000c3a    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_18   0x000c4c    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_19   0x000c5e    program     static /audio/matrix_pic18f45k80/swm45k80.c
+              __tmplbl_10   0x000c70    program     static                          
+              __tmplbl_18   0x000c70    program     static                          
+                  __pa_20   0x000c70    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_21   0x000c7e    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_22   0x000c8a    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_23   0x000c98    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_24   0x000ca2    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_25   0x000cb4    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_26   0x000cc6    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_27   0x000cce    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_28   0x000ce4    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_29   0x000cf6    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_30   0x000d08    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_31   0x000d1a    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_32   0x000d22    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_33   0x000d2e    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_34   0x000d3c    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_35   0x000d4a    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                  __pa_36   0x000d54    program     static /audio/matrix_pic18f45k80/swm45k80.c
+                 FLO0832U   0x000d60    program     extern C:\MCC18\v3_39\src\traditional\math\cast08FP.asm
+                 FLO0832S   0x000d64    program     extern C:\MCC18\v3_39\src\traditional\math\cast08FP.asm
+                jI2F08Beg   0x000d6e    program     static C:\MCC18\v3_39\src\traditional\math\cast08FP.asm
+                    FPS32   0x000d82    program     extern C:\MCC18\v3_39\src\traditional\math\addFP.asm
+                    FPA32   0x000d84    program     extern C:\MCC18\v3_39\src\traditional\math\addFP.asm
+                jBANotInf   0x000da2    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+                 jANotInf   0x000dac    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+                 jBNotInf   0x000dba    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+            jDifOrPosSign   0x000dce    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+             jNotBothZero   0x000dd2    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+                 jAltBexp   0x000dfe    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+              jAandWsetup   0x000e10    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+                 jANotNeg   0x000e40    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+                 jWNotNeg   0x000e54    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+               jShiftLoop   0x000e5a    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+               jShiftDone   0x000e68    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+                jSignDone   0x000e98    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+               jFinalSign   0x000ea8    program     static C:\MCC18\v3_39\src\traditional\math\addFP.asm
+                    FPM32   0x000eb0    program     extern C:\MCC18\v3_39\src\traditional\math\mulFP.asm
+                 jANotInf   0x000ece    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
+              jBothFinite   0x000edc    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
+                jHaveZero   0x000ee4    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
+             jBothNotZero   0x000ee8    program     static C:\MCC18\v3_39\src\traditional\math\mulFP.asm
+                 FXD3232S   0x000f8a    program     extern C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
+                  DA3232S   0x000fa4    program     static C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
+                   D3232S   0x000fba    program     static C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
+                 D3232SOK   0x000fc4    program     static C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
+                D3232SNEG   0x000fc8    program     static C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
+                  D3232SX   0x000fe8    program     static C:\MCC18\v3_39\src\traditional\math\fxd3232s.asm
+                  INT3208   0x000ff2    program     extern C:\MCC18\v3_39\src\traditional\math\castFP08.asm
+                     jMax   0x001002    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
+                  jMaxPos   0x001006    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
+                  jMaxNeg   0x00100c    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
+                    jZero   0x001012    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
+                  jNotInf   0x001016    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
+                    jLoop   0x001026    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
+                jLoopExit   0x001034    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
+                    jExit   0x00103e    program     static C:\MCC18\v3_39\src\traditional\math\castFP08.asm
+                  TAEQB32   0x001040    program     extern C:\MCC18\v3_39\src\traditional\math\eqFP.asm
+              __FpCompare   0x00104e    program     extern C:\MCC18\v3_39\src\traditional\math\compFP.asm
+             jBothNotZero   0x00106c    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
+                 jSignsEQ   0x001070    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
+                      jEQ   0x001088    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
+                      jNE   0x00108c    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
+                    jExch   0x001094    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
+                  jNoExch   0x0010b4    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
+                   jFinal   0x0010be    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
+                  jAisNeg   0x0010ca    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
+                   jShift   0x0010d0    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
+                   jExpEQ   0x0010da    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
+                  jRotate   0x0010e6    program     static C:\MCC18\v3_39\src\traditional\math\compFP.asm
+            __FpReturnNaN   0x0010f8    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+                 __FpExit   0x001104    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+        __FpReturnSignInf   0x001106    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+         __FpReturnNegInf   0x00110a    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+         __FpReturnPosInf   0x001110    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+           jReturnPosInf0   0x001114    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+               jZero1and2   0x001118    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+       __FpReturnSignZero   0x00111e    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+        __FpReturnNegZero   0x001122    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+        __FpReturnPosZero   0x00112a    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+                 __FpPack   0x001130    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+                  jPkLoop   0x00113e    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+             jPkShiftDone   0x00115a    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+               jPkRoundIt   0x001170    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+             jPkRoundDone   0x001188    program     static C:\MCC18\v3_39\src\traditional\math\packFP.asm
+              __FpReturnW   0x001188    program     extern C:\MCC18\v3_39\src\traditional\math\packFP.asm
+              __FpUnPackA   0x0011a8    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                  jUnpkA1   0x0011b2    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                 jUnpkANZ   0x0011c0    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                  jUnpkA2   0x0011ca    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                 jUnpkNaN   0x0011d4    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+              __FpUnPackB   0x0011d8    program     extern C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                  jUnpkB1   0x0011e2    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                 jUnpkBNZ   0x0011f0    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                  jUnpkB2   0x0011fa    program     static C:\MCC18\v3_39\src\traditional\math\UnpackFP.asm
+                 FLO1632U   0x001204    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
+                 FLO1632S   0x001208    program     extern C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
+                jI2F16Beg   0x001218    program     static C:\MCC18\v3_39\src\traditional\math\cast16FP.asm
+                 FLO3232U   0x00122e    program     extern C:\MCC18\v3_39\src\traditional\math\cast32FP.asm
+                 FLO3232S   0x001232    program     extern C:\MCC18\v3_39\src\traditional\math\cast32FP.asm
+                jI2F32Beg   0x00124a    program     static C:\MCC18\v3_39\src\traditional\math\cast32FP.asm
+                    FPD32   0x001264    program     extern C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                 jANotInf   0x001282    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+              jSignedZero   0x00128c    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                jANotZero   0x001296    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                    jLoop   0x0012be    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                jNoAdjust   0x0012e2    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                    jNext   0x0012e4    program     static C:\MCC18\v3_39\src\traditional\math\divFP.asm
+                  INT3216   0x00130a    program     extern C:\MCC18\v3_39\src\traditional\math\castFP16.asm
+                     jMax   0x00131a    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
+                  jMaxPos   0x00131e    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
+                  jMaxNeg   0x001328    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
+                    jZero   0x001330    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
+                  jNotInf   0x001336    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
+                    jLoop   0x001346    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
+                jLoopExit   0x001356    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
+                    jExit   0x001366    program     static C:\MCC18\v3_39\src\traditional\math\castFP16.asm
+                  INT3232   0x001368    program     extern C:\MCC18\v3_39\src\traditional\math\castFP32.asm
+                     jMax   0x001378    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
+                  jMaxPos   0x00137c    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
+                   jWr123   0x001382    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
+                  jMaxNeg   0x00138a    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
+                    jZero   0x001390    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
+                  jWrZ123   0x001392    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
+                  jNotInf   0x001396    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
+                    jLoop   0x0013a8    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
+                jLoopExit   0x0013bc    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
+                    jExit   0x0013d4    program     static C:\MCC18\v3_39\src\traditional\math\castFP32.asm
+                  TALTB32   0x0013d6    program     extern C:\MCC18\v3_39\src\traditional\math\ltFP.asm
+                pixel_rom   0x0013e8    program     extern /audio/matrix_pic18f45k80/swm45k80.c
+                  _sincos   0x001a68    program     extern C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                   __pa_0   0x001e56    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                   __pa_1   0x001e6e    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                   __pa_2   0x001e8a    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                   __pa_3   0x001ea4    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                   __pa_4   0x001eae    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                   __pa_5   0x001ec4    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                   __pa_6   0x001eda    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                   __pa_7   0x001eec    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                   __pa_8   0x001f06    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                   __pa_9   0x001f20    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_10   0x001f2a    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_11   0x001f3c    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_12   0x001f4a    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_13   0x001f50    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_14   0x001f6a    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_15   0x001f7c    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_16   0x001fa0    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_17   0x001fb2    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_18   0x001fc0    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_19   0x001fd2    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_20   0x001fe2    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_21   0x001fee    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_22   0x001ff8    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_23   0x002000    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                  __pa_24   0x002006    program     static C:\MCC18\v3_39\src\traditional\stdclib\sincos.c
+                _UnpkMath   0x002012    program     extern C:\MCC18\v3_39\src\traditional\stdclib\UnpkMath.c
+                   __pa_0   0x002120    program     static C:\MCC18\v3_39\src\traditional\stdclib\UnpkMath.c
+                _do_cinit   0x00212e    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
+                     test   0x002148    program     static                          
+                copy_loop   0x0021a0    program     static                          
+            copy_one_byte   0x0021a6    program     static                          
+             done_copying   0x0021b4    program     static                          
+                     done   0x0021ca    program     static                          
+       ___return_lbl00002   0x0021ca    program     static                          
+               Open2USART   0x0021cc    program     extern C:\MCC18\v3_39\src\pmc_common\USART\u2open.c
+                     fabs   0x002244    program     extern C:\MCC18\v3_39\src\traditional\stdclib\fabs.c
+                      sin   0x0022aa    program     extern C:\MCC18\v3_39\src\traditional\stdclib\sin.c
+                      cos   0x0022fa    program     extern C:\MCC18\v3_39\src\traditional\stdclib\cos.c
+                 FXD3232U   0x002348    program     extern C:\MCC18\v3_39\src\traditional\math\fxd3232u.c
+                     loop   0x002356    program     static                          
+                   _false   0x00238a    program     static                          
+       ___return_lbl00000   0x00238e    program     static                          
+              WriteTimer0   0x002390    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0write.c
+               OpenTimer0   0x0023c8    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t0open.c
+               OpenTimer2   0x002400    program     extern C:\MCC18\v3_39\src\pmc_common\Timers\t2open.c
+            __zero_memory   0x002436    program     extern C:\MCC18\v3_39\src\traditional\proc\p18F45K80.asm
+               zero_block   0x002444    program     static C:\MCC18\v3_39\src\traditional\proc\p18F45K80.asm
+                   loop_h   0x002444    program     static C:\MCC18\v3_39\src\traditional\proc\p18F45K80.asm
+                compare_l   0x00244c    program     static C:\MCC18\v3_39\src\traditional\proc\p18F45K80.asm
+                   loop_l   0x00244e    program     static C:\MCC18\v3_39\src\traditional\proc\p18F45K80.asm
+                 _startup   0x002456    program     extern C:\MCC18\v3_39\src\traditional\startup\c018i.c
+                     loop   0x002466    program     static                          
+       ___return_lbl00001   0x002470    program     static                          
                __config_0   0x300000    program     static /audio/matrix_pic18f45k80/swm45k80.c
                __config_1   0x300001    program     static /audio/matrix_pic18f45k80/swm45k80.c
                __config_2   0x300002    program     static /audio/matrix_pic18f45k80/swm45k80.c
