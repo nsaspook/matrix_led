@@ -111,6 +111,7 @@ typedef signed long long int64_t;
 #define PIXEL_NUM       128
 #define OBJ_NUM		16
 #define	ROT_SPEED	20
+#define ROTATION	3.0
 #define DIAG_BITS	9
 
 #define FALSE	0
@@ -304,11 +305,12 @@ void high_handler(void)
 		timer.lt = ADRES;
 		timer.lt = timer.lt >> CHOP_BITS; // toss lower bit noise
 		if ((timer.lt) < (touch_base[isr_channel] - TRIP)) { // see if we have a pressed button
-			switchState = PRESSED;
+			if (isr_channel == 0) switchState = PRESSED;
+			if (isr_channel == 1) switchState = UNPRESSED;
 			LATEbits.LATE2 = 1; // flash external led
 			pixel[DIAG_BITS + isr_channel].v = 1;
 		} else if ((timer.lt) > (touch_base[isr_channel] - TRIP + HYST)) {
-			switchState = UNPRESSED;
+			//			switchState = UNPRESSED;
 			LATEbits.LATE2 = 0; // flash external led
 			pixel[DIAG_BITS + isr_channel].v = 0;
 		}
@@ -488,8 +490,8 @@ void pixel_rotate(uint8_t list_num, float degree, uint8_t cw, float x_center, fl
 
 	pixel[list_num].x_t = x_new;
 	pixel[list_num].y_t = y_new;
-	pixel[list_num].x = (int8_t) x_new;
-	pixel[list_num].y = (int8_t) y_new;
+	pixel[list_num].x = (int8_t) ceil(x_new);
+	pixel[list_num].y = (int8_t) ceil(y_new);
 
 }
 
@@ -502,7 +504,6 @@ void object_rotate(uint8_t list_num, float degree, uint8_t cw, float x_center, f
 		if (pixel[list_num + i].n_link != list_num) return; // invalid current object id
 		pixel_rotate(list_num + i, degree, cw, x_center, y_center);
 	}
-	//	pixel_init();
 }
 
 void main(void)
@@ -510,6 +511,7 @@ void main(void)
 	uint16_t touch_zero = 0;
 	uint8_t x = 1, y = 1, t, i;
 	uint32_t move = 0, times = ROT_SPEED;
+	float rotation = 0.0;
 
 	pixel_init(); // Setup the pixel display data MUST BE CALLED FIRST
 
@@ -589,16 +591,21 @@ void main(void)
 
 			/* transformation testing */
 			if (++move >= times) {
+
 				INTCONbits.GIEL = 0; // suspend list processing during matrix operations
 				if (switchState == UNPRESSED) {
 					times = ROT_SPEED;
-
-					object_rotate(0, 2, TRUE, 0.0, 0.0);
+					pixel_init();
+					object_rotate(0, rotation, TRUE, 0.0, 0.0);
 
 				} else {
-					times = 256;
+					times = ROT_SPEED;
+					pixel_init();
+					object_rotate(0, 360.0 - rotation, TRUE, 0.0, 0.0);
 				}
 				INTCONbits.GIEL = 1;
+				rotation += ROTATION;
+				if (rotation > 360.00) rotation = 0.0;
 				move = 0;
 			}
 		}
