@@ -111,7 +111,7 @@ typedef signed long long int64_t;
 #define PIXEL_NUM       128
 #define OBJ_NUM		16
 #define	ROT_SPEED	20
-#define ROTATION	3.0
+#define ROTATION	6.0
 #define DIAG_BITS	9
 
 #define FALSE	0
@@ -152,19 +152,27 @@ typedef struct pixel_t {
 
 /* store the pixel data in rom then copy it to the ram buffer as needed. */
 const rom struct pixel_t pixel_rom[PIXEL_NUM] = {
-	1, 1, 1, 0, 0, 0, 0,
-	3, 1, 1, 1, 0, 0, 0,
-	5, 1, 1, 2, 0, 0, 0,
-	3, 3, 1, 3, 0, 0, 0,
-	5, 5, 1, 4, 0, 0, 0,
-	3, 5, 1, 5, 0, 0, 0,
-	1, 5, 1, 6, 0, 0, 0,
-	4, 2, 1, 7, 0, 0, 0,
-	4, 4, 1, 8, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0,
+	0, 7, 0, 1, 0, 0, 0,
+	1, 6, 1, 2, 0, 0, 0,
+	2, 5, 1, 3, 0, 0, 0,
+	3, 4, 1, 4, 0, 0, 0,
+	4, 3, 1, 5, 0, 0, 0,
+	5, 2, 1, 6, 0, 0, 0,
+	6, 1, 1, 7, 0, 0, 0,
+	7, 0, 1, 8, 0, 0, 0,
 	6, 4, 0, 9, 9, 0, 0,
 	6, 5, 0, 10, 9, 0, 0,
 	6, 6, 0, 11, 9, 0, 0,
 	6, 7, 0, 12, 9, 0, 0,
+	0, 0, 0, 13, 13, 0, 0,
+	1, 1, 1, 14, 13, 0, 0,
+	2, 2, 1, 15, 13, 0, 0,
+	3, 3, 1, 16, 13, 0, 0,
+	4, 4, 1, 17, 13, 0, 0,
+	5, 5, 1, 18, 13, 0, 0,
+	6, 6, 1, 19, 13, 0, 0,
+	7, 7, 1, 20, 13, 0, 0,
 	0, 0, 0, -1, -1, 0, 0
 };
 
@@ -596,12 +604,13 @@ void main(void)
 				if (switchState == UNPRESSED) {
 					times = ROT_SPEED;
 					pixel_init();
-					object_rotate(0, rotation, TRUE, 0.0, 0.0);
-
+					object_rotate(0, rotation, TRUE, 0.0, 8.0);
+					object_rotate(13, 360.0 - rotation, TRUE, 0.0, 0.0);
 				} else {
 					times = ROT_SPEED;
 					pixel_init();
-					object_rotate(0, 360.0 - rotation, TRUE, 0.0, 0.0);
+					object_rotate(0, 360.0 - rotation, TRUE, 0.0, 8.0);
+					object_rotate(13, rotation, TRUE, 0.0, 0.0);
 				}
 				INTCONbits.GIEL = 1;
 				rotation += ROTATION;
