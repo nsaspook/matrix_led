@@ -79,7 +79,7 @@
  *
  */
 
-
+#include <string.h>
 #include <stdlib.h>
 #include <EEP.h>
 #include <timers.h>
@@ -87,6 +87,7 @@
 #include <ctmu.h>
 #include <usart.h>
 #include <math.h>
+
 
 #ifdef INTTYPES
 #include <stdint.h>
@@ -148,7 +149,7 @@ typedef struct pixel_t {
 	float x_t, y_t; // vector x,y
 } volatile pixel_t; // -1 in the m_link and n_link means end of display data
 
-
+/* store the pixel data in rom then copy it to the ram buffer as needed. */
 const rom struct pixel_t pixel_rom[PIXEL_NUM] = {
 	1, 1, 1, 0, 0, 0, 0,
 	3, 1, 1, 1, 0, 0, 0,
@@ -172,20 +173,9 @@ const rom struct pixel_t pixel_rom[PIXEL_NUM] = {
  * Display file point mode data for line drawing display
  */
 
+/* default data for ram buffer */
 volatile struct pixel_t pixel[PIXEL_NUM] = {
-	1, 1, 1, 0, 0, 0, 0,
-	3, 1, 1, 1, 0, 0, 0,
-	5, 1, 1, 2, 0, 0, 0,
-	3, 3, 1, 3, 0, 0, 0,
-	5, 5, 1, 4, 0, 0, 0,
-	3, 5, 1, 5, 0, 0, 0,
-	1, 5, 1, 6, 0, 0, 0,
-	4, 2, 1, 7, 0, 0, 0,
-	4, 4, 1, 8, 0, 0, 0,
-	6, 4, 0, 9, 9, 0, 0,
-	6, 5, 0, 10, 9, 0, 0,
-	6, 6, 0, 11, 9, 0, 0,
-	6, 7, 0, 12, 9, 0, 0,
+	0, 0, 0, 0, 0, 0, 0,
 	0, 0, 0, -1, -1, 0, 0
 };
 
@@ -428,7 +418,7 @@ int16_t ctmu_setup(uint8_t current, uint8_t channel)
 	return 0;
 }
 
-uint16_t ctmu_touch(uint8_t channel, uint8_t NULL)
+uint16_t ctmu_touch(uint8_t channel, uint8_t NULL0)
 {
 	static uint16_t ctmu_change = 0, last = 0, null = 0;
 	static union Timers timer;
@@ -438,7 +428,7 @@ uint16_t ctmu_touch(uint8_t channel, uint8_t NULL)
 		timer.bt[1] = TMR3H; // read high byte
 		timer.lt = timer.lt & 0x003f;
 
-		if (NULL == FALSE) {
+		if (NULL0 == FALSE) {
 			return(timer.lt);
 		}
 		if (timer.lt < touch_base[channel]) {
@@ -446,7 +436,7 @@ uint16_t ctmu_touch(uint8_t channel, uint8_t NULL)
 			ctmu_change = ctmu_change & 0x001f;
 		}
 
-		if ((null == 0) && NULL) null = ctmu_change;
+		if ((null == 0) && NULL0) null = ctmu_change;
 		last = ctmu_change;
 		return(uint16_t) ctmu_change;
 	} else {
@@ -457,6 +447,9 @@ uint16_t ctmu_touch(uint8_t channel, uint8_t NULL)
 void pixel_init(void)
 {
 	int16_t i;
+
+	memcpypgm2ram((void *) pixel, (const rom void *) pixel_rom, sizeof(pixel));
+
 	for (i = 0; i < PIXEL_NUM; i++) {
 		pixel[i].x_t = pixel[i].x;
 		pixel[i].y_t = pixel[i].y;
@@ -509,7 +502,7 @@ void object_rotate(uint8_t list_num, float degree, uint8_t cw, float x_center, f
 		if (pixel[list_num + i].n_link != list_num) return; // invalid current object id
 		pixel_rotate(list_num + i, degree, cw, x_center, y_center);
 	}
-//	pixel_init();
+	//	pixel_init();
 }
 
 void main(void)
@@ -611,4 +604,3 @@ void main(void)
 		}
 	}
 }
-#pragma idata
