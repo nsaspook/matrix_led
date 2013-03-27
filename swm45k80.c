@@ -204,13 +204,13 @@ void low_handler(void); // MATRIX updater
 void pixel_init(void); // init the RAM pixel array with all of the ROM array.
 void pixel_set(uint8_t, uint8_t); // pixel, value
 void pixel_trans(uint8_t, int8_t, int8_t); // pixel,x,y
-void pixel_rotate(uint8_t, float, uint8_t, float, float); // pixel,degree,direction C/CW, center x,y
+void pixel_rotate(uint8_t, float); // pixel,degree
 void pixel_scale(uint8_t, float, float); // pixel,scale x,y
 
 uint8_t obj_init(uint8_t, uint8_t); // returns the ram object ID of the object copied from the ROM array
 void object_set(uint8_t, uint8_t); // object ID, value
 void object_trans(uint8_t, int8_t, int8_t); // object ID,x,y
-void object_rotate(uint8_t, float, uint8_t, float, float); // object ID, degrees, mode,x,y
+void object_rotate(uint8_t, float); // object ID, degrees
 void object_scale(uint8_t, float, float); // object ID,x,y
 
 #pragma code high_interrupt = 0x8
@@ -520,9 +520,9 @@ void pixel_set(uint8_t list_num, uint8_t value)
 	pixel[list_num].v = value;
 }
 
-void pixel_rotate(uint8_t list_num, float degree, uint8_t mode, float x_center, float y_center) // pixel,degree rotation,direction C/CW,x,y center of rotation
+void pixel_rotate(uint8_t list_num, float degree) // pixel,degree rotation
 {
-	static float to_rad, float_x, float_y, x_new, y_new, sine, cosine, old_degree = 1957.7;
+	static float to_rad, float_x, float_y, sine, cosine, old_degree = 1957.7;
 
 	if (degree != old_degree) {
 		to_rad = 0.0175 * degree;
@@ -533,18 +533,10 @@ void pixel_rotate(uint8_t list_num, float degree, uint8_t mode, float x_center, 
 
 	float_x = (float) pixel[list_num].x;
 	float_y = (float) pixel[list_num].y;
-	if (mode) {
-		x_new = cosine * (float_x - x_center) - sine * (float_y - y_center) + x_center;
-		y_new = sine * (float_x - x_center) + cosine * (float_y - y_center) + y_center;
-		pixel[list_num].x = (int8_t) ceil(x_new);
-		pixel[list_num].y = (int8_t) ceil(y_new);
 
-	} else {
-		x_new = float_x * cosine - float_y * sine;
-		y_new = float_x * sine + float_y * cosine;
-		pixel[list_num].x = (int8_t) x_new;
-		pixel[list_num].y = (int8_t) y_new;
-	}
+	pixel[list_num].x = (int8_t) (float_x * cosine - float_y * sine);
+	pixel[list_num].y = (int8_t) (float_x * sine + float_y * cosine);
+
 }
 
 void pixel_trans(uint8_t list_num, int8_t x_new, int8_t y_new)
@@ -563,7 +555,7 @@ void pixel_scale(uint8_t list_num, float x_scale, float y_scale)
 	pixel[list_num].y = (int8_t) float_y * y_scale;
 }
 
-void object_rotate(uint8_t list_num, float degree, uint8_t mode, float x_center, float y_center)
+void object_rotate(uint8_t list_num, float degree)
 {
 	static uint8_t i;
 
@@ -571,7 +563,7 @@ void object_rotate(uint8_t list_num, float degree, uint8_t mode, float x_center,
 
 	for (i = 0; i < OBJ_NUM; i++) {
 		if (pixel[list_num + i].n_link != list_num) return; // invalid current object id
-		pixel_rotate(list_num + i, degree, mode, x_center, y_center);
+		pixel_rotate(list_num + i, degree);
 	}
 }
 
@@ -717,16 +709,16 @@ void main(void)
 					//pixel_init();
 					obj_init(0, TRUE); // clear memory to only selected objects
 					obj1 = obj_init(romid, FALSE); // return ID for rom object into ram id
-					//                                        obj2 = obj_init(13, FALSE); // return ID for rom object into rad id
 					object_scale(obj1, scaling, scaling);
-					object_rotate(obj1, rotation, FALSE, 0.0, 0.0);
+					object_rotate(obj1, rotation);
 					object_trans(obj1, 3, 3);
-					//                                       object_rotate(obj2, rotation, TRUE, 3.0, 7.0);
 				} else {
-					times = ROT_SPEED + ROT_SPEED;
-					pixel_init(); // load all objects to memory
-					object_rotate(0, 360.0 - rotation, TRUE, 3.0, 0.0);
-					object_rotate(13, 360.0 - rotation, TRUE, 3.0, 7.0);
+					times = ROT_SPEED;
+					obj_init(0, TRUE); // clear memory to only selected objects
+					obj1 = obj_init(romid, FALSE); // return ID for rom object into ram id
+					object_scale(obj1, 1.0 - scaling, 1.0 - scaling);
+					object_rotate(obj1, 360.0 - rotation);
+					object_trans(obj1, 3, 3);
 				}
 				INTCONbits.GIEL = 1;
 				scan_on();
@@ -734,7 +726,7 @@ void main(void)
 				if (rotation > 360.00) {
 					rotation = 0.0;
 					scaling -= 0.1;
-					if (scaling < 0.1) {
+					if (scaling < -0.01) {
 						scaling = 1.0;
 						if (romid == 9) {
 							romid = 13;
