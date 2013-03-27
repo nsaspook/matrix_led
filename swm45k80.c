@@ -148,7 +148,7 @@ int16_t ctmu_setup(uint8_t, uint8_t);
 
 typedef struct pixel_t {
 	int8_t x, y, v; // display bit x,y and v for pixel value 0=off
-	int8_t m_link, n_link; // pixel links m_ id for each pixel, n_ pixel group id
+	int8_t m_link, n_link; // pixel links m_ id for each pixel, n_ pixel group id for object
 } volatile pixel_t; // -1 in the m_link and n_link means end of display data
 
 /* store the pixel data in rom then copy it to the ram buffer as needed. */
@@ -703,33 +703,32 @@ void main(void)
 			/* transformation testing */
 			if (++move >= times) {
 
-				INTCONbits.GIEL = 0;
+				INTCONbits.GIEL = 0;	// stops flashing
 				scan_off; // suspend list processing during matrix operations
 				if (switchState == UNPRESSED) {
 					times = ROT_SPEED;
 					//pixel_init();
-					obj_init(0, TRUE); // clear memory to only selected objects
+					obj_init(0, TRUE); // clear ram display memory
 					obj1 = obj_init(romid, FALSE); // return ID for rom object into ram id
-					object_scale(obj1, scaling, scaling);
-					object_rotate(obj1, rotation);
-					object_trans(obj1, 3, 3);
+					object_scale(obj1, scaling, scaling);	// big to small
+					object_rotate(obj1, rotation);	// CW
+					object_trans(obj1, 3, 3);	// move to near center
 				} else {
 					times = ROT_SPEED;
-					obj_init(0, TRUE); // clear memory to only selected objects
+					obj_init(0, TRUE); // clear ram diaplay memory
 					obj1 = obj_init(romid, FALSE); // return ID for rom object into ram id
-					object_scale(obj1, 2.0 - scaling, 2.0 - scaling);
-					object_rotate(obj1, 360.0 - rotation);
+					object_scale(obj1, 2.0 - scaling, 2.0 - scaling); // small to big
+					object_rotate(obj1, 360.0 - rotation);	// CCW
 					object_trans(obj1, 3, 3);
 				}
-				INTCONbits.GIEL = 1;
 				scan_on();
 				rotation += ROTATION;
-				if (rotation > 360.00) {
+				if (rotation > 360.00) { // spin and grow or shrink
 					rotation = 0.0;
 					scaling -= 0.1;
 					if (scaling < -0.01) {
 						scaling = 2.0;
-						if (romid == 9) {
+						if (romid == 9) {	// flips between two sprite ID's
 							romid = 13;
 						} else {
 							romid = 9;
