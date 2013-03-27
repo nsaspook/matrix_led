@@ -107,7 +107,7 @@ typedef signed long int32_t;
 typedef signed long long int64_t;
 #endif
 
-#define	PDELAY	3000
+#define	PDELAY	0xA8
 
 #define GRID_S          8
 #define PIXEL_NUM       128
@@ -135,7 +135,7 @@ int16_t ctmu_setup(uint8_t, uint8_t);
 #define	TIMERCHARGE_BASE_2		61543		// .55 uA time, large plate low sens ~1000us
 #define	TIMERCHARGE_BASE_3		65000		// .55 uA time, small plate max sens ~200us
 #define	TIMERCHARGE_BASE_4		62543		// .55 uA time, small plate low sens ~750us
-#define	TIMERDISCHARGE			41000		// discharge and max touch data update period 1.8ms
+#define	TIMERDISCHARGE			51000		// discharge and max touch data update period 1.8ms
 
 #define TRIP 32  //Difference between pressed
 //and un-pressed switch
@@ -162,18 +162,17 @@ const rom struct pixel_t pixel_rom[PIXEL_NUM] = {
 	0, 2, 1, 6, 0,
 	-1, 3, 1, 7, 0,
 	-2, 0, 1, 8, 0,
-	6, 4, 0, 9, 9,
-	6, 5, 0, 10, 9,
-	6, 6, 0, 11, 9,
-	6, 7, 0, 12, 9,
-	0, 0, 0, 13, 13,
-	1, 1, 1, 14, 13,
-	2, 2, 0, 15, 13,
-	3, 3, 1, 16, 13,
-	4, 4, 0, 17, 13,
-	5, 5, 1, 18, 13,
-	6, 6, 0, 19, 13,
-	7, 7, 1, 20, 13,
+	-2, -2, 1, 9, 9,
+	-1, -1, 1, 10, 9,
+	1, 1, 1, 11, 9,
+	2, 2, 1, 12, 9,
+	0, -3, 1, 13, 13,
+	3, 0, 1, 14, 13,
+	0, 3, 1, 15, 13,
+	-3, 0, 1, 16, 13,
+	0, 0, 0, 17, 13,
+	3, 3, 1, 18, 13,
+	0, 0, 0, 19, 19,
 	0, 0, 0, -1, -1
 };
 
@@ -208,7 +207,7 @@ void pixel_trans(uint8_t, int8_t, int8_t); // pixel,x,y
 void pixel_rotate(uint8_t, float, uint8_t, float, float); // pixel,degree,direction C/CW, center x,y
 void pixel_scale(uint8_t, float, float); // pixel,scale x,y
 
-uint8_t obj_init(int8_t, uint8_t); // returns the ram object ID of the object copied from the ROM array
+uint8_t obj_init(uint8_t, uint8_t); // returns the ram object ID of the object copied from the ROM array
 void object_set(uint8_t, uint8_t); // object ID, value
 void object_trans(uint8_t, int8_t, int8_t); // object ID,x,y
 void object_rotate(uint8_t, float, uint8_t, float, float); // object ID, degrees, mode,x,y
@@ -337,11 +336,11 @@ void high_handler(void)
 			if (isr_channel == 0) switchState = PRESSED;
 			if (isr_channel == 1) switchState = UNPRESSED;
 			LATEbits.LATE2 = 1; // flash external led
-			pixel[DIAG_BITS + isr_channel].v = 1;
+			//			pixel[DIAG_BITS + isr_channel].v = 1;
 		} else if ((timer.lt) > (touch_base[isr_channel] - TRIP + HYST)) {
 			//			switchState = UNPRESSED;
 			LATEbits.LATE2 = 0; // flash external led
-			pixel[DIAG_BITS + isr_channel].v = 0;
+			//			pixel[DIAG_BITS + isr_channel].v = 0;
 		}
 		TMR3H = timer.bt[1];
 		TMR3L = timer.bt[0]; // copy low byte and write to timer counter
@@ -358,9 +357,10 @@ void high_handler(void)
 
 uint16_t touch_base_calc(uint8_t channel)
 {
-	uint32_t t_avg = 0;
-	int16_t i;
+	static uint32_t t_avg = 0;
+	static int16_t i;
 
+	t_avg = 0;
 	touch_channel(channel);
 	CTMU_ADC_UPDATED = FALSE;
 	while (!CTMU_ADC_UPDATED) ClrWdt(); // wait for touch update cycle
@@ -478,17 +478,17 @@ uint16_t ctmu_touch(uint8_t channel, uint8_t NULL0)
 /* copy the entire ROM to RAM display memory */
 void pixel_init(void)
 {
-	int16_t i;
+	static int16_t i;
 
 	memcpypgm2ram((void *) pixel, (const rom void *) pixel_rom, sizeof(pixel));
 
 }
 
 /* move the pixel object from the ROM array to display RAM memeory, if clear is TRUE reset RAM index back to zero */
-uint8_t obj_init(int8_t m_link, uint8_t clear)
+uint8_t obj_init(uint8_t rom_link, uint8_t clear)
 {
-	int16_t i;
-	static uint8_t ram_link = 0, obj_size = 0, ram_link_start = 0;
+	static int16_t i, pixel_size;
+	static uint8_t ram_link = 0, ram_link_start = 0;
 
 	if (clear) {
 		ram_link = 0;
@@ -498,9 +498,11 @@ uint8_t obj_init(int8_t m_link, uint8_t clear)
 	}
 
 	ram_link_start = 0;
+	pixel_size = sizeof(pixel_temp);
 	do {
-		memcpypgm2ram((void *) &pixel[ram_link + ram_link_start].x, (const rom void *) &pixel_rom[m_link + ram_link_start].x, sizeof(pixel_temp));
-	} while (pixel_rom[++ram_link_start + m_link].n_link == m_link);
+		memcpypgm2ram((void *) &pixel[ram_link + ram_link_start].x, (const rom void *) &pixel_rom[rom_link + ram_link_start].x, pixel_size);
+		++ram_link_start;
+	} while (pixel_rom[ram_link_start + rom_link].n_link == rom_link);
 
 	for (i = ram_link; i < (ram_link + ram_link_start); i++) {
 		pixel[i].m_link = ram_link + i; // make a RAM ID for each pixel
@@ -534,14 +536,15 @@ void pixel_rotate(uint8_t list_num, float degree, uint8_t mode, float x_center, 
 	if (mode) {
 		x_new = cosine * (float_x - x_center) - sine * (float_y - y_center) + x_center;
 		y_new = sine * (float_x - x_center) + cosine * (float_y - y_center) + y_center;
+		pixel[list_num].x = (int8_t) ceil(x_new);
+		pixel[list_num].y = (int8_t) ceil(y_new);
 
 	} else {
 		x_new = float_x * cosine - float_y * sine;
 		y_new = float_x * sine + float_y * cosine;
+		pixel[list_num].x = (int8_t) x_new;
+		pixel[list_num].y = (int8_t) y_new;
 	}
-
-	pixel[list_num].x = (int8_t) ceil(x_new);
-	pixel[list_num].y = (int8_t) ceil(y_new);
 }
 
 void pixel_trans(uint8_t list_num, int8_t x_new, int8_t y_new)
@@ -556,13 +559,13 @@ void pixel_scale(uint8_t list_num, float x_scale, float y_scale)
 
 	float_x = (float) pixel[list_num].x;
 	float_y = (float) pixel[list_num].y;
-	pixel[list_num].x = (int8_t) ceil(float_x * x_scale);
-	pixel[list_num].y = (int8_t) ceil(float_y * y_scale);
+	pixel[list_num].x = (int8_t) float_x * x_scale;
+	pixel[list_num].y = (int8_t) float_y * y_scale;
 }
 
 void object_rotate(uint8_t list_num, float degree, uint8_t mode, float x_center, float y_center)
 {
-	uint8_t i;
+	static uint8_t i;
 
 	if (list_num >= PIXEL_NUM) return; // check for valid range
 
@@ -574,7 +577,7 @@ void object_rotate(uint8_t list_num, float degree, uint8_t mode, float x_center,
 
 void object_trans(uint8_t list_num, int8_t x_new, int8_t y_new)
 {
-	uint8_t i;
+	static uint8_t i;
 
 	if (list_num >= PIXEL_NUM) return; // check for valid range
 
@@ -586,7 +589,7 @@ void object_trans(uint8_t list_num, int8_t x_new, int8_t y_new)
 
 void object_scale(uint8_t list_num, float x_scale, float y_scale)
 {
-	uint8_t i;
+	static uint8_t i;
 
 	if (list_num >= PIXEL_NUM) return; // check for valid range
 
@@ -598,7 +601,7 @@ void object_scale(uint8_t list_num, float x_scale, float y_scale)
 
 void object_set(uint8_t list_num, uint8_t value)
 {
-	uint8_t i;
+	static uint8_t i;
 
 	if (list_num >= PIXEL_NUM) return; // check for valid range
 
@@ -608,10 +611,22 @@ void object_set(uint8_t list_num, uint8_t value)
 	}
 }
 
+void scan_on(void)
+{
+	INTCONbits.GIEL = 1; // restart display scanner
+}
+
+void scan_off(void)
+{
+	INTCONbits.GIEL = 0; // suspend list processing during matrix operations
+	LATB = 0xff;
+	LATC = 0x00;
+}
+
 void main(void)
 {
 	uint16_t touch_zero = 0;
-	uint8_t x = 1, y = 1, t, i;
+	uint8_t x = 1, y = 1, t, i, romid = 9;
 	uint32_t move = 0, times = ROT_SPEED;
 	uint8_t obj1, obj2;
 	float rotation = 0.0, scaling = 1.0;
@@ -695,15 +710,16 @@ void main(void)
 			/* transformation testing */
 			if (++move >= times) {
 
-				INTCONbits.GIEL = 0; // suspend list processing during matrix operations
+				INTCONbits.GIEL = 0;
+				scan_off; // suspend list processing during matrix operations
 				if (switchState == UNPRESSED) {
 					times = ROT_SPEED;
 					//pixel_init();
 					obj_init(0, TRUE); // clear memory to only selected objects
-					obj1 = obj_init(0, FALSE); // return ID for rom object 0
-					//                                        obj2 = obj_init(13, FALSE); // return ID for rom object 13
+					obj1 = obj_init(romid, FALSE); // return ID for rom object into ram id
+					//                                        obj2 = obj_init(13, FALSE); // return ID for rom object into rad id
 					object_scale(obj1, scaling, scaling);
-					object_rotate(obj1, rotation, TRUE, 0.0, 0.0);
+					object_rotate(obj1, rotation, FALSE, 0.0, 0.0);
 					object_trans(obj1, 3, 3);
 					//                                       object_rotate(obj2, rotation, TRUE, 3.0, 7.0);
 				} else {
@@ -713,11 +729,19 @@ void main(void)
 					object_rotate(13, 360.0 - rotation, TRUE, 3.0, 7.0);
 				}
 				INTCONbits.GIEL = 1;
+				scan_on();
 				rotation += ROTATION;
 				if (rotation > 360.00) {
 					rotation = 0.0;
 					scaling -= 0.1;
-					if (scaling < 0.1) scaling = 1.0;
+					if (scaling < 0.1) {
+						scaling = 1.0;
+						if (romid == 9) {
+							romid = 13;
+						} else {
+							romid = 9;
+						}
+					}
 				}
 				move = 0;
 			}
