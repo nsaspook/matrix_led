@@ -111,8 +111,8 @@ typedef signed long long int64_t;
 
 #define GRID_S          8
 #define PIXEL_NUM       128
-#define OBJ_NUM		16
-#define	ROT_SPEED	30
+#define OBJ_NUM		24
+#define	ROT_SPEED	25
 #define ROTATION	12.0
 #define DIAG_BITS	PIXEL_NUM-8
 
@@ -172,7 +172,8 @@ const rom struct pixel_t pixel_rom[PIXEL_NUM] = {
 	-3, 0, 1, 16, 13,
 	0, 0, 0, 17, 13,
 	3, 3, 1, 18, 13,
-	0, 0, 0, 19, 19,
+	0, 0, 0, 19, 13,
+	0, 0, 0, -1, -1,
 	0, 0, 0, -1, -1
 };
 
@@ -620,8 +621,8 @@ void main(void)
 	uint16_t touch_zero = 0;
 	uint8_t x = 1, y = 1, t, i, romid = 9;
 	uint32_t move = 0, times = ROT_SPEED;
-	uint8_t obj1, obj2;
-	float rotation = 0.0, scaling = 1.0;
+	uint8_t obj1;
+	float rotation = 0.0, scaling = 2.0;
 
 	pixel_init(); // Setup the pixel display data MUST BE CALLED FIRST
 
@@ -716,7 +717,7 @@ void main(void)
 					times = ROT_SPEED;
 					obj_init(0, TRUE); // clear memory to only selected objects
 					obj1 = obj_init(romid, FALSE); // return ID for rom object into ram id
-					object_scale(obj1, 1.0 - scaling, 1.0 - scaling);
+					object_scale(obj1, 2.0 - scaling, 2.0 - scaling);
 					object_rotate(obj1, 360.0 - rotation);
 					object_trans(obj1, 3, 3);
 				}
@@ -727,7 +728,7 @@ void main(void)
 					rotation = 0.0;
 					scaling -= 0.1;
 					if (scaling < -0.01) {
-						scaling = 1.0;
+						scaling = 2.0;
 						if (romid == 9) {
 							romid = 13;
 						} else {
