@@ -112,7 +112,7 @@ typedef signed long long int64_t;
 #define GRID_S          8
 #define PIXEL_NUM       128
 #define OBJ_NUM		24
-#define	ROT_SPEED	35
+#define	ROT_SPEED	35	// The highest speed is 1
 #define ROTATION	12.0
 #define DIAG_BITS	PIXEL_NUM-8
 
