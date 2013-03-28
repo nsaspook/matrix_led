@@ -485,6 +485,7 @@ void pixel_init(void)
 
 }
 
+//FIXME we have a ram index bug here
 /* move the pixel object from the ROM array to display RAM memeory, if clear is TRUE reset RAM index back to zero */
 uint8_t obj_init(uint8_t rom_link, uint8_t clear)
 {
