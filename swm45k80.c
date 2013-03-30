@@ -69,6 +69,7 @@
 /*
  *
  *  E0.01 LED 7*5*2 MATRIX DISPLAY, CTMU touch driver
+ *  E0.02 Fix X/Y swap bug
  *  ***		background I/O using timer0/timer2  adc, usart2 interrupts
  *  Timer3 counter/buffer used for ATOMIC 16bit reads and writes of touch data
  *  INPUTS		AN0-3 touch input
@@ -146,8 +147,7 @@ int16_t ctmu_setup(uint8_t, uint8_t);
 #define	CHOP_BITS	4               // remove this many bits to reduce noise from the touch sensor
 #define MAX_CHAN	3		//	0..3 ADC channels
 
-//FIXME
-/* The X/Y coordinates on the display are reversed */
+
 typedef struct pixel_t {
 	int8_t x, y, v; // display bit x,y and v for pixel value 0=off
 	int8_t m_link, n_link; // pixel links m_ id for each pixel, n_ pixel group id for object
@@ -258,8 +258,8 @@ void low_handler(void)
 			x = x << pixel[list_num].x; // move the cross bar to the correct location
 			y = y << pixel[list_num].y;
 			if (pixel[list_num].v) {
-				LATB = ~x; // set to low for dot on, load the crossbar into the chip outputs
-				LATC = y; // set to high for dot on
+				LATB = ~y; // set to low for dot on, load the crossbar into the chip outputs
+				LATC = x; // set to high for dot on
 			} else { // no dot
 				LATB = 0xff;
 				LATC = 0x00;
