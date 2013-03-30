@@ -112,7 +112,7 @@ typedef signed long long int64_t;
 #define GRID_S          8
 #define PIXEL_NUM       128
 #define OBJ_NUM		24
-#define	ROT_SPEED	35	// The highest speed is 1
+#define	ROT_SPEED	35	// The highest speed is 1, 35 for demo speed
 #define ROTATION	12.0
 #define DIAG_BITS	PIXEL_NUM-8
 
@@ -146,6 +146,8 @@ int16_t ctmu_setup(uint8_t, uint8_t);
 #define	CHOP_BITS	4               // remove this many bits to reduce noise from the touch sensor
 #define MAX_CHAN	3		//	0..3 ADC channels
 
+//FIXME
+/* The X/Y coordinates on the display are reversed */
 typedef struct pixel_t {
 	int8_t x, y, v; // display bit x,y and v for pixel value 0=off
 	int8_t m_link, n_link; // pixel links m_ id for each pixel, n_ pixel group id for object
