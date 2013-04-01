@@ -70,10 +70,10 @@
  *
  *  E0.01 LED 7*5*2 MATRIX DISPLAY, CTMU touch driver
  *  E0.02 Fix X/Y swap bug
- *  ***		background I/O using timer0/timer2  adc, usart2 interrupts
+ *  ***		background I/O using timer0/timer2  adc, usart2 TX,RX interrupts
  *  Timer3 counter/buffer used for ATOMIC 16bit reads and writes of touch data
  *  INPUTS		AN0-3 touch input
- *  MATRIX X/Y	PORTB 0-7, PORTC 0-7, PORTA 6-7 DIGITAL OUTPUTS 25mA source or sink
+ *  MATRIX X/Y	X-PORTC 0-7, Y-PORTB 0-7, X-PORTA 6-7 DIGITAL OUTPUTS 25mA source or sink
  *  VCC VAOM-A20571G 2.0" dot-matrix display
  *
  *
@@ -111,8 +111,8 @@ typedef signed long long int64_t;
 #define	PDELAY	0xA8
 
 #define GRID_S          8
-#define PIXEL_NUM       128
-#define OBJ_NUM		24
+#define PIXEL_NUM       256	// max number of pixels in display ram
+#define OBJ_NUM		64	// max nuber of pixels in one object
 #define	ROT_SPEED	35	// The highest speed is 1, 35 for demo speed
 #define ROTATION	12.0
 #define DIAG_BITS	PIXEL_NUM-8
@@ -154,7 +154,7 @@ typedef struct pixel_t {
 } volatile pixel_t; // -1 in the m_link and n_link means end of display data
 
 /* store the pixel data in rom then copy it to the ram buffer as needed. */
-const rom struct pixel_t pixel_rom[PIXEL_NUM] = {
+const rom struct pixel_t pixel_rom[] = {
 	-1, -3, 1, 0, 0,
 	0, -2, 0, 1, 0,
 	1, -1, 1, 2, 0,
@@ -201,7 +201,7 @@ volatile uint8_t CTMU_ADC_UPDATED = FALSE, TIME_CHARGE = FALSE, CTMU_WORKING = F
 	isr_channel = 0;
 volatile uint16_t touch_base[16], switchState = UNPRESSED, charge_time[16]; //storage for reading parameters
 
-void high_handler(void); //reads the CTMU voltage using a ADC channel, interrupt driven
+void high_handler(void); //reads the CTMU voltage using a ADC channel, interrupt driven RS-232
 void low_handler(void); // MATRIX updater
 
 void pixel_init(void); // init the RAM pixel array with all of the ROM array.
