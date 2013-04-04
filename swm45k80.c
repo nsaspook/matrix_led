@@ -147,7 +147,6 @@ int16_t ctmu_setup(uint8_t, uint8_t);
 #define	CHOP_BITS	4               // remove this many bits to reduce noise from the touch sensor
 #define MAX_CHAN	3		//	0..3 ADC channels
 
-
 typedef struct pixel_t {
 	int8_t x, y, v; // display bit x,y and v for pixel value 0=off
 	int8_t m_link, n_link; // pixel links m_ id for each pixel, n_ pixel group id for object
@@ -194,15 +193,20 @@ pixel_temp = {0};
 uint8_t prog_name[] = "nsaspook";
 #pragma idata
 
-#pragma	idata
+#pragma	udata access my_access
+near uint8_t ctmu_button;
+near uint16_t switchState;
+#pragma udata
 
-uint8_t ctmu_button, PEAK_READS = 1;
+uint8_t PEAK_READS = 1;
 volatile uint8_t CTMU_ADC_UPDATED = FALSE, TIME_CHARGE = FALSE, CTMU_WORKING = FALSE, SEND_PACKET = FALSE,
 	isr_channel = 0;
-volatile uint16_t touch_base[16], switchState = UNPRESSED, charge_time[16]; //storage for reading parameters
+volatile uint16_t touch_base[16],  charge_time[16]; //storage for reading parameters
 
 void high_handler(void); //reads the CTMU voltage using a ADC channel, interrupt driven RS-232
 void low_handler(void); // MATRIX updater
+
+void display_init(void); // setup display data structure.
 
 void pixel_init(void); // init the RAM pixel array with all of the ROM array.
 void pixel_set(uint8_t, uint8_t); // pixel, value
@@ -478,6 +482,12 @@ uint16_t ctmu_touch(uint8_t channel, uint8_t NULL0)
 	}
 }
 
+/* display memory */
+void display_init(void)
+{
+// init what needed to display data
+}
+
 /* copy the entire ROM to RAM display memory */
 void pixel_init(void)
 {
@@ -488,6 +498,7 @@ void pixel_init(void)
 }
 
 //FIXME we have a ram index bug here
+
 /* move the pixel object from the ROM array to display RAM memeory, if clear is TRUE reset RAM index back to zero */
 uint8_t obj_init(uint8_t rom_link, uint8_t clear)
 {
@@ -627,7 +638,8 @@ void main(void)
 	uint8_t obj1;
 	float rotation = 0.0, scaling = 2.0;
 
-	pixel_init(); // Setup the pixel display data MUST BE CALLED FIRST
+	display_init(); // Setup the pixel display data MUST BE CALLED FIRST
+	switchState = UNPRESSED;
 
 	TRISA = 0b00001111; //	0..3 inputs 4..7 outputs
 	LATA = 0b00000000;
@@ -706,22 +718,22 @@ void main(void)
 			/* transformation testing */
 			if (++move >= times) {
 
-				INTCONbits.GIEL = 0;	// stops flashing
+				INTCONbits.GIEL = 0; // stops flashing
 				scan_off; // suspend list processing during matrix operations
 				if (switchState == UNPRESSED) {
 					times = ROT_SPEED;
 					//pixel_init();
 					obj_init(0, TRUE); // clear ram display memory
 					obj1 = obj_init(romid, FALSE); // return ID for rom object into ram id
-					object_scale(obj1, scaling, scaling);	// big to small
-					object_rotate(obj1, rotation);	// CW
-					object_trans(obj1, 3, 3);	// move to near center
+					object_scale(obj1, scaling, scaling); // big to small
+					object_rotate(obj1, rotation); // CW
+					object_trans(obj1, 3, 3); // move to near center
 				} else {
 					times = ROT_SPEED;
 					obj_init(0, TRUE); // clear ram diaplay memory
 					obj1 = obj_init(romid, FALSE); // return ID for rom object into ram id
 					object_scale(obj1, 2.0 - scaling, 2.0 - scaling); // small to big
-					object_rotate(obj1, 360.0 - rotation);	// CCW
+					object_rotate(obj1, 360.0 - rotation); // CCW
 					object_trans(obj1, 3, 3);
 				}
 				scan_on();
@@ -731,7 +743,7 @@ void main(void)
 					scaling -= 0.1;
 					if (scaling < -0.01) {
 						scaling = 2.0;
-						if (romid == 9) {	// flips between two sprite ID's
+						if (romid == 9) { // flips between two sprite ID's
 							romid = 13;
 						} else {
 							romid = 9;
