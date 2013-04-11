@@ -111,10 +111,10 @@ typedef signed long long int64_t;
 #define	PDELAY	0xA8
 
 #define GRID_S          8
-#define PIXEL_NUM       256	// max number of pixels in display ram
+#define PIXEL_NUM       255	// max number of pixels in display ram
 #define OBJ_NUM		64	// max nuber of pixels in one object
 #define	ROT_SPEED	35	// The highest speed is 1, 35 for demo speed
-#define ROTATION	12.0
+#define ROTATION	45.0
 #define DIAG_BITS	PIXEL_NUM-8
 
 #define FALSE	0
@@ -167,13 +167,24 @@ const rom struct pixel_t pixel_rom[] = {
 	-1, -1, 1, 10, 9,
 	1, 1, 1, 11, 9,
 	2, 2, 1, 12, 9,
-	0, -3, 1, 13, 13,
-	3, 0, 1, 14, 13,
-	0, 3, 1, 15, 13,
-	-3, 0, 1, 16, 13,
-	0, 0, 0, 17, 13,
-	3, 3, 1, 18, 13,
-	0, 0, 0, 19, 13,
+	0, 0, 0, 13, 9,
+	3, 0, 1, 14, 14,
+	0, 3, 1, 15, 14,
+	-3, 0, 1, 16, 14,
+	0, 0, 0, 17, 14,
+	3, 3, 1, 18, 14,
+	0, 0, 0, 19, 14,
+	0, 3, 1, 20, 20,
+	0, 2, 1, 21, 20,
+	0, 1, 1, 22, 20,
+	2, 2, 1, 23, 20,
+	3, 0, 1, 24, 20,
+	2, -2, 1, 25, 20,
+	0, -3, 1, 26, 20,
+	-2, -2, 1, 27, 20,
+	-3, 0, 1, 28, 20,
+	-2, 2, 1, 29, 20,
+	0, 0, 0, 30, 20,
 	0, 0, 0, -1, -1,
 	0, 0, 0, -1, -1
 };
@@ -194,18 +205,20 @@ uint8_t prog_name[] = "nsaspook";
 #pragma idata
 
 #pragma	udata access my_access
-near uint8_t ctmu_button;
-near uint16_t switchState;
+volatile near uint8_t ctmu_button, list_numd;
+volatile near uint16_t switchState, xd, yd;
 #pragma udata
 
 uint8_t PEAK_READS = 1;
 volatile uint8_t CTMU_ADC_UPDATED = FALSE, TIME_CHARGE = FALSE, CTMU_WORKING = FALSE, SEND_PACKET = FALSE,
 	isr_channel = 0;
-volatile uint16_t touch_base[16],  charge_time[16]; //storage for reading parameters
+volatile uint16_t touch_base[16], charge_time[16]; //storage for reading parameters
 
 void high_handler(void); //reads the CTMU voltage using a ADC channel, interrupt driven RS-232
 void low_handler(void); // MATRIX updater
 
+void d_scan_on(void);
+void d_scan_off(void);
 void display_init(void); // setup display data structure.
 
 void pixel_init(void); // init the RAM pixel array with all of the ROM array.
@@ -241,36 +254,35 @@ void low_int(void)
 /* This is a simple scan converter to a random access display */
 void low_handler(void)
 {
-	static uint8_t list_num = 0;
-	static uint16_t x, y;
-
+	LATDbits.LATD0 = 1;
 	if (PIR1bits.TMR2IF) {
 		PIR1bits.TMR2IF = 0; // clear TMR2 int flag
 		WriteTimer2(PDELAY);
 		LATB = 0xff; // blank the display
 		LATC = 0x00;
-		while (!pixel[list_num].v) { // quickly skip pixels that are off
-			if ((pixel[list_num].m_link == -1) || (++list_num >= PIXEL_NUM)) {
-				list_num = 0;
+		while (!pixel[list_numd].v) { // quickly skip pixels that are off
+			if ((pixel[list_numd].m_link == -1) || (++list_numd >= PIXEL_NUM)) {
+				list_numd = 0;
 				break;
 			}
 		}
 		// We move up the display list data array and display a DOT on the matrix display as needed
-		if ((pixel[list_num].x >= 0) && (pixel[list_num].y >= 0)) { // clip display space to +x and +y
-			x = 1; // load a bit at origin x0
-			y = 1; // load a bit at origin y0
-			x = x << pixel[list_num].x; // move the cross bar to the correct location
-			y = y << pixel[list_num].y;
-			if (pixel[list_num].v) {
-				LATB = ~y; // set to low for dot on, load the crossbar into the chip outputs
-				LATC = x; // set to high for dot on
+		if ((pixel[list_numd].x >= 0) && (pixel[list_numd].y >= 0)) { // clip display space to +x and +y
+			xd = 1; // load a bit at origin x0
+			yd = 1; // load a bit at origin y0
+			xd = xd << pixel[list_numd].x; // move the cross bar to the correct location
+			yd = yd << pixel[list_numd].y;
+			if (pixel[list_numd].v) {
+				LATB = ~yd; // set to low for dot on, load the crossbar into the chip outputs
+				LATC = xd; // set to high for dot on
 			} else { // no dot
 				LATB = 0xff;
 				LATC = 0x00;
 			}
 		}
-		if ((pixel[list_num].m_link == -1) || (++list_num >= PIXEL_NUM)) list_num = 0; // start over again from next line
+		if ((pixel[list_numd].m_link == -1) || (++list_numd >= PIXEL_NUM)) list_numd = 0; // start over again from next line
 	}
+	LATDbits.LATD0 = 0;
 }
 
 #pragma interrupt high_handler
@@ -485,7 +497,8 @@ uint16_t ctmu_touch(uint8_t channel, uint8_t NULL0)
 /* display memory */
 void display_init(void)
 {
-// init what needed to display data
+	// init what needed to display data
+	list_numd = 0;
 }
 
 /* copy the entire ROM to RAM display memory */
@@ -502,7 +515,7 @@ void pixel_init(void)
 /* move the pixel object from the ROM array to display RAM memeory, if clear is TRUE reset RAM index back to zero */
 uint8_t obj_init(uint8_t rom_link, uint8_t clear)
 {
-	static int16_t i, pixel_size;
+	static int16_t pixel_size;
 	static uint8_t ram_link = 0, ram_link_start = 0;
 
 	if (clear) {
@@ -516,13 +529,11 @@ uint8_t obj_init(uint8_t rom_link, uint8_t clear)
 	pixel_size = sizeof(pixel_temp);
 	do {
 		memcpypgm2ram((void *) &pixel[ram_link + ram_link_start].x, (const rom void *) &pixel_rom[rom_link + ram_link_start].x, pixel_size);
+		pixel[ram_link + ram_link_start].m_link = ram_link + ram_link_start; // make a RAM ID for each pixel
+		pixel[ram_link + ram_link_start].n_link = ram_link; // link RAM ID to object
 		++ram_link_start;
 	} while (pixel_rom[ram_link_start + rom_link].n_link == rom_link);
 
-	for (i = ram_link; i < (ram_link + ram_link_start); i++) {
-		pixel[i].m_link = ram_link + i; // make a RAM ID for each pixel
-		pixel[i].n_link = ram_link; // link RAM ID to object
-	}
 	ram_link += ram_link_start;
 	pixel[ram_link].m_link = -1;
 	pixel[ram_link].n_link = -1;
@@ -618,13 +629,16 @@ void object_set(uint8_t list_num, uint8_t value)
 	}
 }
 
-void scan_on(void)
+void d_scan_on(void)
 {
+	list_numd = 0;
+	LATDbits.LATD1 = !LATDbits.LATD1;
 	INTCONbits.GIEL = 1; // restart display scanner
 }
 
-void scan_off(void)
+void d_scan_off(void)
 {
+	LATDbits.LATD1 = !LATDbits.LATD1;
 	INTCONbits.GIEL = 0; // suspend list processing during matrix operations
 	LATB = 0xff;
 	LATC = 0x00;
@@ -636,7 +650,8 @@ void main(void)
 	uint8_t x = 1, y = 1, t, i, romid = 9;
 	uint32_t move = 0, times = ROT_SPEED;
 	uint8_t obj1;
-	float rotation = 0.0, scaling = 2.0;
+	int8_t x_p = 0, y_p = 0;
+	float rotation = 0.0, scaling = 3.0;
 
 	display_init(); // Setup the pixel display data MUST BE CALLED FIRST
 	switchState = UNPRESSED;
@@ -661,7 +676,7 @@ void main(void)
 	OpenTimer0(TIMER_INT_ON & T0_16BIT & T0_SOURCE_INT & T0_PS_1_1); // CTMU timer
 	WriteTimer0(TIMERDISCHARGE); //	start timer0
 
-	OpenTimer2(TIMER_INT_ON & T2_PS_1_4 & T2_POST_1_16); // PWN isr timer
+	OpenTimer2(TIMER_INT_ON & T2_PS_1_1 & T2_POST_1_16); // PWN isr timer
 	IPR1bits.TMR2IP = 0; // set timer2 low pri interrupt
 	WriteTimer2(PDELAY);
 
@@ -717,9 +732,7 @@ void main(void)
 
 			/* transformation testing */
 			if (++move >= times) {
-
-				INTCONbits.GIEL = 0; // stops flashing
-				scan_off; // suspend list processing during matrix operations
+				d_scan_off(); // suspend list processing during matrix operations
 				if (switchState == UNPRESSED) {
 					times = ROT_SPEED;
 					//pixel_init();
@@ -727,24 +740,27 @@ void main(void)
 					obj1 = obj_init(romid, FALSE); // return ID for rom object into ram id
 					object_scale(obj1, scaling, scaling); // big to small
 					object_rotate(obj1, rotation); // CW
-					object_trans(obj1, 3, 3); // move to near center
+					object_trans(obj1, x_p, y_p); // move to near center
 				} else {
 					times = ROT_SPEED;
 					obj_init(0, TRUE); // clear ram diaplay memory
 					obj1 = obj_init(romid, FALSE); // return ID for rom object into ram id
 					object_scale(obj1, 2.0 - scaling, 2.0 - scaling); // small to big
 					object_rotate(obj1, 360.0 - rotation); // CCW
-					object_trans(obj1, 3, 3);
+					object_trans(obj1, x_p, y_p);
 				}
-				scan_on();
+
+				d_scan_on();
 				rotation += ROTATION;
 				if (rotation > 360.00) { // spin and grow or shrink
 					rotation = 0.0;
-					scaling -= 0.1;
+					scaling -= 0.2;
 					if (scaling < -0.01) {
-						scaling = 2.0;
+						scaling = 3.0;
+						if (x_p++ > 8) x_p = -2;
+						if (y_p++ > 8) y_p = -2;
 						if (romid == 9) { // flips between two sprite ID's
-							romid = 13;
+							romid = 20;
 						} else {
 							romid = 9;
 						}
