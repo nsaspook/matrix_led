@@ -113,8 +113,8 @@ typedef signed long long int64_t;
 #define GRID_S          8
 #define PIXEL_NUM       255	// max number of pixels in display ram
 #define OBJ_NUM		64	// max nuber of pixels in one object
-#define	ROT_SPEED	35	// The highest speed is 1, 35 for demo speed
-#define ROTATION	45.0
+#define	ROT_SPEED	25	// The highest speed is 1, 35 for demo speed
+#define ROTATION	22.5
 #define DIAG_BITS	PIXEL_NUM-8
 
 #define FALSE	0
@@ -215,7 +215,7 @@ volatile uint8_t CTMU_ADC_UPDATED = FALSE, TIME_CHARGE = FALSE, CTMU_WORKING = F
 volatile uint16_t touch_base[16], charge_time[16]; //storage for reading parameters
 
 void high_handler(void); //reads the CTMU voltage using a ADC channel, interrupt driven RS-232
-void low_handler(void); // MATRIX updater
+void low_handler(void); // DOT MATRIX updater
 
 void d_scan_on(void);
 void d_scan_off(void);
@@ -511,7 +511,6 @@ void pixel_init(void)
 }
 
 //FIXME we have a ram index bug here
-
 /* move the pixel object from the ROM array to display RAM memeory, if clear is TRUE reset RAM index back to zero */
 uint8_t obj_init(uint8_t rom_link, uint8_t clear)
 {
