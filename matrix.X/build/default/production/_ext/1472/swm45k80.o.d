@@ -1,5 +1,5 @@
 build/default/production/_ext/1472/swm45k80.o:  \
-	/audio/matrix_pic18f45k80/swm45k80.c  \
+	/fred/matrix_led/swm45k80.c  \
 	/opt/microchip/mplabc18/v3.40/h/string.h  \
 	/opt/microchip/mplabc18/v3.40/h/stdlib.h  \
 	/opt/microchip/mplabc18/v3.40/h/EEP.h  \

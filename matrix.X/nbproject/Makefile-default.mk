@@ -44,18 +44,12 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 # Distribution Directory
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
-# Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../swm45k80.c
-
 # Object Files Quoted if spaced
 OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1472/swm45k80.o
 POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1472/swm45k80.o.d
 
 # Object Files
 OBJECTFILES=${OBJECTDIR}/_ext/1472/swm45k80.o
-
-# Source Files
-SOURCEFILES=../swm45k80.c
 
 
 CFLAGS=
@@ -89,7 +83,6 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 ${OBJECTDIR}/_ext/1472/swm45k80.o: ../swm45k80.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 
 	@${RM} ${OBJECTDIR}/_ext/1472/swm45k80.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1472/swm45k80.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -p$(MP_PROCESSOR_OPTION) -I".." -ml -oa-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/1472/swm45k80.o   ../swm45k80.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/_ext/1472/swm45k80.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/swm45k80.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
@@ -98,7 +91,6 @@ else
 ${OBJECTDIR}/_ext/1472/swm45k80.o: ../swm45k80.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 
 	@${RM} ${OBJECTDIR}/_ext/1472/swm45k80.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1472/swm45k80.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -I".." -ml -oa-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/1472/swm45k80.o   ../swm45k80.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/_ext/1472/swm45k80.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/swm45k80.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
