@@ -113,8 +113,8 @@ typedef signed long long int64_t;
 #define GRID_S          8
 #define PIXEL_NUM       255	// max number of pixels in display ram
 #define OBJ_NUM		64	// max nuber of pixels in one object
-#define	ROT_SPEED_UP	25	// The highest speed is 1, 35 for demo speed
-#define	ROT_SPEED_P	35	// The highest speed is 1, 35 for demo speed
+#define	ROT_SPEED_UP	15	// The highest speed is 1, 35 for demo speed
+#define	ROT_SPEED_P	20	// The highest speed is 1, 35 for demo speed
 #define ROTATION	22.5
 #define DIAG_BITS	PIXEL_NUM-8
 
@@ -657,7 +657,7 @@ void main(void)
         uint8_t x = 1, y = 1, t, i, romid = 9;
         uint32_t move = 0, times = ROT_SPEED_UP;
         uint8_t obj1;
-        int8_t x_p = 0, y_p = 0;
+        int8_t x_p = 0, y_p = 0, x_o = 1, y_o = 1;
         float rotation = 0.0, scaling = 3.0;
 
         display_init(); // Setup the pixel display data MUST BE CALLED FIRST
@@ -760,15 +760,33 @@ void main(void)
                                 rotation += ROTATION;
                                 if (rotation > 360.00) { // spin and grow or shrink
                                         rotation = 0.0;
-                                        scaling -= 0.1;
+                                        scaling -= 0.2;
                                         if (scaling < -0.01) {
                                                 scaling = 3.0;
-                                                if (x_p++ > 8) x_p = -1;
-                                                if (y_p++ > 8) y_p = -1;
-                                                if (romid == 9) { // flips between two sprite ID's
-                                                        romid = 20;
-                                                } else {
-                                                        romid = 9;
+                                                if (x_p > 8) x_o = -1;
+                                                if (x_p < -1) x_o = 1;
+                                                x_p += x_o;
+
+                                                if (y_p > 8) y_o = -1;
+                                                if (y_p < -1) y_o = 1;
+                                                y_p += y_o;
+
+                                                switch (romid) {
+                                                case 0:
+                                                        romid == 9;
+                                                        break;
+                                                case 9:
+                                                        romid == 14;
+                                                        break;
+                                                case 14:
+                                                        romid == 20;
+                                                        break;
+                                                case 20:
+                                                        romid == 0;
+                                                        break;
+                                                default:
+                                                        romid == 0;
+                                                        break;
                                                 }
                                         }
                                 }
