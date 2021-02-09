@@ -20636,7 +20636,7 @@ adc_result_t ADC_GetConversion(adc_channel_t channel)
 
 void ADC_TemperatureAcquisitionDelay(void)
 {
-    _delay((unsigned long)((200)*(8000000/4000000.0)));
+    _delay((unsigned long)((200)*(16000000/4000000.0)));
 }
 
 void ADC_ISR(void)

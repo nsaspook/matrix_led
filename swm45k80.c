@@ -117,8 +117,6 @@ const struct pixel_t pixel_rom[] = {
 	0, 0, 0, -1, -1
 };
 
-#pragma idata bigdata
-
 /*
  * Display file point mode data for line drawing display
  */
@@ -139,7 +137,8 @@ volatile uint8_t CTMU_ADC_UPDATED = FALSE, TIME_CHARGE = FALSE, CTMU_WORKING = F
 	isr_channel = 0;
 volatile uint16_t touch_base[16], charge_time[16]; //storage for reading parameters
 
-void high_handler(void); //reads the CTMU voltage using a ADC channel, interrupt driven RS-232
+void high_handler_tmr0(void);
+void high_handler_adc(void);
 void low_handler(void); // DOT MATRIX updater
 
 void d_scan_on(void);
@@ -158,142 +157,92 @@ void object_trans(uint8_t, int8_t, int8_t); // object ID,x,y
 void object_rotate(uint8_t, float); // object ID, degrees
 void object_scale(uint8_t, float, float); // object ID,x,y
 
-void high_int(void)
-{
-
-}
-
-void low_int(void)
-{
-
-}
-
 /* This is a simple scan converter to a random access display */
 void low_handler(void)
 {
 	LATDbits.LATD0 = 1;
-	if (PIR1bits.TMR2IF) {
-		PIR1bits.TMR2IF = 0; // clear TMR2 int flag
-		//		WriteTimer2(PDELAY);
-		TMR2_WriteTimer(PDELAY);
-		LATB = 0xff; // blank the display
-		LATC = 0x00;
-		while (!pixel[list_numd].v) { // quickly skip pixels that are off
-			if ((pixel[list_numd].m_link == -1) || (++list_numd >= PIXEL_NUM)) {
-				list_numd = 0;
-				break;
-			}
+	TMR2_WriteTimer(PDELAY);
+	LATB = 0xff; // blank the display
+	LATC = 0x00;
+	while (!pixel[list_numd].v) { // quickly skip pixels that are off
+		if ((pixel[list_numd].m_link == -1) || (++list_numd >= PIXEL_NUM)) {
+			list_numd = 0;
+			break;
 		}
-		// We move up the display list data array and display a DOT on the matrix display as needed
-		if ((pixel[list_numd].x >= 0) && (pixel[list_numd].y >= 0)) { // clip display space to +x and +y
-			xd = 1; // load a bit at origin x0
-			yd = 1; // load a bit at origin y0
-			xd = xd << pixel[list_numd].x; // move the cross bar to the correct location
-			yd = yd << pixel[list_numd].y;
-			if (pixel[list_numd].v) {
-				LATB = (uint8_t) ~yd; // set to low for dot on, load the crossbar into the chip outputs
-				LATC = (uint8_t) xd; // set to high for dot on
-			} else { // no dot
-				LATB = 0xff;
-				LATC = 0x00;
-			}
-		}
-		if ((pixel[list_numd].m_link == -1) || (++list_numd >= PIXEL_NUM)) list_numd = 0; // start over again from next line
 	}
+	// We move up the display list data array and display a DOT on the matrix display as needed
+	if ((pixel[list_numd].x >= 0) && (pixel[list_numd].y >= 0)) { // clip display space to +x and +y
+		xd = 1; // load a bit at origin x0
+		yd = 1; // load a bit at origin y0
+		xd = xd << pixel[list_numd].x; // move the cross bar to the correct location
+		yd = yd << pixel[list_numd].y;
+		if (pixel[list_numd].v) {
+			LATB = (uint8_t) ~yd; // set to low for dot on, load the crossbar into the chip outputs
+			LATC = (uint8_t) xd; // set to high for dot on
+		} else { // no dot
+			LATB = 0xff;
+			LATC = 0x00;
+		}
+	}
+	if ((pixel[list_numd].m_link == -1) || (++list_numd >= PIXEL_NUM)) list_numd = 0; // start over again from next line
 	LATDbits.LATD0 = 0;
 }
 
-void high_handler(void)
+void high_handler_tmr0(void)
 {
-	static union Timers timer;
-	static uint8_t i = 0, host_c, *data_ptr = prog_name;
-	static int16_t data_pos = 0, data_len = 0;
-
-	/* start with data_ptr pointed to address of data, data_len to length of data in bytes, data_pos to 0 to start at the beginning of data block */
-	/* then enable the interrupt and wait for the interrupt enable flag to clear */
-	/* send buffer and count xmit data bytes for host link */
-	if (PIE3bits.TX2IE && PIR3bits.TX2IF) { // send data TX2
-		if (data_pos >= data_len) { // buffer has been sent
-			if (TXSTA2bits.TRMT) { // last bit has been shifted out
-				PIE3bits.TX2IE = 0; // stop data xmit
-				SEND_PACKET = FALSE;
-			}
-		} else {
-			TXREG2 = *data_ptr; // send data and clear PIR3bits.TX2IF
-
-			data_pos++; // move the data pointer
-			data_ptr++; // move the buffer pointer position
-		}
+	if (!CTMUCONHbits.IDISSEN) { // charge cycle timer0 int, because not shorting the CTMU voltage.
+		LATEbits.LATE0 = 1; // flash external led
+		CTMUCONLbits.EDG1STAT = 0; // Stop charging touch circuit
+		TIME_CHARGE = FALSE; // clear charging flag
+		CTMU_WORKING = TRUE; // set working flag, doing touch ADC conversion
+		LATEbits.LATE1 = 1; // flash external led
+		// configure ADC for next reading
+		ADCON0bits.CHS = isr_channel; // Select ADC
+		ADCON0bits.ADON = 1; // Turn on ADC
+		ADCON0bits.GO = 1; // and begin A/D conv, will set adc int flag when done.
+	} else { // discharge cycle timer0 int, because CTMU voltage is shorted
+		LATEbits.LATE0 = 0; // flash external led
+		CTMUCONHbits.IDISSEN = 0; // end drain of touch circuit
+		TIME_CHARGE = TRUE; // set charging flag
+		CTMU_WORKING = TRUE; // set working flag, doing
+		TMR0_WriteTimer(charge_time[isr_channel]); // set timer to charge rate time
+		CTMUCONLbits.EDG1STAT = 1; // Begin charging the touch circuit
 	}
+}
 
-	if (PIR3bits.RC2IF) { // receive data  RX2
-		if (RCSTA2bits.OERR) {
-			RCSTA2bits.CREN = 0; //	clear overrun
-			RCSTA2bits.CREN = 1; // re-enable
-		}
+void high_handler_adc(void)
+{
+	union Timers timer;
 
-		host_c = RCREG2;
-		prog_name[0] = host_c;
-		data_ptr = prog_name;
-		data_pos = 0;
-		data_len = 1;
-		PIE3bits.TX2IE = 1; // start data xmit
-	}
-
-	if (INTCONbits.TMR0IF) { // check timer0 irq
-		// clr  TMR0 int flag
-		INTCONbits.TMR0IF = 0; //clear interrupt flag
-		if (!CTMUCONHbits.IDISSEN) { // charge cycle timer0 int, because not shorting the CTMU voltage.
-			LATEbits.LATE0 = 1; // flash external led
-			CTMUCONLbits.EDG1STAT = 0; // Stop charging touch circuit
-			TIME_CHARGE = FALSE; // clear charging flag
-			CTMU_WORKING = TRUE; // set working flag, doing touch ADC conversion
-			LATEbits.LATE1 = 1; // flash external led
-			// configure ADC for next reading
-			ADCON0bits.CHS = isr_channel; // Select ADC
-			ADCON0bits.ADON = 1; // Turn on ADC
-			ADCON0bits.GO = 1; // and begin A/D conv, will set adc int flag when done.
-		} else { // discharge cycle timer0 int, because CTMU voltage is shorted
-			LATEbits.LATE0 = 0; // flash external led
-			CTMUCONHbits.IDISSEN = 0; // end drain of touch circuit
-			TIME_CHARGE = TRUE; // set charging flag
-			CTMU_WORKING = TRUE; // set working flag, doing
-			TMR0_WriteTimer(charge_time[isr_channel]); // set timer to charge rate time
-			CTMUCONLbits.EDG1STAT = 1; // Begin charging the touch circuit
+	LATEbits.LATE1 = 0; // flash external led
+	timer.lt = ADRES;
+	timer.lt = timer.lt >> CHOP_BITS; // toss lower bit noise
+	if ((timer.lt) < (touch_base[isr_channel] - TRIP)) { // see if we have a pressed button
+		if (isr_channel == 0) {
+			switchState = PRESSED;
+			TXREG2 = 0b11111111;
 		}
-	}
-	if (PIR1bits.ADIF) { // check ADC irq
-		PIR1bits.ADIF = 0; // clear ADC int flag
-		LATEbits.LATE1 = 0; // flash external led
-		timer.lt = ADRES;
-		timer.lt = timer.lt >> CHOP_BITS; // toss lower bit noise
-		if ((timer.lt) < (touch_base[isr_channel] - TRIP)) { // see if we have a pressed button
-			if (isr_channel == 0) {
-				switchState = PRESSED;
-				TXREG2 = 0b11111111;
-			}
-			if (isr_channel == 1) {
-				switchState = UNPRESSED;
-				TXREG2 = 0b00000001;
-			}
-			LATEbits.LATE2 = 1; // flash external led
-			//			pixel[DIAG_BITS + isr_channel].v = 1;
-		} else if ((timer.lt) > (touch_base[isr_channel] - TRIP + HYST)) {
-			//			switchState = UNPRESSED;
-			LATEbits.LATE2 = 0; // flash external led
-			//			pixel[DIAG_BITS + isr_channel].v = 0;
+		if (isr_channel == 1) {
+			switchState = UNPRESSED;
+			TXREG2 = 0b00000001;
 		}
-		TMR3H = timer.bt[1];
-		TMR3L = timer.bt[0]; // copy low byte and write to timer counter
-		CTMU_ADC_UPDATED = TRUE; // New data is in timer3 counter, set to FALSE in main program flow
-		CTMU_WORKING = FALSE; // clear working flag, ok to read timer3 counter.
-		// config CTMU for next reading
-		CTMUCONHbits.CTMUEN = 1; // Enable the CTMU
-		CTMUCONLbits.EDG1STAT = 0; // Set Edge status bits to zero
-		CTMUCONLbits.EDG2STAT = 0;
-		CTMUCONHbits.IDISSEN = 1; // drain charge on the circuit
-		TMR0_WriteTimer(TIMERDISCHARGE);
+		LATEbits.LATE2 = 1; // flash external led
+		//			pixel[DIAG_BITS + isr_channel].v = 1;
+	} else if ((timer.lt) > (touch_base[isr_channel] - TRIP + HYST)) {
+		//			switchState = UNPRESSED;
+		LATEbits.LATE2 = 0; // flash external led
+		//			pixel[DIAG_BITS + isr_channel].v = 0;
 	}
+	TMR3H = timer.bt[1];
+	TMR3L = timer.bt[0]; // copy low byte and write to timer counter
+	CTMU_ADC_UPDATED = TRUE; // New data is in timer3 counter, set to FALSE in main program flow
+	CTMU_WORKING = FALSE; // clear working flag, ok to read timer3 counter.
+	// config CTMU for next reading
+	CTMUCONHbits.CTMUEN = 1; // Enable the CTMU
+	CTMUCONLbits.EDG1STAT = 0; // Set Edge status bits to zero
+	CTMUCONLbits.EDG2STAT = 0;
+	CTMUCONHbits.IDISSEN = 1; // drain charge on the circuit
+	TMR0_WriteTimer(TIMERDISCHARGE);
 }
 
 uint16_t touch_base_calc(uint8_t channel)
@@ -420,17 +369,14 @@ uint16_t ctmu_touch(uint8_t channel, uint8_t NULL0)
 /* display memory */
 void display_init(void)
 {
-	// init what needed to display data
+	// what's needed to display data
 	list_numd = 0;
 }
 
 /* copy the entire ROM to RAM display memory */
 void pixel_init(void)
 {
-	static int16_t i;
-
 	memcpy((void *) pixel, (const void *) pixel_rom, sizeof(pixel));
-
 }
 
 //FIXME we have a ram index bug here
@@ -438,8 +384,9 @@ void pixel_init(void)
 /* move the pixel object from the ROM array to display RAM memeory, if clear is TRUE reset RAM index back to zero */
 uint8_t obj_init(uint8_t rom_link, uint8_t clear)
 {
-	static size_t pixel_size;
-	static uint8_t ram_link = 0, ram_link_start = 0;
+	size_t pixel_size;
+	uint8_t ram_link_start;
+	static uint8_t ram_link = 0;
 
 	if (clear) {
 		ram_link = 0;
@@ -471,6 +418,7 @@ void pixel_set(uint8_t list_num, uint8_t value)
 
 void pixel_rotate(uint8_t list_num, float degree) // pixel,degree rotation
 {
+	// remember old rotations
 	static float to_rad, float_x, float_y, sine, cosine, old_degree = 1957.7;
 
 	if (degree != old_degree) {
@@ -496,7 +444,7 @@ void pixel_trans(uint8_t list_num, int8_t x_new, int8_t y_new)
 
 void pixel_scale(uint8_t list_num, float x_scale, float y_scale)
 {
-	static float float_x, float_y;
+	float float_x, float_y;
 
 	float_x = (float) pixel[list_num].x;
 	float_y = (float) pixel[list_num].y;
@@ -506,7 +454,7 @@ void pixel_scale(uint8_t list_num, float x_scale, float y_scale)
 
 void object_rotate(uint8_t list_num, float degree)
 {
-	static uint8_t i;
+	uint8_t i;
 
 	if (list_num >= PIXEL_NUM) return; // check for valid range
 
@@ -518,7 +466,7 @@ void object_rotate(uint8_t list_num, float degree)
 
 void object_trans(uint8_t list_num, int8_t x_new, int8_t y_new)
 {
-	static uint8_t i;
+	uint8_t i;
 
 	if (list_num >= PIXEL_NUM) return; // check for valid range
 
@@ -530,7 +478,7 @@ void object_trans(uint8_t list_num, int8_t x_new, int8_t y_new)
 
 void object_scale(uint8_t list_num, float x_scale, float y_scale)
 {
-	static uint8_t i;
+	uint8_t i;
 
 	if (list_num >= PIXEL_NUM) return; // check for valid range
 
@@ -542,7 +490,7 @@ void object_scale(uint8_t list_num, float x_scale, float y_scale)
 
 void object_set(uint8_t list_num, uint8_t value)
 {
-	static uint8_t i;
+	uint8_t i;
 
 	if (list_num >= PIXEL_NUM) return; // check for valid range
 
@@ -579,25 +527,28 @@ void main_init(void)
 	display_init(); // Setup the pixel display data MUST BE CALLED FIRST
 	switchState = UNPRESSED;
 
-	TRISA = 0b00001111; //	0..3 inputs 4..7 outputs
+	//	TRISA = 0b00001111; //	0..3 inputs 4..7 outputs
 	LATA = 0b00000000;
-	ANCON0 = 0b00001111; // analog inputs 0-3
-	ANCON1 = 0b00000000;
-	TRISB = 0x00; //	outputs
+	//	ANCON0 = 0b00001111; // analog inputs 0-3
+	//	ANCON1 = 0b00000000;
+	//	TRISB = 0x00; //	outputs
 	LATB = 0xff;
-	TRISC = 0x00; //	outputs
+	//	TRISC = 0x00; //	outputs
 	LATC = 0xff;
-	TRISD = 0x00; //        outputs
+	//	TRISD = 0x00; //        outputs
 	LATD = 0x00;
-	TRISE = 0x00; //        outputs
+	//	TRISE = 0x00; //        outputs
 	LATE = 0x00;
 
-	OSCCON = 0x70; // internal osc
+	//	OSCCON = 0x70; // internal osc
 	OSCTUNE = 0xC0;
 	SLRCON = 0x00; // set slew rate to max
 
 	TMR0_WriteTimer(TIMERDISCHARGE);
 	TMR2_WriteTimer(PDELAY);
+	TMR2_SetInterruptHandler(low_handler);
+	TMR0_SetInterruptHandler(high_handler_tmr0);
+	ADC_SetInterruptHandler(high_handler_adc);
 
 	/* Enable interrupt priority */
 	RCONbits.IPEN = 1;
@@ -621,8 +572,6 @@ void main_init(void)
 
 	while (TRUE) {
 		for (ctmu_button = 0; ctmu_button <= MAX_CHAN; ctmu_button++) {
-
-
 			touch_channel(ctmu_button);
 			if (ctmu_button == 0) {
 				t = (uint8_t) ctmu_touch(ctmu_button, FALSE); // display channel  0 only

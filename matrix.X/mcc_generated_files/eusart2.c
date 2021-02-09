@@ -97,17 +97,17 @@ void EUSART2_Initialize(void)
     // ABDOVF no_overflow; TXCKP async_noninverted_sync_fallingedge; BRG16 16bit_generator; WUE disabled; ABDEN disabled; RXDTP not_inverted; 
     BAUDCON2 = 0x08;
 
-    // SPEN enabled; RX9 8-bit; CREN disabled; ADDEN disabled; SREN disabled; 
-    RCSTA2 = 0x80;
+    // SPEN enabled; RX9 8-bit; CREN enabled; ADDEN disabled; SREN disabled; 
+    RCSTA2 = 0x90;
 
-    // TRMT TSR_empty; TX9 8-bit; TX9D 0; SENDB sync_break_complete; TXEN disabled; SYNC asynchronous; BRGH hi_speed; CSRC slave_mode; 
-    TXSTA2 = 0x06;
-
-    // 
-    SPBRG2 = 0xCF;
+    // TRMT TSR_empty; TX9 8-bit; TX9D 0; SENDB sync_break_complete; TXEN enabled; SYNC asynchronous; BRGH hi_speed; CSRC slave_mode; 
+    TXSTA2 = 0x26;
 
     // 
-    SPBRGH2 = 0x00;
+    SPBRG2 = 0xA0;
+
+    // 
+    SPBRGH2 = 0x01;
 
 
     EUSART2_SetFramingErrorHandler(EUSART2_DefaultFramingErrorHandler);

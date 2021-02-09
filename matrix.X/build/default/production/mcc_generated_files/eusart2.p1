@@ -1615,17 +1615,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/eusart2.c: 98:     BAUDCON2 = 0x08;
 [e = _BAUDCON2 -> -> 8 `i `uc ]
 "101
-[; ;mcc_generated_files/eusart2.c: 101:     RCSTA2 = 0x80;
-[e = _RCSTA2 -> -> 128 `i `uc ]
+[; ;mcc_generated_files/eusart2.c: 101:     RCSTA2 = 0x90;
+[e = _RCSTA2 -> -> 144 `i `uc ]
 "104
-[; ;mcc_generated_files/eusart2.c: 104:     TXSTA2 = 0x06;
-[e = _TXSTA2 -> -> 6 `i `uc ]
+[; ;mcc_generated_files/eusart2.c: 104:     TXSTA2 = 0x26;
+[e = _TXSTA2 -> -> 38 `i `uc ]
 "107
-[; ;mcc_generated_files/eusart2.c: 107:     SPBRG2 = 0xCF;
-[e = _SPBRG2 -> -> 207 `i `uc ]
+[; ;mcc_generated_files/eusart2.c: 107:     SPBRG2 = 0xA0;
+[e = _SPBRG2 -> -> 160 `i `uc ]
 "110
-[; ;mcc_generated_files/eusart2.c: 110:     SPBRGH2 = 0x00;
-[e = _SPBRGH2 -> -> 0 `i `uc ]
+[; ;mcc_generated_files/eusart2.c: 110:     SPBRGH2 = 0x01;
+[e = _SPBRGH2 -> -> 1 `i `uc ]
 "113
 [; ;mcc_generated_files/eusart2.c: 113:     EUSART2_SetFramingErrorHandler(EUSART2_DefaultFramingErrorHandler);
 [e ( _EUSART2_SetFramingErrorHandler (1 &U _EUSART2_DefaultFramingErrorHandler ]

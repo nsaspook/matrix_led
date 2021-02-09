@@ -56,8 +56,8 @@
 #include "tmr1.h"
 #include "memory.h"
 #include "tmr2.h"
-#include "tmr0.h"
 #include "adc.h"
+#include "tmr0.h"
 #include "eusart2.h"
 
 

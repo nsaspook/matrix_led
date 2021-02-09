@@ -20424,9 +20424,9 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 50 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/pin_manager.h" 1
-# 499 "./mcc_generated_files/pin_manager.h"
+# 515 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 511 "./mcc_generated_files/pin_manager.h"
+# 527 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
 # 51 "./mcc_generated_files/mcc.h" 2
 
@@ -20618,29 +20618,6 @@ extern void (*TMR2_InterruptHandler)(void);
 void TMR2_DefaultInterruptHandler(void);
 # 58 "./mcc_generated_files/mcc.h" 2
 
-# 1 "./mcc_generated_files/tmr0.h" 1
-# 100 "./mcc_generated_files/tmr0.h"
-void TMR0_Initialize(void);
-# 129 "./mcc_generated_files/tmr0.h"
-void TMR0_StartTimer(void);
-# 161 "./mcc_generated_files/tmr0.h"
-void TMR0_StopTimer(void);
-# 197 "./mcc_generated_files/tmr0.h"
-uint16_t TMR0_ReadTimer(void);
-# 236 "./mcc_generated_files/tmr0.h"
-void TMR0_WriteTimer(uint16_t timerVal);
-# 272 "./mcc_generated_files/tmr0.h"
-void TMR0_Reload(void);
-# 290 "./mcc_generated_files/tmr0.h"
-void TMR0_ISR(void);
-# 309 "./mcc_generated_files/tmr0.h"
- void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-# 327 "./mcc_generated_files/tmr0.h"
-extern void (*TMR0_InterruptHandler)(void);
-# 345 "./mcc_generated_files/tmr0.h"
-void TMR0_DefaultInterruptHandler(void);
-# 59 "./mcc_generated_files/mcc.h" 2
-
 # 1 "./mcc_generated_files/adc.h" 1
 # 72 "./mcc_generated_files/adc.h"
 typedef uint16_t adc_result_t;
@@ -20683,6 +20660,29 @@ void ADC_ISR(void);
 extern void (*ADC_InterruptHandler)(void);
 # 360 "./mcc_generated_files/adc.h"
 void ADC_DefaultInterruptHandler(void);
+# 59 "./mcc_generated_files/mcc.h" 2
+
+# 1 "./mcc_generated_files/tmr0.h" 1
+# 100 "./mcc_generated_files/tmr0.h"
+void TMR0_Initialize(void);
+# 129 "./mcc_generated_files/tmr0.h"
+void TMR0_StartTimer(void);
+# 161 "./mcc_generated_files/tmr0.h"
+void TMR0_StopTimer(void);
+# 197 "./mcc_generated_files/tmr0.h"
+uint16_t TMR0_ReadTimer(void);
+# 236 "./mcc_generated_files/tmr0.h"
+void TMR0_WriteTimer(uint16_t timerVal);
+# 272 "./mcc_generated_files/tmr0.h"
+void TMR0_Reload(void);
+# 290 "./mcc_generated_files/tmr0.h"
+void TMR0_ISR(void);
+# 309 "./mcc_generated_files/tmr0.h"
+ void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
+# 327 "./mcc_generated_files/tmr0.h"
+extern void (*TMR0_InterruptHandler)(void);
+# 345 "./mcc_generated_files/tmr0.h"
+void TMR0_DefaultInterruptHandler(void);
 # 60 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/eusart2.h" 1
@@ -20745,6 +20745,10 @@ void SYSTEM_Initialize(void);
 void OSCILLATOR_Initialize(void);
 # 44 "main.c" 2
 
+#pragma warning disable 520
+#pragma warning disable 1498
+
+void main_init(void);
 
 
 
@@ -20753,9 +20757,10 @@ void main(void)
 {
 
     SYSTEM_Initialize();
-# 76 "main.c"
+# 80 "main.c"
     while (1)
     {
+     main_init();
 
     }
 }

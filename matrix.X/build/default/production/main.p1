@@ -3,6 +3,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "76 ./mcc_generated_files/mcc.h
 [; ;./mcc_generated_files/mcc.h: 76: void SYSTEM_Initialize(void);
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
+"48 main.c
+[v _main_init `(v ~T0 @X0 0 ef ]
 "54 /opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 54: __asm("RXERRCNT equ 0E41h");
 [; <" RXERRCNT equ 0E41h ;# ">
@@ -1395,31 +1397,35 @@ Version 4.0 HI-TECH Software Intermediate Code
 "37766
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 37766: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
+"45 main.c
+[p n 520 ]
+"46
+[p n 1498 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"49 main.c
-[; ;main.c: 49: void main(void)
+"53
 [v _main `(v ~T0 @X0 1 ef ]
-"50
-[; ;main.c: 50: {
+"54
 {
 [e :U _main ]
 [f ]
-"52
-[; ;main.c: 52:     SYSTEM_Initialize();
+"56
 [e ( _SYSTEM_Initialize ..  ]
-"76
-[; ;main.c: 76:     while (1)
+"80
+[; ;main.c: 80:     while (1)
 [e :U 1546 ]
-"77
-[; ;main.c: 77:     {
+"81
+[; ;main.c: 81:     {
 {
-"79
-[; ;main.c: 79:     }
+"82
+[; ;main.c: 82:      main_init();
+[e ( _main_init ..  ]
+"84
+[; ;main.c: 84:     }
 }
 [e :U 1545 ]
 [e $U 1546  ]
 [e :U 1547 ]
-"80
-[; ;main.c: 80: }
+"85
+[; ;main.c: 85: }
 [e :UE 1544 ]
 }

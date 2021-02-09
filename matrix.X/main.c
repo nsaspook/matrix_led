@@ -42,6 +42,10 @@
 */
 
 #include "mcc_generated_files/mcc.h"
+#pragma warning disable 520
+#pragma warning disable 1498
+
+void main_init(void);
 
 /*
                          Main application
@@ -75,6 +79,7 @@ void main(void)
 
     while (1)
     {
+	    main_init();
         // Add your application code
     }
 }

@@ -20424,9 +20424,9 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 50 "../matrix.X/mcc_generated_files/mcc.h" 2
 
 # 1 "../matrix.X/mcc_generated_files/pin_manager.h" 1
-# 499 "../matrix.X/mcc_generated_files/pin_manager.h"
+# 515 "../matrix.X/mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 511 "../matrix.X/mcc_generated_files/pin_manager.h"
+# 527 "../matrix.X/mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
 # 51 "../matrix.X/mcc_generated_files/mcc.h" 2
 
@@ -20618,29 +20618,6 @@ extern void (*TMR2_InterruptHandler)(void);
 void TMR2_DefaultInterruptHandler(void);
 # 58 "../matrix.X/mcc_generated_files/mcc.h" 2
 
-# 1 "../matrix.X/mcc_generated_files/tmr0.h" 1
-# 100 "../matrix.X/mcc_generated_files/tmr0.h"
-void TMR0_Initialize(void);
-# 129 "../matrix.X/mcc_generated_files/tmr0.h"
-void TMR0_StartTimer(void);
-# 161 "../matrix.X/mcc_generated_files/tmr0.h"
-void TMR0_StopTimer(void);
-# 197 "../matrix.X/mcc_generated_files/tmr0.h"
-uint16_t TMR0_ReadTimer(void);
-# 236 "../matrix.X/mcc_generated_files/tmr0.h"
-void TMR0_WriteTimer(uint16_t timerVal);
-# 272 "../matrix.X/mcc_generated_files/tmr0.h"
-void TMR0_Reload(void);
-# 290 "../matrix.X/mcc_generated_files/tmr0.h"
-void TMR0_ISR(void);
-# 309 "../matrix.X/mcc_generated_files/tmr0.h"
- void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-# 327 "../matrix.X/mcc_generated_files/tmr0.h"
-extern void (*TMR0_InterruptHandler)(void);
-# 345 "../matrix.X/mcc_generated_files/tmr0.h"
-void TMR0_DefaultInterruptHandler(void);
-# 59 "../matrix.X/mcc_generated_files/mcc.h" 2
-
 # 1 "../matrix.X/mcc_generated_files/adc.h" 1
 # 72 "../matrix.X/mcc_generated_files/adc.h"
 typedef uint16_t adc_result_t;
@@ -20683,6 +20660,29 @@ void ADC_ISR(void);
 extern void (*ADC_InterruptHandler)(void);
 # 360 "../matrix.X/mcc_generated_files/adc.h"
 void ADC_DefaultInterruptHandler(void);
+# 59 "../matrix.X/mcc_generated_files/mcc.h" 2
+
+# 1 "../matrix.X/mcc_generated_files/tmr0.h" 1
+# 100 "../matrix.X/mcc_generated_files/tmr0.h"
+void TMR0_Initialize(void);
+# 129 "../matrix.X/mcc_generated_files/tmr0.h"
+void TMR0_StartTimer(void);
+# 161 "../matrix.X/mcc_generated_files/tmr0.h"
+void TMR0_StopTimer(void);
+# 197 "../matrix.X/mcc_generated_files/tmr0.h"
+uint16_t TMR0_ReadTimer(void);
+# 236 "../matrix.X/mcc_generated_files/tmr0.h"
+void TMR0_WriteTimer(uint16_t timerVal);
+# 272 "../matrix.X/mcc_generated_files/tmr0.h"
+void TMR0_Reload(void);
+# 290 "../matrix.X/mcc_generated_files/tmr0.h"
+void TMR0_ISR(void);
+# 309 "../matrix.X/mcc_generated_files/tmr0.h"
+ void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
+# 327 "../matrix.X/mcc_generated_files/tmr0.h"
+extern void (*TMR0_InterruptHandler)(void);
+# 345 "../matrix.X/mcc_generated_files/tmr0.h"
+void TMR0_DefaultInterruptHandler(void);
 # 60 "../matrix.X/mcc_generated_files/mcc.h" 2
 
 # 1 "../matrix.X/mcc_generated_files/eusart2.h" 1
@@ -21235,8 +21235,6 @@ const struct pixel_t pixel_rom[] = {
  0, 0, 0, -1, -1
 };
 
-#pragma idata bigdata
-
 
 
 
@@ -21257,7 +21255,8 @@ volatile uint8_t CTMU_ADC_UPDATED = 0, TIME_CHARGE = 0, CTMU_WORKING = 0, SEND_P
  isr_channel = 0;
 volatile uint16_t touch_base[16], charge_time[16];
 
-void high_handler(void);
+void high_handler_tmr0(void);
+void high_handler_adc(void);
 void low_handler(void);
 
 void d_scan_on(void);
@@ -21276,142 +21275,92 @@ void object_trans(uint8_t, int8_t, int8_t);
 void object_rotate(uint8_t, float);
 void object_scale(uint8_t, float, float);
 
-void high_int(void)
-{
-
-}
-
-void low_int(void)
-{
-
-}
-
 
 void low_handler(void)
 {
  LATDbits.LATD0 = 1;
- if (PIR1bits.TMR2IF) {
-  PIR1bits.TMR2IF = 0;
-
-  TMR2_WriteTimer(0xA8);
-  LATB = 0xff;
-  LATC = 0x00;
-  while (!pixel[list_numd].v) {
-   if ((pixel[list_numd].m_link == -1) || (++list_numd >= 255)) {
-    list_numd = 0;
-    break;
-   }
+ TMR2_WriteTimer(0xA8);
+ LATB = 0xff;
+ LATC = 0x00;
+ while (!pixel[list_numd].v) {
+  if ((pixel[list_numd].m_link == -1) || (++list_numd >= 255)) {
+   list_numd = 0;
+   break;
   }
-
-  if ((pixel[list_numd].x >= 0) && (pixel[list_numd].y >= 0)) {
-   xd = 1;
-   yd = 1;
-   xd = xd << pixel[list_numd].x;
-   yd = yd << pixel[list_numd].y;
-   if (pixel[list_numd].v) {
-    LATB = (uint8_t) ~yd;
-    LATC = (uint8_t) xd;
-   } else {
-    LATB = 0xff;
-    LATC = 0x00;
-   }
-  }
-  if ((pixel[list_numd].m_link == -1) || (++list_numd >= 255)) list_numd = 0;
  }
+
+ if ((pixel[list_numd].x >= 0) && (pixel[list_numd].y >= 0)) {
+  xd = 1;
+  yd = 1;
+  xd = xd << pixel[list_numd].x;
+  yd = yd << pixel[list_numd].y;
+  if (pixel[list_numd].v) {
+   LATB = (uint8_t) ~yd;
+   LATC = (uint8_t) xd;
+  } else {
+   LATB = 0xff;
+   LATC = 0x00;
+  }
+ }
+ if ((pixel[list_numd].m_link == -1) || (++list_numd >= 255)) list_numd = 0;
  LATDbits.LATD0 = 0;
 }
 
-void high_handler(void)
+void high_handler_tmr0(void)
 {
- static union Timers timer;
- static uint8_t i = 0, host_c, *data_ptr = prog_name;
- static int16_t data_pos = 0, data_len = 0;
-
-
-
-
- if (PIE3bits.TX2IE && PIR3bits.TX2IF) {
-  if (data_pos >= data_len) {
-   if (TXSTA2bits.TRMT) {
-    PIE3bits.TX2IE = 0;
-    SEND_PACKET = 0;
-   }
-  } else {
-   TXREG2 = *data_ptr;
-
-   data_pos++;
-   data_ptr++;
-  }
- }
-
- if (PIR3bits.RC2IF) {
-  if (RCSTA2bits.OERR) {
-   RCSTA2bits.CREN = 0;
-   RCSTA2bits.CREN = 1;
-  }
-
-  host_c = RCREG2;
-  prog_name[0] = host_c;
-  data_ptr = prog_name;
-  data_pos = 0;
-  data_len = 1;
-  PIE3bits.TX2IE = 1;
- }
-
- if (INTCONbits.TMR0IF) {
-
-  INTCONbits.TMR0IF = 0;
-  if (!CTMUCONHbits.IDISSEN) {
-   LATEbits.LATE0 = 1;
-   CTMUCONLbits.EDG1STAT = 0;
-   TIME_CHARGE = 0;
-   CTMU_WORKING = 1;
-   LATEbits.LATE1 = 1;
-
-   ADCON0bits.CHS = isr_channel;
-   ADCON0bits.ADON = 1;
-   ADCON0bits.GO = 1;
-  } else {
-   LATEbits.LATE0 = 0;
-   CTMUCONHbits.IDISSEN = 0;
-   TIME_CHARGE = 1;
-   CTMU_WORKING = 1;
-   TMR0_WriteTimer(charge_time[isr_channel]);
-   CTMUCONLbits.EDG1STAT = 1;
-  }
- }
- if (PIR1bits.ADIF) {
-  PIR1bits.ADIF = 0;
-  LATEbits.LATE1 = 0;
-  timer.lt = ADRES;
-  timer.lt = timer.lt >> 1;
-  if ((timer.lt) < (touch_base[isr_channel] - 64)) {
-   if (isr_channel == 0) {
-    switchState = 1;
-    TXREG2 = 0b11111111;
-   }
-   if (isr_channel == 1) {
-    switchState = 0;
-    TXREG2 = 0b00000001;
-   }
-   LATEbits.LATE2 = 1;
-
-  } else if ((timer.lt) > (touch_base[isr_channel] - 64 + 16)) {
-
-   LATEbits.LATE2 = 0;
-
-  }
-  TMR3H = timer.bt[1];
-  TMR3L = timer.bt[0];
-  CTMU_ADC_UPDATED = 1;
-  CTMU_WORKING = 0;
-
-  CTMUCONHbits.CTMUEN = 1;
+ if (!CTMUCONHbits.IDISSEN) {
+  LATEbits.LATE0 = 1;
   CTMUCONLbits.EDG1STAT = 0;
-  CTMUCONLbits.EDG2STAT = 0;
-  CTMUCONHbits.IDISSEN = 1;
-  TMR0_WriteTimer(51000);
+  TIME_CHARGE = 0;
+  CTMU_WORKING = 1;
+  LATEbits.LATE1 = 1;
+
+  ADCON0bits.CHS = isr_channel;
+  ADCON0bits.ADON = 1;
+  ADCON0bits.GO = 1;
+ } else {
+  LATEbits.LATE0 = 0;
+  CTMUCONHbits.IDISSEN = 0;
+  TIME_CHARGE = 1;
+  CTMU_WORKING = 1;
+  TMR0_WriteTimer(charge_time[isr_channel]);
+  CTMUCONLbits.EDG1STAT = 1;
  }
+}
+
+void high_handler_adc(void)
+{
+ union Timers timer;
+
+ LATEbits.LATE1 = 0;
+ timer.lt = ADRES;
+ timer.lt = timer.lt >> 1;
+ if ((timer.lt) < (touch_base[isr_channel] - 64)) {
+  if (isr_channel == 0) {
+   switchState = 1;
+   TXREG2 = 0b11111111;
+  }
+  if (isr_channel == 1) {
+   switchState = 0;
+   TXREG2 = 0b00000001;
+  }
+  LATEbits.LATE2 = 1;
+
+ } else if ((timer.lt) > (touch_base[isr_channel] - 64 + 16)) {
+
+  LATEbits.LATE2 = 0;
+
+ }
+ TMR3H = timer.bt[1];
+ TMR3L = timer.bt[0];
+ CTMU_ADC_UPDATED = 1;
+ CTMU_WORKING = 0;
+
+ CTMUCONHbits.CTMUEN = 1;
+ CTMUCONLbits.EDG1STAT = 0;
+ CTMUCONLbits.EDG2STAT = 0;
+ CTMUCONHbits.IDISSEN = 1;
+ TMR0_WriteTimer(51000);
 }
 
 uint16_t touch_base_calc(uint8_t channel)
@@ -21545,10 +21494,7 @@ void display_init(void)
 
 void pixel_init(void)
 {
- static int16_t i;
-
  memcpy((void *) pixel, (const void *) pixel_rom, sizeof(pixel));
-
 }
 
 
@@ -21556,8 +21502,9 @@ void pixel_init(void)
 
 uint8_t obj_init(uint8_t rom_link, uint8_t clear)
 {
- static size_t pixel_size;
- static uint8_t ram_link = 0, ram_link_start = 0;
+ size_t pixel_size;
+ uint8_t ram_link_start;
+ static uint8_t ram_link = 0;
 
  if (clear) {
   ram_link = 0;
@@ -21589,6 +21536,7 @@ void pixel_set(uint8_t list_num, uint8_t value)
 
 void pixel_rotate(uint8_t list_num, float degree)
 {
+
  static float to_rad, float_x, float_y, sine, cosine, old_degree = 1957.7;
 
  if (degree != old_degree) {
@@ -21614,7 +21562,7 @@ void pixel_trans(uint8_t list_num, int8_t x_new, int8_t y_new)
 
 void pixel_scale(uint8_t list_num, float x_scale, float y_scale)
 {
- static float float_x, float_y;
+ float float_x, float_y;
 
  float_x = (float) pixel[list_num].x;
  float_y = (float) pixel[list_num].y;
@@ -21624,7 +21572,7 @@ void pixel_scale(uint8_t list_num, float x_scale, float y_scale)
 
 void object_rotate(uint8_t list_num, float degree)
 {
- static uint8_t i;
+ uint8_t i;
 
  if (list_num >= 255) return;
 
@@ -21636,7 +21584,7 @@ void object_rotate(uint8_t list_num, float degree)
 
 void object_trans(uint8_t list_num, int8_t x_new, int8_t y_new)
 {
- static uint8_t i;
+ uint8_t i;
 
  if (list_num >= 255) return;
 
@@ -21648,7 +21596,7 @@ void object_trans(uint8_t list_num, int8_t x_new, int8_t y_new)
 
 void object_scale(uint8_t list_num, float x_scale, float y_scale)
 {
- static uint8_t i;
+ uint8_t i;
 
  if (list_num >= 255) return;
 
@@ -21660,7 +21608,7 @@ void object_scale(uint8_t list_num, float x_scale, float y_scale)
 
 void object_set(uint8_t list_num, uint8_t value)
 {
- static uint8_t i;
+ uint8_t i;
 
  if (list_num >= 255) return;
 
@@ -21697,25 +21645,28 @@ void main_init(void)
  display_init();
  switchState = 0;
 
- TRISA = 0b00001111;
+
  LATA = 0b00000000;
- ANCON0 = 0b00001111;
- ANCON1 = 0b00000000;
- TRISB = 0x00;
+
+
+
  LATB = 0xff;
- TRISC = 0x00;
+
  LATC = 0xff;
- TRISD = 0x00;
+
  LATD = 0x00;
- TRISE = 0x00;
+
  LATE = 0x00;
 
- OSCCON = 0x70;
+
  OSCTUNE = 0xC0;
  SLRCON = 0x00;
 
  TMR0_WriteTimer(51000);
  TMR2_WriteTimer(0xA8);
+ TMR2_SetInterruptHandler(low_handler);
+ TMR0_SetInterruptHandler(high_handler_tmr0);
+ ADC_SetInterruptHandler(high_handler_adc);
 
 
  RCONbits.IPEN = 1;
@@ -21739,15 +21690,13 @@ void main_init(void)
 
  while (1) {
   for (ctmu_button = 0; ctmu_button <= 1; ctmu_button++) {
-
-
    touch_channel(ctmu_button);
    if (ctmu_button == 0) {
     t = (uint8_t) ctmu_touch(ctmu_button, 0);
    } else {
     ctmu_touch(ctmu_button, 0);
    }
-# 642 "../swm45k80.c"
+# 591 "../swm45k80.c"
    __asm(" clrwdt");
 
 

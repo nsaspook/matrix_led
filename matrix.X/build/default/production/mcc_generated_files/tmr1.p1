@@ -1483,8 +1483,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/tmr1.c: 68:     T1GCON = 0x00;
 [e = _T1GCON -> -> 0 `i `uc ]
 "71
-[; ;mcc_generated_files/tmr1.c: 71:     TMR1H = 0x00;
-[e = _TMR1H -> -> 0 `i `uc ]
+[; ;mcc_generated_files/tmr1.c: 71:     TMR1H = 0x80;
+[e = _TMR1H -> -> 128 `i `uc ]
 "74
 [; ;mcc_generated_files/tmr1.c: 74:     TMR1L = 0x00;
 [e = _TMR1L -> -> 0 `i `uc ]
@@ -1495,8 +1495,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/tmr1.c: 80:     timer1ReloadVal=(uint16_t)((TMR1H << 8) | TMR1L);
 [e = _timer1ReloadVal -> | << -> _TMR1H `i -> 8 `i -> _TMR1L `i `us ]
 "83
-[; ;mcc_generated_files/tmr1.c: 83:     T1CON = 0x01;
-[e = _T1CON -> -> 1 `i `uc ]
+[; ;mcc_generated_files/tmr1.c: 83:     T1CON = 0x21;
+[e = _T1CON -> -> 33 `i `uc ]
 "84
 [; ;mcc_generated_files/tmr1.c: 84: }
 [e :UE 1542 ]

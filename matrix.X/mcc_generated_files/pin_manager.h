@@ -444,6 +444,22 @@
 #define IO_RD5_SetDigitalInput()    do { TRISDbits.TRISD5 = 1; } while(0)
 #define IO_RD5_SetDigitalOutput()   do { TRISDbits.TRISD5 = 0; } while(0)
 
+// get/set RD6 procedures
+#define RD6_SetHigh()            do { LATDbits.LATD6 = 1; } while(0)
+#define RD6_SetLow()             do { LATDbits.LATD6 = 0; } while(0)
+#define RD6_Toggle()             do { LATDbits.LATD6 = ~LATDbits.LATD6; } while(0)
+#define RD6_GetValue()              PORTDbits.RD6
+#define RD6_SetDigitalInput()    do { TRISDbits.TRISD6 = 1; } while(0)
+#define RD6_SetDigitalOutput()   do { TRISDbits.TRISD6 = 0; } while(0)
+
+// get/set RD7 procedures
+#define RD7_SetHigh()            do { LATDbits.LATD7 = 1; } while(0)
+#define RD7_SetLow()             do { LATDbits.LATD7 = 0; } while(0)
+#define RD7_Toggle()             do { LATDbits.LATD7 = ~LATDbits.LATD7; } while(0)
+#define RD7_GetValue()              PORTDbits.RD7
+#define RD7_SetDigitalInput()    do { TRISDbits.TRISD7 = 1; } while(0)
+#define RD7_SetDigitalOutput()   do { TRISDbits.TRISD7 = 0; } while(0)
+
 // get/set IO_RE0 aliases
 #define IO_RE0_TRIS                 TRISEbits.TRISE0
 #define IO_RE0_LAT                  LATEbits.LATE0

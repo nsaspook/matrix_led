@@ -20601,16 +20601,16 @@ void EUSART2_Initialize(void)
     BAUDCON2 = 0x08;
 
 
-    RCSTA2 = 0x80;
+    RCSTA2 = 0x90;
 
 
-    TXSTA2 = 0x06;
+    TXSTA2 = 0x26;
 
 
-    SPBRG2 = 0xCF;
+    SPBRG2 = 0xA0;
 
 
-    SPBRGH2 = 0x00;
+    SPBRGH2 = 0x01;
 
 
     EUSART2_SetFramingErrorHandler(EUSART2_DefaultFramingErrorHandler);

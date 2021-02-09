@@ -2,8 +2,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "132 mcc_generated_files/interrupt_manager.h
 [; ;mcc_generated_files/interrupt_manager.h: 132: void INTERRUPT_Initialize (void);
 [v _INTERRUPT_Initialize `(v ~T0 @X0 0 ef ]
-"499 mcc_generated_files/pin_manager.h
-[; ;mcc_generated_files/pin_manager.h: 499: void PIN_MANAGER_Initialize (void);
+"515 mcc_generated_files/pin_manager.h
+[; ;mcc_generated_files/pin_manager.h: 515: void PIN_MANAGER_Initialize (void);
 [v _PIN_MANAGER_Initialize `(v ~T0 @X0 0 ef ]
 "89 mcc_generated_files/mcc.h
 [; ;mcc_generated_files/mcc.h: 89: void OSCILLATOR_Initialize(void);
@@ -1472,8 +1472,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _OSCILLATOR_Initialize ]
 [f ]
 "66
-[; ;mcc_generated_files/mcc.c: 66:     OSCCON = 0x60;
-[e = _OSCCON -> -> 96 `i `uc ]
+[; ;mcc_generated_files/mcc.c: 66:     OSCCON = 0x70;
+[e = _OSCCON -> -> 112 `i `uc ]
 "68
 [; ;mcc_generated_files/mcc.c: 68:     OSCCON2 = 0x00;
 [e = _OSCCON2 -> -> 0 `i `uc ]

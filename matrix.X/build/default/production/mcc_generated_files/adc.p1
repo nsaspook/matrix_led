@@ -1642,8 +1642,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _ADC_TemperatureAcquisitionDelay ]
 [f ]
 "136
-[; ;mcc_generated_files/adc.c: 136:     _delay((unsigned long)((200)*(8000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;mcc_generated_files/adc.c: 136:     _delay((unsigned long)((200)*(16000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
 "137
 [; ;mcc_generated_files/adc.c: 137: }
 [e :UE 1550 ]
