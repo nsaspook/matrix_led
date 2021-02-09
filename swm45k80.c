@@ -2,7 +2,7 @@
 
 // PIC18F45K80 Configuration Bit Settings
 
-#include <p18f45k80.h>
+//#include <p18f45k80.h>
 
 // CONFIG1L
 #pragma config RETEN = OFF      // VREG Sleep Enable bit (Ultra low-power regulator is Disabled (Controlled by REGSLP bit))
@@ -82,31 +82,17 @@
  *
  */
 
+#include "matrix.X/mcc_generated_files/mcc.h"
+
 #include <string.h>
 #include <stdlib.h>
-#include <EEP.h>
-#include <timers.h>
-#include <adc.h>
-#include <ctmu.h>
-#include <usart.h>
+//#include <EEP.h>
+//#include <timers.h>
+//#include <adc.h>
+//#include <ctmu.h>
+//#include <usart.h>
 #include <math.h>
 
-
-#ifdef INTTYPES
-#include <stdint.h>
-#else
-#define INTTYPES
-// unsigned types
-typedef unsigned char uint8_t;
-typedef unsigned int uint16_t;
-typedef unsigned long uint32_t;
-typedef unsigned long long uint64_t;
-// signed types
-typedef signed char int8_t;
-typedef signed int int16_t;
-typedef signed long int32_t;
-typedef signed long long int64_t;
-#endif
 
 #define	PDELAY	0xA8
 
@@ -154,7 +140,7 @@ typedef struct pixel_t {
 } volatile pixel_t; // -1 in the m_link and n_link means end of display data
 
 /* store the pixel data in rom then copy it to the ram buffer as needed. */
-const rom struct pixel_t pixel_rom[] = {
+const struct pixel_t pixel_rom[] = {
 	-1, -3, 1, 0, 0,
 	0, -2, 0, 1, 0,
 	1, -1, 1, 2, 0,
@@ -203,12 +189,9 @@ volatile struct pixel_t pixel[PIXEL_NUM] = {
 pixel_temp = {0};
 
 uint8_t prog_name[] = "nsaspook";
-#pragma idata
 
-#pragma	udata access my_access
-volatile near uint8_t ctmu_button, list_numd;
-volatile near uint16_t switchState, xd, yd;
-#pragma udata
+volatile uint8_t ctmu_button, list_numd;
+volatile uint16_t switchState, xd, yd;
 
 uint8_t PEAK_READS = 1;
 volatile uint8_t CTMU_ADC_UPDATED = FALSE, TIME_CHARGE = FALSE, CTMU_WORKING = FALSE, SEND_PACKET = FALSE,
@@ -234,23 +217,17 @@ void object_trans(uint8_t, int8_t, int8_t); // object ID,x,y
 void object_rotate(uint8_t, float); // object ID, degrees
 void object_scale(uint8_t, float, float); // object ID,x,y
 
-#pragma code high_interrupt = 0x8
+
 
 void high_int(void)
 {
-	_asm goto high_handler _endasm
-}
-#pragma code
 
-#pragma code low_interrupt = 0x18
+}
 
 void low_int(void)
 {
-	_asm goto low_handler _endasm
-}
-#pragma code
 
-#pragma interrupt low_handler
+}
 
 /* This is a simple scan converter to a random access display */
 void low_handler(void)
@@ -258,7 +235,8 @@ void low_handler(void)
 	LATDbits.LATD0 = 1;
 	if (PIR1bits.TMR2IF) {
 		PIR1bits.TMR2IF = 0; // clear TMR2 int flag
-		WriteTimer2(PDELAY);
+//		WriteTimer2(PDELAY);
+		TMR2_WriteTimer(PDELAY);
 		LATB = 0xff; // blank the display
 		LATC = 0x00;
 		while (!pixel[list_numd].v) { // quickly skip pixels that are off
@@ -285,8 +263,6 @@ void low_handler(void)
 	}
 	LATDbits.LATD0 = 0;
 }
-
-#pragma interrupt high_handler
 
 void high_handler(void)
 {
@@ -377,7 +353,7 @@ void high_handler(void)
 		CTMUCONLbits.EDG1STAT = 0; // Set Edge status bits to zero
 		CTMUCONLbits.EDG2STAT = 0;
 		CTMUCONHbits.IDISSEN = 1; // drain charge on the circuit
-		WriteTimer0(TIMERDISCHARGE); // set timer to discharge rate
+			TMR0_WriteTimer(TIMERDISCHARGE);
 	}
 }
 
@@ -513,7 +489,7 @@ void pixel_init(void)
 {
 	static int16_t i;
 
-	memcpypgm2ram((void *) pixel, (const rom void *) pixel_rom, sizeof(pixel));
+	memcpy((void *) pixel, (const void *) pixel_rom, sizeof(pixel));
 
 }
 
@@ -535,7 +511,7 @@ uint8_t obj_init(uint8_t rom_link, uint8_t clear)
 	ram_link_start = 0;
 	pixel_size = sizeof(pixel_temp);
 	do {
-		memcpypgm2ram((void *) &pixel[ram_link + ram_link_start].x, (const rom void *) &pixel_rom[rom_link + ram_link_start].x, pixel_size);
+		memcpy((void *) &pixel[ram_link + ram_link_start].x, (const void *) &pixel_rom[rom_link + ram_link_start].x, pixel_size);
 		pixel[ram_link + ram_link_start].m_link = ram_link + ram_link_start; // make a RAM ID for each pixel
 		pixel[ram_link + ram_link_start].n_link = ram_link; // link RAM ID to object
 		++ram_link_start;
@@ -680,20 +656,8 @@ void main(void)
 	OSCTUNE = 0xC0;
 	SLRCON = 0x00; // set slew rate to max
 
-	OpenTimer0(TIMER_INT_ON & T0_16BIT & T0_SOURCE_INT & T0_PS_1_1); // CTMU timer
-	WriteTimer0(TIMERDISCHARGE); //	start timer0
-
-	OpenTimer2(TIMER_INT_ON & T2_PS_1_1 & T2_POST_1_16); // PWN isr timer
-	IPR1bits.TMR2IP = 0; // set timer2 low pri interrupt
-	WriteTimer2(PDELAY);
-
-	/* HOST */
-	Open2USART(USART_TX_INT_ON & //FIXME need to check for correct speed
-		USART_RX_INT_ON &
-		USART_ASYNCH_MODE &
-		USART_EIGHT_BIT &
-		USART_CONT_RX &
-		USART_BRGH_LOW, 103); // 64mhz 9600 baud
+	TMR0_WriteTimer(TIMERDISCHARGE);
+	TMR2_WriteTimer(PDELAY);
 
 	/* Enable interrupt priority */
 	RCONbits.IPEN = 1;
@@ -774,19 +738,19 @@ void main(void)
 
 						switch (romid) {
 						case 0:
-							romid == 9;
+							romid = 9;
 							break;
 						case 9:
-							romid == 14;
+							romid = 14;
 							break;
 						case 14:
-							romid == 20;
+							romid = 20;
 							break;
 						case 20:
-							romid == 0;
+							romid = 0;
 							break;
 						default:
-							romid == 0;
+							romid = 0;
 							break;
 						}
 					}

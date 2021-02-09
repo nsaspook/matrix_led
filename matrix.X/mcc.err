@@ -1,0 +1,5 @@
+Error[1027] mcc_generated_files/mcc.h 49 : unable to locate 'xc.h'
+Error[1027] mcc_generated_files/pin_manager.h 54 : unable to locate 'xc.h'
+Error[1027] mcc_generated_files/mcc.h 52 : unable to locate 'stdint.h'
+Error[1027] mcc_generated_files/mcc.h 53 : unable to locate 'stdbool.h'
+Error[1027] mcc_generated_files/mcc.h 54 : unable to locate 'conio.h'
