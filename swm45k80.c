@@ -1,71 +1,5 @@
 /* Computer Graphics Dot Primitives for a non-raster display */
 
-// PIC18F45K80 Configuration Bit Settings
-
-//#include <p18f45k80.h>
-
-// CONFIG1L
-#pragma config RETEN = OFF      // VREG Sleep Enable bit (Ultra low-power regulator is Disabled (Controlled by REGSLP bit))
-#pragma config INTOSCSEL = HIGH // LF-INTOSC Low-power Enable bit (LF-INTOSC in High-power mode during Sleep)
-#pragma config SOSCSEL = DIG    // SOSC Power Selection and mode Configuration bits (Digital (SCLKI) mode)
-#pragma config XINST = OFF      // Extended Instruction Set (Disabled)
-
-// CONFIG1H
-#pragma config FOSC = INTIO2    // Oscillator (Internal RC oscillator)
-#pragma config PLLCFG = ON      // PLL x4 Enable bit (Enabled)
-#pragma config FCMEN = OFF      // Fail-Safe Clock Monitor (Disabled)
-#pragma config IESO = OFF       // Internal External Oscillator Switch Over Mode (Disabled)
-
-// CONFIG2L
-#pragma config PWRTEN = OFF     // Power Up Timer (Disabled)
-#pragma config BOREN = SBORDIS  // Brown Out Detect (Enabled in hardware, SBOREN disabled)
-#pragma config BORV = 3         // Brown-out Reset Voltage bits (1.8V)
-#pragma config BORPWR = ZPBORMV // BORMV Power level (ZPBORMV instead of BORMV is selected)
-
-// CONFIG2H
-#pragma config WDTEN = OFF      // Watchdog Timer (WDT disabled in hardware; SWDTEN bit disabled)
-#pragma config WDTPS = 1024     // Watchdog Postscaler (1:1024)
-
-// CONFIG3H
-#pragma config CANMX = PORTC    // ECAN Mux bit (ECAN TX and RX pins are located on RC6 and RC7, respectively)
-#pragma config MSSPMSK = MSK7   // MSSP address masking (7 Bit address masking mode)
-#pragma config MCLRE = OFF      // Master Clear Enable (MCLR Disabled, RG5 Enabled)
-
-// CONFIG4L
-#pragma config STVREN = ON      // Stack Overflow Reset (Enabled)
-#pragma config BBSIZ = BB2K     // Boot Block Size (2K word Boot Block size)
-
-// CONFIG5L
-#pragma config CP0 = OFF        // Code Protect 00800-01FFF (Disabled)
-#pragma config CP1 = OFF        // Code Protect 02000-03FFF (Disabled)
-#pragma config CP2 = OFF        // Code Protect 04000-05FFF (Disabled)
-#pragma config CP3 = OFF        // Code Protect 06000-07FFF (Disabled)
-
-// CONFIG5H
-#pragma config CPB = OFF        // Code Protect Boot (Disabled)
-#pragma config CPD = OFF        // Data EE Read Protect (Disabled)
-
-// CONFIG6L
-#pragma config WRT0 = OFF       // Table Write Protect 00800-03FFF (Disabled)
-#pragma config WRT1 = OFF       // Table Write Protect 04000-07FFF (Disabled)
-#pragma config WRT2 = OFF       // Table Write Protect 08000-0BFFF (Disabled)
-#pragma config WRT3 = OFF       // Table Write Protect 0C000-0FFFF (Disabled)
-
-// CONFIG6H
-#pragma config WRTC = OFF       // Config. Write Protect (Disabled)
-#pragma config WRTB = OFF       // Table Write Protect Boot (Disabled)
-#pragma config WRTD = OFF       // Data EE Write Protect (Disabled)
-
-// CONFIG7L
-#pragma config EBTR0 = OFF      // Table Read Protect 00800-03FFF (Disabled)
-#pragma config EBTR1 = OFF      // Table Read Protect 04000-07FFF (Disabled)
-#pragma config EBTR2 = OFF      // Table Read Protect 08000-0BFFF (Disabled)
-#pragma config EBTR3 = OFF      // Table Read Protect 0C000-0FFFF (Disabled)
-
-// CONFIG7H
-#pragma config EBTRB = OFF      // Table Read Protect Boot (Disabled)
-
-
 /*
  *
  *  E0.01 LED 7*5*2 MATRIX DISPLAY, CTMU touch driver
@@ -134,8 +68,15 @@ int16_t ctmu_setup(uint8_t, uint8_t);
 #define	CHOP_BITS	1               // remove this many bits to reduce noise from the touch sensor
 #define MAX_CHAN	1		//	0..1 ADC channels
 
+/* used to hold 16-bit timer value */
+union Timers {
+	unsigned int lt;
+	char bt[2];
+};
+
 typedef struct pixel_t {
-	int8_t x, y, v; // display bit x,y and v for pixel value 0=off
+	int8_t x, y; // display bit x,y and v for pixel value 0=off
+	uint8_t v;
 	int8_t m_link, n_link; // pixel links m_ id for each pixel, n_ pixel group id for object
 } volatile pixel_t; // -1 in the m_link and n_link means end of display data
 
@@ -217,8 +158,6 @@ void object_trans(uint8_t, int8_t, int8_t); // object ID,x,y
 void object_rotate(uint8_t, float); // object ID, degrees
 void object_scale(uint8_t, float, float); // object ID,x,y
 
-
-
 void high_int(void)
 {
 
@@ -235,7 +174,7 @@ void low_handler(void)
 	LATDbits.LATD0 = 1;
 	if (PIR1bits.TMR2IF) {
 		PIR1bits.TMR2IF = 0; // clear TMR2 int flag
-//		WriteTimer2(PDELAY);
+		//		WriteTimer2(PDELAY);
 		TMR2_WriteTimer(PDELAY);
 		LATB = 0xff; // blank the display
 		LATC = 0x00;
@@ -252,8 +191,8 @@ void low_handler(void)
 			xd = xd << pixel[list_numd].x; // move the cross bar to the correct location
 			yd = yd << pixel[list_numd].y;
 			if (pixel[list_numd].v) {
-				LATB = ~yd; // set to low for dot on, load the crossbar into the chip outputs
-				LATC = xd; // set to high for dot on
+				LATB = (uint8_t) ~yd; // set to low for dot on, load the crossbar into the chip outputs
+				LATC = (uint8_t) xd; // set to high for dot on
 			} else { // no dot
 				LATB = 0xff;
 				LATC = 0x00;
@@ -271,7 +210,7 @@ void high_handler(void)
 	static int16_t data_pos = 0, data_len = 0;
 
 	/* start with data_ptr pointed to address of data, data_len to length of data in bytes, data_pos to 0 to start at the beginning of data block */
-	/* then enable the interrupt and wait for the interrupt enable flag to clear
+	/* then enable the interrupt and wait for the interrupt enable flag to clear */
 	/* send buffer and count xmit data bytes for host link */
 	if (PIE3bits.TX2IE && PIR3bits.TX2IF) { // send data TX2
 		if (data_pos >= data_len) { // buffer has been sent
@@ -319,7 +258,7 @@ void high_handler(void)
 			CTMUCONHbits.IDISSEN = 0; // end drain of touch circuit
 			TIME_CHARGE = TRUE; // set charging flag
 			CTMU_WORKING = TRUE; // set working flag, doing
-			WriteTimer0(charge_time[isr_channel]); // set timer to charge rate time
+			TMR0_WriteTimer(charge_time[isr_channel]); // set timer to charge rate time
 			CTMUCONLbits.EDG1STAT = 1; // Begin charging the touch circuit
 		}
 	}
@@ -353,7 +292,7 @@ void high_handler(void)
 		CTMUCONLbits.EDG1STAT = 0; // Set Edge status bits to zero
 		CTMUCONLbits.EDG2STAT = 0;
 		CTMUCONHbits.IDISSEN = 1; // drain charge on the circuit
-			TMR0_WriteTimer(TIMERDISCHARGE);
+		TMR0_WriteTimer(TIMERDISCHARGE);
 	}
 }
 
@@ -373,6 +312,7 @@ uint16_t touch_base_calc(uint8_t channel)
 	}
 	touch_base[channel] = (uint16_t) (t_avg / 8L);
 	if (touch_base[channel] < TRIP) touch_base[channel] = TRIP + HYST;
+	return touch_base[channel];
 }
 
 void touch_channel(uint8_t channel)
@@ -498,7 +438,7 @@ void pixel_init(void)
 /* move the pixel object from the ROM array to display RAM memeory, if clear is TRUE reset RAM index back to zero */
 uint8_t obj_init(uint8_t rom_link, uint8_t clear)
 {
-	static int16_t pixel_size;
+	static size_t pixel_size;
 	static uint8_t ram_link = 0, ram_link_start = 0;
 
 	if (clear) {
@@ -512,8 +452,8 @@ uint8_t obj_init(uint8_t rom_link, uint8_t clear)
 	pixel_size = sizeof(pixel_temp);
 	do {
 		memcpy((void *) &pixel[ram_link + ram_link_start].x, (const void *) &pixel_rom[rom_link + ram_link_start].x, pixel_size);
-		pixel[ram_link + ram_link_start].m_link = ram_link + ram_link_start; // make a RAM ID for each pixel
-		pixel[ram_link + ram_link_start].n_link = ram_link; // link RAM ID to object
+		pixel[ram_link + ram_link_start].m_link = (int8_t) (ram_link + ram_link_start); // make a RAM ID for each pixel
+		pixel[ram_link + ram_link_start].n_link = (int8_t) ram_link; // link RAM ID to object
 		++ram_link_start;
 	} while (pixel_rom[ram_link_start + rom_link].n_link == rom_link);
 
@@ -534,7 +474,7 @@ void pixel_rotate(uint8_t list_num, float degree) // pixel,degree rotation
 	static float to_rad, float_x, float_y, sine, cosine, old_degree = 1957.7;
 
 	if (degree != old_degree) {
-		to_rad = 0.0175 * degree;
+		to_rad = (float) 0.0175 * degree;
 		cosine = (float) cos(to_rad);
 		sine = (float) sin(to_rad);
 		old_degree = degree;
@@ -560,8 +500,8 @@ void pixel_scale(uint8_t list_num, float x_scale, float y_scale)
 
 	float_x = (float) pixel[list_num].x;
 	float_y = (float) pixel[list_num].y;
-	pixel[list_num].x = (int8_t) float_x * x_scale;
-	pixel[list_num].y = (int8_t) float_y * y_scale;
+	pixel[list_num].x = (int8_t) (float_x * x_scale);
+	pixel[list_num].y = (int8_t) (float_y * y_scale);
 }
 
 void object_rotate(uint8_t list_num, float degree)
@@ -627,7 +567,7 @@ void d_scan_off(void)
 	LATC = 0x00;
 }
 
-void main(void)
+void main_init(void)
 {
 	uint16_t touch_zero = 0;
 	uint8_t x = 1, y = 1, t, i, romid = 9;
@@ -685,7 +625,7 @@ void main(void)
 
 			touch_channel(ctmu_button);
 			if (ctmu_button == 0) {
-				t = ctmu_touch(ctmu_button, FALSE); // display channel  0 only
+				t = (uint8_t) ctmu_touch(ctmu_button, FALSE); // display channel  0 only
 			} else {
 				ctmu_touch(ctmu_button, FALSE);
 			}
@@ -714,10 +654,10 @@ void main(void)
 					object_trans(obj1, x_p, y_p); // move to near center
 				} else {
 					times = ROT_SPEED_P;
-					obj_init(0, TRUE); // clear ram diaplay memory
+					obj_init(0, TRUE); // clear ram display memory
 					obj1 = obj_init(romid, FALSE); // return ID for rom object into ram id
-					object_scale(obj1, 2.0 - scaling, 2.0 - scaling); // small to big
-					object_rotate(obj1, 360.0 - rotation); // CCW
+					object_scale(obj1, (float) 2.0 - scaling, (float) 2.0 - scaling); // small to big
+					object_rotate(obj1, (float) 360.0 - rotation); // CCW
 					object_trans(obj1, x_p, y_p);
 				}
 

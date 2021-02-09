@@ -7,73 +7,7 @@
 # 1 "/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "../swm45k80.c" 2
-
-
-
-
-
-
-
-#pragma config RETEN = OFF
-#pragma config INTOSCSEL = HIGH
-#pragma config SOSCSEL = DIG
-#pragma config XINST = OFF
-
-
-#pragma config FOSC = INTIO2
-#pragma config PLLCFG = ON
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
-
-
-#pragma config PWRTEN = OFF
-#pragma config BOREN = SBORDIS
-#pragma config BORV = 3
-#pragma config BORPWR = ZPBORMV
-
-
-#pragma config WDTEN = OFF
-#pragma config WDTPS = 1024
-
-
-#pragma config CANMX = PORTC
-#pragma config MSSPMSK = MSK7
-#pragma config MCLRE = OFF
-
-
-#pragma config STVREN = ON
-#pragma config BBSIZ = BB2K
-
-
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-
-
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-
-
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-
-
-#pragma config EBTRB = OFF
-# 85 "../swm45k80.c"
+# 19 "../swm45k80.c"
 # 1 "../matrix.X/mcc_generated_files/mcc.h" 1
 # 49 "../matrix.X/mcc_generated_files/mcc.h"
 # 1 "/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/xc.h" 1 3
@@ -20809,7 +20743,7 @@ void EUSART2_SetRxInterruptHandler(void (* interruptHandler)(void));
 void SYSTEM_Initialize(void);
 # 89 "../matrix.X/mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
-# 85 "../swm45k80.c" 2
+# 19 "../swm45k80.c" 2
 
 
 # 1 "/opt/microchip/xc8/v2.31/pic/include/c99/string.h" 1 3
@@ -20866,7 +20800,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 87 "../swm45k80.c" 2
+# 21 "../swm45k80.c" 2
 
 
 
@@ -21246,15 +21180,21 @@ double jn(int, double);
 double y0(double);
 double y1(double);
 double yn(int, double);
-# 94 "../swm45k80.c" 2
-# 116 "../swm45k80.c"
+# 28 "../swm45k80.c" 2
+# 50 "../swm45k80.c"
 uint16_t touch_base_calc(uint8_t);
 void touch_channel(uint8_t);
 uint16_t ctmu_touch(uint8_t, uint8_t);
 int16_t ctmu_setup(uint8_t, uint8_t);
-# 137 "../swm45k80.c"
+# 72 "../swm45k80.c"
+union Timers {
+ unsigned int lt;
+ char bt[2];
+};
+
 typedef struct pixel_t {
- int8_t x, y, v;
+ int8_t x, y;
+ uint8_t v;
  int8_t m_link, n_link;
 } volatile pixel_t;
 
@@ -21336,8 +21276,6 @@ void object_trans(uint8_t, int8_t, int8_t);
 void object_rotate(uint8_t, float);
 void object_scale(uint8_t, float, float);
 
-
-
 void high_int(void)
 {
 
@@ -21371,8 +21309,8 @@ void low_handler(void)
    xd = xd << pixel[list_numd].x;
    yd = yd << pixel[list_numd].y;
    if (pixel[list_numd].v) {
-    LATB = ~yd;
-    LATC = xd;
+    LATB = (uint8_t) ~yd;
+    LATC = (uint8_t) xd;
    } else {
     LATB = 0xff;
     LATC = 0x00;
@@ -21438,7 +21376,7 @@ void high_handler(void)
    CTMUCONHbits.IDISSEN = 0;
    TIME_CHARGE = 1;
    CTMU_WORKING = 1;
-   WriteTimer0(charge_time[isr_channel]);
+   TMR0_WriteTimer(charge_time[isr_channel]);
    CTMUCONLbits.EDG1STAT = 1;
   }
  }
@@ -21472,7 +21410,7 @@ void high_handler(void)
   CTMUCONLbits.EDG1STAT = 0;
   CTMUCONLbits.EDG2STAT = 0;
   CTMUCONHbits.IDISSEN = 1;
-   TMR0_WriteTimer(51000);
+  TMR0_WriteTimer(51000);
  }
 }
 
@@ -21492,6 +21430,7 @@ uint16_t touch_base_calc(uint8_t channel)
  }
  touch_base[channel] = (uint16_t) (t_avg / 8L);
  if (touch_base[channel] < 64) touch_base[channel] = 64 + 16;
+ return touch_base[channel];
 }
 
 void touch_channel(uint8_t channel)
@@ -21617,7 +21556,7 @@ void pixel_init(void)
 
 uint8_t obj_init(uint8_t rom_link, uint8_t clear)
 {
- static int16_t pixel_size;
+ static size_t pixel_size;
  static uint8_t ram_link = 0, ram_link_start = 0;
 
  if (clear) {
@@ -21631,8 +21570,8 @@ uint8_t obj_init(uint8_t rom_link, uint8_t clear)
  pixel_size = sizeof(pixel_temp);
  do {
   memcpy((void *) &pixel[ram_link + ram_link_start].x, (const void *) &pixel_rom[rom_link + ram_link_start].x, pixel_size);
-  pixel[ram_link + ram_link_start].m_link = ram_link + ram_link_start;
-  pixel[ram_link + ram_link_start].n_link = ram_link;
+  pixel[ram_link + ram_link_start].m_link = (int8_t) (ram_link + ram_link_start);
+  pixel[ram_link + ram_link_start].n_link = (int8_t) ram_link;
   ++ram_link_start;
  } while (pixel_rom[ram_link_start + rom_link].n_link == rom_link);
 
@@ -21653,7 +21592,7 @@ void pixel_rotate(uint8_t list_num, float degree)
  static float to_rad, float_x, float_y, sine, cosine, old_degree = 1957.7;
 
  if (degree != old_degree) {
-  to_rad = 0.0175 * degree;
+  to_rad = (float) 0.0175 * degree;
   cosine = (float) cosf(to_rad);
   sine = (float) sinf(to_rad);
   old_degree = degree;
@@ -21679,8 +21618,8 @@ void pixel_scale(uint8_t list_num, float x_scale, float y_scale)
 
  float_x = (float) pixel[list_num].x;
  float_y = (float) pixel[list_num].y;
- pixel[list_num].x = (int8_t) float_x * x_scale;
- pixel[list_num].y = (int8_t) float_y * y_scale;
+ pixel[list_num].x = (int8_t) (float_x * x_scale);
+ pixel[list_num].y = (int8_t) (float_y * y_scale);
 }
 
 void object_rotate(uint8_t list_num, float degree)
@@ -21746,7 +21685,7 @@ void d_scan_off(void)
  LATC = 0x00;
 }
 
-void main(void)
+void main_init(void)
 {
  uint16_t touch_zero = 0;
  uint8_t x = 1, y = 1, t, i, romid = 9;
@@ -21804,11 +21743,11 @@ void main(void)
 
    touch_channel(ctmu_button);
    if (ctmu_button == 0) {
-    t = ctmu_touch(ctmu_button, 0);
+    t = (uint8_t) ctmu_touch(ctmu_button, 0);
    } else {
     ctmu_touch(ctmu_button, 0);
    }
-# 702 "../swm45k80.c"
+# 642 "../swm45k80.c"
    __asm(" clrwdt");
 
 
@@ -21826,8 +21765,8 @@ void main(void)
      times = 20;
      obj_init(0, 1);
      obj1 = obj_init(romid, 0);
-     object_scale(obj1, 2.0 - scaling, 2.0 - scaling);
-     object_rotate(obj1, 360.0 - rotation);
+     object_scale(obj1, (float) 2.0 - scaling, (float) 2.0 - scaling);
+     object_rotate(obj1, (float) 360.0 - rotation);
      object_trans(obj1, x_p, y_p);
     }
 

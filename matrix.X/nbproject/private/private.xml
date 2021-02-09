@@ -6,6 +6,7 @@
         <group>
             <file>file:/fred/matrix_led/swm45k80.c</file>
             <file>file:/fred/matrix_led/matrix.X/mcc_generated_files/tmr2.h</file>
+            <file>file:/fred/matrix_led/matrix.X/mcc_generated_files/pin_manager.c</file>
             <file>file:/fred/matrix_led/matrix.X/mcc_generated_files/tmr0.c</file>
             <file>file:/fred/matrix_led/matrix.X/mcc_generated_files/mcc.h</file>
             <file>file:/fred/matrix_led/matrix.X/main.c</file>
