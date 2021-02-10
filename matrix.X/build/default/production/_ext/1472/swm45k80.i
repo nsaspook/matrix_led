@@ -21653,9 +21653,9 @@ void main_init(void)
  LATB = 0xff;
 
  LATC = 0xff;
-
+ TRISD = 0x00;
  LATD = 0x00;
-
+ TRISE = 0x00;
  LATE = 0x00;
 
 
@@ -21736,19 +21736,19 @@ void main_init(void)
 
       switch (romid) {
       case 0:
-       romid = 9;
+       romid == 9;
        break;
       case 9:
-       romid = 14;
+       romid == 14;
        break;
       case 14:
-       romid = 20;
+       romid == 20;
        break;
       case 20:
-       romid = 0;
+       romid == 0;
        break;
       default:
-       romid = 0;
+       romid == 0;
        break;
       }
      }

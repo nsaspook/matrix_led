@@ -535,9 +535,9 @@ void main_init(void)
 	LATB = 0xff;
 	//	TRISC = 0x00; //	outputs
 	LATC = 0xff;
-	//	TRISD = 0x00; //        outputs
+	TRISD = 0x00; //        outputs
 	LATD = 0x00;
-	//	TRISE = 0x00; //        outputs
+	TRISE = 0x00; //        outputs
 	LATE = 0x00;
 
 	//	OSCCON = 0x70; // internal osc
@@ -627,19 +627,19 @@ void main_init(void)
 
 						switch (romid) {
 						case 0:
-							romid = 9;
+							romid == 9;
 							break;
 						case 9:
-							romid = 14;
+							romid == 14;
 							break;
 						case 14:
-							romid = 20;
+							romid == 20;
 							break;
 						case 20:
-							romid = 0;
+							romid == 0;
 							break;
 						default:
-							romid = 0;
+							romid == 0;
 							break;
 						}
 					}

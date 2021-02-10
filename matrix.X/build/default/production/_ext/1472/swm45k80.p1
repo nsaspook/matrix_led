@@ -274,9 +274,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30492 /opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 30492: extern volatile unsigned char LATA __attribute__((address(0xF89)));
 [v _LATA `Vuc ~T0 @X0 0 e@3977 ]
+"31269
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 31269: extern volatile unsigned char TRISD __attribute__((address(0xF95)));
+[v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
 "30818
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 30818: extern volatile unsigned char LATD __attribute__((address(0xF8C)));
 [v _LATD `Vuc ~T0 @X0 0 e@3980 ]
+"31331
+[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 31331: extern volatile unsigned char TRISE __attribute__((address(0xF96)));
+[v _TRISE `Vuc ~T0 @X0 0 e@3990 ]
 "30930
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 30930: extern volatile unsigned char LATE __attribute__((address(0xF8D)));
 [v _LATE `Vuc ~T0 @X0 0 e@3981 ]
@@ -3284,9 +3290,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "537
 [; ;../swm45k80.c: 537:  LATC = 0xff;
 [e = _LATC -> -> 255 `i `uc ]
+"538
+[; ;../swm45k80.c: 538:  TRISD = 0x00;
+[e = _TRISD -> -> 0 `i `uc ]
 "539
 [; ;../swm45k80.c: 539:  LATD = 0x00;
 [e = _LATD -> -> 0 `i `uc ]
+"540
+[; ;../swm45k80.c: 540:  TRISE = 0x00;
+[e = _TRISE -> -> 0 `i `uc ]
 "541
 [; ;../swm45k80.c: 541:  LATE = 0x00;
 [e = _LATE -> -> 0 `i `uc ]
@@ -3502,8 +3514,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../swm45k80.c: 629:       case 0:
 [e :U 1658 ]
 "630
-[; ;../swm45k80.c: 630:        romid = 9;
-[e = _romid -> -> 9 `i `uc ]
+[; ;../swm45k80.c: 630:        romid == 9;
+[e == -> _romid `i -> 9 `i ]
 "631
 [; ;../swm45k80.c: 631:        break;
 [e $U 1656  ]
@@ -3511,8 +3523,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../swm45k80.c: 632:       case 9:
 [e :U 1659 ]
 "633
-[; ;../swm45k80.c: 633:        romid = 14;
-[e = _romid -> -> 14 `i `uc ]
+[; ;../swm45k80.c: 633:        romid == 14;
+[e == -> _romid `i -> 14 `i ]
 "634
 [; ;../swm45k80.c: 634:        break;
 [e $U 1656  ]
@@ -3520,8 +3532,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../swm45k80.c: 635:       case 14:
 [e :U 1660 ]
 "636
-[; ;../swm45k80.c: 636:        romid = 20;
-[e = _romid -> -> 20 `i `uc ]
+[; ;../swm45k80.c: 636:        romid == 20;
+[e == -> _romid `i -> 20 `i ]
 "637
 [; ;../swm45k80.c: 637:        break;
 [e $U 1656  ]
@@ -3529,8 +3541,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../swm45k80.c: 638:       case 20:
 [e :U 1661 ]
 "639
-[; ;../swm45k80.c: 639:        romid = 0;
-[e = _romid -> -> 0 `i `uc ]
+[; ;../swm45k80.c: 639:        romid == 0;
+[e == -> _romid `i -> 0 `i ]
 "640
 [; ;../swm45k80.c: 640:        break;
 [e $U 1656  ]
@@ -3538,8 +3550,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../swm45k80.c: 641:       default:
 [e :U 1662 ]
 "642
-[; ;../swm45k80.c: 642:        romid = 0;
-[e = _romid -> -> 0 `i `uc ]
+[; ;../swm45k80.c: 642:        romid == 0;
+[e == -> _romid `i -> 0 `i ]
 "643
 [; ;../swm45k80.c: 643:        break;
 [e $U 1656  ]
