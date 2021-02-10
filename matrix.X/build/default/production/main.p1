@@ -1412,7 +1412,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _SYSTEM_Initialize ..  ]
 "80
 [; ;main.c: 80:     while (1)
-[e :U 1546 ]
+[e :U 1548 ]
 "81
 [; ;main.c: 81:     {
 {
@@ -1422,10 +1422,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "84
 [; ;main.c: 84:     }
 }
-[e :U 1545 ]
-[e $U 1546  ]
 [e :U 1547 ]
+[e $U 1548  ]
+[e :U 1549 ]
 "85
 [; ;main.c: 85: }
-[e :UE 1544 ]
+[e :UE 1546 ]
 }

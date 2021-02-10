@@ -1,5 +1,5 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F12421 `(v ~T0 @X0 0 tf ]
+[v F12414 `(v ~T0 @X0 0 tf ]
 "34938 /opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 34938: extern volatile unsigned char ADCON0 __attribute__((address(0xFC2)));
 [v _ADCON0 `Vuc ~T0 @X0 0 e@4034 ]
@@ -30,17 +30,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "31630
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 31630: extern volatile PIE1bits_t PIE1bits __attribute__((address(0xF9D)));
 [v _PIE1bits `VS1200 ~T0 @X0 0 e@3997 ]
-[v F12414 `(v ~T0 @X0 0 tf ]
-"324 mcc_generated_files/adc.h
-[; ;mcc_generated_files/adc.h: 324:  void ADC_SetInterruptHandler(void (* InterruptHandler)(void));
-[v _ADC_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F12414 ]
-"360
-[; ;mcc_generated_files/adc.h: 360: void ADC_DefaultInterruptHandler(void);
+[v F12407 `(v ~T0 @X0 0 tf ]
+"317 mcc_generated_files/adc.h
+[; ;mcc_generated_files/adc.h: 317:  void ADC_SetInterruptHandler(void (* InterruptHandler)(void));
+[v _ADC_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F12407 ]
+"353
+[; ;mcc_generated_files/adc.h: 353: void ADC_DefaultInterruptHandler(void);
 [v _ADC_DefaultInterruptHandler `(v ~T0 @X0 0 ef ]
 "88 mcc_generated_files/adc.c
 [; ;mcc_generated_files/adc.c: 88: void ADC_StartConversion(adc_channel_t channel)
-[c E12387 28 29 30 31 0 1 2 3 4 5 6 7 8 9 10 .. ]
-[n E12387 . channel_CTMU channel_Temp_diode channel_Vdd_core channel_1_024V_bandgap channel_AN0 channel_AN1 channel_AN2 channel_AN3 IO_RA5 IO_RE0 IO_RE1 IO_RE2 IO_RB1 IO_RB4 IO_RB0  ]
+[c E12387 28 29 30 31 0 1 2 3 .. ]
+[n E12387 . channel_CTMU channel_Temp_diode channel_Vdd_core channel_1_024V_bandgap channel_AN0 channel_AN1 channel_AN2 channel_AN3  ]
 "34944 /opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 34944:     struct {
 [s S1362 :1 `uc 1 :1 `uc 1 ]
@@ -99,9 +99,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "31707
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 31707: extern volatile PIR1bits_t PIR1bits __attribute__((address(0xF9E)));
 [v _PIR1bits `VS1203 ~T0 @X0 0 e@3998 ]
-[v F12432 `(v ~T0 @X0 0 tf ]
-[v F12434 `(v ~T0 @X0 0 tf ]
-[v F12436 `(v ~T0 @X0 0 tf ]
+[v F12425 `(v ~T0 @X0 0 tf ]
+[v F12427 `(v ~T0 @X0 0 tf ]
+[v F12429 `(v ~T0 @X0 0 tf ]
 "54 /opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 54: __asm("RXERRCNT equ 0E41h");
 [; <" RXERRCNT equ 0E41h ;# ">
@@ -1496,7 +1496,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 0FFFh ;# ">
 "56 mcc_generated_files/adc.c
 [; ;mcc_generated_files/adc.c: 56: void (*ADC_InterruptHandler)(void);
-[v _ADC_InterruptHandler `*F12421 ~T0 @X0 1 e ]
+[v _ADC_InterruptHandler `*F12414 ~T0 @X0 1 e ]
 "62
 [; ;mcc_generated_files/adc.c: 62: void ADC_Initialize(void)
 [v _ADC_Initialize `(v ~T0 @X0 1 ef ]
@@ -1509,11 +1509,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/adc.c: 67:     ADCON0 = 0x01;
 [e = _ADCON0 -> -> 1 `i `uc ]
 "70
-[; ;mcc_generated_files/adc.c: 70:     ADCON1 = 0x80;
-[e = _ADCON1 -> -> 128 `i `uc ]
+[; ;mcc_generated_files/adc.c: 70:     ADCON1 = 0xB0;
+[e = _ADCON1 -> -> 176 `i `uc ]
 "73
-[; ;mcc_generated_files/adc.c: 73:     ADCON2 = 0x27;
-[e = _ADCON2 -> -> 39 `i `uc ]
+[; ;mcc_generated_files/adc.c: 73:     ADCON2 = 0xA5;
+[e = _ADCON2 -> -> 165 `i `uc ]
 "76
 [; ;mcc_generated_files/adc.c: 76:     ADRESH = 0x00;
 [e = _ADRESH -> -> 0 `i `uc ]
@@ -1661,7 +1661,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
 "144
 [; ;mcc_generated_files/adc.c: 144:  if(ADC_InterruptHandler)
-[e $ ! != _ADC_InterruptHandler -> -> 0 `i `*F12432 1552  ]
+[e $ ! != _ADC_InterruptHandler -> -> 0 `i `*F12425 1552  ]
 "145
 [; ;mcc_generated_files/adc.c: 145:     {
 {
@@ -1678,10 +1678,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "150
 [; ;mcc_generated_files/adc.c: 150: void ADC_SetInterruptHandler(void (* InterruptHandler)(void)){
-[v _ADC_SetInterruptHandler `(v ~T0 @X0 1 ef1`*F12434 ]
+[v _ADC_SetInterruptHandler `(v ~T0 @X0 1 ef1`*F12427 ]
 {
 [e :U _ADC_SetInterruptHandler ]
-[v _InterruptHandler `*F12436 ~T0 @X0 1 r1 ]
+[v _InterruptHandler `*F12429 ~T0 @X0 1 r1 ]
 [f ]
 "151
 [; ;mcc_generated_files/adc.c: 151:     ADC_InterruptHandler = InterruptHandler;

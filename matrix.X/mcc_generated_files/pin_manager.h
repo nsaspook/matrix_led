@@ -502,6 +502,10 @@
 #define IO_RE2_SetAnalogMode()      do { ANCON0bits.ANSEL7 = 1; } while(0)
 #define IO_RE2_SetDigitalMode()     do { ANCON0bits.ANSEL7 = 0; } while(0)
 
+// get/set IO_RE3 aliases
+#define IO_RE3_PORT                 PORTEbits.RE3
+#define IO_RE3_GetValue()           PORTEbits.RE3
+
 /**
    @Param
     none

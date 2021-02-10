@@ -32,7 +32,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "73
 [p x MSSPMSK  =  MSK7     ]
 "74
-[p x MCLRE  =  ON     ]
+[p x MCLRE  =  OFF     ]
 "77
 [p x STVREN  =  ON     ]
 "78

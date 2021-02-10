@@ -20552,10 +20552,10 @@ void TMR0_Initialize(void)
     T0CONbits.T08BIT = 0;
 
 
-    TMR0H = 0xEB;
+    TMR0H = 0xF8;
 
 
-    TMR0L = 0xFF;
+    TMR0L = 0x2F;
 
 
 

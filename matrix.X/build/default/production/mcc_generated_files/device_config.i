@@ -32,7 +32,7 @@
 
 #pragma config CANMX = PORTB
 #pragma config MSSPMSK = MSK7
-#pragma config MCLRE = ON
+#pragma config MCLRE = OFF
 
 
 #pragma config STVREN = ON

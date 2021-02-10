@@ -139,7 +139,7 @@ volatile uint16_t touch_base[16], charge_time[16]; //storage for reading paramet
 
 void high_handler_tmr0(void);
 void high_handler_adc(void);
-void low_handler(void); // DOT MATRIX updater
+void low_handler_tmr2(void); // DOT MATRIX updater
 
 void d_scan_on(void);
 void d_scan_off(void);
@@ -158,7 +158,9 @@ void object_rotate(uint8_t, float); // object ID, degrees
 void object_scale(uint8_t, float, float); // object ID,x,y
 
 /* This is a simple scan converter to a random access display */
-void low_handler(void)
+
+/* Timer 2 */
+void low_handler_tmr2(void)
 {
 	LATDbits.LATD0 = 1;
 	TMR2_WriteTimer(PDELAY);
@@ -315,22 +317,7 @@ int16_t ctmu_setup(uint8_t current, uint8_t channel)
 	//Set up AD converter;
 	/**************************************************************************/
 
-	// Configure AN0 as an analog channel
-	ANCON0bits.ANSEL0 = 1;
-	TRISAbits.TRISA0 = 1;
-
-	// ADCON2
-	ADCON2bits.ADFM = 1; // Results format 1= Right justified
-	ADCON2bits.ACQT = 7; // Acquition time 7 = 20TAD 2 = 4TAD 1=2TAD
-	ADCON2bits.ADCS = 6; // Clock conversion bits 6= FOSC/64 2=FOSC/32
-	// ADCON1
-	ADCON1bits.VCFG = 3; // Vref+ = 4.096
-	ADCON1bits.VNCFG = 0; // Vref- = AVss
-	ADCON1bits.CHSN = 0; // single ended
-	// ADCON0
-	ADCON0bits.CHS = 0; // Select ADC channel
-	ADCON0bits.ADON = 1; // Turn on ADC
-	PIE1bits.ADIE = 1; // enable ADC int
+	// Use AN0 as an analog channel
 
 	// timer3 register used for atomic data transfer
 	T3CONbits.TMR3ON = 0; // Timer is off
@@ -526,27 +513,17 @@ void main_init(void)
 
 	display_init(); // Setup the pixel display data MUST BE CALLED FIRST
 	switchState = UNPRESSED;
-
-	//	TRISA = 0b00001111; //	0..3 inputs 4..7 outputs
 	LATA = 0b00000000;
-	//	ANCON0 = 0b00001111; // analog inputs 0-3
-	//	ANCON1 = 0b00000000;
-	//	TRISB = 0x00; //	outputs
 	LATB = 0xff;
-	//	TRISC = 0x00; //	outputs
 	LATC = 0xff;
-	TRISD = 0x00; //        outputs
 	LATD = 0x00;
-	TRISE = 0x00; //        outputs
 	LATE = 0x00;
 
-	//	OSCCON = 0x70; // internal osc
-	OSCTUNE = 0xC0;
 	SLRCON = 0x00; // set slew rate to max
 
 	TMR0_WriteTimer(TIMERDISCHARGE);
 	TMR2_WriteTimer(PDELAY);
-	TMR2_SetInterruptHandler(low_handler);
+	TMR2_SetInterruptHandler(low_handler_tmr2);
 	TMR0_SetInterruptHandler(high_handler_tmr0);
 	ADC_SetInterruptHandler(high_handler_adc);
 

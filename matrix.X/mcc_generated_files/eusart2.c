@@ -53,8 +53,8 @@
   Section: Macro Declarations
 */
 
-#define EUSART2_TX_BUFFER_SIZE 8
-#define EUSART2_RX_BUFFER_SIZE 8
+#define EUSART2_TX_BUFFER_SIZE 64
+#define EUSART2_RX_BUFFER_SIZE 64
 
 /**
   Section: Global Variables
@@ -104,10 +104,10 @@ void EUSART2_Initialize(void)
     TXSTA2 = 0x26;
 
     // 
-    SPBRG2 = 0xA0;
+    SPBRG2 = 0x22;
 
     // 
-    SPBRGH2 = 0x01;
+    SPBRGH2 = 0x00;
 
 
     EUSART2_SetFramingErrorHandler(EUSART2_DefaultFramingErrorHandler);
@@ -193,6 +193,15 @@ void EUSART2_Write(uint8_t txData)
     PIE3bits.TX2IE = 1;
 }
 
+char getch(void)
+{
+    return EUSART2_Read();
+}
+
+void putch(char txData)
+{
+    EUSART2_Write(txData);
+}
 
 void EUSART2_Transmit_ISR(void)
 {

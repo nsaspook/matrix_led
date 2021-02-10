@@ -20429,9 +20429,9 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 50 "mcc_generated_files/mcc.h" 2
 
 # 1 "mcc_generated_files/pin_manager.h" 1
-# 515 "mcc_generated_files/pin_manager.h"
+# 519 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 527 "mcc_generated_files/pin_manager.h"
+# 531 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
 # 51 "mcc_generated_files/mcc.h" 2
 
@@ -20556,6 +20556,25 @@ extern void cputs(const char *);
 # 54 "mcc_generated_files/mcc.h" 2
 
 
+# 1 "mcc_generated_files/memory.h" 1
+# 99 "mcc_generated_files/memory.h"
+uint8_t FLASH_ReadByte(uint32_t flashAddr);
+# 125 "mcc_generated_files/memory.h"
+uint16_t FLASH_ReadWord(uint32_t flashAddr);
+# 157 "mcc_generated_files/memory.h"
+void FLASH_WriteByte(uint32_t flashAddr, uint8_t *flashRdBufPtr, uint8_t byte);
+# 193 "mcc_generated_files/memory.h"
+int8_t FLASH_WriteBlock(uint32_t writeAddr, uint8_t *flashWrBufPtr);
+# 218 "mcc_generated_files/memory.h"
+void FLASH_EraseBlock(uint32_t baseAddr);
+# 249 "mcc_generated_files/memory.h"
+void DATAEE_WriteByte(uint16_t bAdd, uint8_t bData);
+# 275 "mcc_generated_files/memory.h"
+uint8_t DATAEE_ReadByte(uint16_t bAdd);
+
+void MEMORY_Tasks(void);
+# 56 "mcc_generated_files/mcc.h" 2
+
 # 1 "mcc_generated_files/tmr1.h" 1
 # 100 "mcc_generated_files/tmr1.h"
 void TMR1_Initialize(void);
@@ -20575,25 +20594,6 @@ void TMR1_StartSinglePulseAcquisition(void);
 uint8_t TMR1_CheckGateValueStatus(void);
 # 387 "mcc_generated_files/tmr1.h"
 _Bool TMR1_HasOverflowOccured(void);
-# 56 "mcc_generated_files/mcc.h" 2
-
-# 1 "mcc_generated_files/memory.h" 1
-# 99 "mcc_generated_files/memory.h"
-uint8_t FLASH_ReadByte(uint32_t flashAddr);
-# 125 "mcc_generated_files/memory.h"
-uint16_t FLASH_ReadWord(uint32_t flashAddr);
-# 157 "mcc_generated_files/memory.h"
-void FLASH_WriteByte(uint32_t flashAddr, uint8_t *flashRdBufPtr, uint8_t byte);
-# 193 "mcc_generated_files/memory.h"
-int8_t FLASH_WriteBlock(uint32_t writeAddr, uint8_t *flashWrBufPtr);
-# 218 "mcc_generated_files/memory.h"
-void FLASH_EraseBlock(uint32_t baseAddr);
-# 249 "mcc_generated_files/memory.h"
-void DATAEE_WriteByte(uint16_t bAdd, uint8_t bData);
-# 275 "mcc_generated_files/memory.h"
-uint8_t DATAEE_ReadByte(uint16_t bAdd);
-
-void MEMORY_Tasks(void);
 # 57 "mcc_generated_files/mcc.h" 2
 
 # 1 "mcc_generated_files/tmr2.h" 1
@@ -20619,50 +20619,6 @@ extern void (*TMR2_InterruptHandler)(void);
 void TMR2_DefaultInterruptHandler(void);
 # 58 "mcc_generated_files/mcc.h" 2
 
-# 1 "mcc_generated_files/adc.h" 1
-# 72 "mcc_generated_files/adc.h"
-typedef uint16_t adc_result_t;
-# 86 "mcc_generated_files/adc.h"
-typedef enum
-{
-    channel_CTMU = 0x1C,
-    channel_Temp_diode = 0x1D,
-    channel_Vdd_core = 0x1E,
-    channel_1_024V_bandgap = 0x1F,
-    channel_AN0 = 0x0,
-    channel_AN1 = 0x1,
-    channel_AN2 = 0x2,
-    channel_AN3 = 0x3,
-    IO_RA5 = 0x4,
-    IO_RE0 = 0x5,
-    IO_RE1 = 0x6,
-    IO_RE2 = 0x7,
-    IO_RB1 = 0x8,
-    IO_RB4 = 0x9,
-    IO_RB0 = 0xa
-} adc_channel_t;
-# 138 "mcc_generated_files/adc.h"
-void ADC_Initialize(void);
-# 167 "mcc_generated_files/adc.h"
-void ADC_StartConversion(adc_channel_t channel);
-# 199 "mcc_generated_files/adc.h"
-_Bool ADC_IsConversionDone(void);
-# 232 "mcc_generated_files/adc.h"
-adc_result_t ADC_GetConversionResult(void);
-# 262 "mcc_generated_files/adc.h"
-adc_result_t ADC_GetConversion(adc_channel_t channel);
-# 290 "mcc_generated_files/adc.h"
-void ADC_TemperatureAcquisitionDelay(void);
-# 306 "mcc_generated_files/adc.h"
-void ADC_ISR(void);
-# 324 "mcc_generated_files/adc.h"
- void ADC_SetInterruptHandler(void (* InterruptHandler)(void));
-# 342 "mcc_generated_files/adc.h"
-extern void (*ADC_InterruptHandler)(void);
-# 360 "mcc_generated_files/adc.h"
-void ADC_DefaultInterruptHandler(void);
-# 59 "mcc_generated_files/mcc.h" 2
-
 # 1 "mcc_generated_files/tmr0.h" 1
 # 100 "mcc_generated_files/tmr0.h"
 void TMR0_Initialize(void);
@@ -20684,10 +20640,187 @@ void TMR0_ISR(void);
 extern void (*TMR0_InterruptHandler)(void);
 # 345 "mcc_generated_files/tmr0.h"
 void TMR0_DefaultInterruptHandler(void);
+# 59 "mcc_generated_files/mcc.h" 2
+
+# 1 "mcc_generated_files/adc.h" 1
+# 72 "mcc_generated_files/adc.h"
+typedef uint16_t adc_result_t;
+# 86 "mcc_generated_files/adc.h"
+typedef enum
+{
+    channel_CTMU = 0x1C,
+    channel_Temp_diode = 0x1D,
+    channel_Vdd_core = 0x1E,
+    channel_1_024V_bandgap = 0x1F,
+    channel_AN0 = 0x0,
+    channel_AN1 = 0x1,
+    channel_AN2 = 0x2,
+    channel_AN3 = 0x3
+} adc_channel_t;
+# 131 "mcc_generated_files/adc.h"
+void ADC_Initialize(void);
+# 160 "mcc_generated_files/adc.h"
+void ADC_StartConversion(adc_channel_t channel);
+# 192 "mcc_generated_files/adc.h"
+_Bool ADC_IsConversionDone(void);
+# 225 "mcc_generated_files/adc.h"
+adc_result_t ADC_GetConversionResult(void);
+# 255 "mcc_generated_files/adc.h"
+adc_result_t ADC_GetConversion(adc_channel_t channel);
+# 283 "mcc_generated_files/adc.h"
+void ADC_TemperatureAcquisitionDelay(void);
+# 299 "mcc_generated_files/adc.h"
+void ADC_ISR(void);
+# 317 "mcc_generated_files/adc.h"
+ void ADC_SetInterruptHandler(void (* InterruptHandler)(void));
+# 335 "mcc_generated_files/adc.h"
+extern void (*ADC_InterruptHandler)(void);
+# 353 "mcc_generated_files/adc.h"
+void ADC_DefaultInterruptHandler(void);
 # 60 "mcc_generated_files/mcc.h" 2
 
 # 1 "mcc_generated_files/eusart2.h" 1
-# 75 "mcc_generated_files/eusart2.h"
+# 57 "mcc_generated_files/eusart2.h"
+# 1 "/opt/microchip/xc8/v2.31/pic/include/c99/stdio.h" 1 3
+# 24 "/opt/microchip/xc8/v2.31/pic/include/c99/stdio.h" 3
+# 1 "/opt/microchip/xc8/v2.31/pic/include/c99/bits/alltypes.h" 1 3
+
+
+
+
+
+typedef void * va_list[1];
+
+
+
+
+typedef void * __isoc_va_list[1];
+# 137 "/opt/microchip/xc8/v2.31/pic/include/c99/bits/alltypes.h" 3
+typedef long ssize_t;
+# 246 "/opt/microchip/xc8/v2.31/pic/include/c99/bits/alltypes.h" 3
+typedef long long off_t;
+# 399 "/opt/microchip/xc8/v2.31/pic/include/c99/bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 25 "/opt/microchip/xc8/v2.31/pic/include/c99/stdio.h" 2 3
+# 52 "/opt/microchip/xc8/v2.31/pic/include/c99/stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
+
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
+
+
+
+
+
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
+
+int remove(const char *);
+int rename(const char *, const char *);
+
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
+
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
+
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
+
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
+int ungetc(int, FILE *);
+
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
+
+char *fgets(char *restrict, int, FILE *restrict);
+
+char *gets(char *);
+
+
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
+
+#pragma printf_check(printf) const
+#pragma printf_check(vprintf) const
+#pragma printf_check(sprintf) const
+#pragma printf_check(snprintf) const
+#pragma printf_check(vsprintf) const
+#pragma printf_check(vsnprintf) const
+
+int printf(const char *restrict, ...);
+int fprintf(FILE *restrict, const char *restrict, ...);
+int sprintf(char *restrict, const char *restrict, ...);
+int snprintf(char *restrict, size_t, const char *restrict, ...);
+
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+
+int scanf(const char *restrict, ...);
+int fscanf(FILE *restrict, const char *restrict, ...);
+int sscanf(const char *restrict, const char *restrict, ...);
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
+
+void perror(const char *);
+
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
+
+char *tmpnam(char *);
+FILE *tmpfile(void);
+
+
+
+
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
+
+
+
+
+
+
+
+char *tempnam(const char *, const char *);
+# 57 "mcc_generated_files/eusart2.h" 2
+# 76 "mcc_generated_files/eusart2.h"
 typedef union {
     struct {
         unsigned perr : 1;
@@ -20709,35 +20842,35 @@ extern volatile uint8_t eusart2RxCount;
 
 extern void (*EUSART2_TxDefaultInterruptHandler)(void);
 extern void (*EUSART2_RxDefaultInterruptHandler)(void);
-# 117 "mcc_generated_files/eusart2.h"
+# 118 "mcc_generated_files/eusart2.h"
 void EUSART2_Initialize(void);
-# 165 "mcc_generated_files/eusart2.h"
+# 166 "mcc_generated_files/eusart2.h"
 _Bool EUSART2_is_tx_ready(void);
-# 213 "mcc_generated_files/eusart2.h"
+# 214 "mcc_generated_files/eusart2.h"
 _Bool EUSART2_is_rx_ready(void);
-# 260 "mcc_generated_files/eusart2.h"
+# 261 "mcc_generated_files/eusart2.h"
 _Bool EUSART2_is_tx_done(void);
-# 308 "mcc_generated_files/eusart2.h"
+# 309 "mcc_generated_files/eusart2.h"
 eusart2_status_t EUSART2_get_last_status(void);
-# 328 "mcc_generated_files/eusart2.h"
+# 329 "mcc_generated_files/eusart2.h"
 uint8_t EUSART2_Read(void);
-# 348 "mcc_generated_files/eusart2.h"
+# 349 "mcc_generated_files/eusart2.h"
 void EUSART2_Write(uint8_t txData);
-# 369 "mcc_generated_files/eusart2.h"
+# 370 "mcc_generated_files/eusart2.h"
 void EUSART2_Transmit_ISR(void);
-# 390 "mcc_generated_files/eusart2.h"
+# 391 "mcc_generated_files/eusart2.h"
 void EUSART2_Receive_ISR(void);
-# 411 "mcc_generated_files/eusart2.h"
+# 412 "mcc_generated_files/eusart2.h"
 void EUSART2_RxDataHandler(void);
-# 429 "mcc_generated_files/eusart2.h"
+# 430 "mcc_generated_files/eusart2.h"
 void EUSART2_SetFramingErrorHandler(void (* interruptHandler)(void));
-# 447 "mcc_generated_files/eusart2.h"
+# 448 "mcc_generated_files/eusart2.h"
 void EUSART2_SetOverrunErrorHandler(void (* interruptHandler)(void));
-# 465 "mcc_generated_files/eusart2.h"
+# 466 "mcc_generated_files/eusart2.h"
 void EUSART2_SetErrorHandler(void (* interruptHandler)(void));
-# 485 "mcc_generated_files/eusart2.h"
+# 486 "mcc_generated_files/eusart2.h"
 void EUSART2_SetTxInterruptHandler(void (* interruptHandler)(void));
-# 505 "mcc_generated_files/eusart2.h"
+# 506 "mcc_generated_files/eusart2.h"
 void EUSART2_SetRxInterruptHandler(void (* interruptHandler)(void));
 # 61 "mcc_generated_files/mcc.h" 2
 # 76 "mcc_generated_files/mcc.h"
@@ -20755,10 +20888,10 @@ void INTERRUPT_Initialize (void)
 
 
 
-    IPR1bits.ADIP = 1;
-
-
     INTCON2bits.TMR0IP = 1;
+
+
+    IPR1bits.ADIP = 1;
 
 
     IPR3bits.TX2IP = 1;
@@ -20775,13 +20908,13 @@ void INTERRUPT_Initialize (void)
 void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManagerHigh (void)
 {
 
-    if(PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
-    {
-        ADC_ISR();
-    }
-    else if(INTCONbits.TMR0IE == 1 && INTCONbits.TMR0IF == 1)
+    if(INTCONbits.TMR0IE == 1 && INTCONbits.TMR0IF == 1)
     {
         TMR0_ISR();
+    }
+    else if(PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
+    {
+        ADC_ISR();
     }
     else if(PIE3bits.TX2IE == 1 && PIR3bits.TX2IF == 1)
     {

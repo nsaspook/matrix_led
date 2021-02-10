@@ -92,14 +92,7 @@ typedef enum
     channel_AN0 =  0x0,
     channel_AN1 =  0x1,
     channel_AN2 =  0x2,
-    channel_AN3 =  0x3,
-    IO_RA5 =  0x4,
-    IO_RE0 =  0x5,
-    IO_RE1 =  0x6,
-    IO_RE2 =  0x7,
-    IO_RB1 =  0x8,
-    IO_RB4 =  0x9,
-    IO_RB0 =  0xa
+    channel_AN3 =  0x3
 } adc_channel_t;
 
 /**
