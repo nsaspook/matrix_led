@@ -7,7 +7,7 @@
 # 1 "/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "../swm45k80.c" 2
-# 19 "../swm45k80.c"
+# 21 "../swm45k80.c"
 # 1 "../matrix.X/mcc_generated_files/mcc.h" 1
 # 49 "../matrix.X/mcc_generated_files/mcc.h"
 # 1 "/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/xc.h" 1 3
@@ -20876,8 +20876,7 @@ void EUSART2_SetRxInterruptHandler(void (* interruptHandler)(void));
 void SYSTEM_Initialize(void);
 # 89 "../matrix.X/mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
-# 19 "../swm45k80.c" 2
-
+# 21 "../swm45k80.c" 2
 
 # 1 "/opt/microchip/xc8/v2.31/pic/include/c99/string.h" 1 3
 # 25 "/opt/microchip/xc8/v2.31/pic/include/c99/string.h" 3
@@ -20933,12 +20932,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 21 "../swm45k80.c" 2
-
-
-
-
-
+# 22 "../swm45k80.c" 2
 
 
 # 1 "/opt/microchip/xc8/v2.31/pic/include/c99/math.h" 1 3
@@ -21313,13 +21307,13 @@ double jn(int, double);
 double y0(double);
 double y1(double);
 double yn(int, double);
-# 28 "../swm45k80.c" 2
-# 50 "../swm45k80.c"
+# 24 "../swm45k80.c" 2
+# 47 "../swm45k80.c"
 uint16_t touch_base_calc(uint8_t);
 void touch_channel(uint8_t);
 uint16_t ctmu_touch(uint8_t, uint8_t);
 int16_t ctmu_setup(uint8_t, uint8_t);
-# 72 "../swm45k80.c"
+# 69 "../swm45k80.c"
 union Timers {
  unsigned int lt;
  char bt[2];
@@ -21480,11 +21474,8 @@ void high_handler_adc(void)
    TXREG2 = 0b00000001;
   }
   LATEbits.LATE2 = 1;
-
  } else if ((timer.lt) > (touch_base[isr_channel] - 64 + 16)) {
-
   LATEbits.LATE2 = 0;
-
  }
  TMR3H = timer.bt[1];
  TMR3L = timer.bt[0];
@@ -21806,7 +21797,7 @@ void main_init(void)
    } else {
     ctmu_touch(ctmu_button, 0);
    }
-# 568 "../swm45k80.c"
+# 562 "../swm45k80.c"
    __asm(" clrwdt");
 
 
@@ -21843,24 +21834,7 @@ void main_init(void)
       if (y_p > 8) y_o = -1;
       if (y_p < -1) y_o = 1;
       y_p += y_o;
-
-      switch (romid) {
-      case 0:
-       romid == 9;
-       break;
-      case 9:
-       romid == 14;
-       break;
-      case 14:
-       romid == 20;
-       break;
-      case 20:
-       romid == 0;
-       break;
-      default:
-       romid == 0;
-       break;
-      }
+# 618 "../swm45k80.c"
      }
     }
     move = 0;

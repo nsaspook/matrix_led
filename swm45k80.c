@@ -4,6 +4,8 @@
  *
  *  E0.01 LED 7*5*2 MATRIX DISPLAY, CTMU touch driver
  *  E0.02 Fix X/Y swap bug
+ *  E0.03 XC8 rewrite
+ * 
  *  ***		background I/O using timer0/timer2  adc, usart2 TX,RX interrupts
  *  Timer3 counter/buffer used for ATOMIC 16bit reads and writes of touch data
  *  INPUTS		AN0-3 touch input
@@ -17,16 +19,11 @@
  */
 
 #include "matrix.X/mcc_generated_files/mcc.h"
-
 #include <string.h>
 #include <stdlib.h>
-//#include <EEP.h>
-//#include <timers.h>
-//#include <adc.h>
-//#include <ctmu.h>
-//#include <usart.h>
 #include <math.h>
 
+//#define ROMS // more than one display object
 
 #define	PDELAY	0xA8
 
@@ -229,11 +226,8 @@ void high_handler_adc(void)
 			TXREG2 = 0b00000001;
 		}
 		LATEbits.LATE2 = 1; // flash external led
-		//			pixel[DIAG_BITS + isr_channel].v = 1;
 	} else if ((timer.lt) > (touch_base[isr_channel] - TRIP + HYST)) {
-		//			switchState = UNPRESSED;
 		LATEbits.LATE2 = 0; // flash external led
-		//			pixel[DIAG_BITS + isr_channel].v = 0;
 	}
 	TMR3H = timer.bt[1];
 	TMR3L = timer.bt[0]; // copy low byte and write to timer counter
@@ -602,23 +596,25 @@ void main_init(void)
 						if (y_p < -1) y_o = 1;
 						y_p += y_o;
 
+#ifdef ROMS
 						switch (romid) {
 						case 0:
-							romid == 9;
+							romid = 9;
 							break;
 						case 9:
-							romid == 14;
+							romid = 14;
 							break;
 						case 14:
-							romid == 20;
+							romid = 20;
 							break;
 						case 20:
-							romid == 0;
+							romid = 0;
 							break;
 						default:
-							romid == 0;
+							romid = 0;
 							break;
 						}
+#endif
 					}
 				}
 				move = 0;
