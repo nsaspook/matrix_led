@@ -30,16 +30,16 @@
 #define GRID_S          8
 #define PIXEL_NUM       255	// max number of pixels in display ram
 #define OBJ_NUM		64	// max nuber of pixels in one object
-#define	ROT_SPEED_UP	15	// The highest speed is 1, 35 for demo speed
-#define	ROT_SPEED_P	20	// The highest speed is 1, 35 for demo speed
-#define ROTATION	22.5
+#define	ROT_SPEED_UP	3	// The highest speed is 1, 35 for demo speed
+#define	ROT_SPEED_P	3	// The highest speed is 1, 35 for demo speed
+#define ROTATION	6.0
 #define DIAG_BITS	PIXEL_NUM-8
 
-#define FALSE	0
-#define TRUE	1
-#define	ON		0
+#define FALSE	false
+#define TRUE	true
+#define	ON	0
 #define ALLON	0x00
-#define	OFF		1
+#define	OFF	1
 #define ALLOFF	0xff
 #define CMARK	0x1957
 
@@ -92,13 +92,13 @@ const struct pixel_t pixel_rom[] = {
 	-1, -1, 1, 10, 9,
 	1, 1, 1, 11, 9,
 	2, 2, 1, 12, 9,
-	0, 0, 0, 13, 9,
-	3, 0, 1, 14, 14,
-	0, 3, 1, 15, 14,
-	-3, 0, 1, 16, 14,
-	0, 0, 0, 17, 14,
-	3, 3, 1, 18, 14,
-	0, 0, 0, 19, 14,
+	0, 0, 1, 13, 9,
+	2, 0, 1, 14, 14,
+	0, 2, 1, 15, 14,
+	-2, 0, 1, 16, 14,
+	0, -2, 1, 17, 14,
+	2, 2, 1, 18, 14,
+	-2, -2, 1, 19, 14,
 	0, 3, 1, 20, 20,
 	0, 2, 1, 21, 20,
 	0, 1, 1, 22, 20,
@@ -499,7 +499,7 @@ void d_scan_off(void)
 void main_init(void)
 {
 	uint16_t touch_zero = 0;
-	uint8_t x = 1, y = 1, t, i, romid = 9;
+	uint8_t x = 1, y = 1, t, i, romid = 20;
 	uint32_t move = 0, times = ROT_SPEED_UP;
 	uint8_t obj1;
 	int8_t x_p = 0, y_p = 0, x_o = 1, y_o = 1;
@@ -564,26 +564,28 @@ void main_init(void)
 			/* transformation testing */
 			if (++move >= times) {
 				d_scan_off(); // suspend list processing during matrix operations
-				if (switchState == UNPRESSED) {
+				if (false && switchState == UNPRESSED) {
 					x_o = -x_o;
 					times = ROT_SPEED_UP;
 					obj_init(0, TRUE); // clear ram display memory
 					obj1 = obj_init(romid, FALSE); // return ID for rom object into ram id
-					object_scale(obj1, scaling, scaling); // big to small
+					//object_scale(obj1, scaling, scaling); // big to small
 					object_rotate(obj1, rotation); // CW
-					object_trans(obj1, x_p, y_p); // move to near center
+					//object_trans(obj1, x_p, y_p); // move to near center
+					object_trans(obj1, 4, 3); // move to near center
 				} else {
 					times = ROT_SPEED_P;
 					obj_init(0, TRUE); // clear ram display memory
 					obj1 = obj_init(romid, FALSE); // return ID for rom object into ram id
-					object_scale(obj1, (float) 2.0 - scaling, (float) 2.0 - scaling); // small to big
+					//object_scale(obj1, (float) 2.0 - scaling, (float) 2.0 - scaling); // small to big
 					object_rotate(obj1, (float) 360.0 - rotation); // CCW
-					object_trans(obj1, x_p, y_p);
+					//object_trans(obj1, x_p, y_p);
+					object_trans(obj1, 4, 3); // move to near center
 				}
 
 				d_scan_on();
 				rotation += ROTATION;
-				if (rotation > 360.00) { // spin and grow or shrink
+				if (rotation >= 360.00) { // spin and grow or shrink
 					rotation = 0.0;
 					scaling -= 0.2;
 					if (scaling < -0.01) {

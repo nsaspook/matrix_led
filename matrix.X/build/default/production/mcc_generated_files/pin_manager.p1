@@ -1477,8 +1477,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _PIN_MANAGER_Initialize ]
 [f ]
 "60
-[; ;mcc_generated_files/pin_manager.c: 60:     LATE = 0x01;
-[e = _LATE -> -> 1 `i `uc ]
+[; ;mcc_generated_files/pin_manager.c: 60:     LATE = 0x07;
+[e = _LATE -> -> 7 `i `uc ]
 "61
 [; ;mcc_generated_files/pin_manager.c: 61:     LATD = 0x01;
 [e = _LATD -> -> 1 `i `uc ]

@@ -212,14 +212,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "326 ../matrix.X/mcc_generated_files/tmr2.h
 [; ;../matrix.X/mcc_generated_files/tmr2.h: 326:  void TMR2_SetInterruptHandler(void (* InterruptHandler)(void));
 [v _TMR2_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F12441 ]
-[v F12456 `(v ~T0 @X0 0 tf ]
+[v F12490 `(v ~T0 @X0 0 tf ]
 "309 ../matrix.X/mcc_generated_files/tmr0.h
 [; ;../matrix.X/mcc_generated_files/tmr0.h: 309:  void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-[v _TMR0_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F12456 ]
-[v F12483 `(v ~T0 @X0 0 tf ]
-"317 ../matrix.X/mcc_generated_files/adc.h
-[; ;../matrix.X/mcc_generated_files/adc.h: 317:  void ADC_SetInterruptHandler(void (* InterruptHandler)(void));
-[v _ADC_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F12483 ]
+[v _TMR0_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F12490 ]
+[v F12475 `(v ~T0 @X0 0 tf ]
+"324 ../matrix.X/mcc_generated_files/adc.h
+[; ;../matrix.X/mcc_generated_files/adc.h: 324:  void ADC_SetInterruptHandler(void (* InterruptHandler)(void));
+[v _ADC_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F12475 ]
 "35969 /opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 35969:     struct {
 [s S1427 :1 `uc 1 ]
@@ -1750,12 +1750,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 :U ..
 -> -> 0 `i `c
 -> -> 0 `i `c
--> -> 0 `i `uc
+-> -> 1 `i `uc
 -> -> 13 `i `c
 -> -> 9 `i `c
 ..
 :U ..
--> -> 3 `i `c
+-> -> 2 `i `c
 -> -> 0 `i `c
 -> -> 1 `i `uc
 -> -> 14 `i `c
@@ -1763,13 +1763,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 :U ..
 -> -> 0 `i `c
--> -> 3 `i `c
+-> -> 2 `i `c
 -> -> 1 `i `uc
 -> -> 15 `i `c
 -> -> 14 `i `c
 ..
 :U ..
--> -U -> 3 `i `c
+-> -U -> 2 `i `c
 -> -> 0 `i `c
 -> -> 1 `i `uc
 -> -> 16 `i `c
@@ -1777,22 +1777,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 :U ..
 -> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `uc
+-> -U -> 2 `i `c
+-> -> 1 `i `uc
 -> -> 17 `i `c
 -> -> 14 `i `c
 ..
 :U ..
--> -> 3 `i `c
--> -> 3 `i `c
+-> -> 2 `i `c
+-> -> 2 `i `c
 -> -> 1 `i `uc
 -> -> 18 `i `c
 -> -> 14 `i `c
 ..
 :U ..
--> -> 0 `i `c
--> -> 0 `i `c
--> -> 0 `i `uc
+-> -U -> 2 `i `c
+-> -U -> 2 `i `c
+-> -> 1 `i `uc
 -> -> 19 `i `c
 -> -> 14 `i `c
 ..
@@ -2261,16 +2261,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "246
 [; ;../swm45k80.c: 246:  static uint32_t t_avg = 0;
-[v F13527 `ul ~T0 @X0 1 s t_avg ]
-[i F13527
+[v F13534 `ul ~T0 @X0 1 s t_avg ]
+[i F13534
 -> -> -> 0 `i `l `ul
 ]
 "247
 [; ;../swm45k80.c: 247:  static int16_t i;
-[v F13528 `s ~T0 @X0 1 s i ]
+[v F13535 `s ~T0 @X0 1 s i ]
 "249
 [; ;../swm45k80.c: 249:  t_avg = 0;
-[e = F13527 -> -> -> 0 `i `l `ul ]
+[e = F13534 -> -> -> 0 `i `l `ul ]
 "250
 [; ;../swm45k80.c: 250:  touch_channel(channel);
 [e ( _touch_channel (1 _channel ]
@@ -2288,8 +2288,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "253
 [; ;../swm45k80.c: 253:  for (i = 0; i < 8; i++) {
 {
-[e = F13528 -> -> 0 `i `s ]
-[e $ < -> F13528 `i -> 8 `i 1571  ]
+[e = F13535 -> -> 0 `i `s ]
+[e $ < -> F13535 `i -> 8 `i 1571  ]
 [e $U 1572  ]
 [e :U 1571 ]
 {
@@ -2306,17 +2306,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1576 ]
 "256
 [; ;../swm45k80.c: 256:   t_avg += (uint32_t) ctmu_touch(channel, 0);
-[e =+ F13527 -> ( _ctmu_touch (2 , _channel -> -> 0 `i `uc `ul ]
+[e =+ F13534 -> ( _ctmu_touch (2 , _channel -> -> 0 `i `uc `ul ]
 "257
 [; ;../swm45k80.c: 257:  }
 }
-[e ++ F13528 -> -> 1 `i `s ]
-[e $ < -> F13528 `i -> 8 `i 1571  ]
+[e ++ F13535 -> -> 1 `i `s ]
+[e $ < -> F13535 `i -> 8 `i 1571  ]
 [e :U 1572 ]
 }
 "258
 [; ;../swm45k80.c: 258:  touch_base[channel] = (uint16_t) (t_avg / 8L);
-[e = *U + &U _touch_base * -> _channel `ux -> -> # *U &U _touch_base `ui `ux -> / F13527 -> -> 8 `l `ul `us ]
+[e = *U + &U _touch_base * -> _channel `ux -> -> # *U &U _touch_base `ui `ux -> / F13534 -> -> 8 `l `ul `us ]
 "259
 [; ;../swm45k80.c: 259:  if (touch_base[channel] < 64) touch_base[channel] = 64 + 16;
 [e $ ! < -> *U + &U _touch_base * -> _channel `ux -> -> # *U &U _touch_base `ui `ux `ui -> -> 64 `i `ui 1577  ]
@@ -2516,41 +2516,41 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "326
 [; ;../swm45k80.c: 326:  static uint16_t ctmu_change = 0, last = 0, null = 0;
-[v F13537 `us ~T0 @X0 1 s ctmu_change ]
-[i F13537
+[v F13544 `us ~T0 @X0 1 s ctmu_change ]
+[i F13544
 -> -> 0 `i `us
 ]
-[v F13538 `us ~T0 @X0 1 s last ]
-[i F13538
+[v F13545 `us ~T0 @X0 1 s last ]
+[i F13545
 -> -> 0 `i `us
 ]
-[v F13539 `us ~T0 @X0 1 s null ]
-[i F13539
+[v F13546 `us ~T0 @X0 1 s null ]
+[i F13546
 -> -> 0 `i `us
 ]
 "327
 [; ;../swm45k80.c: 327:  static union Timers timer;
-[v F13540 `S1547 ~T0 @X0 1 s timer ]
+[v F13547 `S1547 ~T0 @X0 1 s timer ]
 "329
 [; ;../swm45k80.c: 329:  if (CTMU_ADC_UPDATED) {
 [e $ ! != -> _CTMU_ADC_UPDATED `i -> 0 `i 1596  ]
 {
 "330
 [; ;../swm45k80.c: 330:   timer.bt[0] = TMR3L;
-[e = *U + &U . F13540 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . F13540 1 `ui `ux -> _TMR3L `uc ]
+[e = *U + &U . F13547 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . F13547 1 `ui `ux -> _TMR3L `uc ]
 "331
 [; ;../swm45k80.c: 331:   timer.bt[1] = TMR3H;
-[e = *U + &U . F13540 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . F13540 1 `ui `ux -> _TMR3H `uc ]
+[e = *U + &U . F13547 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . F13547 1 `ui `ux -> _TMR3H `uc ]
 "332
 [; ;../swm45k80.c: 332:   timer.lt = timer.lt & 0x003f;
-[e = . F13540 0 & . F13540 0 -> -> 63 `i `ui ]
+[e = . F13547 0 & . F13547 0 -> -> 63 `i `ui ]
 "334
 [; ;../swm45k80.c: 334:   if (NULL0 == 0) {
 [e $ ! == -> _NULL0 `i -> 0 `i 1597  ]
 {
 "335
 [; ;../swm45k80.c: 335:    return(timer.lt);
-[e ) -> . F13540 0 `us ]
+[e ) -> . F13547 0 `us ]
 [e $UE 1595  ]
 "336
 [; ;../swm45k80.c: 336:   }
@@ -2558,29 +2558,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1597 ]
 "337
 [; ;../swm45k80.c: 337:   if (timer.lt < touch_base[channel]) {
-[e $ ! < . F13540 0 -> *U + &U _touch_base * -> _channel `ux -> -> # *U &U _touch_base `ui `ux `ui 1598  ]
+[e $ ! < . F13547 0 -> *U + &U _touch_base * -> _channel `ux -> -> # *U &U _touch_base `ui `ux `ui 1598  ]
 {
 "338
 [; ;../swm45k80.c: 338:    ctmu_change = touch_base[channel] - timer.lt;
-[e = F13537 -> - -> *U + &U _touch_base * -> _channel `ux -> -> # *U &U _touch_base `ui `ux `ui . F13540 0 `us ]
+[e = F13544 -> - -> *U + &U _touch_base * -> _channel `ux -> -> # *U &U _touch_base `ui `ux `ui . F13547 0 `us ]
 "339
 [; ;../swm45k80.c: 339:    ctmu_change = ctmu_change & 0x001f;
-[e = F13537 -> & -> F13537 `ui -> -> 31 `i `ui `us ]
+[e = F13544 -> & -> F13544 `ui -> -> 31 `i `ui `us ]
 "340
 [; ;../swm45k80.c: 340:   }
 }
 [e :U 1598 ]
 "342
 [; ;../swm45k80.c: 342:   if ((null == 0) && NULL0) null = ctmu_change;
-[e $ ! && == -> F13539 `ui -> -> 0 `i `ui != -> _NULL0 `i -> 0 `i 1599  ]
-[e = F13539 F13537 ]
+[e $ ! && == -> F13546 `ui -> -> 0 `i `ui != -> _NULL0 `i -> 0 `i 1599  ]
+[e = F13546 F13544 ]
 [e :U 1599 ]
 "343
 [; ;../swm45k80.c: 343:   last = ctmu_change;
-[e = F13538 F13537 ]
+[e = F13545 F13544 ]
 "344
 [; ;../swm45k80.c: 344:   return(uint16_t) ctmu_change;
-[e ) F13537 ]
+[e ) F13544 ]
 [e $UE 1595  ]
 "345
 [; ;../swm45k80.c: 345:  } else {
@@ -2590,7 +2590,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "346
 [; ;../swm45k80.c: 346:   return(uint16_t) last;
-[e ) F13538 ]
+[e ) F13545 ]
 [e $UE 1595  ]
 "347
 [; ;../swm45k80.c: 347:  }
@@ -2652,8 +2652,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _ram_link_start `uc ~T0 @X0 1 a ]
 "370
 [; ;../swm45k80.c: 370:  static uint8_t ram_link = 0;
-[v F13548 `uc ~T0 @X0 1 s ram_link ]
-[i F13548
+[v F13555 `uc ~T0 @X0 1 s ram_link ]
+[i F13555
 -> -> 0 `i `uc
 ]
 "372
@@ -2662,13 +2662,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "373
 [; ;../swm45k80.c: 373:   ram_link = 0;
-[e = F13548 -> -> 0 `i `uc ]
+[e = F13555 -> -> 0 `i `uc ]
 "374
 [; ;../swm45k80.c: 374:   pixel[ram_link].m_link = -1;
-[e = . *U + &U _pixel * -> F13548 `ux -> -> # *U &U _pixel `ui `ux 3 -> -U -> 1 `i `c ]
+[e = . *U + &U _pixel * -> F13555 `ux -> -> # *U &U _pixel `ui `ux 3 -> -U -> 1 `i `c ]
 "375
 [; ;../swm45k80.c: 375:   pixel[ram_link].n_link = -1;
-[e = . *U + &U _pixel * -> F13548 `ux -> -> # *U &U _pixel `ui `ux 4 -> -U -> 1 `i `c ]
+[e = . *U + &U _pixel * -> F13555 `ux -> -> # *U &U _pixel `ui `ux 4 -> -U -> 1 `i `c ]
 "376
 [; ;../swm45k80.c: 376:   return 0;
 [e ) -> -> 0 `i `uc ]
@@ -2689,13 +2689,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "382
 [; ;../swm45k80.c: 382:   memcpy((void *) &pixel[ram_link + ram_link_start].x, (const void *) &pixel_rom[rom_link + ram_link_start].x, pixel_size);
-[e ( _memcpy (3 , , -> &U . *U + &U _pixel * -> -> + -> F13548 `i -> _ram_link_start `i `ui `ux -> -> # *U &U _pixel `ui `ux 0 `*v -> &U . *U + &U _pixel_rom * -> -> + -> _rom_link `i -> _ram_link_start `i `ui `ux -> -> # *U &U _pixel_rom `ui `ux 0 `*Cv _pixel_size ]
+[e ( _memcpy (3 , , -> &U . *U + &U _pixel * -> -> + -> F13555 `i -> _ram_link_start `i `ui `ux -> -> # *U &U _pixel `ui `ux 0 `*v -> &U . *U + &U _pixel_rom * -> -> + -> _rom_link `i -> _ram_link_start `i `ui `ux -> -> # *U &U _pixel_rom `ui `ux 0 `*Cv _pixel_size ]
 "383
 [; ;../swm45k80.c: 383:   pixel[ram_link + ram_link_start].m_link = (int8_t) (ram_link + ram_link_start);
-[e = . *U + &U _pixel * -> -> + -> F13548 `i -> _ram_link_start `i `ui `ux -> -> # *U &U _pixel `ui `ux 3 -> + -> F13548 `i -> _ram_link_start `i `c ]
+[e = . *U + &U _pixel * -> -> + -> F13555 `i -> _ram_link_start `i `ui `ux -> -> # *U &U _pixel `ui `ux 3 -> + -> F13555 `i -> _ram_link_start `i `c ]
 "384
 [; ;../swm45k80.c: 384:   pixel[ram_link + ram_link_start].n_link = (int8_t) ram_link;
-[e = . *U + &U _pixel * -> -> + -> F13548 `i -> _ram_link_start `i `ui `ux -> -> # *U &U _pixel `ui `ux 4 -> F13548 `c ]
+[e = . *U + &U _pixel * -> -> + -> F13555 `i -> _ram_link_start `i `ui `ux -> -> # *U &U _pixel `ui `ux 4 -> F13555 `c ]
 "385
 [; ;../swm45k80.c: 385:   ++ram_link_start;
 [e =+ _ram_link_start -> -> 1 `i `uc ]
@@ -2706,16 +2706,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 1606 ]
 "388
 [; ;../swm45k80.c: 388:  ram_link += ram_link_start;
-[e =+ F13548 -> _ram_link_start `uc ]
+[e =+ F13555 -> _ram_link_start `uc ]
 "389
 [; ;../swm45k80.c: 389:  pixel[ram_link].m_link = -1;
-[e = . *U + &U _pixel * -> F13548 `ux -> -> # *U &U _pixel `ui `ux 3 -> -U -> 1 `i `c ]
+[e = . *U + &U _pixel * -> F13555 `ux -> -> # *U &U _pixel `ui `ux 3 -> -U -> 1 `i `c ]
 "390
 [; ;../swm45k80.c: 390:  pixel[ram_link].n_link = -1;
-[e = . *U + &U _pixel * -> F13548 `ux -> -> # *U &U _pixel `ui `ux 4 -> -U -> 1 `i `c ]
+[e = . *U + &U _pixel * -> F13555 `ux -> -> # *U &U _pixel `ui `ux 4 -> -U -> 1 `i `c ]
 "391
 [; ;../swm45k80.c: 391:  return ram_link - ram_link_start;
-[e ) -> - -> F13548 `i -> _ram_link_start `i `uc ]
+[e ) -> - -> F13555 `i -> _ram_link_start `i `uc ]
 [e $UE 1603  ]
 "392
 [; ;../swm45k80.c: 392: }
@@ -2763,47 +2763,47 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "403
 [; ;../swm45k80.c: 403:  static float to_rad, float_x, float_y, sine, cosine, old_degree = 1957.7;
-[v F13555 `f ~T0 @X0 1 s to_rad ]
-[v F13556 `f ~T0 @X0 1 s float_x ]
-[v F13557 `f ~T0 @X0 1 s float_y ]
-[v F13558 `f ~T0 @X0 1 s sine ]
-[v F13559 `f ~T0 @X0 1 s cosine ]
-[v F13560 `f ~T0 @X0 1 s old_degree ]
-[i F13560
+[v F13562 `f ~T0 @X0 1 s to_rad ]
+[v F13563 `f ~T0 @X0 1 s float_x ]
+[v F13564 `f ~T0 @X0 1 s float_y ]
+[v F13565 `f ~T0 @X0 1 s sine ]
+[v F13566 `f ~T0 @X0 1 s cosine ]
+[v F13567 `f ~T0 @X0 1 s old_degree ]
+[i F13567
 -> .1957.7 `f
 ]
 "405
 [; ;../swm45k80.c: 405:  if (degree != old_degree) {
-[e $ ! != _degree F13560 1611  ]
+[e $ ! != _degree F13567 1611  ]
 {
 "406
 [; ;../swm45k80.c: 406:   to_rad = (float) 0.0175 * degree;
-[e = F13555 * -> .0.0175 `f _degree ]
+[e = F13562 * -> .0.0175 `f _degree ]
 "407
 [; ;../swm45k80.c: 407:   cosine = (float) cosf(to_rad);
-[e = F13559 ( _cosf (1 F13555 ]
+[e = F13566 ( _cosf (1 F13562 ]
 "408
 [; ;../swm45k80.c: 408:   sine = (float) sinf(to_rad);
-[e = F13558 ( _sinf (1 F13555 ]
+[e = F13565 ( _sinf (1 F13562 ]
 "409
 [; ;../swm45k80.c: 409:   old_degree = degree;
-[e = F13560 _degree ]
+[e = F13567 _degree ]
 "410
 [; ;../swm45k80.c: 410:  }
 }
 [e :U 1611 ]
 "412
 [; ;../swm45k80.c: 412:  float_x = (float) pixel[list_num].x;
-[e = F13556 -> . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 0 `f ]
+[e = F13563 -> . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 0 `f ]
 "413
 [; ;../swm45k80.c: 413:  float_y = (float) pixel[list_num].y;
-[e = F13557 -> . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 1 `f ]
+[e = F13564 -> . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 1 `f ]
 "415
 [; ;../swm45k80.c: 415:  pixel[list_num].x = (int8_t) (float_x * cosine - float_y * sine);
-[e = . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 0 -> - * F13556 F13559 * F13557 F13558 `c ]
+[e = . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 0 -> - * F13563 F13566 * F13564 F13565 `c ]
 "416
 [; ;../swm45k80.c: 416:  pixel[list_num].y = (int8_t) (float_x * sine + float_y * cosine);
-[e = . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 1 -> + * F13556 F13558 * F13557 F13559 `c ]
+[e = . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 1 -> + * F13563 F13565 * F13564 F13566 `c ]
 "418
 [; ;../swm45k80.c: 418: }
 [e :UE 1610 ]
@@ -3124,7 +3124,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _touch_zero `us ~T0 @X0 1 a ]
 [e = _touch_zero -> -> 0 `i `us ]
 "502
-[; ;../swm45k80.c: 502:  uint8_t x = 1, y = 1, t, i, romid = 9;
+[; ;../swm45k80.c: 502:  uint8_t x = 1, y = 1, t, i, romid = 20;
 [v _x `uc ~T0 @X0 1 a ]
 [e = _x -> -> 1 `i `uc ]
 [v _y `uc ~T0 @X0 1 a ]
@@ -3132,13 +3132,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _t `uc ~T0 @X0 1 a ]
 [v _i `uc ~T0 @X0 1 a ]
 [v _romid `uc ~T0 @X0 1 a ]
-[e = _romid -> -> 9 `i `uc ]
+[e = _romid -> -> 20 `i `uc ]
 "503
-[; ;../swm45k80.c: 503:  uint32_t move = 0, times = 15;
+[; ;../swm45k80.c: 503:  uint32_t move = 0, times = 3;
 [v _move `ul ~T0 @X0 1 a ]
 [e = _move -> -> -> 0 `i `l `ul ]
 [v _times `ul ~T0 @X0 1 a ]
-[e = _times -> -> -> 15 `i `l `ul ]
+[e = _times -> -> -> 3 `i `l `ul ]
 "504
 [; ;../swm45k80.c: 504:  uint8_t obj1;
 [v _obj1 `uc ~T0 @X0 1 a ]
@@ -3279,136 +3279,130 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../swm45k80.c: 566:     d_scan_off();
 [e ( _d_scan_off ..  ]
 "567
-[; ;../swm45k80.c: 567:     if (switchState == 0) {
-[e $ ! == -> _switchState `ui -> -> 0 `i `ui 1650  ]
+[; ;../swm45k80.c: 567:     if (0 && switchState == 0) {
+[e $ ! && != -> 0 `i -> 0 `i == -> _switchState `ui -> -> 0 `i `ui 1650  ]
 {
 "568
 [; ;../swm45k80.c: 568:      x_o = -x_o;
 [e = _x_o -> -U -> _x_o `i `c ]
 "569
-[; ;../swm45k80.c: 569:      times = 15;
-[e = _times -> -> -> 15 `i `l `ul ]
+[; ;../swm45k80.c: 569:      times = 3;
+[e = _times -> -> -> 3 `i `l `ul ]
 "570
 [; ;../swm45k80.c: 570:      obj_init(0, 1);
 [e ( _obj_init (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
 "571
 [; ;../swm45k80.c: 571:      obj1 = obj_init(romid, 0);
 [e = _obj1 ( _obj_init (2 , _romid -> -> 0 `i `uc ]
-"572
-[; ;../swm45k80.c: 572:      object_scale(obj1, scaling, scaling);
-[e ( _object_scale (3 , , _obj1 _scaling _scaling ]
 "573
 [; ;../swm45k80.c: 573:      object_rotate(obj1, rotation);
 [e ( _object_rotate (2 , _obj1 _rotation ]
-"574
-[; ;../swm45k80.c: 574:      object_trans(obj1, x_p, y_p);
-[e ( _object_trans (3 , , _obj1 _x_p _y_p ]
 "575
-[; ;../swm45k80.c: 575:     } else {
+[; ;../swm45k80.c: 575:      object_trans(obj1, 4, 3);
+[e ( _object_trans (3 , , _obj1 -> -> 4 `i `c -> -> 3 `i `c ]
+"576
+[; ;../swm45k80.c: 576:     } else {
 }
 [e $U 1651  ]
 [e :U 1650 ]
 {
-"576
-[; ;../swm45k80.c: 576:      times = 20;
-[e = _times -> -> -> 20 `i `l `ul ]
 "577
-[; ;../swm45k80.c: 577:      obj_init(0, 1);
-[e ( _obj_init (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;../swm45k80.c: 577:      times = 3;
+[e = _times -> -> -> 3 `i `l `ul ]
 "578
-[; ;../swm45k80.c: 578:      obj1 = obj_init(romid, 0);
-[e = _obj1 ( _obj_init (2 , _romid -> -> 0 `i `uc ]
+[; ;../swm45k80.c: 578:      obj_init(0, 1);
+[e ( _obj_init (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
 "579
-[; ;../swm45k80.c: 579:      object_scale(obj1, (float) 2.0 - scaling, (float) 2.0 - scaling);
-[e ( _object_scale (3 , , _obj1 - -> .2.0 `f _scaling - -> .2.0 `f _scaling ]
-"580
-[; ;../swm45k80.c: 580:      object_rotate(obj1, (float) 360.0 - rotation);
-[e ( _object_rotate (2 , _obj1 - -> .360.0 `f _rotation ]
+[; ;../swm45k80.c: 579:      obj1 = obj_init(romid, 0);
+[e = _obj1 ( _obj_init (2 , _romid -> -> 0 `i `uc ]
 "581
-[; ;../swm45k80.c: 581:      object_trans(obj1, x_p, y_p);
-[e ( _object_trans (3 , , _obj1 _x_p _y_p ]
-"582
-[; ;../swm45k80.c: 582:     }
+[; ;../swm45k80.c: 581:      object_rotate(obj1, (float) 360.0 - rotation);
+[e ( _object_rotate (2 , _obj1 - -> .360.0 `f _rotation ]
+"583
+[; ;../swm45k80.c: 583:      object_trans(obj1, 4, 3);
+[e ( _object_trans (3 , , _obj1 -> -> 4 `i `c -> -> 3 `i `c ]
+"584
+[; ;../swm45k80.c: 584:     }
 }
 [e :U 1651 ]
-"584
-[; ;../swm45k80.c: 584:     d_scan_on();
-[e ( _d_scan_on ..  ]
-"585
-[; ;../swm45k80.c: 585:     rotation += 22.5;
-[e =+ _rotation -> .22.5 `f ]
 "586
-[; ;../swm45k80.c: 586:     if (rotation > 360.00) {
-[e $ ! > -> _rotation `d .360.00 1652  ]
-{
+[; ;../swm45k80.c: 586:     d_scan_on();
+[e ( _d_scan_on ..  ]
 "587
-[; ;../swm45k80.c: 587:      rotation = 0.0;
-[e = _rotation -> .0.0 `f ]
+[; ;../swm45k80.c: 587:     rotation += 6.0;
+[e =+ _rotation -> .6.0 `f ]
 "588
-[; ;../swm45k80.c: 588:      scaling -= 0.2;
-[e =- _scaling -> .0.2 `f ]
+[; ;../swm45k80.c: 588:     if (rotation >= 360.00) {
+[e $ ! >= -> _rotation `d .360.00 1652  ]
+{
 "589
-[; ;../swm45k80.c: 589:      if (scaling < -0.01) {
+[; ;../swm45k80.c: 589:      rotation = 0.0;
+[e = _rotation -> .0.0 `f ]
+"590
+[; ;../swm45k80.c: 590:      scaling -= 0.2;
+[e =- _scaling -> .0.2 `f ]
+"591
+[; ;../swm45k80.c: 591:      if (scaling < -0.01) {
 [e $ ! < -> _scaling `d -U .0.01 1653  ]
 {
-"590
-[; ;../swm45k80.c: 590:       scaling = 3.0;
+"592
+[; ;../swm45k80.c: 592:       scaling = 3.0;
 [e = _scaling -> .3.0 `f ]
-"591
-[; ;../swm45k80.c: 591:       if (x_p > 8) x_o = -1;
+"593
+[; ;../swm45k80.c: 593:       if (x_p > 8) x_o = -1;
 [e $ ! > -> _x_p `i -> 8 `i 1654  ]
 [e = _x_o -> -U -> 1 `i `c ]
 [e :U 1654 ]
-"592
-[; ;../swm45k80.c: 592:       if (x_p < -1) x_o = 1;
+"594
+[; ;../swm45k80.c: 594:       if (x_p < -1) x_o = 1;
 [e $ ! < -> _x_p `i -U -> 1 `i 1655  ]
 [e = _x_o -> -> 1 `i `c ]
 [e :U 1655 ]
-"593
-[; ;../swm45k80.c: 593:       x_p += x_o;
-[e =+ _x_p -> _x_o `c ]
 "595
-[; ;../swm45k80.c: 595:       if (y_p > 8) y_o = -1;
+[; ;../swm45k80.c: 595:       x_p += x_o;
+[e =+ _x_p -> _x_o `c ]
+"597
+[; ;../swm45k80.c: 597:       if (y_p > 8) y_o = -1;
 [e $ ! > -> _y_p `i -> 8 `i 1656  ]
 [e = _y_o -> -U -> 1 `i `c ]
 [e :U 1656 ]
-"596
-[; ;../swm45k80.c: 596:       if (y_p < -1) y_o = 1;
+"598
+[; ;../swm45k80.c: 598:       if (y_p < -1) y_o = 1;
 [e $ ! < -> _y_p `i -U -> 1 `i 1657  ]
 [e = _y_o -> -> 1 `i `c ]
 [e :U 1657 ]
-"597
-[; ;../swm45k80.c: 597:       y_p += y_o;
+"599
+[; ;../swm45k80.c: 599:       y_p += y_o;
 [e =+ _y_p -> _y_o `c ]
-"618
-[; ;../swm45k80.c: 618:      }
+"620
+[; ;../swm45k80.c: 620:      }
 }
 [e :U 1653 ]
-"619
-[; ;../swm45k80.c: 619:     }
+"621
+[; ;../swm45k80.c: 621:     }
 }
 [e :U 1652 ]
-"620
-[; ;../swm45k80.c: 620:     move = 0;
+"622
+[; ;../swm45k80.c: 622:     move = 0;
 [e = _move -> -> -> 0 `i `l `ul ]
-"621
-[; ;../swm45k80.c: 621:    }
+"623
+[; ;../swm45k80.c: 623:    }
 }
 [e :U 1649 ]
-"622
-[; ;../swm45k80.c: 622:   }
+"624
+[; ;../swm45k80.c: 624:   }
 }
 [e ++ _ctmu_button -> -> 1 `i `Vuc ]
 [e $ <= -> _ctmu_button `i -> 1 `i 1644  ]
 [e :U 1645 ]
 }
-"623
-[; ;../swm45k80.c: 623:  }
+"625
+[; ;../swm45k80.c: 625:  }
 }
 [e :U 1641 ]
 [e $U 1642  ]
 [e :U 1643 ]
-"624
-[; ;../swm45k80.c: 624: }
+"626
+[; ;../swm45k80.c: 626: }
 [e :UE 1640 ]
 }
