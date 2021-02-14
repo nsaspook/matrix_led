@@ -69,8 +69,8 @@ void ADC_Initialize(void)
     // TRIGSEL Timer1; VNCFG AVSS; VCFG internal_4.096V; CHSN AVss; 
     ADCON1 = 0xB0;
     
-    // ADFM Right; ACQT 8_Tad; ADCS FOSC/16; 
-    ADCON2 = 0xA5;
+    // ADFM Right; ACQT 8_Tad; ADCS FOSC/64; 
+    ADCON2 = 0xA6;
     
     // ADRESH 0; 
     ADRESH = 0x00;

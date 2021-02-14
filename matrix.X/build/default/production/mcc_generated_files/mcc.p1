@@ -8,8 +8,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "89 mcc_generated_files/mcc.h
 [; ;mcc_generated_files/mcc.h: 89: void OSCILLATOR_Initialize(void);
 [v _OSCILLATOR_Initialize `(v ~T0 @X0 0 ef ]
-"138 mcc_generated_files/adc.h
-[; ;mcc_generated_files/adc.h: 138: void ADC_Initialize(void);
+"131 mcc_generated_files/adc.h
+[; ;mcc_generated_files/adc.h: 131: void ADC_Initialize(void);
 [v _ADC_Initialize `(v ~T0 @X0 0 ef ]
 "103 mcc_generated_files/tmr2.h
 [; ;mcc_generated_files/tmr2.h: 103: void TMR2_Initialize(void);
@@ -1478,8 +1478,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/mcc.c: 68:     OSCCON2 = 0x00;
 [e = _OSCCON2 -> -> 0 `i `uc ]
 "70
-[; ;mcc_generated_files/mcc.c: 70:     OSCTUNE = 0x00;
-[e = _OSCTUNE -> -> 0 `i `uc ]
+[; ;mcc_generated_files/mcc.c: 70:     OSCTUNE = 0x40;
+[e = _OSCTUNE -> -> 64 `i `uc ]
 "72
 [; ;mcc_generated_files/mcc.c: 72:     REFOCON = 0x00;
 [e = _REFOCON -> -> 0 `i `uc ]

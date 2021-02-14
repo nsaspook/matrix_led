@@ -21,6 +21,7 @@
 #include "matrix.X/mcc_generated_files/mcc.h"
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <math.h>
 
 //#define ROMS // more than one display object
@@ -30,9 +31,9 @@
 #define GRID_S          8
 #define PIXEL_NUM       255	// max number of pixels in display ram
 #define OBJ_NUM		64	// max nuber of pixels in one object
-#define	ROT_SPEED_UP	3	// The highest speed is 1, 35 for demo speed
-#define	ROT_SPEED_P	3	// The highest speed is 1, 35 for demo speed
-#define ROTATION	6.0
+#define	ROT_SPEED_UP	1	// The highest speed is 1, 35 for demo speed
+#define	ROT_SPEED_P	1	// The highest speed is 1, 35 for demo speed
+#define ROTATION	1.0	// degree per step
 #define DIAG_BITS	PIXEL_NUM-8
 
 #define FALSE	false
@@ -73,7 +74,7 @@ union Timers {
 
 typedef struct pixel_t {
 	int8_t x, y; // display bit x,y and v for pixel value 0=off
-	uint8_t v;
+	uint8_t v; // pixel dot value
 	int8_t m_link, n_link; // pixel links m_ id for each pixel, n_ pixel group id for object
 } volatile pixel_t; // -1 in the m_link and n_link means end of display data
 
@@ -124,7 +125,7 @@ volatile struct pixel_t pixel[PIXEL_NUM] = {
 },
 pixel_temp = {0};
 
-uint8_t prog_name[] = "nsaspook";
+char prog_name[] = "\r\n Matrix Led \r\n";
 
 volatile uint8_t ctmu_button, list_numd;
 volatile uint16_t switchState, xd, yd;
@@ -159,7 +160,9 @@ void object_scale(uint8_t, float, float); // object ID,x,y
 /* Timer 2 */
 void low_handler_tmr2(void)
 {
-	LATDbits.LATD0 = 1;
+	debug_low0_SetHigh();
+	debug_low0_SetLow();
+	debug_low0_SetHigh();
 	TMR2_WriteTimer(PDELAY);
 	LATB = 0xff; // blank the display
 	LATC = 0x00;
@@ -183,8 +186,10 @@ void low_handler_tmr2(void)
 			LATC = 0x00;
 		}
 	}
-	if ((pixel[list_numd].m_link == -1) || (++list_numd >= PIXEL_NUM)) list_numd = 0; // start over again from next line
-	LATDbits.LATD0 = 0;
+	if ((pixel[list_numd].m_link == -1) || (++list_numd >= PIXEL_NUM)) {
+		list_numd = 0; // start over again from next line
+	}
+	debug_low0_SetLow();
 }
 
 void high_handler_tmr0(void)
@@ -219,11 +224,9 @@ void high_handler_adc(void)
 	if ((timer.lt) < (touch_base[isr_channel] - TRIP)) { // see if we have a pressed button
 		if (isr_channel == 0) {
 			switchState = PRESSED;
-			TXREG2 = 0b11111111;
 		}
 		if (isr_channel == 1) {
 			switchState = UNPRESSED;
-			TXREG2 = 0b00000001;
 		}
 		LATEbits.LATE2 = 1; // flash external led
 	} else if ((timer.lt) > (touch_base[isr_channel] - TRIP + HYST)) {
@@ -357,16 +360,18 @@ void display_init(void)
 /* copy the entire ROM to RAM display memory */
 void pixel_init(void)
 {
-	memcpy((void *) pixel, (const void *) pixel_rom, sizeof(pixel));
+	memcpy((void *) pixel, (const void *) pixel_rom, sizeof(pixel_rom));
 }
 
 //FIXME we have a ram index bug here
 
-/* move the pixel object from the ROM array to display RAM memeory, if clear is TRUE reset RAM index back to zero */
+/* move the pixel object from the ROM array to display RAM memory link point, if clear is TRUE reset RAM index back to zero */
+
+/* returns a 8-bit object ID */
 uint8_t obj_init(uint8_t rom_link, uint8_t clear)
 {
 	size_t pixel_size;
-	uint8_t ram_link_start;
+	uint8_t ram_link_start = 0;
 	static uint8_t ram_link = 0;
 
 	if (clear) {
@@ -376,8 +381,7 @@ uint8_t obj_init(uint8_t rom_link, uint8_t clear)
 		return 0;
 	}
 
-	ram_link_start = 0;
-	pixel_size = sizeof(pixel_temp);
+	pixel_size = sizeof(pixel_t); // size in bytes of one pixel data structure
 	do {
 		memcpy((void *) &pixel[ram_link + ram_link_start].x, (const void *) &pixel_rom[rom_link + ram_link_start].x, pixel_size);
 		pixel[ram_link + ram_link_start].m_link = (int8_t) (ram_link + ram_link_start); // make a RAM ID for each pixel
@@ -499,7 +503,7 @@ void d_scan_off(void)
 void main_init(void)
 {
 	uint16_t touch_zero = 0;
-	uint8_t x = 1, y = 1, t, i, romid = 20;
+	uint8_t x = 1, y = 1, t, i, romid = 9;
 	uint32_t move = 0, times = ROT_SPEED_UP;
 	uint8_t obj1;
 	int8_t x_p = 0, y_p = 0, x_o = 1, y_o = 1;
@@ -538,6 +542,8 @@ void main_init(void)
 	touch_zero = touch_base_calc(1);
 	touch_zero = touch_base_calc(2);
 	touch_zero = touch_base_calc(3);
+
+	printf("%s", prog_name);
 
 	/* Loop forever */
 

@@ -20520,34 +20520,27 @@ typedef enum
     channel_AN0 = 0x0,
     channel_AN1 = 0x1,
     channel_AN2 = 0x2,
-    channel_AN3 = 0x3,
-    IO_RA5 = 0x4,
-    debug_high0 = 0x5,
-    debug_high1 = 0x6,
-    debug_high2 = 0x7,
-    IO_RB1 = 0x8,
-    IO_RB4 = 0x9,
-    IO_RB0 = 0xa
+    channel_AN3 = 0x3
 } adc_channel_t;
-# 138 "mcc_generated_files/adc.h"
+# 131 "mcc_generated_files/adc.h"
 void ADC_Initialize(void);
-# 167 "mcc_generated_files/adc.h"
+# 160 "mcc_generated_files/adc.h"
 void ADC_StartConversion(adc_channel_t channel);
-# 199 "mcc_generated_files/adc.h"
+# 192 "mcc_generated_files/adc.h"
 _Bool ADC_IsConversionDone(void);
-# 232 "mcc_generated_files/adc.h"
+# 225 "mcc_generated_files/adc.h"
 adc_result_t ADC_GetConversionResult(void);
-# 262 "mcc_generated_files/adc.h"
+# 255 "mcc_generated_files/adc.h"
 adc_result_t ADC_GetConversion(adc_channel_t channel);
-# 290 "mcc_generated_files/adc.h"
+# 283 "mcc_generated_files/adc.h"
 void ADC_TemperatureAcquisitionDelay(void);
-# 306 "mcc_generated_files/adc.h"
+# 299 "mcc_generated_files/adc.h"
 void ADC_ISR(void);
-# 324 "mcc_generated_files/adc.h"
+# 317 "mcc_generated_files/adc.h"
  void ADC_SetInterruptHandler(void (* InterruptHandler)(void));
-# 342 "mcc_generated_files/adc.h"
+# 335 "mcc_generated_files/adc.h"
 extern void (*ADC_InterruptHandler)(void);
-# 360 "mcc_generated_files/adc.h"
+# 353 "mcc_generated_files/adc.h"
 void ADC_DefaultInterruptHandler(void);
 # 52 "mcc_generated_files/adc.c" 2
 
@@ -20573,7 +20566,7 @@ void ADC_Initialize(void)
     ADCON1 = 0xB0;
 
 
-    ADCON2 = 0xA5;
+    ADCON2 = 0xA6;
 
 
     ADRESH = 0x00;
@@ -20636,7 +20629,7 @@ adc_result_t ADC_GetConversion(adc_channel_t channel)
 
 void ADC_TemperatureAcquisitionDelay(void)
 {
-    _delay((unsigned long)((200)*(16000000/4000000.0)));
+    _delay((unsigned long)((200)*(64000000/4000000.0)));
 }
 
 void ADC_ISR(void)

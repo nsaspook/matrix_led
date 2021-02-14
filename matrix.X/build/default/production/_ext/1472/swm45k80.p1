@@ -1,6 +1,6 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"74 ../swm45k80.c
-[; ;../swm45k80.c: 74: typedef struct pixel_t {
+"75 ../swm45k80.c
+[; ;../swm45k80.c: 75: typedef struct pixel_t {
 [s S1548 `c 1 `c 1 `uc 1 `c 1 `c 1 ]
 [n S1548 pixel_t x y v m_link n_link ]
 "30824 /opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h
@@ -110,27 +110,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "236 ../matrix.X/mcc_generated_files/tmr0.h
 [; ;../matrix.X/mcc_generated_files/tmr0.h: 236: void TMR0_WriteTimer(uint16_t timerVal);
 [v _TMR0_WriteTimer `(v ~T0 @X0 0 ef1`us ]
-"69 ../swm45k80.c
-[; ;../swm45k80.c: 69: union Timers {
+"70 ../swm45k80.c
+[; ;../swm45k80.c: 70: union Timers {
 [u S1547 `ui 1 `uc -> 2 `i ]
 [n S1547 Timers lt bt ]
 "35063 /opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 35063: extern volatile unsigned short ADRES __attribute__((address(0xFC3)));
 [v _ADRES `Vus ~T0 @X0 0 e@4035 ]
-"29809
-[; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 29809: extern volatile unsigned char TXREG2 __attribute__((address(0xF79)));
-[v _TXREG2 `Vuc ~T0 @X0 0 e@3961 ]
 "33679
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 33679: extern volatile unsigned char TMR3H __attribute__((address(0xFB3)));
 [v _TMR3H `Vuc ~T0 @X0 0 e@4019 ]
 "33659
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 33659: extern volatile unsigned char TMR3L __attribute__((address(0xFB2)));
 [v _TMR3L `Vuc ~T0 @X0 0 e@4018 ]
-"48 ../swm45k80.c
-[; ;../swm45k80.c: 48: void touch_channel(uint8_t);
+"49 ../swm45k80.c
+[; ;../swm45k80.c: 49: void touch_channel(uint8_t);
 [v _touch_channel `(v ~T0 @X0 0 ef1`uc ]
-"49
-[; ;../swm45k80.c: 49: uint16_t ctmu_touch(uint8_t, uint8_t);
+"50
+[; ;../swm45k80.c: 50: uint16_t ctmu_touch(uint8_t, uint8_t);
 [v _ctmu_touch `(us ~T0 @X0 0 ef2`uc`uc ]
 "37210 /opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 37210:     struct {
@@ -212,14 +209,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "326 ../matrix.X/mcc_generated_files/tmr2.h
 [; ;../matrix.X/mcc_generated_files/tmr2.h: 326:  void TMR2_SetInterruptHandler(void (* InterruptHandler)(void));
 [v _TMR2_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F12441 ]
-[v F12490 `(v ~T0 @X0 0 tf ]
+[v F12456 `(v ~T0 @X0 0 tf ]
 "309 ../matrix.X/mcc_generated_files/tmr0.h
 [; ;../matrix.X/mcc_generated_files/tmr0.h: 309:  void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-[v _TMR0_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F12490 ]
-[v F12475 `(v ~T0 @X0 0 tf ]
-"324 ../matrix.X/mcc_generated_files/adc.h
-[; ;../matrix.X/mcc_generated_files/adc.h: 324:  void ADC_SetInterruptHandler(void (* InterruptHandler)(void));
-[v _ADC_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F12475 ]
+[v _TMR0_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F12456 ]
+[v F12483 `(v ~T0 @X0 0 tf ]
+"317 ../matrix.X/mcc_generated_files/adc.h
+[; ;../matrix.X/mcc_generated_files/adc.h: 317:  void ADC_SetInterruptHandler(void (* InterruptHandler)(void));
+[v _ADC_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F12483 ]
 "35969 /opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 35969:     struct {
 [s S1427 :1 `uc 1 ]
@@ -259,6 +256,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "36011
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 36011: extern volatile RCONbits_t RCONbits __attribute__((address(0xFD0)));
 [v _RCONbits `VS1426 ~T0 @X0 0 e@4048 ]
+"111 /opt/microchip/xc8/v2.31/pic/include/c99/stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 "54 /opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 54: __asm("RXERRCNT equ 0E41h");
 [; <" RXERRCNT equ 0E41h ;# ">
@@ -1651,8 +1650,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "37766
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 37766: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"81 ../swm45k80.c
-[; ;../swm45k80.c: 81: const struct pixel_t pixel_rom[] = {
+"82 ../swm45k80.c
+[; ;../swm45k80.c: 82: const struct pixel_t pixel_rom[] = {
 [v _pixel_rom `CS1548 ~T0 @X0 -> 33 `i e ]
 [i _pixel_rom
 :U ..
@@ -1889,8 +1888,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"122
-[; ;../swm45k80.c: 122: volatile struct pixel_t pixel[255] = {
+"123
+[; ;../swm45k80.c: 123: volatile struct pixel_t pixel[255] = {
 [v _pixel `VS1548 ~T0 @X0 -> 255 `i e ]
 [i _pixel
 :U ..
@@ -1903,8 +1902,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"125
-[; ;../swm45k80.c: 125: pixel_temp = {0};
+"126
+[; ;../swm45k80.c: 126: pixel_temp = {0};
 [v _pixel_temp `VS1548 ~T0 @X0 1 e ]
 [i _pixel_temp
 :U ..
@@ -1913,39 +1912,47 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"127
-[; ;../swm45k80.c: 127: uint8_t prog_name[] = "nsaspook";
-[v _prog_name `uc ~T0 @X0 -> 9 `i e ]
+"128
+[; ;../swm45k80.c: 128: char prog_name[] = "\r\n Matrix Led \r\n";
+[v _prog_name `uc ~T0 @X0 -> 17 `i e ]
 [i _prog_name
 :U ..
--> 110 `c
--> 115 `c
+-> 13 `c
+-> 10 `c
+-> 32 `c
+-> 77 `c
 -> 97 `c
--> 115 `c
--> 112 `c
--> 111 `c
--> 111 `c
--> 107 `c
+-> 116 `c
+-> 114 `c
+-> 105 `c
+-> 120 `c
+-> 32 `c
+-> 76 `c
+-> 101 `c
+-> 100 `c
+-> 32 `c
+-> 13 `c
+-> 10 `c
 -> 0 `c
 ..
 ]
-"129
-[; ;../swm45k80.c: 129: volatile uint8_t ctmu_button, list_numd;
+"130
+[; ;../swm45k80.c: 130: volatile uint8_t ctmu_button, list_numd;
 [v _ctmu_button `Vuc ~T0 @X0 1 e ]
 [v _list_numd `Vuc ~T0 @X0 1 e ]
-"130
-[; ;../swm45k80.c: 130: volatile uint16_t switchState, xd, yd;
+"131
+[; ;../swm45k80.c: 131: volatile uint16_t switchState, xd, yd;
 [v _switchState `Vus ~T0 @X0 1 e ]
 [v _xd `Vus ~T0 @X0 1 e ]
 [v _yd `Vus ~T0 @X0 1 e ]
-"132
-[; ;../swm45k80.c: 132: uint8_t PEAK_READS = 1;
+"133
+[; ;../swm45k80.c: 133: uint8_t PEAK_READS = 1;
 [v _PEAK_READS `uc ~T0 @X0 1 e ]
 [i _PEAK_READS
 -> -> 1 `i `uc
 ]
-"133
-[; ;../swm45k80.c: 133: volatile uint8_t CTMU_ADC_UPDATED = 0, TIME_CHARGE = 0, CTMU_WORKING = 0, SEND_PACKET = 0,
+"134
+[; ;../swm45k80.c: 134: volatile uint8_t CTMU_ADC_UPDATED = 0, TIME_CHARGE = 0, CTMU_WORKING = 0, SEND_PACKET = 0,
 [v _CTMU_ADC_UPDATED `Vuc ~T0 @X0 1 e ]
 [i _CTMU_ADC_UPDATED
 -> -> 0 `i `uc
@@ -1962,1169 +1969,1189 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _SEND_PACKET
 -> -> 0 `i `uc
 ]
-"134
-[; ;../swm45k80.c: 134:  isr_channel = 0;
+"135
+[; ;../swm45k80.c: 135:  isr_channel = 0;
 [v _isr_channel `Vuc ~T0 @X0 1 e ]
 [i _isr_channel
 -> -> 0 `i `uc
 ]
-"135
-[; ;../swm45k80.c: 135: volatile uint16_t touch_base[16], charge_time[16];
+"136
+[; ;../swm45k80.c: 136: volatile uint16_t touch_base[16], charge_time[16];
 [v _touch_base `Vus ~T0 @X0 -> 16 `i e ]
 [v _charge_time `Vus ~T0 @X0 -> 16 `i e ]
-"160
-[; ;../swm45k80.c: 160: void low_handler_tmr2(void)
-[v _low_handler_tmr2 `(v ~T0 @X0 1 ef ]
 "161
-[; ;../swm45k80.c: 161: {
+[; ;../swm45k80.c: 161: void low_handler_tmr2(void)
+[v _low_handler_tmr2 `(v ~T0 @X0 1 ef ]
+"162
+[; ;../swm45k80.c: 162: {
 {
 [e :U _low_handler_tmr2 ]
 [f ]
-"162
-[; ;../swm45k80.c: 162:  LATDbits.LATD0 = 1;
-[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
 "163
-[; ;../swm45k80.c: 163:  TMR2_WriteTimer(0xA8);
-[e ( _TMR2_WriteTimer (1 -> -> 168 `i `uc ]
-"164
-[; ;../swm45k80.c: 164:  LATB = 0xff;
-[e = _LATB -> -> 255 `i `uc ]
-"165
-[; ;../swm45k80.c: 165:  LATC = 0x00;
-[e = _LATC -> -> 0 `i `uc ]
-"166
-[; ;../swm45k80.c: 166:  while (!pixel[list_numd].v) {
-[e $U 1550  ]
-[e :U 1551 ]
-{
-"167
-[; ;../swm45k80.c: 167:   if ((pixel[list_numd].m_link == -1) || (++list_numd >= 255)) {
-[e $ ! || == -> . *U + &U _pixel * -> _list_numd `ux -> -> # *U &U _pixel `ui `ux 3 `i -U -> 1 `i >= -> =+ _list_numd -> -> 1 `i `Vuc `i -> 255 `i 1553  ]
-{
-"168
-[; ;../swm45k80.c: 168:    list_numd = 0;
-[e = _list_numd -> -> 0 `i `uc ]
-"169
-[; ;../swm45k80.c: 169:    break;
-[e $U 1552  ]
-"170
-[; ;../swm45k80.c: 170:   }
-}
-[e :U 1553 ]
-"171
-[; ;../swm45k80.c: 171:  }
-}
-[e :U 1550 ]
-"166
-[; ;../swm45k80.c: 166:  while (!pixel[list_numd].v) {
-[e $ ! != -> . *U + &U _pixel * -> _list_numd `ux -> -> # *U &U _pixel `ui `ux 2 `i -> 0 `i 1551  ]
+[; ;../swm45k80.c: 163:  do { LATDbits.LATD0 = 1; } while(0);
 [e :U 1552 ]
-"173
-[; ;../swm45k80.c: 173:  if ((pixel[list_numd].x >= 0) && (pixel[list_numd].y >= 0)) {
-[e $ ! && >= -> . *U + &U _pixel * -> _list_numd `ux -> -> # *U &U _pixel `ui `ux 0 `i -> 0 `i >= -> . *U + &U _pixel * -> _list_numd `ux -> -> # *U &U _pixel `ui `ux 1 `i -> 0 `i 1554  ]
 {
-"174
-[; ;../swm45k80.c: 174:   xd = 1;
-[e = _xd -> -> 1 `i `us ]
-"175
-[; ;../swm45k80.c: 175:   yd = 1;
-[e = _yd -> -> 1 `i `us ]
-"176
-[; ;../swm45k80.c: 176:   xd = xd << pixel[list_numd].x;
-[e = _xd -> << -> _xd `ui -> . *U + &U _pixel * -> _list_numd `ux -> -> # *U &U _pixel `ui `ux 0 `i `us ]
-"177
-[; ;../swm45k80.c: 177:   yd = yd << pixel[list_numd].y;
-[e = _yd -> << -> _yd `ui -> . *U + &U _pixel * -> _list_numd `ux -> -> # *U &U _pixel `ui `ux 1 `i `us ]
-"178
-[; ;../swm45k80.c: 178:   if (pixel[list_numd].v) {
-[e $ ! != -> . *U + &U _pixel * -> _list_numd `ux -> -> # *U &U _pixel `ui `ux 2 `i -> 0 `i 1555  ]
-{
-"179
-[; ;../swm45k80.c: 179:    LATB = (uint8_t) ~yd;
-[e = _LATB -> ~ -> _yd `ui `uc ]
-"180
-[; ;../swm45k80.c: 180:    LATC = (uint8_t) xd;
-[e = _LATC -> _xd `uc ]
-"181
-[; ;../swm45k80.c: 181:   } else {
+[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
 }
-[e $U 1556  ]
+[e :U 1551 ]
+"164
+[; ;../swm45k80.c: 164:  do { LATDbits.LATD0 = 0; } while(0);
 [e :U 1555 ]
 {
-"182
-[; ;../swm45k80.c: 182:    LATB = 0xff;
-[e = _LATB -> -> 255 `i `uc ]
-"183
-[; ;../swm45k80.c: 183:    LATC = 0x00;
-[e = _LATC -> -> 0 `i `uc ]
-"184
-[; ;../swm45k80.c: 184:   }
-}
-[e :U 1556 ]
-"185
-[; ;../swm45k80.c: 185:  }
+[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
 }
 [e :U 1554 ]
-"186
-[; ;../swm45k80.c: 186:  if ((pixel[list_numd].m_link == -1) || (++list_numd >= 255)) list_numd = 0;
-[e $ ! || == -> . *U + &U _pixel * -> _list_numd `ux -> -> # *U &U _pixel `ui `ux 3 `i -U -> 1 `i >= -> =+ _list_numd -> -> 1 `i `Vuc `i -> 255 `i 1557  ]
-[e = _list_numd -> -> 0 `i `uc ]
+"165
+[; ;../swm45k80.c: 165:  do { LATDbits.LATD0 = 1; } while(0);
+[e :U 1558 ]
+{
+[e = . . _LATDbits 0 0 -> -> 1 `i `uc ]
+}
 [e :U 1557 ]
+"166
+[; ;../swm45k80.c: 166:  TMR2_WriteTimer(0xA8);
+[e ( _TMR2_WriteTimer (1 -> -> 168 `i `uc ]
+"167
+[; ;../swm45k80.c: 167:  LATB = 0xff;
+[e = _LATB -> -> 255 `i `uc ]
+"168
+[; ;../swm45k80.c: 168:  LATC = 0x00;
+[e = _LATC -> -> 0 `i `uc ]
+"169
+[; ;../swm45k80.c: 169:  while (!pixel[list_numd].v) {
+[e $U 1559  ]
+[e :U 1560 ]
+{
+"170
+[; ;../swm45k80.c: 170:   if ((pixel[list_numd].m_link == -1) || (++list_numd >= 255)) {
+[e $ ! || == -> . *U + &U _pixel * -> _list_numd `ux -> -> # *U &U _pixel `ui `ux 3 `i -U -> 1 `i >= -> =+ _list_numd -> -> 1 `i `Vuc `i -> 255 `i 1562  ]
+{
+"171
+[; ;../swm45k80.c: 171:    list_numd = 0;
+[e = _list_numd -> -> 0 `i `uc ]
+"172
+[; ;../swm45k80.c: 172:    break;
+[e $U 1561  ]
+"173
+[; ;../swm45k80.c: 173:   }
+}
+[e :U 1562 ]
+"174
+[; ;../swm45k80.c: 174:  }
+}
+[e :U 1559 ]
+"169
+[; ;../swm45k80.c: 169:  while (!pixel[list_numd].v) {
+[e $ ! != -> . *U + &U _pixel * -> _list_numd `ux -> -> # *U &U _pixel `ui `ux 2 `i -> 0 `i 1560  ]
+[e :U 1561 ]
+"176
+[; ;../swm45k80.c: 176:  if ((pixel[list_numd].x >= 0) && (pixel[list_numd].y >= 0)) {
+[e $ ! && >= -> . *U + &U _pixel * -> _list_numd `ux -> -> # *U &U _pixel `ui `ux 0 `i -> 0 `i >= -> . *U + &U _pixel * -> _list_numd `ux -> -> # *U &U _pixel `ui `ux 1 `i -> 0 `i 1563  ]
+{
+"177
+[; ;../swm45k80.c: 177:   xd = 1;
+[e = _xd -> -> 1 `i `us ]
+"178
+[; ;../swm45k80.c: 178:   yd = 1;
+[e = _yd -> -> 1 `i `us ]
+"179
+[; ;../swm45k80.c: 179:   xd = xd << pixel[list_numd].x;
+[e = _xd -> << -> _xd `ui -> . *U + &U _pixel * -> _list_numd `ux -> -> # *U &U _pixel `ui `ux 0 `i `us ]
+"180
+[; ;../swm45k80.c: 180:   yd = yd << pixel[list_numd].y;
+[e = _yd -> << -> _yd `ui -> . *U + &U _pixel * -> _list_numd `ux -> -> # *U &U _pixel `ui `ux 1 `i `us ]
+"181
+[; ;../swm45k80.c: 181:   if (pixel[list_numd].v) {
+[e $ ! != -> . *U + &U _pixel * -> _list_numd `ux -> -> # *U &U _pixel `ui `ux 2 `i -> 0 `i 1564  ]
+{
+"182
+[; ;../swm45k80.c: 182:    LATB = (uint8_t) ~yd;
+[e = _LATB -> ~ -> _yd `ui `uc ]
+"183
+[; ;../swm45k80.c: 183:    LATC = (uint8_t) xd;
+[e = _LATC -> _xd `uc ]
+"184
+[; ;../swm45k80.c: 184:   } else {
+}
+[e $U 1565  ]
+[e :U 1564 ]
+{
+"185
+[; ;../swm45k80.c: 185:    LATB = 0xff;
+[e = _LATB -> -> 255 `i `uc ]
+"186
+[; ;../swm45k80.c: 186:    LATC = 0x00;
+[e = _LATC -> -> 0 `i `uc ]
 "187
-[; ;../swm45k80.c: 187:  LATDbits.LATD0 = 0;
-[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
+[; ;../swm45k80.c: 187:   }
+}
+[e :U 1565 ]
 "188
-[; ;../swm45k80.c: 188: }
+[; ;../swm45k80.c: 188:  }
+}
+[e :U 1563 ]
+"189
+[; ;../swm45k80.c: 189:  if ((pixel[list_numd].m_link == -1) || (++list_numd >= 255)) {
+[e $ ! || == -> . *U + &U _pixel * -> _list_numd `ux -> -> # *U &U _pixel `ui `ux 3 `i -U -> 1 `i >= -> =+ _list_numd -> -> 1 `i `Vuc `i -> 255 `i 1566  ]
+{
+"190
+[; ;../swm45k80.c: 190:   list_numd = 0;
+[e = _list_numd -> -> 0 `i `uc ]
+"191
+[; ;../swm45k80.c: 191:  }
+}
+[e :U 1566 ]
+"192
+[; ;../swm45k80.c: 192:  do { LATDbits.LATD0 = 0; } while(0);
+[e :U 1569 ]
+{
+[e = . . _LATDbits 0 0 -> -> 0 `i `uc ]
+}
+[e :U 1568 ]
+"193
+[; ;../swm45k80.c: 193: }
 [e :UE 1549 ]
 }
-"190
-[; ;../swm45k80.c: 190: void high_handler_tmr0(void)
+"195
+[; ;../swm45k80.c: 195: void high_handler_tmr0(void)
 [v _high_handler_tmr0 `(v ~T0 @X0 1 ef ]
-"191
-[; ;../swm45k80.c: 191: {
+"196
+[; ;../swm45k80.c: 196: {
 {
 [e :U _high_handler_tmr0 ]
 [f ]
-"192
-[; ;../swm45k80.c: 192:  if (!CTMUCONHbits.IDISSEN) {
-[e $ ! ! != -> . . _CTMUCONHbits 0 1 `i -> 0 `i 1559  ]
-{
-"193
-[; ;../swm45k80.c: 193:   LATEbits.LATE0 = 1;
-[e = . . _LATEbits 0 0 -> -> 1 `i `uc ]
-"194
-[; ;../swm45k80.c: 194:   CTMUCONLbits.EDG1STAT = 0;
-[e = . . _CTMUCONLbits 0 0 -> -> 0 `i `uc ]
-"195
-[; ;../swm45k80.c: 195:   TIME_CHARGE = 0;
-[e = _TIME_CHARGE -> -> 0 `i `uc ]
-"196
-[; ;../swm45k80.c: 196:   CTMU_WORKING = 1;
-[e = _CTMU_WORKING -> -> 1 `i `uc ]
 "197
-[; ;../swm45k80.c: 197:   LATEbits.LATE1 = 1;
-[e = . . _LATEbits 0 1 -> -> 1 `i `uc ]
+[; ;../swm45k80.c: 197:  if (!CTMUCONHbits.IDISSEN) {
+[e $ ! ! != -> . . _CTMUCONHbits 0 1 `i -> 0 `i 1571  ]
+{
+"198
+[; ;../swm45k80.c: 198:   LATEbits.LATE0 = 1;
+[e = . . _LATEbits 0 0 -> -> 1 `i `uc ]
 "199
-[; ;../swm45k80.c: 199:   ADCON0bits.CHS = isr_channel;
-[e = . . _ADCON0bits 1 2 _isr_channel ]
-"200
-[; ;../swm45k80.c: 200:   ADCON0bits.ADON = 1;
-[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
-"201
-[; ;../swm45k80.c: 201:   ADCON0bits.GO = 1;
-[e = . . _ADCON0bits 3 1 -> -> 1 `i `uc ]
-"202
-[; ;../swm45k80.c: 202:  } else {
-}
-[e $U 1560  ]
-[e :U 1559 ]
-{
-"203
-[; ;../swm45k80.c: 203:   LATEbits.LATE0 = 0;
-[e = . . _LATEbits 0 0 -> -> 0 `i `uc ]
-"204
-[; ;../swm45k80.c: 204:   CTMUCONHbits.IDISSEN = 0;
-[e = . . _CTMUCONHbits 0 1 -> -> 0 `i `uc ]
-"205
-[; ;../swm45k80.c: 205:   TIME_CHARGE = 1;
-[e = _TIME_CHARGE -> -> 1 `i `uc ]
-"206
-[; ;../swm45k80.c: 206:   CTMU_WORKING = 1;
-[e = _CTMU_WORKING -> -> 1 `i `uc ]
-"207
-[; ;../swm45k80.c: 207:   TMR0_WriteTimer(charge_time[isr_channel]);
-[e ( _TMR0_WriteTimer (1 *U + &U _charge_time * -> _isr_channel `ux -> -> # *U &U _charge_time `ui `ux ]
-"208
-[; ;../swm45k80.c: 208:   CTMUCONLbits.EDG1STAT = 1;
-[e = . . _CTMUCONLbits 0 0 -> -> 1 `i `uc ]
-"209
-[; ;../swm45k80.c: 209:  }
-}
-[e :U 1560 ]
-"210
-[; ;../swm45k80.c: 210: }
-[e :UE 1558 ]
-}
-"212
-[; ;../swm45k80.c: 212: void high_handler_adc(void)
-[v _high_handler_adc `(v ~T0 @X0 1 ef ]
-"213
-[; ;../swm45k80.c: 213: {
-{
-[e :U _high_handler_adc ]
-[f ]
-"214
-[; ;../swm45k80.c: 214:  union Timers timer;
-[v _timer `S1547 ~T0 @X0 1 a ]
-"216
-[; ;../swm45k80.c: 216:  LATEbits.LATE1 = 0;
-[e = . . _LATEbits 0 1 -> -> 0 `i `uc ]
-"217
-[; ;../swm45k80.c: 217:  timer.lt = ADRES;
-[e = . _timer 0 -> _ADRES `ui ]
-"218
-[; ;../swm45k80.c: 218:  timer.lt = timer.lt >> 1;
-[e = . _timer 0 >> . _timer 0 -> 1 `i ]
-"219
-[; ;../swm45k80.c: 219:  if ((timer.lt) < (touch_base[isr_channel] - 64)) {
-[e $ ! < . _timer 0 - -> *U + &U _touch_base * -> _isr_channel `ux -> -> # *U &U _touch_base `ui `ux `ui -> -> 64 `i `ui 1562  ]
-{
-"220
-[; ;../swm45k80.c: 220:   if (isr_channel == 0) {
-[e $ ! == -> _isr_channel `i -> 0 `i 1563  ]
-{
-"221
-[; ;../swm45k80.c: 221:    switchState = 1;
-[e = _switchState -> -> 1 `i `us ]
-"222
-[; ;../swm45k80.c: 222:    TXREG2 = 0b11111111;
-[e = _TXREG2 -> -> 255 `i `uc ]
-"223
-[; ;../swm45k80.c: 223:   }
-}
-[e :U 1563 ]
-"224
-[; ;../swm45k80.c: 224:   if (isr_channel == 1) {
-[e $ ! == -> _isr_channel `i -> 1 `i 1564  ]
-{
-"225
-[; ;../swm45k80.c: 225:    switchState = 0;
-[e = _switchState -> -> 0 `i `us ]
-"226
-[; ;../swm45k80.c: 226:    TXREG2 = 0b00000001;
-[e = _TXREG2 -> -> 1 `i `uc ]
-"227
-[; ;../swm45k80.c: 227:   }
-}
-[e :U 1564 ]
-"228
-[; ;../swm45k80.c: 228:   LATEbits.LATE2 = 1;
-[e = . . _LATEbits 0 2 -> -> 1 `i `uc ]
-"229
-[; ;../swm45k80.c: 229:  } else if ((timer.lt) > (touch_base[isr_channel] - 64 + 16)) {
-}
-[e $U 1565  ]
-[e :U 1562 ]
-[e $ ! > . _timer 0 + - -> *U + &U _touch_base * -> _isr_channel `ux -> -> # *U &U _touch_base `ui `ux `ui -> -> 64 `i `ui -> -> 16 `i `ui 1566  ]
-{
-"230
-[; ;../swm45k80.c: 230:   LATEbits.LATE2 = 0;
-[e = . . _LATEbits 0 2 -> -> 0 `i `uc ]
-"231
-[; ;../swm45k80.c: 231:  }
-}
-[e :U 1566 ]
-[e :U 1565 ]
-"232
-[; ;../swm45k80.c: 232:  TMR3H = timer.bt[1];
-[e = _TMR3H -> *U + &U . _timer 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _timer 1 `ui `ux `uc ]
-"233
-[; ;../swm45k80.c: 233:  TMR3L = timer.bt[0];
-[e = _TMR3L -> *U + &U . _timer 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _timer 1 `ui `ux `uc ]
-"234
-[; ;../swm45k80.c: 234:  CTMU_ADC_UPDATED = 1;
-[e = _CTMU_ADC_UPDATED -> -> 1 `i `uc ]
-"235
-[; ;../swm45k80.c: 235:  CTMU_WORKING = 0;
-[e = _CTMU_WORKING -> -> 0 `i `uc ]
-"237
-[; ;../swm45k80.c: 237:  CTMUCONHbits.CTMUEN = 1;
-[e = . . _CTMUCONHbits 0 7 -> -> 1 `i `uc ]
-"238
-[; ;../swm45k80.c: 238:  CTMUCONLbits.EDG1STAT = 0;
+[; ;../swm45k80.c: 199:   CTMUCONLbits.EDG1STAT = 0;
 [e = . . _CTMUCONLbits 0 0 -> -> 0 `i `uc ]
-"239
-[; ;../swm45k80.c: 239:  CTMUCONLbits.EDG2STAT = 0;
-[e = . . _CTMUCONLbits 0 1 -> -> 0 `i `uc ]
-"240
-[; ;../swm45k80.c: 240:  CTMUCONHbits.IDISSEN = 1;
-[e = . . _CTMUCONHbits 0 1 -> -> 1 `i `uc ]
-"241
-[; ;../swm45k80.c: 241:  TMR0_WriteTimer(51000);
-[e ( _TMR0_WriteTimer (1 -> -> 51000 `l `us ]
-"242
-[; ;../swm45k80.c: 242: }
-[e :UE 1561 ]
+"200
+[; ;../swm45k80.c: 200:   TIME_CHARGE = 0;
+[e = _TIME_CHARGE -> -> 0 `i `uc ]
+"201
+[; ;../swm45k80.c: 201:   CTMU_WORKING = 1;
+[e = _CTMU_WORKING -> -> 1 `i `uc ]
+"202
+[; ;../swm45k80.c: 202:   LATEbits.LATE1 = 1;
+[e = . . _LATEbits 0 1 -> -> 1 `i `uc ]
+"204
+[; ;../swm45k80.c: 204:   ADCON0bits.CHS = isr_channel;
+[e = . . _ADCON0bits 1 2 _isr_channel ]
+"205
+[; ;../swm45k80.c: 205:   ADCON0bits.ADON = 1;
+[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
+"206
+[; ;../swm45k80.c: 206:   ADCON0bits.GO = 1;
+[e = . . _ADCON0bits 3 1 -> -> 1 `i `uc ]
+"207
+[; ;../swm45k80.c: 207:  } else {
 }
-"244
-[; ;../swm45k80.c: 244: uint16_t touch_base_calc(uint8_t channel)
-[v _touch_base_calc `(us ~T0 @X0 1 ef1`uc ]
-"245
-[; ;../swm45k80.c: 245: {
-{
-[e :U _touch_base_calc ]
-"244
-[; ;../swm45k80.c: 244: uint16_t touch_base_calc(uint8_t channel)
-[v _channel `uc ~T0 @X0 1 r1 ]
-"245
-[; ;../swm45k80.c: 245: {
-[f ]
-"246
-[; ;../swm45k80.c: 246:  static uint32_t t_avg = 0;
-[v F13534 `ul ~T0 @X0 1 s t_avg ]
-[i F13534
--> -> -> 0 `i `l `ul
-]
-"247
-[; ;../swm45k80.c: 247:  static int16_t i;
-[v F13535 `s ~T0 @X0 1 s i ]
-"249
-[; ;../swm45k80.c: 249:  t_avg = 0;
-[e = F13534 -> -> -> 0 `i `l `ul ]
-"250
-[; ;../swm45k80.c: 250:  touch_channel(channel);
-[e ( _touch_channel (1 _channel ]
-"251
-[; ;../swm45k80.c: 251:  CTMU_ADC_UPDATED = 0;
-[e = _CTMU_ADC_UPDATED -> -> 0 `i `uc ]
-"252
-[; ;../swm45k80.c: 252:  while (!CTMU_ADC_UPDATED) __asm(" clrwdt");
-[e $U 1568  ]
-[e :U 1569 ]
-[; <"  clrwdt ;# ">
-[e :U 1568 ]
-[e $ ! != -> _CTMU_ADC_UPDATED `i -> 0 `i 1569  ]
-[e :U 1570 ]
-"253
-[; ;../swm45k80.c: 253:  for (i = 0; i < 8; i++) {
-{
-[e = F13535 -> -> 0 `i `s ]
-[e $ < -> F13535 `i -> 8 `i 1571  ]
 [e $U 1572  ]
 [e :U 1571 ]
 {
+"208
+[; ;../swm45k80.c: 208:   LATEbits.LATE0 = 0;
+[e = . . _LATEbits 0 0 -> -> 0 `i `uc ]
+"209
+[; ;../swm45k80.c: 209:   CTMUCONHbits.IDISSEN = 0;
+[e = . . _CTMUCONHbits 0 1 -> -> 0 `i `uc ]
+"210
+[; ;../swm45k80.c: 210:   TIME_CHARGE = 1;
+[e = _TIME_CHARGE -> -> 1 `i `uc ]
+"211
+[; ;../swm45k80.c: 211:   CTMU_WORKING = 1;
+[e = _CTMU_WORKING -> -> 1 `i `uc ]
+"212
+[; ;../swm45k80.c: 212:   TMR0_WriteTimer(charge_time[isr_channel]);
+[e ( _TMR0_WriteTimer (1 *U + &U _charge_time * -> _isr_channel `ux -> -> # *U &U _charge_time `ui `ux ]
+"213
+[; ;../swm45k80.c: 213:   CTMUCONLbits.EDG1STAT = 1;
+[e = . . _CTMUCONLbits 0 0 -> -> 1 `i `uc ]
+"214
+[; ;../swm45k80.c: 214:  }
+}
+[e :U 1572 ]
+"215
+[; ;../swm45k80.c: 215: }
+[e :UE 1570 ]
+}
+"217
+[; ;../swm45k80.c: 217: void high_handler_adc(void)
+[v _high_handler_adc `(v ~T0 @X0 1 ef ]
+"218
+[; ;../swm45k80.c: 218: {
+{
+[e :U _high_handler_adc ]
+[f ]
+"219
+[; ;../swm45k80.c: 219:  union Timers timer;
+[v _timer `S1547 ~T0 @X0 1 a ]
+"221
+[; ;../swm45k80.c: 221:  LATEbits.LATE1 = 0;
+[e = . . _LATEbits 0 1 -> -> 0 `i `uc ]
+"222
+[; ;../swm45k80.c: 222:  timer.lt = ADRES;
+[e = . _timer 0 -> _ADRES `ui ]
+"223
+[; ;../swm45k80.c: 223:  timer.lt = timer.lt >> 1;
+[e = . _timer 0 >> . _timer 0 -> 1 `i ]
+"224
+[; ;../swm45k80.c: 224:  if ((timer.lt) < (touch_base[isr_channel] - 64)) {
+[e $ ! < . _timer 0 - -> *U + &U _touch_base * -> _isr_channel `ux -> -> # *U &U _touch_base `ui `ux `ui -> -> 64 `i `ui 1574  ]
+{
+"225
+[; ;../swm45k80.c: 225:   if (isr_channel == 0) {
+[e $ ! == -> _isr_channel `i -> 0 `i 1575  ]
+{
+"226
+[; ;../swm45k80.c: 226:    switchState = 1;
+[e = _switchState -> -> 1 `i `us ]
+"227
+[; ;../swm45k80.c: 227:   }
+}
+[e :U 1575 ]
+"228
+[; ;../swm45k80.c: 228:   if (isr_channel == 1) {
+[e $ ! == -> _isr_channel `i -> 1 `i 1576  ]
+{
+"229
+[; ;../swm45k80.c: 229:    switchState = 0;
+[e = _switchState -> -> 0 `i `us ]
+"230
+[; ;../swm45k80.c: 230:   }
+}
+[e :U 1576 ]
+"231
+[; ;../swm45k80.c: 231:   LATEbits.LATE2 = 1;
+[e = . . _LATEbits 0 2 -> -> 1 `i `uc ]
+"232
+[; ;../swm45k80.c: 232:  } else if ((timer.lt) > (touch_base[isr_channel] - 64 + 16)) {
+}
+[e $U 1577  ]
+[e :U 1574 ]
+[e $ ! > . _timer 0 + - -> *U + &U _touch_base * -> _isr_channel `ux -> -> # *U &U _touch_base `ui `ux `ui -> -> 64 `i `ui -> -> 16 `i `ui 1578  ]
+{
+"233
+[; ;../swm45k80.c: 233:   LATEbits.LATE2 = 0;
+[e = . . _LATEbits 0 2 -> -> 0 `i `uc ]
+"234
+[; ;../swm45k80.c: 234:  }
+}
+[e :U 1578 ]
+[e :U 1577 ]
+"235
+[; ;../swm45k80.c: 235:  TMR3H = timer.bt[1];
+[e = _TMR3H -> *U + &U . _timer 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _timer 1 `ui `ux `uc ]
+"236
+[; ;../swm45k80.c: 236:  TMR3L = timer.bt[0];
+[e = _TMR3L -> *U + &U . _timer 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _timer 1 `ui `ux `uc ]
+"237
+[; ;../swm45k80.c: 237:  CTMU_ADC_UPDATED = 1;
+[e = _CTMU_ADC_UPDATED -> -> 1 `i `uc ]
+"238
+[; ;../swm45k80.c: 238:  CTMU_WORKING = 0;
+[e = _CTMU_WORKING -> -> 0 `i `uc ]
+"240
+[; ;../swm45k80.c: 240:  CTMUCONHbits.CTMUEN = 1;
+[e = . . _CTMUCONHbits 0 7 -> -> 1 `i `uc ]
+"241
+[; ;../swm45k80.c: 241:  CTMUCONLbits.EDG1STAT = 0;
+[e = . . _CTMUCONLbits 0 0 -> -> 0 `i `uc ]
+"242
+[; ;../swm45k80.c: 242:  CTMUCONLbits.EDG2STAT = 0;
+[e = . . _CTMUCONLbits 0 1 -> -> 0 `i `uc ]
+"243
+[; ;../swm45k80.c: 243:  CTMUCONHbits.IDISSEN = 1;
+[e = . . _CTMUCONHbits 0 1 -> -> 1 `i `uc ]
+"244
+[; ;../swm45k80.c: 244:  TMR0_WriteTimer(51000);
+[e ( _TMR0_WriteTimer (1 -> -> 51000 `l `us ]
+"245
+[; ;../swm45k80.c: 245: }
+[e :UE 1573 ]
+}
+"247
+[; ;../swm45k80.c: 247: uint16_t touch_base_calc(uint8_t channel)
+[v _touch_base_calc `(us ~T0 @X0 1 ef1`uc ]
+"248
+[; ;../swm45k80.c: 248: {
+{
+[e :U _touch_base_calc ]
+"247
+[; ;../swm45k80.c: 247: uint16_t touch_base_calc(uint8_t channel)
+[v _channel `uc ~T0 @X0 1 r1 ]
+"248
+[; ;../swm45k80.c: 248: {
+[f ]
+"249
+[; ;../swm45k80.c: 249:  static uint32_t t_avg = 0;
+[v F13527 `ul ~T0 @X0 1 s t_avg ]
+[i F13527
+-> -> -> 0 `i `l `ul
+]
+"250
+[; ;../swm45k80.c: 250:  static int16_t i;
+[v F13528 `s ~T0 @X0 1 s i ]
+"252
+[; ;../swm45k80.c: 252:  t_avg = 0;
+[e = F13527 -> -> -> 0 `i `l `ul ]
+"253
+[; ;../swm45k80.c: 253:  touch_channel(channel);
+[e ( _touch_channel (1 _channel ]
 "254
-[; ;../swm45k80.c: 254:   CTMU_ADC_UPDATED = 0;
+[; ;../swm45k80.c: 254:  CTMU_ADC_UPDATED = 0;
 [e = _CTMU_ADC_UPDATED -> -> 0 `i `uc ]
 "255
-[; ;../swm45k80.c: 255:   while (!CTMU_ADC_UPDATED) __asm(" clrwdt");
-[e $U 1574  ]
-[e :U 1575 ]
-[; <"  clrwdt ;# ">
-[e :U 1574 ]
-[e $ ! != -> _CTMU_ADC_UPDATED `i -> 0 `i 1575  ]
-[e :U 1576 ]
-"256
-[; ;../swm45k80.c: 256:   t_avg += (uint32_t) ctmu_touch(channel, 0);
-[e =+ F13534 -> ( _ctmu_touch (2 , _channel -> -> 0 `i `uc `ul ]
-"257
-[; ;../swm45k80.c: 257:  }
-}
-[e ++ F13535 -> -> 1 `i `s ]
-[e $ < -> F13535 `i -> 8 `i 1571  ]
-[e :U 1572 ]
-}
-"258
-[; ;../swm45k80.c: 258:  touch_base[channel] = (uint16_t) (t_avg / 8L);
-[e = *U + &U _touch_base * -> _channel `ux -> -> # *U &U _touch_base `ui `ux -> / F13534 -> -> 8 `l `ul `us ]
-"259
-[; ;../swm45k80.c: 259:  if (touch_base[channel] < 64) touch_base[channel] = 64 + 16;
-[e $ ! < -> *U + &U _touch_base * -> _channel `ux -> -> # *U &U _touch_base `ui `ux `ui -> -> 64 `i `ui 1577  ]
-[e = *U + &U _touch_base * -> _channel `ux -> -> # *U &U _touch_base `ui `ux -> + -> 64 `i -> 16 `i `us ]
-[e :U 1577 ]
-"260
-[; ;../swm45k80.c: 260:  return touch_base[channel];
-[e ) *U + &U _touch_base * -> _channel `ux -> -> # *U &U _touch_base `ui `ux ]
-[e $UE 1567  ]
-"261
-[; ;../swm45k80.c: 261: }
-[e :UE 1567 ]
-}
-"263
-[; ;../swm45k80.c: 263: void touch_channel(uint8_t channel)
-[v _touch_channel `(v ~T0 @X0 1 ef1`uc ]
-"264
-[; ;../swm45k80.c: 264: {
-{
-[e :U _touch_channel ]
-"263
-[; ;../swm45k80.c: 263: void touch_channel(uint8_t channel)
-[v _channel `uc ~T0 @X0 1 r1 ]
-"264
-[; ;../swm45k80.c: 264: {
-[f ]
-"265
-[; ;../swm45k80.c: 265:  if (channel > 1) return;
-[e $ ! > -> _channel `i -> 1 `i 1579  ]
-[e $UE 1578  ]
-[e :U 1579 ]
-"266
-[; ;../swm45k80.c: 266:  while (CTMU_WORKING) __asm(" clrwdt");
+[; ;../swm45k80.c: 255:  while (!CTMU_ADC_UPDATED) __asm(" clrwdt");
 [e $U 1580  ]
 [e :U 1581 ]
 [; <"  clrwdt ;# ">
 [e :U 1580 ]
-[e $ != -> _CTMU_WORKING `i -> 0 `i 1581  ]
+[e $ ! != -> _CTMU_ADC_UPDATED `i -> 0 `i 1581  ]
 [e :U 1582 ]
-"267
-[; ;../swm45k80.c: 267:  INTCONbits.GIEH = 0;
-[e = . . _INTCONbits 2 2 -> -> 0 `i `uc ]
-"268
-[; ;../swm45k80.c: 268:  isr_channel = channel;
-[e = _isr_channel _channel ]
-"269
-[; ;../swm45k80.c: 269:  CTMU_ADC_UPDATED = 0;
-[e = _CTMU_ADC_UPDATED -> -> 0 `i `uc ]
-"270
-[; ;../swm45k80.c: 270:  INTCONbits.GIEH = 1;
-[e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
-"271
-[; ;../swm45k80.c: 271:  while (!CTMU_ADC_UPDATED) __asm(" clrwdt");
-[e $U 1583  ]
-[e :U 1584 ]
-[; <"  clrwdt ;# ">
+"256
+[; ;../swm45k80.c: 256:  for (i = 0; i < 8; i++) {
+{
+[e = F13528 -> -> 0 `i `s ]
+[e $ < -> F13528 `i -> 8 `i 1583  ]
+[e $U 1584  ]
 [e :U 1583 ]
-[e $ ! != -> _CTMU_ADC_UPDATED `i -> 0 `i 1584  ]
-[e :U 1585 ]
-"272
-[; ;../swm45k80.c: 272: }
-[e :UE 1578 ]
+{
+"257
+[; ;../swm45k80.c: 257:   CTMU_ADC_UPDATED = 0;
+[e = _CTMU_ADC_UPDATED -> -> 0 `i `uc ]
+"258
+[; ;../swm45k80.c: 258:   while (!CTMU_ADC_UPDATED) __asm(" clrwdt");
+[e $U 1586  ]
+[e :U 1587 ]
+[; <"  clrwdt ;# ">
+[e :U 1586 ]
+[e $ ! != -> _CTMU_ADC_UPDATED `i -> 0 `i 1587  ]
+[e :U 1588 ]
+"259
+[; ;../swm45k80.c: 259:   t_avg += (uint32_t) ctmu_touch(channel, 0);
+[e =+ F13527 -> ( _ctmu_touch (2 , _channel -> -> 0 `i `uc `ul ]
+"260
+[; ;../swm45k80.c: 260:  }
 }
+[e ++ F13528 -> -> 1 `i `s ]
+[e $ < -> F13528 `i -> 8 `i 1583  ]
+[e :U 1584 ]
+}
+"261
+[; ;../swm45k80.c: 261:  touch_base[channel] = (uint16_t) (t_avg / 8L);
+[e = *U + &U _touch_base * -> _channel `ux -> -> # *U &U _touch_base `ui `ux -> / F13527 -> -> 8 `l `ul `us ]
+"262
+[; ;../swm45k80.c: 262:  if (touch_base[channel] < 64) touch_base[channel] = 64 + 16;
+[e $ ! < -> *U + &U _touch_base * -> _channel `ux -> -> # *U &U _touch_base `ui `ux `ui -> -> 64 `i `ui 1589  ]
+[e = *U + &U _touch_base * -> _channel `ux -> -> # *U &U _touch_base `ui `ux -> + -> 64 `i -> 16 `i `us ]
+[e :U 1589 ]
+"263
+[; ;../swm45k80.c: 263:  return touch_base[channel];
+[e ) *U + &U _touch_base * -> _channel `ux -> -> # *U &U _touch_base `ui `ux ]
+[e $UE 1579  ]
+"264
+[; ;../swm45k80.c: 264: }
+[e :UE 1579 ]
+}
+"266
+[; ;../swm45k80.c: 266: void touch_channel(uint8_t channel)
+[v _touch_channel `(v ~T0 @X0 1 ef1`uc ]
+"267
+[; ;../swm45k80.c: 267: {
+{
+[e :U _touch_channel ]
+"266
+[; ;../swm45k80.c: 266: void touch_channel(uint8_t channel)
+[v _channel `uc ~T0 @X0 1 r1 ]
+"267
+[; ;../swm45k80.c: 267: {
+[f ]
+"268
+[; ;../swm45k80.c: 268:  if (channel > 1) return;
+[e $ ! > -> _channel `i -> 1 `i 1591  ]
+[e $UE 1590  ]
+[e :U 1591 ]
+"269
+[; ;../swm45k80.c: 269:  while (CTMU_WORKING) __asm(" clrwdt");
+[e $U 1592  ]
+[e :U 1593 ]
+[; <"  clrwdt ;# ">
+[e :U 1592 ]
+[e $ != -> _CTMU_WORKING `i -> 0 `i 1593  ]
+[e :U 1594 ]
+"270
+[; ;../swm45k80.c: 270:  INTCONbits.GIEH = 0;
+[e = . . _INTCONbits 2 2 -> -> 0 `i `uc ]
+"271
+[; ;../swm45k80.c: 271:  isr_channel = channel;
+[e = _isr_channel _channel ]
+"272
+[; ;../swm45k80.c: 272:  CTMU_ADC_UPDATED = 0;
+[e = _CTMU_ADC_UPDATED -> -> 0 `i `uc ]
+"273
+[; ;../swm45k80.c: 273:  INTCONbits.GIEH = 1;
+[e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
 "274
-[; ;../swm45k80.c: 274: int16_t ctmu_setup(uint8_t current, uint8_t channel)
-[v _ctmu_setup `(s ~T0 @X0 1 ef2`uc`uc ]
+[; ;../swm45k80.c: 274:  while (!CTMU_ADC_UPDATED) __asm(" clrwdt");
+[e $U 1595  ]
+[e :U 1596 ]
+[; <"  clrwdt ;# ">
+[e :U 1595 ]
+[e $ ! != -> _CTMU_ADC_UPDATED `i -> 0 `i 1596  ]
+[e :U 1597 ]
 "275
-[; ;../swm45k80.c: 275: {
+[; ;../swm45k80.c: 275: }
+[e :UE 1590 ]
+}
+"277
+[; ;../swm45k80.c: 277: int16_t ctmu_setup(uint8_t current, uint8_t channel)
+[v _ctmu_setup `(s ~T0 @X0 1 ef2`uc`uc ]
+"278
+[; ;../swm45k80.c: 278: {
 {
 [e :U _ctmu_setup ]
-"274
-[; ;../swm45k80.c: 274: int16_t ctmu_setup(uint8_t current, uint8_t channel)
+"277
+[; ;../swm45k80.c: 277: int16_t ctmu_setup(uint8_t current, uint8_t channel)
 [v _current `uc ~T0 @X0 1 r1 ]
 [v _channel `uc ~T0 @X0 1 r2 ]
-"275
-[; ;../swm45k80.c: 275: {
-[f ]
-"277
-[; ;../swm45k80.c: 277:  CTMUCONH = 0x00;
-[e = _CTMUCONH -> -> 0 `i `uc ]
 "278
-[; ;../swm45k80.c: 278:  CTMUCONL = 0x90;
+[; ;../swm45k80.c: 278: {
+[f ]
+"280
+[; ;../swm45k80.c: 280:  CTMUCONH = 0x00;
+[e = _CTMUCONH -> -> 0 `i `uc ]
+"281
+[; ;../swm45k80.c: 281:  CTMUCONL = 0x90;
 [e = _CTMUCONL -> -> 144 `i `uc ]
-"285
-[; ;../swm45k80.c: 285:  CTMUICON = 0x01;
-[e = _CTMUICON -> -> 1 `i `uc ]
-"287
-[; ;../swm45k80.c: 287:  switch (current) {
-[e $U 1588  ]
-{
 "288
-[; ;../swm45k80.c: 288:  case 11:
-[e :U 1589 ]
-"289
-[; ;../swm45k80.c: 289:   charge_time[channel] = 64000;
-[e = *U + &U _charge_time * -> _channel `ux -> -> # *U &U _charge_time `ui `ux -> -> 64000 `l `us ]
+[; ;../swm45k80.c: 288:  CTMUICON = 0x01;
+[e = _CTMUICON -> -> 1 `i `uc ]
 "290
-[; ;../swm45k80.c: 290:   break;
-[e $U 1587  ]
+[; ;../swm45k80.c: 290:  switch (current) {
+[e $U 1600  ]
+{
 "291
-[; ;../swm45k80.c: 291:  case 12:
-[e :U 1590 ]
+[; ;../swm45k80.c: 291:  case 11:
+[e :U 1601 ]
 "292
-[; ;../swm45k80.c: 292:   charge_time[channel] = 61543;
-[e = *U + &U _charge_time * -> _channel `ux -> -> # *U &U _charge_time `ui `ux -> -> 61543 `l `us ]
+[; ;../swm45k80.c: 292:   charge_time[channel] = 64000;
+[e = *U + &U _charge_time * -> _channel `ux -> -> # *U &U _charge_time `ui `ux -> -> 64000 `l `us ]
 "293
 [; ;../swm45k80.c: 293:   break;
-[e $U 1587  ]
+[e $U 1599  ]
 "294
-[; ;../swm45k80.c: 294:  case 13:
-[e :U 1591 ]
+[; ;../swm45k80.c: 294:  case 12:
+[e :U 1602 ]
 "295
-[; ;../swm45k80.c: 295:   charge_time[channel] = 65000;
-[e = *U + &U _charge_time * -> _channel `ux -> -> # *U &U _charge_time `ui `ux -> -> 65000 `l `us ]
+[; ;../swm45k80.c: 295:   charge_time[channel] = 61543;
+[e = *U + &U _charge_time * -> _channel `ux -> -> # *U &U _charge_time `ui `ux -> -> 61543 `l `us ]
 "296
 [; ;../swm45k80.c: 296:   break;
-[e $U 1587  ]
+[e $U 1599  ]
 "297
-[; ;../swm45k80.c: 297:  case 14:
-[e :U 1592 ]
+[; ;../swm45k80.c: 297:  case 13:
+[e :U 1603 ]
 "298
-[; ;../swm45k80.c: 298:   charge_time[channel] = 62543;
-[e = *U + &U _charge_time * -> _channel `ux -> -> # *U &U _charge_time `ui `ux -> -> 62543 `l `us ]
+[; ;../swm45k80.c: 298:   charge_time[channel] = 65000;
+[e = *U + &U _charge_time * -> _channel `ux -> -> # *U &U _charge_time `ui `ux -> -> 65000 `l `us ]
 "299
 [; ;../swm45k80.c: 299:   break;
-[e $U 1587  ]
+[e $U 1599  ]
 "300
-[; ;../swm45k80.c: 300:  default:
-[e :U 1593 ]
+[; ;../swm45k80.c: 300:  case 14:
+[e :U 1604 ]
 "301
-[; ;../swm45k80.c: 301:   charge_time[channel] = 65400;
-[e = *U + &U _charge_time * -> _channel `ux -> -> # *U &U _charge_time `ui `ux -> -> 65400 `l `us ]
+[; ;../swm45k80.c: 301:   charge_time[channel] = 62543;
+[e = *U + &U _charge_time * -> _channel `ux -> -> # *U &U _charge_time `ui `ux -> -> 62543 `l `us ]
 "302
-[; ;../swm45k80.c: 302:   CTMUICON = 0b01111101;
-[e = _CTMUICON -> -> 125 `i `uc ]
+[; ;../swm45k80.c: 302:   break;
+[e $U 1599  ]
+"303
+[; ;../swm45k80.c: 303:  default:
+[e :U 1605 ]
 "304
-[; ;../swm45k80.c: 304:   break;
-[e $U 1587  ]
-"305
-[; ;../swm45k80.c: 305:  }
-}
-[e $U 1587  ]
-[e :U 1588 ]
-[e [\ -> _current `i , $ -> 11 `i 1589
- , $ -> 12 `i 1590
- , $ -> 13 `i 1591
- , $ -> 14 `i 1592
- 1593 ]
-[e :U 1587 ]
-"306
-[; ;../swm45k80.c: 306:  if (current == 0x02) {
-[e $ ! == -> _current `i -> 2 `i 1594  ]
-{
-"307
-[; ;../swm45k80.c: 307:   CTMUICON = 0x02;
-[e = _CTMUICON -> -> 2 `i `uc ]
-"308
-[; ;../swm45k80.c: 308:   charge_time[channel] = 65400;
+[; ;../swm45k80.c: 304:   charge_time[channel] = 65400;
 [e = *U + &U _charge_time * -> _channel `ux -> -> # *U &U _charge_time `ui `ux -> -> 65400 `l `us ]
+"305
+[; ;../swm45k80.c: 305:   CTMUICON = 0b01111101;
+[e = _CTMUICON -> -> 125 `i `uc ]
+"307
+[; ;../swm45k80.c: 307:   break;
+[e $U 1599  ]
+"308
+[; ;../swm45k80.c: 308:  }
+}
+[e $U 1599  ]
+[e :U 1600 ]
+[e [\ -> _current `i , $ -> 11 `i 1601
+ , $ -> 12 `i 1602
+ , $ -> 13 `i 1603
+ , $ -> 14 `i 1604
+ 1605 ]
+[e :U 1599 ]
 "309
-[; ;../swm45k80.c: 309:  }
+[; ;../swm45k80.c: 309:  if (current == 0x02) {
+[e $ ! == -> _current `i -> 2 `i 1606  ]
+{
+"310
+[; ;../swm45k80.c: 310:   CTMUICON = 0x02;
+[e = _CTMUICON -> -> 2 `i `uc ]
+"311
+[; ;../swm45k80.c: 311:   charge_time[channel] = 65400;
+[e = *U + &U _charge_time * -> _channel `ux -> -> # *U &U _charge_time `ui `ux -> -> 65400 `l `us ]
+"312
+[; ;../swm45k80.c: 312:  }
 }
-[e :U 1594 ]
-"317
-[; ;../swm45k80.c: 317:  T3CONbits.TMR3ON = 0;
-[e = . . _T3CONbits 1 0 -> -> 0 `i `uc ]
-"318
-[; ;../swm45k80.c: 318:  T3CONbits.RD16 = 1;
-[e = . . _T3CONbits 1 1 -> -> 1 `i `uc ]
-"319
-[; ;../swm45k80.c: 319:  TMR3H = 0;
-[e = _TMR3H -> -> 0 `i `uc ]
+[e :U 1606 ]
 "320
-[; ;../swm45k80.c: 320:  TMR3L = 0;
-[e = _TMR3L -> -> 0 `i `uc ]
+[; ;../swm45k80.c: 320:  T3CONbits.TMR3ON = 0;
+[e = . . _T3CONbits 1 0 -> -> 0 `i `uc ]
 "321
-[; ;../swm45k80.c: 321:  return 0;
-[e ) -> -> 0 `i `s ]
-[e $UE 1586  ]
+[; ;../swm45k80.c: 321:  T3CONbits.RD16 = 1;
+[e = . . _T3CONbits 1 1 -> -> 1 `i `uc ]
 "322
-[; ;../swm45k80.c: 322: }
-[e :UE 1586 ]
-}
+[; ;../swm45k80.c: 322:  TMR3H = 0;
+[e = _TMR3H -> -> 0 `i `uc ]
+"323
+[; ;../swm45k80.c: 323:  TMR3L = 0;
+[e = _TMR3L -> -> 0 `i `uc ]
 "324
-[; ;../swm45k80.c: 324: uint16_t ctmu_touch(uint8_t channel, uint8_t NULL0)
-[v _ctmu_touch `(us ~T0 @X0 1 ef2`uc`uc ]
+[; ;../swm45k80.c: 324:  return 0;
+[e ) -> -> 0 `i `s ]
+[e $UE 1598  ]
 "325
-[; ;../swm45k80.c: 325: {
+[; ;../swm45k80.c: 325: }
+[e :UE 1598 ]
+}
+"327
+[; ;../swm45k80.c: 327: uint16_t ctmu_touch(uint8_t channel, uint8_t NULL0)
+[v _ctmu_touch `(us ~T0 @X0 1 ef2`uc`uc ]
+"328
+[; ;../swm45k80.c: 328: {
 {
 [e :U _ctmu_touch ]
-"324
-[; ;../swm45k80.c: 324: uint16_t ctmu_touch(uint8_t channel, uint8_t NULL0)
+"327
+[; ;../swm45k80.c: 327: uint16_t ctmu_touch(uint8_t channel, uint8_t NULL0)
 [v _channel `uc ~T0 @X0 1 r1 ]
 [v _NULL0 `uc ~T0 @X0 1 r2 ]
-"325
-[; ;../swm45k80.c: 325: {
+"328
+[; ;../swm45k80.c: 328: {
 [f ]
-"326
-[; ;../swm45k80.c: 326:  static uint16_t ctmu_change = 0, last = 0, null = 0;
-[v F13544 `us ~T0 @X0 1 s ctmu_change ]
-[i F13544
--> -> 0 `i `us
-]
-[v F13545 `us ~T0 @X0 1 s last ]
-[i F13545
--> -> 0 `i `us
-]
-[v F13546 `us ~T0 @X0 1 s null ]
-[i F13546
--> -> 0 `i `us
-]
-"327
-[; ;../swm45k80.c: 327:  static union Timers timer;
-[v F13547 `S1547 ~T0 @X0 1 s timer ]
 "329
-[; ;../swm45k80.c: 329:  if (CTMU_ADC_UPDATED) {
-[e $ ! != -> _CTMU_ADC_UPDATED `i -> 0 `i 1596  ]
-{
+[; ;../swm45k80.c: 329:  static uint16_t ctmu_change = 0, last = 0, null = 0;
+[v F13537 `us ~T0 @X0 1 s ctmu_change ]
+[i F13537
+-> -> 0 `i `us
+]
+[v F13538 `us ~T0 @X0 1 s last ]
+[i F13538
+-> -> 0 `i `us
+]
+[v F13539 `us ~T0 @X0 1 s null ]
+[i F13539
+-> -> 0 `i `us
+]
 "330
-[; ;../swm45k80.c: 330:   timer.bt[0] = TMR3L;
-[e = *U + &U . F13547 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . F13547 1 `ui `ux -> _TMR3L `uc ]
-"331
-[; ;../swm45k80.c: 331:   timer.bt[1] = TMR3H;
-[e = *U + &U . F13547 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . F13547 1 `ui `ux -> _TMR3H `uc ]
+[; ;../swm45k80.c: 330:  static union Timers timer;
+[v F13540 `S1547 ~T0 @X0 1 s timer ]
 "332
-[; ;../swm45k80.c: 332:   timer.lt = timer.lt & 0x003f;
-[e = . F13547 0 & . F13547 0 -> -> 63 `i `ui ]
-"334
-[; ;../swm45k80.c: 334:   if (NULL0 == 0) {
-[e $ ! == -> _NULL0 `i -> 0 `i 1597  ]
+[; ;../swm45k80.c: 332:  if (CTMU_ADC_UPDATED) {
+[e $ ! != -> _CTMU_ADC_UPDATED `i -> 0 `i 1608  ]
 {
+"333
+[; ;../swm45k80.c: 333:   timer.bt[0] = TMR3L;
+[e = *U + &U . F13540 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . F13540 1 `ui `ux -> _TMR3L `uc ]
+"334
+[; ;../swm45k80.c: 334:   timer.bt[1] = TMR3H;
+[e = *U + &U . F13540 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . F13540 1 `ui `ux -> _TMR3H `uc ]
 "335
-[; ;../swm45k80.c: 335:    return(timer.lt);
-[e ) -> . F13547 0 `us ]
-[e $UE 1595  ]
-"336
-[; ;../swm45k80.c: 336:   }
-}
-[e :U 1597 ]
+[; ;../swm45k80.c: 335:   timer.lt = timer.lt & 0x003f;
+[e = . F13540 0 & . F13540 0 -> -> 63 `i `ui ]
 "337
-[; ;../swm45k80.c: 337:   if (timer.lt < touch_base[channel]) {
-[e $ ! < . F13547 0 -> *U + &U _touch_base * -> _channel `ux -> -> # *U &U _touch_base `ui `ux `ui 1598  ]
+[; ;../swm45k80.c: 337:   if (NULL0 == 0) {
+[e $ ! == -> _NULL0 `i -> 0 `i 1609  ]
 {
 "338
-[; ;../swm45k80.c: 338:    ctmu_change = touch_base[channel] - timer.lt;
-[e = F13544 -> - -> *U + &U _touch_base * -> _channel `ux -> -> # *U &U _touch_base `ui `ux `ui . F13547 0 `us ]
+[; ;../swm45k80.c: 338:    return(timer.lt);
+[e ) -> . F13540 0 `us ]
+[e $UE 1607  ]
 "339
-[; ;../swm45k80.c: 339:    ctmu_change = ctmu_change & 0x001f;
-[e = F13544 -> & -> F13544 `ui -> -> 31 `i `ui `us ]
+[; ;../swm45k80.c: 339:   }
+}
+[e :U 1609 ]
 "340
-[; ;../swm45k80.c: 340:   }
-}
-[e :U 1598 ]
-"342
-[; ;../swm45k80.c: 342:   if ((null == 0) && NULL0) null = ctmu_change;
-[e $ ! && == -> F13546 `ui -> -> 0 `i `ui != -> _NULL0 `i -> 0 `i 1599  ]
-[e = F13546 F13544 ]
-[e :U 1599 ]
-"343
-[; ;../swm45k80.c: 343:   last = ctmu_change;
-[e = F13545 F13544 ]
-"344
-[; ;../swm45k80.c: 344:   return(uint16_t) ctmu_change;
-[e ) F13544 ]
-[e $UE 1595  ]
-"345
-[; ;../swm45k80.c: 345:  } else {
-}
-[e $U 1600  ]
-[e :U 1596 ]
+[; ;../swm45k80.c: 340:   if (timer.lt < touch_base[channel]) {
+[e $ ! < . F13540 0 -> *U + &U _touch_base * -> _channel `ux -> -> # *U &U _touch_base `ui `ux `ui 1610  ]
 {
+"341
+[; ;../swm45k80.c: 341:    ctmu_change = touch_base[channel] - timer.lt;
+[e = F13537 -> - -> *U + &U _touch_base * -> _channel `ux -> -> # *U &U _touch_base `ui `ux `ui . F13540 0 `us ]
+"342
+[; ;../swm45k80.c: 342:    ctmu_change = ctmu_change & 0x001f;
+[e = F13537 -> & -> F13537 `ui -> -> 31 `i `ui `us ]
+"343
+[; ;../swm45k80.c: 343:   }
+}
+[e :U 1610 ]
+"345
+[; ;../swm45k80.c: 345:   if ((null == 0) && NULL0) null = ctmu_change;
+[e $ ! && == -> F13539 `ui -> -> 0 `i `ui != -> _NULL0 `i -> 0 `i 1611  ]
+[e = F13539 F13537 ]
+[e :U 1611 ]
 "346
-[; ;../swm45k80.c: 346:   return(uint16_t) last;
-[e ) F13545 ]
-[e $UE 1595  ]
+[; ;../swm45k80.c: 346:   last = ctmu_change;
+[e = F13538 F13537 ]
 "347
-[; ;../swm45k80.c: 347:  }
-}
-[e :U 1600 ]
+[; ;../swm45k80.c: 347:   return(uint16_t) ctmu_change;
+[e ) F13537 ]
+[e $UE 1607  ]
 "348
-[; ;../swm45k80.c: 348: }
-[e :UE 1595 ]
+[; ;../swm45k80.c: 348:  } else {
 }
+[e $U 1612  ]
+[e :U 1608 ]
+{
+"349
+[; ;../swm45k80.c: 349:   return(uint16_t) last;
+[e ) F13538 ]
+[e $UE 1607  ]
+"350
+[; ;../swm45k80.c: 350:  }
+}
+[e :U 1612 ]
 "351
-[; ;../swm45k80.c: 351: void display_init(void)
+[; ;../swm45k80.c: 351: }
+[e :UE 1607 ]
+}
+"354
+[; ;../swm45k80.c: 354: void display_init(void)
 [v _display_init `(v ~T0 @X0 1 ef ]
-"352
-[; ;../swm45k80.c: 352: {
+"355
+[; ;../swm45k80.c: 355: {
 {
 [e :U _display_init ]
 [f ]
-"354
-[; ;../swm45k80.c: 354:  list_numd = 0;
+"357
+[; ;../swm45k80.c: 357:  list_numd = 0;
 [e = _list_numd -> -> 0 `i `uc ]
-"355
-[; ;../swm45k80.c: 355: }
-[e :UE 1601 ]
-}
 "358
-[; ;../swm45k80.c: 358: void pixel_init(void)
+[; ;../swm45k80.c: 358: }
+[e :UE 1613 ]
+}
+"361
+[; ;../swm45k80.c: 361: void pixel_init(void)
 [v _pixel_init `(v ~T0 @X0 1 ef ]
-"359
-[; ;../swm45k80.c: 359: {
+"362
+[; ;../swm45k80.c: 362: {
 {
 [e :U _pixel_init ]
 [f ]
-"360
-[; ;../swm45k80.c: 360:  memcpy((void *) pixel, (const void *) pixel_rom, sizeof(pixel));
-[e ( _memcpy (3 , , -> &U _pixel `*v -> &U _pixel_rom `*Cv -> # _pixel `ui ]
-"361
-[; ;../swm45k80.c: 361: }
-[e :UE 1602 ]
-}
-"366
-[; ;../swm45k80.c: 366: uint8_t obj_init(uint8_t rom_link, uint8_t clear)
-[v _obj_init `(uc ~T0 @X0 1 ef2`uc`uc ]
-"367
-[; ;../swm45k80.c: 367: {
-{
-[e :U _obj_init ]
-"366
-[; ;../swm45k80.c: 366: uint8_t obj_init(uint8_t rom_link, uint8_t clear)
-[v _rom_link `uc ~T0 @X0 1 r1 ]
-[v _clear `uc ~T0 @X0 1 r2 ]
-"367
-[; ;../swm45k80.c: 367: {
-[f ]
-"368
-[; ;../swm45k80.c: 368:  size_t pixel_size;
-[v _pixel_size `ui ~T0 @X0 1 a ]
-"369
-[; ;../swm45k80.c: 369:  uint8_t ram_link_start;
-[v _ram_link_start `uc ~T0 @X0 1 a ]
-"370
-[; ;../swm45k80.c: 370:  static uint8_t ram_link = 0;
-[v F13555 `uc ~T0 @X0 1 s ram_link ]
-[i F13555
--> -> 0 `i `uc
-]
-"372
-[; ;../swm45k80.c: 372:  if (clear) {
-[e $ ! != -> _clear `i -> 0 `i 1604  ]
-{
-"373
-[; ;../swm45k80.c: 373:   ram_link = 0;
-[e = F13555 -> -> 0 `i `uc ]
-"374
-[; ;../swm45k80.c: 374:   pixel[ram_link].m_link = -1;
-[e = . *U + &U _pixel * -> F13555 `ux -> -> # *U &U _pixel `ui `ux 3 -> -U -> 1 `i `c ]
-"375
-[; ;../swm45k80.c: 375:   pixel[ram_link].n_link = -1;
-[e = . *U + &U _pixel * -> F13555 `ux -> -> # *U &U _pixel `ui `ux 4 -> -U -> 1 `i `c ]
-"376
-[; ;../swm45k80.c: 376:   return 0;
-[e ) -> -> 0 `i `uc ]
-[e $UE 1603  ]
-"377
-[; ;../swm45k80.c: 377:  }
-}
-[e :U 1604 ]
-"379
-[; ;../swm45k80.c: 379:  ram_link_start = 0;
-[e = _ram_link_start -> -> 0 `i `uc ]
-"380
-[; ;../swm45k80.c: 380:  pixel_size = sizeof(pixel_temp);
-[e = _pixel_size -> # _pixel_temp `ui ]
-"381
-[; ;../swm45k80.c: 381:  do {
-[e :U 1607 ]
-{
-"382
-[; ;../swm45k80.c: 382:   memcpy((void *) &pixel[ram_link + ram_link_start].x, (const void *) &pixel_rom[rom_link + ram_link_start].x, pixel_size);
-[e ( _memcpy (3 , , -> &U . *U + &U _pixel * -> -> + -> F13555 `i -> _ram_link_start `i `ui `ux -> -> # *U &U _pixel `ui `ux 0 `*v -> &U . *U + &U _pixel_rom * -> -> + -> _rom_link `i -> _ram_link_start `i `ui `ux -> -> # *U &U _pixel_rom `ui `ux 0 `*Cv _pixel_size ]
-"383
-[; ;../swm45k80.c: 383:   pixel[ram_link + ram_link_start].m_link = (int8_t) (ram_link + ram_link_start);
-[e = . *U + &U _pixel * -> -> + -> F13555 `i -> _ram_link_start `i `ui `ux -> -> # *U &U _pixel `ui `ux 3 -> + -> F13555 `i -> _ram_link_start `i `c ]
-"384
-[; ;../swm45k80.c: 384:   pixel[ram_link + ram_link_start].n_link = (int8_t) ram_link;
-[e = . *U + &U _pixel * -> -> + -> F13555 `i -> _ram_link_start `i `ui `ux -> -> # *U &U _pixel `ui `ux 4 -> F13555 `c ]
-"385
-[; ;../swm45k80.c: 385:   ++ram_link_start;
-[e =+ _ram_link_start -> -> 1 `i `uc ]
-"386
-[; ;../swm45k80.c: 386:  } while (pixel_rom[ram_link_start + rom_link].n_link == rom_link);
-}
-[e $ == -> . *U + &U _pixel_rom * -> -> + -> _ram_link_start `i -> _rom_link `i `ui `ux -> -> # *U &U _pixel_rom `ui `ux 4 `i -> _rom_link `i 1607  ]
-[e :U 1606 ]
-"388
-[; ;../swm45k80.c: 388:  ram_link += ram_link_start;
-[e =+ F13555 -> _ram_link_start `uc ]
-"389
-[; ;../swm45k80.c: 389:  pixel[ram_link].m_link = -1;
-[e = . *U + &U _pixel * -> F13555 `ux -> -> # *U &U _pixel `ui `ux 3 -> -U -> 1 `i `c ]
-"390
-[; ;../swm45k80.c: 390:  pixel[ram_link].n_link = -1;
-[e = . *U + &U _pixel * -> F13555 `ux -> -> # *U &U _pixel `ui `ux 4 -> -U -> 1 `i `c ]
-"391
-[; ;../swm45k80.c: 391:  return ram_link - ram_link_start;
-[e ) -> - -> F13555 `i -> _ram_link_start `i `uc ]
-[e $UE 1603  ]
-"392
-[; ;../swm45k80.c: 392: }
-[e :UE 1603 ]
-}
-"394
-[; ;../swm45k80.c: 394: void pixel_set(uint8_t list_num, uint8_t value)
-[v _pixel_set `(v ~T0 @X0 1 ef2`uc`uc ]
-"395
-[; ;../swm45k80.c: 395: {
-{
-[e :U _pixel_set ]
-"394
-[; ;../swm45k80.c: 394: void pixel_set(uint8_t list_num, uint8_t value)
-[v _list_num `uc ~T0 @X0 1 r1 ]
-[v _value `uc ~T0 @X0 1 r2 ]
-"395
-[; ;../swm45k80.c: 395: {
-[f ]
-"396
-[; ;../swm45k80.c: 396:  if (list_num >= 255) return;
-[e $ ! >= -> _list_num `i -> 255 `i 1609  ]
-[e $UE 1608  ]
-[e :U 1609 ]
-"397
-[; ;../swm45k80.c: 397:  pixel[list_num].v = value;
-[e = . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 2 _value ]
-"398
-[; ;../swm45k80.c: 398: }
-[e :UE 1608 ]
-}
-"400
-[; ;../swm45k80.c: 400: void pixel_rotate(uint8_t list_num, float degree)
-[v _pixel_rotate `(v ~T0 @X0 1 ef2`uc`f ]
-"401
-[; ;../swm45k80.c: 401: {
-{
-[e :U _pixel_rotate ]
-"400
-[; ;../swm45k80.c: 400: void pixel_rotate(uint8_t list_num, float degree)
-[v _list_num `uc ~T0 @X0 1 r1 ]
-[v _degree `f ~T0 @X0 1 r2 ]
-"401
-[; ;../swm45k80.c: 401: {
-[f ]
-"403
-[; ;../swm45k80.c: 403:  static float to_rad, float_x, float_y, sine, cosine, old_degree = 1957.7;
-[v F13562 `f ~T0 @X0 1 s to_rad ]
-[v F13563 `f ~T0 @X0 1 s float_x ]
-[v F13564 `f ~T0 @X0 1 s float_y ]
-[v F13565 `f ~T0 @X0 1 s sine ]
-[v F13566 `f ~T0 @X0 1 s cosine ]
-[v F13567 `f ~T0 @X0 1 s old_degree ]
-[i F13567
--> .1957.7 `f
-]
-"405
-[; ;../swm45k80.c: 405:  if (degree != old_degree) {
-[e $ ! != _degree F13567 1611  ]
-{
-"406
-[; ;../swm45k80.c: 406:   to_rad = (float) 0.0175 * degree;
-[e = F13562 * -> .0.0175 `f _degree ]
-"407
-[; ;../swm45k80.c: 407:   cosine = (float) cosf(to_rad);
-[e = F13566 ( _cosf (1 F13562 ]
-"408
-[; ;../swm45k80.c: 408:   sine = (float) sinf(to_rad);
-[e = F13565 ( _sinf (1 F13562 ]
-"409
-[; ;../swm45k80.c: 409:   old_degree = degree;
-[e = F13567 _degree ]
-"410
-[; ;../swm45k80.c: 410:  }
-}
-[e :U 1611 ]
-"412
-[; ;../swm45k80.c: 412:  float_x = (float) pixel[list_num].x;
-[e = F13563 -> . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 0 `f ]
-"413
-[; ;../swm45k80.c: 413:  float_y = (float) pixel[list_num].y;
-[e = F13564 -> . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 1 `f ]
-"415
-[; ;../swm45k80.c: 415:  pixel[list_num].x = (int8_t) (float_x * cosine - float_y * sine);
-[e = . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 0 -> - * F13563 F13566 * F13564 F13565 `c ]
-"416
-[; ;../swm45k80.c: 416:  pixel[list_num].y = (int8_t) (float_x * sine + float_y * cosine);
-[e = . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 1 -> + * F13563 F13565 * F13564 F13566 `c ]
-"418
-[; ;../swm45k80.c: 418: }
-[e :UE 1610 ]
-}
-"420
-[; ;../swm45k80.c: 420: void pixel_trans(uint8_t list_num, int8_t x_new, int8_t y_new)
-[v _pixel_trans `(v ~T0 @X0 1 ef3`uc`c`c ]
-"421
-[; ;../swm45k80.c: 421: {
-{
-[e :U _pixel_trans ]
-"420
-[; ;../swm45k80.c: 420: void pixel_trans(uint8_t list_num, int8_t x_new, int8_t y_new)
-[v _list_num `uc ~T0 @X0 1 r1 ]
-[v _x_new `c ~T0 @X0 1 r2 ]
-[v _y_new `c ~T0 @X0 1 r3 ]
-"421
-[; ;../swm45k80.c: 421: {
-[f ]
-"422
-[; ;../swm45k80.c: 422:  pixel[list_num].x += x_new;
-[e =+ . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 0 -> _x_new `Vc ]
-"423
-[; ;../swm45k80.c: 423:  pixel[list_num].y += y_new;
-[e =+ . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 1 -> _y_new `Vc ]
-"424
-[; ;../swm45k80.c: 424: }
-[e :UE 1612 ]
-}
-"426
-[; ;../swm45k80.c: 426: void pixel_scale(uint8_t list_num, float x_scale, float y_scale)
-[v _pixel_scale `(v ~T0 @X0 1 ef3`uc`f`f ]
-"427
-[; ;../swm45k80.c: 427: {
-{
-[e :U _pixel_scale ]
-"426
-[; ;../swm45k80.c: 426: void pixel_scale(uint8_t list_num, float x_scale, float y_scale)
-[v _list_num `uc ~T0 @X0 1 r1 ]
-[v _x_scale `f ~T0 @X0 1 r2 ]
-[v _y_scale `f ~T0 @X0 1 r3 ]
-"427
-[; ;../swm45k80.c: 427: {
-[f ]
-"428
-[; ;../swm45k80.c: 428:  float float_x, float_y;
-[v _float_x `f ~T0 @X0 1 a ]
-[v _float_y `f ~T0 @X0 1 a ]
-"430
-[; ;../swm45k80.c: 430:  float_x = (float) pixel[list_num].x;
-[e = _float_x -> . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 0 `f ]
-"431
-[; ;../swm45k80.c: 431:  float_y = (float) pixel[list_num].y;
-[e = _float_y -> . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 1 `f ]
-"432
-[; ;../swm45k80.c: 432:  pixel[list_num].x = (int8_t) (float_x * x_scale);
-[e = . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 0 -> * _float_x _x_scale `c ]
-"433
-[; ;../swm45k80.c: 433:  pixel[list_num].y = (int8_t) (float_y * y_scale);
-[e = . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 1 -> * _float_y _y_scale `c ]
-"434
-[; ;../swm45k80.c: 434: }
-[e :UE 1613 ]
-}
-"436
-[; ;../swm45k80.c: 436: void object_rotate(uint8_t list_num, float degree)
-[v _object_rotate `(v ~T0 @X0 1 ef2`uc`f ]
-"437
-[; ;../swm45k80.c: 437: {
-{
-[e :U _object_rotate ]
-"436
-[; ;../swm45k80.c: 436: void object_rotate(uint8_t list_num, float degree)
-[v _list_num `uc ~T0 @X0 1 r1 ]
-[v _degree `f ~T0 @X0 1 r2 ]
-"437
-[; ;../swm45k80.c: 437: {
-[f ]
-"438
-[; ;../swm45k80.c: 438:  uint8_t i;
-[v _i `uc ~T0 @X0 1 a ]
-"440
-[; ;../swm45k80.c: 440:  if (list_num >= 255) return;
-[e $ ! >= -> _list_num `i -> 255 `i 1615  ]
-[e $UE 1614  ]
-[e :U 1615 ]
-"442
-[; ;../swm45k80.c: 442:  for (i = 0; i < 64; i++) {
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 64 `i 1616  ]
-[e $U 1617  ]
-[e :U 1616 ]
-{
-"443
-[; ;../swm45k80.c: 443:   if (pixel[list_num + i].n_link != list_num) return;
-[e $ ! != -> . *U + &U _pixel * -> -> + -> _list_num `i -> _i `i `ui `ux -> -> # *U &U _pixel `ui `ux 4 `i -> _list_num `i 1619  ]
-[e $UE 1614  ]
-[e :U 1619 ]
-"444
-[; ;../swm45k80.c: 444:   pixel_rotate(list_num + i, degree);
-[e ( _pixel_rotate (2 , -> + -> _list_num `i -> _i `i `uc _degree ]
-"445
-[; ;../swm45k80.c: 445:  }
-}
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 64 `i 1616  ]
-[e :U 1617 ]
-}
-"446
-[; ;../swm45k80.c: 446: }
+"363
+[; ;../swm45k80.c: 363:  memcpy((void *) pixel, (const void *) pixel_rom, sizeof(pixel_rom));
+[e ( _memcpy (3 , , -> &U _pixel `*v -> &U _pixel_rom `*Cv -> # _pixel_rom `ui ]
+"364
+[; ;../swm45k80.c: 364: }
 [e :UE 1614 ]
 }
-"448
-[; ;../swm45k80.c: 448: void object_trans(uint8_t list_num, int8_t x_new, int8_t y_new)
-[v _object_trans `(v ~T0 @X0 1 ef3`uc`c`c ]
-"449
-[; ;../swm45k80.c: 449: {
+"371
+[; ;../swm45k80.c: 371: uint8_t obj_init(uint8_t rom_link, uint8_t clear)
+[v _obj_init `(uc ~T0 @X0 1 ef2`uc`uc ]
+"372
+[; ;../swm45k80.c: 372: {
 {
-[e :U _object_trans ]
-"448
-[; ;../swm45k80.c: 448: void object_trans(uint8_t list_num, int8_t x_new, int8_t y_new)
-[v _list_num `uc ~T0 @X0 1 r1 ]
-[v _x_new `c ~T0 @X0 1 r2 ]
-[v _y_new `c ~T0 @X0 1 r3 ]
-"449
-[; ;../swm45k80.c: 449: {
+[e :U _obj_init ]
+"371
+[; ;../swm45k80.c: 371: uint8_t obj_init(uint8_t rom_link, uint8_t clear)
+[v _rom_link `uc ~T0 @X0 1 r1 ]
+[v _clear `uc ~T0 @X0 1 r2 ]
+"372
+[; ;../swm45k80.c: 372: {
 [f ]
-"450
-[; ;../swm45k80.c: 450:  uint8_t i;
-[v _i `uc ~T0 @X0 1 a ]
-"452
-[; ;../swm45k80.c: 452:  if (list_num >= 255) return;
+"373
+[; ;../swm45k80.c: 373:  size_t pixel_size;
+[v _pixel_size `ui ~T0 @X0 1 a ]
+"374
+[; ;../swm45k80.c: 374:  uint8_t ram_link_start = 0;
+[v _ram_link_start `uc ~T0 @X0 1 a ]
+[e = _ram_link_start -> -> 0 `i `uc ]
+"375
+[; ;../swm45k80.c: 375:  static uint8_t ram_link = 0;
+[v F13548 `uc ~T0 @X0 1 s ram_link ]
+[i F13548
+-> -> 0 `i `uc
+]
+"377
+[; ;../swm45k80.c: 377:  if (clear) {
+[e $ ! != -> _clear `i -> 0 `i 1616  ]
+{
+"378
+[; ;../swm45k80.c: 378:   ram_link = 0;
+[e = F13548 -> -> 0 `i `uc ]
+"379
+[; ;../swm45k80.c: 379:   pixel[ram_link].m_link = -1;
+[e = . *U + &U _pixel * -> F13548 `ux -> -> # *U &U _pixel `ui `ux 3 -> -U -> 1 `i `c ]
+"380
+[; ;../swm45k80.c: 380:   pixel[ram_link].n_link = -1;
+[e = . *U + &U _pixel * -> F13548 `ux -> -> # *U &U _pixel `ui `ux 4 -> -U -> 1 `i `c ]
+"381
+[; ;../swm45k80.c: 381:   return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 1615  ]
+"382
+[; ;../swm45k80.c: 382:  }
+}
+[e :U 1616 ]
+"384
+[; ;../swm45k80.c: 384:  pixel_size = sizeof(pixel_t);
+[e = _pixel_size -> # `VS1548 `ui ]
+"385
+[; ;../swm45k80.c: 385:  do {
+[e :U 1619 ]
+{
+"386
+[; ;../swm45k80.c: 386:   memcpy((void *) &pixel[ram_link + ram_link_start].x, (const void *) &pixel_rom[rom_link + ram_link_start].x, pixel_size);
+[e ( _memcpy (3 , , -> &U . *U + &U _pixel * -> -> + -> F13548 `i -> _ram_link_start `i `ui `ux -> -> # *U &U _pixel `ui `ux 0 `*v -> &U . *U + &U _pixel_rom * -> -> + -> _rom_link `i -> _ram_link_start `i `ui `ux -> -> # *U &U _pixel_rom `ui `ux 0 `*Cv _pixel_size ]
+"387
+[; ;../swm45k80.c: 387:   pixel[ram_link + ram_link_start].m_link = (int8_t) (ram_link + ram_link_start);
+[e = . *U + &U _pixel * -> -> + -> F13548 `i -> _ram_link_start `i `ui `ux -> -> # *U &U _pixel `ui `ux 3 -> + -> F13548 `i -> _ram_link_start `i `c ]
+"388
+[; ;../swm45k80.c: 388:   pixel[ram_link + ram_link_start].n_link = (int8_t) ram_link;
+[e = . *U + &U _pixel * -> -> + -> F13548 `i -> _ram_link_start `i `ui `ux -> -> # *U &U _pixel `ui `ux 4 -> F13548 `c ]
+"389
+[; ;../swm45k80.c: 389:   ++ram_link_start;
+[e =+ _ram_link_start -> -> 1 `i `uc ]
+"390
+[; ;../swm45k80.c: 390:  } while (pixel_rom[ram_link_start + rom_link].n_link == rom_link);
+}
+[e $ == -> . *U + &U _pixel_rom * -> -> + -> _ram_link_start `i -> _rom_link `i `ui `ux -> -> # *U &U _pixel_rom `ui `ux 4 `i -> _rom_link `i 1619  ]
+[e :U 1618 ]
+"392
+[; ;../swm45k80.c: 392:  ram_link += ram_link_start;
+[e =+ F13548 -> _ram_link_start `uc ]
+"393
+[; ;../swm45k80.c: 393:  pixel[ram_link].m_link = -1;
+[e = . *U + &U _pixel * -> F13548 `ux -> -> # *U &U _pixel `ui `ux 3 -> -U -> 1 `i `c ]
+"394
+[; ;../swm45k80.c: 394:  pixel[ram_link].n_link = -1;
+[e = . *U + &U _pixel * -> F13548 `ux -> -> # *U &U _pixel `ui `ux 4 -> -U -> 1 `i `c ]
+"395
+[; ;../swm45k80.c: 395:  return ram_link - ram_link_start;
+[e ) -> - -> F13548 `i -> _ram_link_start `i `uc ]
+[e $UE 1615  ]
+"396
+[; ;../swm45k80.c: 396: }
+[e :UE 1615 ]
+}
+"398
+[; ;../swm45k80.c: 398: void pixel_set(uint8_t list_num, uint8_t value)
+[v _pixel_set `(v ~T0 @X0 1 ef2`uc`uc ]
+"399
+[; ;../swm45k80.c: 399: {
+{
+[e :U _pixel_set ]
+"398
+[; ;../swm45k80.c: 398: void pixel_set(uint8_t list_num, uint8_t value)
+[v _list_num `uc ~T0 @X0 1 r1 ]
+[v _value `uc ~T0 @X0 1 r2 ]
+"399
+[; ;../swm45k80.c: 399: {
+[f ]
+"400
+[; ;../swm45k80.c: 400:  if (list_num >= 255) return;
 [e $ ! >= -> _list_num `i -> 255 `i 1621  ]
 [e $UE 1620  ]
 [e :U 1621 ]
-"454
-[; ;../swm45k80.c: 454:  for (i = 0; i < 64; i++) {
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 64 `i 1622  ]
-[e $U 1623  ]
-[e :U 1622 ]
-{
-"455
-[; ;../swm45k80.c: 455:   if (pixel[list_num + i].n_link != list_num) return;
-[e $ ! != -> . *U + &U _pixel * -> -> + -> _list_num `i -> _i `i `ui `ux -> -> # *U &U _pixel `ui `ux 4 `i -> _list_num `i 1625  ]
-[e $UE 1620  ]
-[e :U 1625 ]
-"456
-[; ;../swm45k80.c: 456:   pixel_trans(list_num + i, x_new, y_new);
-[e ( _pixel_trans (3 , , -> + -> _list_num `i -> _i `i `uc _x_new _y_new ]
-"457
-[; ;../swm45k80.c: 457:  }
-}
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 64 `i 1622  ]
-[e :U 1623 ]
-}
-"458
-[; ;../swm45k80.c: 458: }
+"401
+[; ;../swm45k80.c: 401:  pixel[list_num].v = value;
+[e = . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 2 _value ]
+"402
+[; ;../swm45k80.c: 402: }
 [e :UE 1620 ]
 }
-"460
-[; ;../swm45k80.c: 460: void object_scale(uint8_t list_num, float x_scale, float y_scale)
-[v _object_scale `(v ~T0 @X0 1 ef3`uc`f`f ]
-"461
-[; ;../swm45k80.c: 461: {
+"404
+[; ;../swm45k80.c: 404: void pixel_rotate(uint8_t list_num, float degree)
+[v _pixel_rotate `(v ~T0 @X0 1 ef2`uc`f ]
+"405
+[; ;../swm45k80.c: 405: {
 {
-[e :U _object_scale ]
-"460
-[; ;../swm45k80.c: 460: void object_scale(uint8_t list_num, float x_scale, float y_scale)
+[e :U _pixel_rotate ]
+"404
+[; ;../swm45k80.c: 404: void pixel_rotate(uint8_t list_num, float degree)
+[v _list_num `uc ~T0 @X0 1 r1 ]
+[v _degree `f ~T0 @X0 1 r2 ]
+"405
+[; ;../swm45k80.c: 405: {
+[f ]
+"407
+[; ;../swm45k80.c: 407:  static float to_rad, float_x, float_y, sine, cosine, old_degree = 1957.7;
+[v F13555 `f ~T0 @X0 1 s to_rad ]
+[v F13556 `f ~T0 @X0 1 s float_x ]
+[v F13557 `f ~T0 @X0 1 s float_y ]
+[v F13558 `f ~T0 @X0 1 s sine ]
+[v F13559 `f ~T0 @X0 1 s cosine ]
+[v F13560 `f ~T0 @X0 1 s old_degree ]
+[i F13560
+-> .1957.7 `f
+]
+"409
+[; ;../swm45k80.c: 409:  if (degree != old_degree) {
+[e $ ! != _degree F13560 1623  ]
+{
+"410
+[; ;../swm45k80.c: 410:   to_rad = (float) 0.0175 * degree;
+[e = F13555 * -> .0.0175 `f _degree ]
+"411
+[; ;../swm45k80.c: 411:   cosine = (float) cosf(to_rad);
+[e = F13559 ( _cosf (1 F13555 ]
+"412
+[; ;../swm45k80.c: 412:   sine = (float) sinf(to_rad);
+[e = F13558 ( _sinf (1 F13555 ]
+"413
+[; ;../swm45k80.c: 413:   old_degree = degree;
+[e = F13560 _degree ]
+"414
+[; ;../swm45k80.c: 414:  }
+}
+[e :U 1623 ]
+"416
+[; ;../swm45k80.c: 416:  float_x = (float) pixel[list_num].x;
+[e = F13556 -> . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 0 `f ]
+"417
+[; ;../swm45k80.c: 417:  float_y = (float) pixel[list_num].y;
+[e = F13557 -> . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 1 `f ]
+"419
+[; ;../swm45k80.c: 419:  pixel[list_num].x = (int8_t) (float_x * cosine - float_y * sine);
+[e = . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 0 -> - * F13556 F13559 * F13557 F13558 `c ]
+"420
+[; ;../swm45k80.c: 420:  pixel[list_num].y = (int8_t) (float_x * sine + float_y * cosine);
+[e = . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 1 -> + * F13556 F13558 * F13557 F13559 `c ]
+"422
+[; ;../swm45k80.c: 422: }
+[e :UE 1622 ]
+}
+"424
+[; ;../swm45k80.c: 424: void pixel_trans(uint8_t list_num, int8_t x_new, int8_t y_new)
+[v _pixel_trans `(v ~T0 @X0 1 ef3`uc`c`c ]
+"425
+[; ;../swm45k80.c: 425: {
+{
+[e :U _pixel_trans ]
+"424
+[; ;../swm45k80.c: 424: void pixel_trans(uint8_t list_num, int8_t x_new, int8_t y_new)
+[v _list_num `uc ~T0 @X0 1 r1 ]
+[v _x_new `c ~T0 @X0 1 r2 ]
+[v _y_new `c ~T0 @X0 1 r3 ]
+"425
+[; ;../swm45k80.c: 425: {
+[f ]
+"426
+[; ;../swm45k80.c: 426:  pixel[list_num].x += x_new;
+[e =+ . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 0 -> _x_new `Vc ]
+"427
+[; ;../swm45k80.c: 427:  pixel[list_num].y += y_new;
+[e =+ . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 1 -> _y_new `Vc ]
+"428
+[; ;../swm45k80.c: 428: }
+[e :UE 1624 ]
+}
+"430
+[; ;../swm45k80.c: 430: void pixel_scale(uint8_t list_num, float x_scale, float y_scale)
+[v _pixel_scale `(v ~T0 @X0 1 ef3`uc`f`f ]
+"431
+[; ;../swm45k80.c: 431: {
+{
+[e :U _pixel_scale ]
+"430
+[; ;../swm45k80.c: 430: void pixel_scale(uint8_t list_num, float x_scale, float y_scale)
 [v _list_num `uc ~T0 @X0 1 r1 ]
 [v _x_scale `f ~T0 @X0 1 r2 ]
 [v _y_scale `f ~T0 @X0 1 r3 ]
-"461
-[; ;../swm45k80.c: 461: {
+"431
+[; ;../swm45k80.c: 431: {
 [f ]
-"462
-[; ;../swm45k80.c: 462:  uint8_t i;
+"432
+[; ;../swm45k80.c: 432:  float float_x, float_y;
+[v _float_x `f ~T0 @X0 1 a ]
+[v _float_y `f ~T0 @X0 1 a ]
+"434
+[; ;../swm45k80.c: 434:  float_x = (float) pixel[list_num].x;
+[e = _float_x -> . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 0 `f ]
+"435
+[; ;../swm45k80.c: 435:  float_y = (float) pixel[list_num].y;
+[e = _float_y -> . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 1 `f ]
+"436
+[; ;../swm45k80.c: 436:  pixel[list_num].x = (int8_t) (float_x * x_scale);
+[e = . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 0 -> * _float_x _x_scale `c ]
+"437
+[; ;../swm45k80.c: 437:  pixel[list_num].y = (int8_t) (float_y * y_scale);
+[e = . *U + &U _pixel * -> _list_num `ux -> -> # *U &U _pixel `ui `ux 1 -> * _float_y _y_scale `c ]
+"438
+[; ;../swm45k80.c: 438: }
+[e :UE 1625 ]
+}
+"440
+[; ;../swm45k80.c: 440: void object_rotate(uint8_t list_num, float degree)
+[v _object_rotate `(v ~T0 @X0 1 ef2`uc`f ]
+"441
+[; ;../swm45k80.c: 441: {
+{
+[e :U _object_rotate ]
+"440
+[; ;../swm45k80.c: 440: void object_rotate(uint8_t list_num, float degree)
+[v _list_num `uc ~T0 @X0 1 r1 ]
+[v _degree `f ~T0 @X0 1 r2 ]
+"441
+[; ;../swm45k80.c: 441: {
+[f ]
+"442
+[; ;../swm45k80.c: 442:  uint8_t i;
 [v _i `uc ~T0 @X0 1 a ]
-"464
-[; ;../swm45k80.c: 464:  if (list_num >= 255) return;
+"444
+[; ;../swm45k80.c: 444:  if (list_num >= 255) return;
 [e $ ! >= -> _list_num `i -> 255 `i 1627  ]
 [e $UE 1626  ]
 [e :U 1627 ]
-"466
-[; ;../swm45k80.c: 466:  for (i = 0; i < 64; i++) {
+"446
+[; ;../swm45k80.c: 446:  for (i = 0; i < 64; i++) {
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 64 `i 1628  ]
 [e $U 1629  ]
 [e :U 1628 ]
 {
-"467
-[; ;../swm45k80.c: 467:   if (pixel[list_num + i].n_link != list_num) return;
+"447
+[; ;../swm45k80.c: 447:   if (pixel[list_num + i].n_link != list_num) return;
 [e $ ! != -> . *U + &U _pixel * -> -> + -> _list_num `i -> _i `i `ui `ux -> -> # *U &U _pixel `ui `ux 4 `i -> _list_num `i 1631  ]
 [e $UE 1626  ]
 [e :U 1631 ]
-"468
-[; ;../swm45k80.c: 468:   pixel_scale(list_num + i, x_scale, y_scale);
-[e ( _pixel_scale (3 , , -> + -> _list_num `i -> _i `i `uc _x_scale _y_scale ]
-"469
-[; ;../swm45k80.c: 469:  }
+"448
+[; ;../swm45k80.c: 448:   pixel_rotate(list_num + i, degree);
+[e ( _pixel_rotate (2 , -> + -> _list_num `i -> _i `i `uc _degree ]
+"449
+[; ;../swm45k80.c: 449:  }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 64 `i 1628  ]
 [e :U 1629 ]
 }
-"470
-[; ;../swm45k80.c: 470: }
+"450
+[; ;../swm45k80.c: 450: }
 [e :UE 1626 ]
 }
-"472
-[; ;../swm45k80.c: 472: void object_set(uint8_t list_num, uint8_t value)
-[v _object_set `(v ~T0 @X0 1 ef2`uc`uc ]
-"473
-[; ;../swm45k80.c: 473: {
+"452
+[; ;../swm45k80.c: 452: void object_trans(uint8_t list_num, int8_t x_new, int8_t y_new)
+[v _object_trans `(v ~T0 @X0 1 ef3`uc`c`c ]
+"453
+[; ;../swm45k80.c: 453: {
 {
-[e :U _object_set ]
-"472
-[; ;../swm45k80.c: 472: void object_set(uint8_t list_num, uint8_t value)
+[e :U _object_trans ]
+"452
+[; ;../swm45k80.c: 452: void object_trans(uint8_t list_num, int8_t x_new, int8_t y_new)
 [v _list_num `uc ~T0 @X0 1 r1 ]
-[v _value `uc ~T0 @X0 1 r2 ]
-"473
-[; ;../swm45k80.c: 473: {
+[v _x_new `c ~T0 @X0 1 r2 ]
+[v _y_new `c ~T0 @X0 1 r3 ]
+"453
+[; ;../swm45k80.c: 453: {
 [f ]
-"474
-[; ;../swm45k80.c: 474:  uint8_t i;
+"454
+[; ;../swm45k80.c: 454:  uint8_t i;
 [v _i `uc ~T0 @X0 1 a ]
-"476
-[; ;../swm45k80.c: 476:  if (list_num >= 255) return;
+"456
+[; ;../swm45k80.c: 456:  if (list_num >= 255) return;
 [e $ ! >= -> _list_num `i -> 255 `i 1633  ]
 [e $UE 1632  ]
 [e :U 1633 ]
-"478
-[; ;../swm45k80.c: 478:  for (i = 0; i < 64; i++) {
+"458
+[; ;../swm45k80.c: 458:  for (i = 0; i < 64; i++) {
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 64 `i 1634  ]
 [e $U 1635  ]
 [e :U 1634 ]
 {
-"479
-[; ;../swm45k80.c: 479:   if (pixel[list_num + i].n_link != list_num) return;
+"459
+[; ;../swm45k80.c: 459:   if (pixel[list_num + i].n_link != list_num) return;
 [e $ ! != -> . *U + &U _pixel * -> -> + -> _list_num `i -> _i `i `ui `ux -> -> # *U &U _pixel `ui `ux 4 `i -> _list_num `i 1637  ]
 [e $UE 1632  ]
 [e :U 1637 ]
-"480
-[; ;../swm45k80.c: 480:   pixel_set(list_num + i, value);
-[e ( _pixel_set (2 , -> + -> _list_num `i -> _i `i `uc _value ]
-"481
-[; ;../swm45k80.c: 481:  }
+"460
+[; ;../swm45k80.c: 460:   pixel_trans(list_num + i, x_new, y_new);
+[e ( _pixel_trans (3 , , -> + -> _list_num `i -> _i `i `uc _x_new _y_new ]
+"461
+[; ;../swm45k80.c: 461:  }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 64 `i 1634  ]
 [e :U 1635 ]
 }
-"482
-[; ;../swm45k80.c: 482: }
+"462
+[; ;../swm45k80.c: 462: }
 [e :UE 1632 ]
 }
+"464
+[; ;../swm45k80.c: 464: void object_scale(uint8_t list_num, float x_scale, float y_scale)
+[v _object_scale `(v ~T0 @X0 1 ef3`uc`f`f ]
+"465
+[; ;../swm45k80.c: 465: {
+{
+[e :U _object_scale ]
+"464
+[; ;../swm45k80.c: 464: void object_scale(uint8_t list_num, float x_scale, float y_scale)
+[v _list_num `uc ~T0 @X0 1 r1 ]
+[v _x_scale `f ~T0 @X0 1 r2 ]
+[v _y_scale `f ~T0 @X0 1 r3 ]
+"465
+[; ;../swm45k80.c: 465: {
+[f ]
+"466
+[; ;../swm45k80.c: 466:  uint8_t i;
+[v _i `uc ~T0 @X0 1 a ]
+"468
+[; ;../swm45k80.c: 468:  if (list_num >= 255) return;
+[e $ ! >= -> _list_num `i -> 255 `i 1639  ]
+[e $UE 1638  ]
+[e :U 1639 ]
+"470
+[; ;../swm45k80.c: 470:  for (i = 0; i < 64; i++) {
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 64 `i 1640  ]
+[e $U 1641  ]
+[e :U 1640 ]
+{
+"471
+[; ;../swm45k80.c: 471:   if (pixel[list_num + i].n_link != list_num) return;
+[e $ ! != -> . *U + &U _pixel * -> -> + -> _list_num `i -> _i `i `ui `ux -> -> # *U &U _pixel `ui `ux 4 `i -> _list_num `i 1643  ]
+[e $UE 1638  ]
+[e :U 1643 ]
+"472
+[; ;../swm45k80.c: 472:   pixel_scale(list_num + i, x_scale, y_scale);
+[e ( _pixel_scale (3 , , -> + -> _list_num `i -> _i `i `uc _x_scale _y_scale ]
+"473
+[; ;../swm45k80.c: 473:  }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 64 `i 1640  ]
+[e :U 1641 ]
+}
+"474
+[; ;../swm45k80.c: 474: }
+[e :UE 1638 ]
+}
+"476
+[; ;../swm45k80.c: 476: void object_set(uint8_t list_num, uint8_t value)
+[v _object_set `(v ~T0 @X0 1 ef2`uc`uc ]
+"477
+[; ;../swm45k80.c: 477: {
+{
+[e :U _object_set ]
+"476
+[; ;../swm45k80.c: 476: void object_set(uint8_t list_num, uint8_t value)
+[v _list_num `uc ~T0 @X0 1 r1 ]
+[v _value `uc ~T0 @X0 1 r2 ]
+"477
+[; ;../swm45k80.c: 477: {
+[f ]
+"478
+[; ;../swm45k80.c: 478:  uint8_t i;
+[v _i `uc ~T0 @X0 1 a ]
+"480
+[; ;../swm45k80.c: 480:  if (list_num >= 255) return;
+[e $ ! >= -> _list_num `i -> 255 `i 1645  ]
+[e $UE 1644  ]
+[e :U 1645 ]
+"482
+[; ;../swm45k80.c: 482:  for (i = 0; i < 64; i++) {
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 64 `i 1646  ]
+[e $U 1647  ]
+[e :U 1646 ]
+{
+"483
+[; ;../swm45k80.c: 483:   if (pixel[list_num + i].n_link != list_num) return;
+[e $ ! != -> . *U + &U _pixel * -> -> + -> _list_num `i -> _i `i `ui `ux -> -> # *U &U _pixel `ui `ux 4 `i -> _list_num `i 1649  ]
+[e $UE 1644  ]
+[e :U 1649 ]
 "484
-[; ;../swm45k80.c: 484: void d_scan_on(void)
-[v _d_scan_on `(v ~T0 @X0 1 ef ]
+[; ;../swm45k80.c: 484:   pixel_set(list_num + i, value);
+[e ( _pixel_set (2 , -> + -> _list_num `i -> _i `i `uc _value ]
 "485
-[; ;../swm45k80.c: 485: {
+[; ;../swm45k80.c: 485:  }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 64 `i 1646  ]
+[e :U 1647 ]
+}
+"486
+[; ;../swm45k80.c: 486: }
+[e :UE 1644 ]
+}
+"488
+[; ;../swm45k80.c: 488: void d_scan_on(void)
+[v _d_scan_on `(v ~T0 @X0 1 ef ]
+"489
+[; ;../swm45k80.c: 489: {
 {
 [e :U _d_scan_on ]
 [f ]
-"486
-[; ;../swm45k80.c: 486:  list_numd = 0;
+"490
+[; ;../swm45k80.c: 490:  list_numd = 0;
 [e = _list_numd -> -> 0 `i `uc ]
-"487
-[; ;../swm45k80.c: 487:  LATDbits.LATD1 = !LATDbits.LATD1;
-[e = . . _LATDbits 0 1 -> -> ! != -> . . _LATDbits 0 1 `i -> 0 `i `i `uc ]
-"488
-[; ;../swm45k80.c: 488:  INTCONbits.GIEL = 1;
-[e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
-"489
-[; ;../swm45k80.c: 489: }
-[e :UE 1638 ]
-}
 "491
-[; ;../swm45k80.c: 491: void d_scan_off(void)
-[v _d_scan_off `(v ~T0 @X0 1 ef ]
+[; ;../swm45k80.c: 491:  LATDbits.LATD1 = !LATDbits.LATD1;
+[e = . . _LATDbits 0 1 -> -> ! != -> . . _LATDbits 0 1 `i -> 0 `i `i `uc ]
 "492
-[; ;../swm45k80.c: 492: {
+[; ;../swm45k80.c: 492:  INTCONbits.GIEL = 1;
+[e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
+"493
+[; ;../swm45k80.c: 493: }
+[e :UE 1650 ]
+}
+"495
+[; ;../swm45k80.c: 495: void d_scan_off(void)
+[v _d_scan_off `(v ~T0 @X0 1 ef ]
+"496
+[; ;../swm45k80.c: 496: {
 {
 [e :U _d_scan_off ]
 [f ]
-"493
-[; ;../swm45k80.c: 493:  LATDbits.LATD1 = !LATDbits.LATD1;
-[e = . . _LATDbits 0 1 -> -> ! != -> . . _LATDbits 0 1 `i -> 0 `i `i `uc ]
-"494
-[; ;../swm45k80.c: 494:  INTCONbits.GIEL = 0;
-[e = . . _INTCONbits 2 1 -> -> 0 `i `uc ]
-"495
-[; ;../swm45k80.c: 495:  LATB = 0xff;
-[e = _LATB -> -> 255 `i `uc ]
-"496
-[; ;../swm45k80.c: 496:  LATC = 0x00;
-[e = _LATC -> -> 0 `i `uc ]
 "497
-[; ;../swm45k80.c: 497: }
-[e :UE 1639 ]
-}
+[; ;../swm45k80.c: 497:  LATDbits.LATD1 = !LATDbits.LATD1;
+[e = . . _LATDbits 0 1 -> -> ! != -> . . _LATDbits 0 1 `i -> 0 `i `i `uc ]
+"498
+[; ;../swm45k80.c: 498:  INTCONbits.GIEL = 0;
+[e = . . _INTCONbits 2 1 -> -> 0 `i `uc ]
 "499
-[; ;../swm45k80.c: 499: void main_init(void)
-[v _main_init `(v ~T0 @X0 1 ef ]
+[; ;../swm45k80.c: 499:  LATB = 0xff;
+[e = _LATB -> -> 255 `i `uc ]
 "500
-[; ;../swm45k80.c: 500: {
+[; ;../swm45k80.c: 500:  LATC = 0x00;
+[e = _LATC -> -> 0 `i `uc ]
+"501
+[; ;../swm45k80.c: 501: }
+[e :UE 1651 ]
+}
+"503
+[; ;../swm45k80.c: 503: void main_init(void)
+[v _main_init `(v ~T0 @X0 1 ef ]
+"504
+[; ;../swm45k80.c: 504: {
 {
 [e :U _main_init ]
 [f ]
-"501
-[; ;../swm45k80.c: 501:  uint16_t touch_zero = 0;
+"505
+[; ;../swm45k80.c: 505:  uint16_t touch_zero = 0;
 [v _touch_zero `us ~T0 @X0 1 a ]
 [e = _touch_zero -> -> 0 `i `us ]
-"502
-[; ;../swm45k80.c: 502:  uint8_t x = 1, y = 1, t, i, romid = 20;
+"506
+[; ;../swm45k80.c: 506:  uint8_t x = 1, y = 1, t, i, romid = 9;
 [v _x `uc ~T0 @X0 1 a ]
 [e = _x -> -> 1 `i `uc ]
 [v _y `uc ~T0 @X0 1 a ]
@@ -3132,18 +3159,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _t `uc ~T0 @X0 1 a ]
 [v _i `uc ~T0 @X0 1 a ]
 [v _romid `uc ~T0 @X0 1 a ]
-[e = _romid -> -> 20 `i `uc ]
-"503
-[; ;../swm45k80.c: 503:  uint32_t move = 0, times = 3;
+[e = _romid -> -> 9 `i `uc ]
+"507
+[; ;../swm45k80.c: 507:  uint32_t move = 0, times = 1;
 [v _move `ul ~T0 @X0 1 a ]
 [e = _move -> -> -> 0 `i `l `ul ]
 [v _times `ul ~T0 @X0 1 a ]
-[e = _times -> -> -> 3 `i `l `ul ]
-"504
-[; ;../swm45k80.c: 504:  uint8_t obj1;
+[e = _times -> -> -> 1 `i `l `ul ]
+"508
+[; ;../swm45k80.c: 508:  uint8_t obj1;
 [v _obj1 `uc ~T0 @X0 1 a ]
-"505
-[; ;../swm45k80.c: 505:  int8_t x_p = 0, y_p = 0, x_o = 1, y_o = 1;
+"509
+[; ;../swm45k80.c: 509:  int8_t x_p = 0, y_p = 0, x_o = 1, y_o = 1;
 [v _x_p `c ~T0 @X0 1 a ]
 [e = _x_p -> -> 0 `i `c ]
 [v _y_p `c ~T0 @X0 1 a ]
@@ -3152,257 +3179,262 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _x_o -> -> 1 `i `c ]
 [v _y_o `c ~T0 @X0 1 a ]
 [e = _y_o -> -> 1 `i `c ]
-"506
-[; ;../swm45k80.c: 506:  float rotation = 0.0, scaling = 3.0;
+"510
+[; ;../swm45k80.c: 510:  float rotation = 0.0, scaling = 3.0;
 [v _rotation `f ~T0 @X0 1 a ]
 [e = _rotation -> .0.0 `f ]
 [v _scaling `f ~T0 @X0 1 a ]
 [e = _scaling -> .3.0 `f ]
-"508
-[; ;../swm45k80.c: 508:  display_init();
-[e ( _display_init ..  ]
-"509
-[; ;../swm45k80.c: 509:  switchState = 0;
-[e = _switchState -> -> 0 `i `us ]
-"510
-[; ;../swm45k80.c: 510:  LATA = 0b00000000;
-[e = _LATA -> -> 0 `i `uc ]
-"511
-[; ;../swm45k80.c: 511:  LATB = 0xff;
-[e = _LATB -> -> 255 `i `uc ]
 "512
-[; ;../swm45k80.c: 512:  LATC = 0xff;
-[e = _LATC -> -> 255 `i `uc ]
+[; ;../swm45k80.c: 512:  display_init();
+[e ( _display_init ..  ]
 "513
-[; ;../swm45k80.c: 513:  LATD = 0x00;
-[e = _LATD -> -> 0 `i `uc ]
+[; ;../swm45k80.c: 513:  switchState = 0;
+[e = _switchState -> -> 0 `i `us ]
 "514
-[; ;../swm45k80.c: 514:  LATE = 0x00;
-[e = _LATE -> -> 0 `i `uc ]
+[; ;../swm45k80.c: 514:  LATA = 0b00000000;
+[e = _LATA -> -> 0 `i `uc ]
+"515
+[; ;../swm45k80.c: 515:  LATB = 0xff;
+[e = _LATB -> -> 255 `i `uc ]
 "516
-[; ;../swm45k80.c: 516:  SLRCON = 0x00;
-[e = _SLRCON -> -> 0 `i `uc ]
+[; ;../swm45k80.c: 516:  LATC = 0xff;
+[e = _LATC -> -> 255 `i `uc ]
+"517
+[; ;../swm45k80.c: 517:  LATD = 0x00;
+[e = _LATD -> -> 0 `i `uc ]
 "518
-[; ;../swm45k80.c: 518:  TMR0_WriteTimer(51000);
-[e ( _TMR0_WriteTimer (1 -> -> 51000 `l `us ]
-"519
-[; ;../swm45k80.c: 519:  TMR2_WriteTimer(0xA8);
-[e ( _TMR2_WriteTimer (1 -> -> 168 `i `uc ]
+[; ;../swm45k80.c: 518:  LATE = 0x00;
+[e = _LATE -> -> 0 `i `uc ]
 "520
-[; ;../swm45k80.c: 520:  TMR2_SetInterruptHandler(low_handler_tmr2);
-[e ( _TMR2_SetInterruptHandler (1 &U _low_handler_tmr2 ]
-"521
-[; ;../swm45k80.c: 521:  TMR0_SetInterruptHandler(high_handler_tmr0);
-[e ( _TMR0_SetInterruptHandler (1 &U _high_handler_tmr0 ]
+[; ;../swm45k80.c: 520:  SLRCON = 0x00;
+[e = _SLRCON -> -> 0 `i `uc ]
 "522
-[; ;../swm45k80.c: 522:  ADC_SetInterruptHandler(high_handler_adc);
-[e ( _ADC_SetInterruptHandler (1 &U _high_handler_adc ]
+[; ;../swm45k80.c: 522:  TMR0_WriteTimer(51000);
+[e ( _TMR0_WriteTimer (1 -> -> 51000 `l `us ]
+"523
+[; ;../swm45k80.c: 523:  TMR2_WriteTimer(0xA8);
+[e ( _TMR2_WriteTimer (1 -> -> 168 `i `uc ]
+"524
+[; ;../swm45k80.c: 524:  TMR2_SetInterruptHandler(low_handler_tmr2);
+[e ( _TMR2_SetInterruptHandler (1 &U _low_handler_tmr2 ]
 "525
-[; ;../swm45k80.c: 525:  RCONbits.IPEN = 1;
-[e = . . _RCONbits 6 7 -> -> 1 `i `uc ]
-"527
-[; ;../swm45k80.c: 527:  INTCONbits.GIEH = 1;
-[e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
+[; ;../swm45k80.c: 525:  TMR0_SetInterruptHandler(high_handler_tmr0);
+[e ( _TMR0_SetInterruptHandler (1 &U _high_handler_tmr0 ]
+"526
+[; ;../swm45k80.c: 526:  ADC_SetInterruptHandler(high_handler_adc);
+[e ( _ADC_SetInterruptHandler (1 &U _high_handler_adc ]
 "529
-[; ;../swm45k80.c: 529:  INTCONbits.GIEL = 1;
-[e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
-"532
-[; ;../swm45k80.c: 532:  ctmu_button = 0;
-[e = _ctmu_button -> -> 0 `i `uc ]
+[; ;../swm45k80.c: 529:  RCONbits.IPEN = 1;
+[e = . . _RCONbits 6 7 -> -> 1 `i `uc ]
+"531
+[; ;../swm45k80.c: 531:  INTCONbits.GIEH = 1;
+[e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
 "533
-[; ;../swm45k80.c: 533:  ctmu_setup(13, 0);
-[e ( _ctmu_setup (2 , -> -> 13 `i `uc -> -> 0 `i `uc ]
-"534
-[; ;../swm45k80.c: 534:  ctmu_setup(13, 1);
-[e ( _ctmu_setup (2 , -> -> 13 `i `uc -> -> 1 `i `uc ]
-"535
-[; ;../swm45k80.c: 535:  ctmu_setup(13, 2);
-[e ( _ctmu_setup (2 , -> -> 13 `i `uc -> -> 2 `i `uc ]
+[; ;../swm45k80.c: 533:  INTCONbits.GIEL = 1;
+[e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
 "536
-[; ;../swm45k80.c: 536:  ctmu_setup(13, 3);
-[e ( _ctmu_setup (2 , -> -> 13 `i `uc -> -> 3 `i `uc ]
+[; ;../swm45k80.c: 536:  ctmu_button = 0;
+[e = _ctmu_button -> -> 0 `i `uc ]
 "537
-[; ;../swm45k80.c: 537:  touch_zero = touch_base_calc(0);
-[e = _touch_zero ( _touch_base_calc (1 -> -> 0 `i `uc ]
+[; ;../swm45k80.c: 537:  ctmu_setup(13, 0);
+[e ( _ctmu_setup (2 , -> -> 13 `i `uc -> -> 0 `i `uc ]
 "538
-[; ;../swm45k80.c: 538:  touch_zero = touch_base_calc(1);
-[e = _touch_zero ( _touch_base_calc (1 -> -> 1 `i `uc ]
+[; ;../swm45k80.c: 538:  ctmu_setup(13, 1);
+[e ( _ctmu_setup (2 , -> -> 13 `i `uc -> -> 1 `i `uc ]
 "539
-[; ;../swm45k80.c: 539:  touch_zero = touch_base_calc(2);
-[e = _touch_zero ( _touch_base_calc (1 -> -> 2 `i `uc ]
+[; ;../swm45k80.c: 539:  ctmu_setup(13, 2);
+[e ( _ctmu_setup (2 , -> -> 13 `i `uc -> -> 2 `i `uc ]
 "540
-[; ;../swm45k80.c: 540:  touch_zero = touch_base_calc(3);
-[e = _touch_zero ( _touch_base_calc (1 -> -> 3 `i `uc ]
+[; ;../swm45k80.c: 540:  ctmu_setup(13, 3);
+[e ( _ctmu_setup (2 , -> -> 13 `i `uc -> -> 3 `i `uc ]
+"541
+[; ;../swm45k80.c: 541:  touch_zero = touch_base_calc(0);
+[e = _touch_zero ( _touch_base_calc (1 -> -> 0 `i `uc ]
+"542
+[; ;../swm45k80.c: 542:  touch_zero = touch_base_calc(1);
+[e = _touch_zero ( _touch_base_calc (1 -> -> 1 `i `uc ]
+"543
+[; ;../swm45k80.c: 543:  touch_zero = touch_base_calc(2);
+[e = _touch_zero ( _touch_base_calc (1 -> -> 2 `i `uc ]
 "544
-[; ;../swm45k80.c: 544:  while (1) {
-[e :U 1642 ]
+[; ;../swm45k80.c: 544:  touch_zero = touch_base_calc(3);
+[e = _touch_zero ( _touch_base_calc (1 -> -> 3 `i `uc ]
+"546
+[; ;../swm45k80.c: 546:  printf("%s", prog_name);
+[e ( _printf , (. :s 1C &U _prog_name ]
+"550
+[; ;../swm45k80.c: 550:  while (1) {
+[e :U 1654 ]
 {
-"545
-[; ;../swm45k80.c: 545:   for (ctmu_button = 0; ctmu_button <= 1; ctmu_button++) {
+"551
+[; ;../swm45k80.c: 551:   for (ctmu_button = 0; ctmu_button <= 1; ctmu_button++) {
 {
 [e = _ctmu_button -> -> 0 `i `uc ]
-[e $ <= -> _ctmu_button `i -> 1 `i 1644  ]
-[e $U 1645  ]
-[e :U 1644 ]
-{
-"546
-[; ;../swm45k80.c: 546:    touch_channel(ctmu_button);
-[e ( _touch_channel (1 _ctmu_button ]
-"547
-[; ;../swm45k80.c: 547:    if (ctmu_button == 0) {
-[e $ ! == -> _ctmu_button `i -> 0 `i 1647  ]
-{
-"548
-[; ;../swm45k80.c: 548:     t = (uint8_t) ctmu_touch(ctmu_button, 0);
-[e = _t -> ( _ctmu_touch (2 , _ctmu_button -> -> 0 `i `uc `uc ]
-"549
-[; ;../swm45k80.c: 549:    } else {
-}
-[e $U 1648  ]
-[e :U 1647 ]
-{
-"550
-[; ;../swm45k80.c: 550:     ctmu_touch(ctmu_button, 0);
-[e ( _ctmu_touch (2 , _ctmu_button -> -> 0 `i `uc ]
-"551
-[; ;../swm45k80.c: 551:    }
-}
-[e :U 1648 ]
-"562
-[; ;../swm45k80.c: 562:    __asm(" clrwdt");
-[; <"  clrwdt ;# ">
-"565
-[; ;../swm45k80.c: 565:    if (++move >= times) {
-[e $ ! >= =+ _move -> -> -> 1 `i `l `ul _times 1649  ]
-{
-"566
-[; ;../swm45k80.c: 566:     d_scan_off();
-[e ( _d_scan_off ..  ]
-"567
-[; ;../swm45k80.c: 567:     if (0 && switchState == 0) {
-[e $ ! && != -> 0 `i -> 0 `i == -> _switchState `ui -> -> 0 `i `ui 1650  ]
-{
-"568
-[; ;../swm45k80.c: 568:      x_o = -x_o;
-[e = _x_o -> -U -> _x_o `i `c ]
-"569
-[; ;../swm45k80.c: 569:      times = 3;
-[e = _times -> -> -> 3 `i `l `ul ]
-"570
-[; ;../swm45k80.c: 570:      obj_init(0, 1);
-[e ( _obj_init (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-"571
-[; ;../swm45k80.c: 571:      obj1 = obj_init(romid, 0);
-[e = _obj1 ( _obj_init (2 , _romid -> -> 0 `i `uc ]
-"573
-[; ;../swm45k80.c: 573:      object_rotate(obj1, rotation);
-[e ( _object_rotate (2 , _obj1 _rotation ]
-"575
-[; ;../swm45k80.c: 575:      object_trans(obj1, 4, 3);
-[e ( _object_trans (3 , , _obj1 -> -> 4 `i `c -> -> 3 `i `c ]
-"576
-[; ;../swm45k80.c: 576:     } else {
-}
-[e $U 1651  ]
-[e :U 1650 ]
-{
-"577
-[; ;../swm45k80.c: 577:      times = 3;
-[e = _times -> -> -> 3 `i `l `ul ]
-"578
-[; ;../swm45k80.c: 578:      obj_init(0, 1);
-[e ( _obj_init (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-"579
-[; ;../swm45k80.c: 579:      obj1 = obj_init(romid, 0);
-[e = _obj1 ( _obj_init (2 , _romid -> -> 0 `i `uc ]
-"581
-[; ;../swm45k80.c: 581:      object_rotate(obj1, (float) 360.0 - rotation);
-[e ( _object_rotate (2 , _obj1 - -> .360.0 `f _rotation ]
-"583
-[; ;../swm45k80.c: 583:      object_trans(obj1, 4, 3);
-[e ( _object_trans (3 , , _obj1 -> -> 4 `i `c -> -> 3 `i `c ]
-"584
-[; ;../swm45k80.c: 584:     }
-}
-[e :U 1651 ]
-"586
-[; ;../swm45k80.c: 586:     d_scan_on();
-[e ( _d_scan_on ..  ]
-"587
-[; ;../swm45k80.c: 587:     rotation += 6.0;
-[e =+ _rotation -> .6.0 `f ]
-"588
-[; ;../swm45k80.c: 588:     if (rotation >= 360.00) {
-[e $ ! >= -> _rotation `d .360.00 1652  ]
-{
-"589
-[; ;../swm45k80.c: 589:      rotation = 0.0;
-[e = _rotation -> .0.0 `f ]
-"590
-[; ;../swm45k80.c: 590:      scaling -= 0.2;
-[e =- _scaling -> .0.2 `f ]
-"591
-[; ;../swm45k80.c: 591:      if (scaling < -0.01) {
-[e $ ! < -> _scaling `d -U .0.01 1653  ]
-{
-"592
-[; ;../swm45k80.c: 592:       scaling = 3.0;
-[e = _scaling -> .3.0 `f ]
-"593
-[; ;../swm45k80.c: 593:       if (x_p > 8) x_o = -1;
-[e $ ! > -> _x_p `i -> 8 `i 1654  ]
-[e = _x_o -> -U -> 1 `i `c ]
-[e :U 1654 ]
-"594
-[; ;../swm45k80.c: 594:       if (x_p < -1) x_o = 1;
-[e $ ! < -> _x_p `i -U -> 1 `i 1655  ]
-[e = _x_o -> -> 1 `i `c ]
-[e :U 1655 ]
-"595
-[; ;../swm45k80.c: 595:       x_p += x_o;
-[e =+ _x_p -> _x_o `c ]
-"597
-[; ;../swm45k80.c: 597:       if (y_p > 8) y_o = -1;
-[e $ ! > -> _y_p `i -> 8 `i 1656  ]
-[e = _y_o -> -U -> 1 `i `c ]
+[e $ <= -> _ctmu_button `i -> 1 `i 1656  ]
+[e $U 1657  ]
 [e :U 1656 ]
+{
+"552
+[; ;../swm45k80.c: 552:    touch_channel(ctmu_button);
+[e ( _touch_channel (1 _ctmu_button ]
+"553
+[; ;../swm45k80.c: 553:    if (ctmu_button == 0) {
+[e $ ! == -> _ctmu_button `i -> 0 `i 1659  ]
+{
+"554
+[; ;../swm45k80.c: 554:     t = (uint8_t) ctmu_touch(ctmu_button, 0);
+[e = _t -> ( _ctmu_touch (2 , _ctmu_button -> -> 0 `i `uc `uc ]
+"555
+[; ;../swm45k80.c: 555:    } else {
+}
+[e $U 1660  ]
+[e :U 1659 ]
+{
+"556
+[; ;../swm45k80.c: 556:     ctmu_touch(ctmu_button, 0);
+[e ( _ctmu_touch (2 , _ctmu_button -> -> 0 `i `uc ]
+"557
+[; ;../swm45k80.c: 557:    }
+}
+[e :U 1660 ]
+"568
+[; ;../swm45k80.c: 568:    __asm(" clrwdt");
+[; <"  clrwdt ;# ">
+"571
+[; ;../swm45k80.c: 571:    if (++move >= times) {
+[e $ ! >= =+ _move -> -> -> 1 `i `l `ul _times 1661  ]
+{
+"572
+[; ;../swm45k80.c: 572:     d_scan_off();
+[e ( _d_scan_off ..  ]
+"573
+[; ;../swm45k80.c: 573:     if (0 && switchState == 0) {
+[e $ ! && != -> 0 `i -> 0 `i == -> _switchState `ui -> -> 0 `i `ui 1662  ]
+{
+"574
+[; ;../swm45k80.c: 574:      x_o = -x_o;
+[e = _x_o -> -U -> _x_o `i `c ]
+"575
+[; ;../swm45k80.c: 575:      times = 1;
+[e = _times -> -> -> 1 `i `l `ul ]
+"576
+[; ;../swm45k80.c: 576:      obj_init(0, 1);
+[e ( _obj_init (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+"577
+[; ;../swm45k80.c: 577:      obj1 = obj_init(romid, 0);
+[e = _obj1 ( _obj_init (2 , _romid -> -> 0 `i `uc ]
+"579
+[; ;../swm45k80.c: 579:      object_rotate(obj1, rotation);
+[e ( _object_rotate (2 , _obj1 _rotation ]
+"581
+[; ;../swm45k80.c: 581:      object_trans(obj1, 4, 3);
+[e ( _object_trans (3 , , _obj1 -> -> 4 `i `c -> -> 3 `i `c ]
+"582
+[; ;../swm45k80.c: 582:     } else {
+}
+[e $U 1663  ]
+[e :U 1662 ]
+{
+"583
+[; ;../swm45k80.c: 583:      times = 1;
+[e = _times -> -> -> 1 `i `l `ul ]
+"584
+[; ;../swm45k80.c: 584:      obj_init(0, 1);
+[e ( _obj_init (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+"585
+[; ;../swm45k80.c: 585:      obj1 = obj_init(romid, 0);
+[e = _obj1 ( _obj_init (2 , _romid -> -> 0 `i `uc ]
+"587
+[; ;../swm45k80.c: 587:      object_rotate(obj1, (float) 360.0 - rotation);
+[e ( _object_rotate (2 , _obj1 - -> .360.0 `f _rotation ]
+"589
+[; ;../swm45k80.c: 589:      object_trans(obj1, 4, 3);
+[e ( _object_trans (3 , , _obj1 -> -> 4 `i `c -> -> 3 `i `c ]
+"590
+[; ;../swm45k80.c: 590:     }
+}
+[e :U 1663 ]
+"592
+[; ;../swm45k80.c: 592:     d_scan_on();
+[e ( _d_scan_on ..  ]
+"593
+[; ;../swm45k80.c: 593:     rotation += 1.0;
+[e =+ _rotation -> .1.0 `f ]
+"594
+[; ;../swm45k80.c: 594:     if (rotation >= 360.00) {
+[e $ ! >= -> _rotation `d .360.00 1664  ]
+{
+"595
+[; ;../swm45k80.c: 595:      rotation = 0.0;
+[e = _rotation -> .0.0 `f ]
+"596
+[; ;../swm45k80.c: 596:      scaling -= 0.2;
+[e =- _scaling -> .0.2 `f ]
+"597
+[; ;../swm45k80.c: 597:      if (scaling < -0.01) {
+[e $ ! < -> _scaling `d -U .0.01 1665  ]
+{
 "598
-[; ;../swm45k80.c: 598:       if (y_p < -1) y_o = 1;
-[e $ ! < -> _y_p `i -U -> 1 `i 1657  ]
-[e = _y_o -> -> 1 `i `c ]
-[e :U 1657 ]
+[; ;../swm45k80.c: 598:       scaling = 3.0;
+[e = _scaling -> .3.0 `f ]
 "599
-[; ;../swm45k80.c: 599:       y_p += y_o;
+[; ;../swm45k80.c: 599:       if (x_p > 8) x_o = -1;
+[e $ ! > -> _x_p `i -> 8 `i 1666  ]
+[e = _x_o -> -U -> 1 `i `c ]
+[e :U 1666 ]
+"600
+[; ;../swm45k80.c: 600:       if (x_p < -1) x_o = 1;
+[e $ ! < -> _x_p `i -U -> 1 `i 1667  ]
+[e = _x_o -> -> 1 `i `c ]
+[e :U 1667 ]
+"601
+[; ;../swm45k80.c: 601:       x_p += x_o;
+[e =+ _x_p -> _x_o `c ]
+"603
+[; ;../swm45k80.c: 603:       if (y_p > 8) y_o = -1;
+[e $ ! > -> _y_p `i -> 8 `i 1668  ]
+[e = _y_o -> -U -> 1 `i `c ]
+[e :U 1668 ]
+"604
+[; ;../swm45k80.c: 604:       if (y_p < -1) y_o = 1;
+[e $ ! < -> _y_p `i -U -> 1 `i 1669  ]
+[e = _y_o -> -> 1 `i `c ]
+[e :U 1669 ]
+"605
+[; ;../swm45k80.c: 605:       y_p += y_o;
 [e =+ _y_p -> _y_o `c ]
-"620
-[; ;../swm45k80.c: 620:      }
+"626
+[; ;../swm45k80.c: 626:      }
 }
-[e :U 1653 ]
-"621
-[; ;../swm45k80.c: 621:     }
+[e :U 1665 ]
+"627
+[; ;../swm45k80.c: 627:     }
 }
-[e :U 1652 ]
-"622
-[; ;../swm45k80.c: 622:     move = 0;
+[e :U 1664 ]
+"628
+[; ;../swm45k80.c: 628:     move = 0;
 [e = _move -> -> -> 0 `i `l `ul ]
-"623
-[; ;../swm45k80.c: 623:    }
+"629
+[; ;../swm45k80.c: 629:    }
 }
-[e :U 1649 ]
-"624
-[; ;../swm45k80.c: 624:   }
+[e :U 1661 ]
+"630
+[; ;../swm45k80.c: 630:   }
 }
 [e ++ _ctmu_button -> -> 1 `i `Vuc ]
-[e $ <= -> _ctmu_button `i -> 1 `i 1644  ]
-[e :U 1645 ]
+[e $ <= -> _ctmu_button `i -> 1 `i 1656  ]
+[e :U 1657 ]
 }
-"625
-[; ;../swm45k80.c: 625:  }
+"631
+[; ;../swm45k80.c: 631:  }
 }
-[e :U 1641 ]
-[e $U 1642  ]
-[e :U 1643 ]
-"626
-[; ;../swm45k80.c: 626: }
-[e :UE 1640 ]
+[e :U 1653 ]
+[e $U 1654  ]
+[e :U 1655 ]
+"632
+[; ;../swm45k80.c: 632: }
+[e :UE 1652 ]
 }
+[p f _printf 8650752 ]
+[a 1C 37 115 0 ]

@@ -15,7 +15,7 @@
 
 
 #pragma config FOSC = INTIO2
-#pragma config PLLCFG = ON
+#pragma config PLLCFG = OFF
 #pragma config FCMEN = OFF
 #pragma config IESO = OFF
 

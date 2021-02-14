@@ -119,8 +119,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "31707
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 31707: extern volatile PIR1bits_t PIR1bits __attribute__((address(0xF9E)));
 [v _PIR1bits `VS1203 ~T0 @X0 0 e@3998 ]
-"306 mcc_generated_files/adc.h
-[; ;mcc_generated_files/adc.h: 306: void ADC_ISR(void);
+"299 mcc_generated_files/adc.h
+[; ;mcc_generated_files/adc.h: 299: void ADC_ISR(void);
 [v _ADC_ISR `(v ~T0 @X0 0 ef ]
 "37210 /opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 37210:     struct {
@@ -178,14 +178,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "32110
 [; ;/opt/microchip/mplabx/v5.45/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f45k80.h: 32110: extern volatile PIR3bits_t PIR3bits __attribute__((address(0xFA4)));
 [v _PIR3bits `VS1222 ~T0 @X0 0 e@4004 ]
-[v F12826 `(v ~T0 @X0 0 tf ]
+[v F12819 `(v ~T0 @X0 0 tf ]
 "95 mcc_generated_files/eusart2.h
 [; ;mcc_generated_files/eusart2.h: 95: extern void (*EUSART2_TxDefaultInterruptHandler)(void);
-[v _EUSART2_TxDefaultInterruptHandler `*F12826 ~T0 @X0 0 e ]
-[v F12828 `(v ~T0 @X0 0 tf ]
+[v _EUSART2_TxDefaultInterruptHandler `*F12819 ~T0 @X0 0 e ]
+[v F12821 `(v ~T0 @X0 0 tf ]
 "96
 [; ;mcc_generated_files/eusart2.h: 96: extern void (*EUSART2_RxDefaultInterruptHandler)(void);
-[v _EUSART2_RxDefaultInterruptHandler `*F12828 ~T0 @X0 0 e ]
+[v _EUSART2_RxDefaultInterruptHandler `*F12821 ~T0 @X0 0 e ]
 [t T6 __interrupt low_priority ]
 "308 mcc_generated_files/tmr2.h
 [; ;mcc_generated_files/tmr2.h: 308: void TMR2_ISR(void);

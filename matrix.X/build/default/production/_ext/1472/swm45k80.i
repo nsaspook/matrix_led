@@ -20555,6 +20555,25 @@ extern void cputs(const char *);
 void INTERRUPT_Initialize (void);
 # 55 "../matrix.X/mcc_generated_files/mcc.h" 2
 
+# 1 "../matrix.X/mcc_generated_files/memory.h" 1
+# 99 "../matrix.X/mcc_generated_files/memory.h"
+uint8_t FLASH_ReadByte(uint32_t flashAddr);
+# 125 "../matrix.X/mcc_generated_files/memory.h"
+uint16_t FLASH_ReadWord(uint32_t flashAddr);
+# 157 "../matrix.X/mcc_generated_files/memory.h"
+void FLASH_WriteByte(uint32_t flashAddr, uint8_t *flashRdBufPtr, uint8_t byte);
+# 193 "../matrix.X/mcc_generated_files/memory.h"
+int8_t FLASH_WriteBlock(uint32_t writeAddr, uint8_t *flashWrBufPtr);
+# 218 "../matrix.X/mcc_generated_files/memory.h"
+void FLASH_EraseBlock(uint32_t baseAddr);
+# 249 "../matrix.X/mcc_generated_files/memory.h"
+void DATAEE_WriteByte(uint16_t bAdd, uint8_t bData);
+# 275 "../matrix.X/mcc_generated_files/memory.h"
+uint8_t DATAEE_ReadByte(uint16_t bAdd);
+
+void MEMORY_Tasks(void);
+# 56 "../matrix.X/mcc_generated_files/mcc.h" 2
+
 # 1 "../matrix.X/mcc_generated_files/tmr1.h" 1
 # 100 "../matrix.X/mcc_generated_files/tmr1.h"
 void TMR1_Initialize(void);
@@ -20574,25 +20593,6 @@ void TMR1_StartSinglePulseAcquisition(void);
 uint8_t TMR1_CheckGateValueStatus(void);
 # 387 "../matrix.X/mcc_generated_files/tmr1.h"
 _Bool TMR1_HasOverflowOccured(void);
-# 56 "../matrix.X/mcc_generated_files/mcc.h" 2
-
-# 1 "../matrix.X/mcc_generated_files/memory.h" 1
-# 99 "../matrix.X/mcc_generated_files/memory.h"
-uint8_t FLASH_ReadByte(uint32_t flashAddr);
-# 125 "../matrix.X/mcc_generated_files/memory.h"
-uint16_t FLASH_ReadWord(uint32_t flashAddr);
-# 157 "../matrix.X/mcc_generated_files/memory.h"
-void FLASH_WriteByte(uint32_t flashAddr, uint8_t *flashRdBufPtr, uint8_t byte);
-# 193 "../matrix.X/mcc_generated_files/memory.h"
-int8_t FLASH_WriteBlock(uint32_t writeAddr, uint8_t *flashWrBufPtr);
-# 218 "../matrix.X/mcc_generated_files/memory.h"
-void FLASH_EraseBlock(uint32_t baseAddr);
-# 249 "../matrix.X/mcc_generated_files/memory.h"
-void DATAEE_WriteByte(uint16_t bAdd, uint8_t bData);
-# 275 "../matrix.X/mcc_generated_files/memory.h"
-uint8_t DATAEE_ReadByte(uint16_t bAdd);
-
-void MEMORY_Tasks(void);
 # 57 "../matrix.X/mcc_generated_files/mcc.h" 2
 
 # 1 "../matrix.X/mcc_generated_files/tmr2.h" 1
@@ -20618,50 +20618,6 @@ extern void (*TMR2_InterruptHandler)(void);
 void TMR2_DefaultInterruptHandler(void);
 # 58 "../matrix.X/mcc_generated_files/mcc.h" 2
 
-# 1 "../matrix.X/mcc_generated_files/adc.h" 1
-# 72 "../matrix.X/mcc_generated_files/adc.h"
-typedef uint16_t adc_result_t;
-# 86 "../matrix.X/mcc_generated_files/adc.h"
-typedef enum
-{
-    channel_CTMU = 0x1C,
-    channel_Temp_diode = 0x1D,
-    channel_Vdd_core = 0x1E,
-    channel_1_024V_bandgap = 0x1F,
-    channel_AN0 = 0x0,
-    channel_AN1 = 0x1,
-    channel_AN2 = 0x2,
-    channel_AN3 = 0x3,
-    IO_RA5 = 0x4,
-    debug_high0 = 0x5,
-    debug_high1 = 0x6,
-    debug_high2 = 0x7,
-    IO_RB1 = 0x8,
-    IO_RB4 = 0x9,
-    IO_RB0 = 0xa
-} adc_channel_t;
-# 138 "../matrix.X/mcc_generated_files/adc.h"
-void ADC_Initialize(void);
-# 167 "../matrix.X/mcc_generated_files/adc.h"
-void ADC_StartConversion(adc_channel_t channel);
-# 199 "../matrix.X/mcc_generated_files/adc.h"
-_Bool ADC_IsConversionDone(void);
-# 232 "../matrix.X/mcc_generated_files/adc.h"
-adc_result_t ADC_GetConversionResult(void);
-# 262 "../matrix.X/mcc_generated_files/adc.h"
-adc_result_t ADC_GetConversion(adc_channel_t channel);
-# 290 "../matrix.X/mcc_generated_files/adc.h"
-void ADC_TemperatureAcquisitionDelay(void);
-# 306 "../matrix.X/mcc_generated_files/adc.h"
-void ADC_ISR(void);
-# 324 "../matrix.X/mcc_generated_files/adc.h"
- void ADC_SetInterruptHandler(void (* InterruptHandler)(void));
-# 342 "../matrix.X/mcc_generated_files/adc.h"
-extern void (*ADC_InterruptHandler)(void);
-# 360 "../matrix.X/mcc_generated_files/adc.h"
-void ADC_DefaultInterruptHandler(void);
-# 59 "../matrix.X/mcc_generated_files/mcc.h" 2
-
 # 1 "../matrix.X/mcc_generated_files/tmr0.h" 1
 # 100 "../matrix.X/mcc_generated_files/tmr0.h"
 void TMR0_Initialize(void);
@@ -20683,6 +20639,43 @@ void TMR0_ISR(void);
 extern void (*TMR0_InterruptHandler)(void);
 # 345 "../matrix.X/mcc_generated_files/tmr0.h"
 void TMR0_DefaultInterruptHandler(void);
+# 59 "../matrix.X/mcc_generated_files/mcc.h" 2
+
+# 1 "../matrix.X/mcc_generated_files/adc.h" 1
+# 72 "../matrix.X/mcc_generated_files/adc.h"
+typedef uint16_t adc_result_t;
+# 86 "../matrix.X/mcc_generated_files/adc.h"
+typedef enum
+{
+    channel_CTMU = 0x1C,
+    channel_Temp_diode = 0x1D,
+    channel_Vdd_core = 0x1E,
+    channel_1_024V_bandgap = 0x1F,
+    channel_AN0 = 0x0,
+    channel_AN1 = 0x1,
+    channel_AN2 = 0x2,
+    channel_AN3 = 0x3
+} adc_channel_t;
+# 131 "../matrix.X/mcc_generated_files/adc.h"
+void ADC_Initialize(void);
+# 160 "../matrix.X/mcc_generated_files/adc.h"
+void ADC_StartConversion(adc_channel_t channel);
+# 192 "../matrix.X/mcc_generated_files/adc.h"
+_Bool ADC_IsConversionDone(void);
+# 225 "../matrix.X/mcc_generated_files/adc.h"
+adc_result_t ADC_GetConversionResult(void);
+# 255 "../matrix.X/mcc_generated_files/adc.h"
+adc_result_t ADC_GetConversion(adc_channel_t channel);
+# 283 "../matrix.X/mcc_generated_files/adc.h"
+void ADC_TemperatureAcquisitionDelay(void);
+# 299 "../matrix.X/mcc_generated_files/adc.h"
+void ADC_ISR(void);
+# 317 "../matrix.X/mcc_generated_files/adc.h"
+ void ADC_SetInterruptHandler(void (* InterruptHandler)(void));
+# 335 "../matrix.X/mcc_generated_files/adc.h"
+extern void (*ADC_InterruptHandler)(void);
+# 353 "../matrix.X/mcc_generated_files/adc.h"
+void ADC_DefaultInterruptHandler(void);
 # 60 "../matrix.X/mcc_generated_files/mcc.h" 2
 
 # 1 "../matrix.X/mcc_generated_files/eusart2.h" 1
@@ -20940,6 +20933,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 22 "../swm45k80.c" 2
+
 
 
 # 1 "/opt/microchip/xc8/v2.31/pic/include/c99/math.h" 1 3
@@ -21314,13 +21308,13 @@ double jn(int, double);
 double y0(double);
 double y1(double);
 double yn(int, double);
-# 24 "../swm45k80.c" 2
-# 47 "../swm45k80.c"
+# 25 "../swm45k80.c" 2
+# 48 "../swm45k80.c"
 uint16_t touch_base_calc(uint8_t);
 void touch_channel(uint8_t);
 uint16_t ctmu_touch(uint8_t, uint8_t);
 int16_t ctmu_setup(uint8_t, uint8_t);
-# 69 "../swm45k80.c"
+# 70 "../swm45k80.c"
 union Timers {
  unsigned int lt;
  char bt[2];
@@ -21379,7 +21373,7 @@ volatile struct pixel_t pixel[255] = {
 },
 pixel_temp = {0};
 
-uint8_t prog_name[] = "nsaspook";
+char prog_name[] = "\r\n Matrix Led \r\n";
 
 volatile uint8_t ctmu_button, list_numd;
 volatile uint16_t switchState, xd, yd;
@@ -21414,7 +21408,9 @@ void object_scale(uint8_t, float, float);
 
 void low_handler_tmr2(void)
 {
- LATDbits.LATD0 = 1;
+ do { LATDbits.LATD0 = 1; } while(0);
+ do { LATDbits.LATD0 = 0; } while(0);
+ do { LATDbits.LATD0 = 1; } while(0);
  TMR2_WriteTimer(0xA8);
  LATB = 0xff;
  LATC = 0x00;
@@ -21438,8 +21434,10 @@ void low_handler_tmr2(void)
    LATC = 0x00;
   }
  }
- if ((pixel[list_numd].m_link == -1) || (++list_numd >= 255)) list_numd = 0;
- LATDbits.LATD0 = 0;
+ if ((pixel[list_numd].m_link == -1) || (++list_numd >= 255)) {
+  list_numd = 0;
+ }
+ do { LATDbits.LATD0 = 0; } while(0);
 }
 
 void high_handler_tmr0(void)
@@ -21474,11 +21472,9 @@ void high_handler_adc(void)
  if ((timer.lt) < (touch_base[isr_channel] - 64)) {
   if (isr_channel == 0) {
    switchState = 1;
-   TXREG2 = 0b11111111;
   }
   if (isr_channel == 1) {
    switchState = 0;
-   TXREG2 = 0b00000001;
   }
   LATEbits.LATE2 = 1;
  } else if ((timer.lt) > (touch_base[isr_channel] - 64 + 16)) {
@@ -21612,8 +21608,10 @@ void display_init(void)
 
 void pixel_init(void)
 {
- memcpy((void *) pixel, (const void *) pixel_rom, sizeof(pixel));
+ memcpy((void *) pixel, (const void *) pixel_rom, sizeof(pixel_rom));
 }
+
+
 
 
 
@@ -21621,7 +21619,7 @@ void pixel_init(void)
 uint8_t obj_init(uint8_t rom_link, uint8_t clear)
 {
  size_t pixel_size;
- uint8_t ram_link_start;
+ uint8_t ram_link_start = 0;
  static uint8_t ram_link = 0;
 
  if (clear) {
@@ -21631,8 +21629,7 @@ uint8_t obj_init(uint8_t rom_link, uint8_t clear)
   return 0;
  }
 
- ram_link_start = 0;
- pixel_size = sizeof(pixel_temp);
+ pixel_size = sizeof(pixel_t);
  do {
   memcpy((void *) &pixel[ram_link + ram_link_start].x, (const void *) &pixel_rom[rom_link + ram_link_start].x, pixel_size);
   pixel[ram_link + ram_link_start].m_link = (int8_t) (ram_link + ram_link_start);
@@ -21754,8 +21751,8 @@ void d_scan_off(void)
 void main_init(void)
 {
  uint16_t touch_zero = 0;
- uint8_t x = 1, y = 1, t, i, romid = 20;
- uint32_t move = 0, times = 3;
+ uint8_t x = 1, y = 1, t, i, romid = 9;
+ uint32_t move = 0, times = 1;
  uint8_t obj1;
  int8_t x_p = 0, y_p = 0, x_o = 1, y_o = 1;
  float rotation = 0.0, scaling = 3.0;
@@ -21794,6 +21791,8 @@ void main_init(void)
  touch_zero = touch_base_calc(2);
  touch_zero = touch_base_calc(3);
 
+ printf("%s", prog_name);
+
 
 
  while (1) {
@@ -21804,7 +21803,7 @@ void main_init(void)
    } else {
     ctmu_touch(ctmu_button, 0);
    }
-# 562 "../swm45k80.c"
+# 568 "../swm45k80.c"
    __asm(" clrwdt");
 
 
@@ -21812,7 +21811,7 @@ void main_init(void)
     d_scan_off();
     if (0 && switchState == 0) {
      x_o = -x_o;
-     times = 3;
+     times = 1;
      obj_init(0, 1);
      obj1 = obj_init(romid, 0);
 
@@ -21820,7 +21819,7 @@ void main_init(void)
 
      object_trans(obj1, 4, 3);
     } else {
-     times = 3;
+     times = 1;
      obj_init(0, 1);
      obj1 = obj_init(romid, 0);
 
@@ -21830,7 +21829,7 @@ void main_init(void)
     }
 
     d_scan_on();
-    rotation += 6.0;
+    rotation += 1.0;
     if (rotation >= 360.00) {
      rotation = 0.0;
      scaling -= 0.2;
@@ -21843,7 +21842,7 @@ void main_init(void)
       if (y_p > 8) y_o = -1;
       if (y_p < -1) y_o = 1;
       y_p += y_o;
-# 620 "../swm45k80.c"
+# 626 "../swm45k80.c"
      }
     }
     move = 0;

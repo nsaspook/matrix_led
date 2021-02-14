@@ -1621,8 +1621,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/eusart2.c: 104:     TXSTA2 = 0x26;
 [e = _TXSTA2 -> -> 38 `i `uc ]
 "107
-[; ;mcc_generated_files/eusart2.c: 107:     SPBRG2 = 0x22;
-[e = _SPBRG2 -> -> 34 `i `uc ]
+[; ;mcc_generated_files/eusart2.c: 107:     SPBRG2 = 0x8A;
+[e = _SPBRG2 -> -> 138 `i `uc ]
 "110
 [; ;mcc_generated_files/eusart2.c: 110:     SPBRGH2 = 0x00;
 [e = _SPBRGH2 -> -> 0 `i `uc ]
